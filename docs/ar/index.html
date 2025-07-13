@@ -1,24 +1,71 @@
 <!DOCTYPE html><html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <title>تامر منصور – معرض أعمال</title>
-  <link rel="stylesheet" href="../style.css" />
-</head>
+<head><meta charset="UTF-8"><title>تامر منصور – معرض الأعمال</title>
+<link rel="stylesheet" href="../css/style.css"></head>
 <body class="bg-white text-zinc-900">
-  <header class="p-6 flex justify-between items-center max-w-5xl mx-auto">
-    <h1 class="text-xl font-bold text-[var(--olive)]">تامر منصور</h1>
-    <a href="../" class="underline text-sm">EN</a>
-  </header>
+<header class="max-w-6xl mx-auto flex justify-between items-center p-6">
+  <h1 class="text-xl font-bold text-[var(--olive)]">تامر منصور</h1>
+  <nav>
+    <a href="#about">عنّي</a><a href="#projects">المشاريع</a><a href="#media">المعرض</a><a href="#blog">مدوّنة</a><a href="#contact">تواصل</a>
+  </nav>
+  <button onclick="switchLang('en')" class="underline text-sm">EN</button>
+</header>
 
-  <section class="text-center py-20">
-    <div class="w-40 h-40 rounded-full mx-auto shadow mb-6 bg-zinc-200 flex items-center justify-center text-sm text-zinc-500">profile.jpg</div>
-    <h2 class="text-3xl font-bold mb-4">سِرْ في طريقي بالذكاء الاصطناعي — وافتح مستقبلك.</h2>
-    <p class="max-w-xl mx-auto mb-8">مزيج من إتقان أدوات الذكاء الاصطناعي ورؤية إبداعية ولمسة فلسطينية لإلهام المبتكرين القادمين.</p>
-    <a href="#follow" class="px-6 py-3 rounded-full bg-[var(--olive)] text-white hover:shadow-lg">تابع أعمالي</a>
-  </section>
+<!-- Hero -->
+<section id="hero" class="text-center">
+  <img src="../assets/profile.jpg" alt="profile" class="w-40 h-40 rounded-full mx-auto shadow mb-6" />
+  <h2 class="text-3xl font-bold mb-4">سِر في طريقي بالذكاء الاصطناعي — وافتح مستقبلك.</h2>
+  <p class="max-w-xl mx-auto mb-8">مزيج من إتقان أدوات الذكاء الاصطناعي ورؤية إبداعية وروح فلسطينية لإلهام المبتكرين القادمين.</p>
+  <a href="#follow" class="hero-btn">تابع أعمالي</a>
+</section>
 
-  <footer class="text-center py-6 text-sm bg-zinc-100">
-    © <span id="y"></span> تامر منصور — <a href="mailto:ai.visionary.pioneer@gmail.com" class="underline">راسلني</a>
-  </footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+<!-- About -->
+<section id="about" class="max-w-4xl mx-auto">
+  <h3 class="text-2xl font-bold mb-4">نبذة</h3>
+  <p>أنا تامر، مستشار ذكاء اصطناعي وصانع أفلام فلسطيني ومبدع. أدمج التقنية بالفن لصنع تجارب مؤثرة ومساعدة الآخرين على الازدهار عبر الإبداع المدعوم بالذكاء الاصطناعي.</p>
+</section>
+
+<!-- Featured Projects -->
+<section id="projects" class="bg-zinc-100">
+  <h3 class="text-2xl font-bold text-center mb-6">المشاريع المميزة</h3>
+  <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <article class="border rounded p-4">
+      <h4 class="font-semibold mb-2">أطياف الأرض</h4>
+      <p class="text-sm mb-2">فيلم وثائقي مولَّد بالذكاء الاصطناعي يستكشف التراث الفلسطيني.</p>
+      <a href="../projects/atyaf.html" class="underline text-sm">المزيد</a>
+    </article>
+  </div>
+  <p class="text-center mt-6"><a href="../projects/ar/" class="underline">عرض كل المشاريع →</a></p>
+</section>
+
+<!-- AI Media Gallery -->
+<section id="media" class="max-w-6xl mx-auto">
+  <h3 class="text-2xl font-bold mb-6 text-center">معرض الوسائط بالذكاء الاصطناعي</h3>
+  <p class="text-center text-sm mb-4">صور · فيديو · موسيقى (تصفية قريباً)</p>
+  <div class="grid md:grid-cols-4 gap-4">
+    <div class="aspect-square bg-zinc-200 flex items-center justify-center text-xs">placeholder</div>
+  </div>
+</section>
+
+<!-- Blog / Insights teaser -->
+<section id="blog" class="bg-zinc-100">
+  <h3 class="text-2xl font-bold text-center mb-6">أحدث المقالات</h3>
+  <p class="text-center text-sm mb-4">قريباً — مقالات معمقة ودروس تعليمية.</p>
+</section>
+
+<!-- Services placeholder -->
+<section id="services" class="max-w-4xl mx-auto">
+  <h3 class="text-2xl font-bold mb-4">خدمات (قريباً)</h3>
+  <ul class="list-disc pl-6"><li>استشارات ذكاء اصطناعي</li><li>ورش عمل وتدريب</li><li>إخراج إبداعي</li></ul>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="text-center pt-12">
+  <h3 class="text-2xl font-bold mb-4">تواصل معي</h3>
+  <p>البريد: <a href="mailto:ai.visionary.pioneer@gmail.com" class="underline">ai.visionary.pioneer@gmail.com</a></p>
+  <p>واتساب: +970 XXXX XXX</p>
+  <p class="mt-4 text-sm">© <span id="y"></span> تامر منصور</p>
+</section>
+
+<script src="../js/main.js"></script>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body></html>
