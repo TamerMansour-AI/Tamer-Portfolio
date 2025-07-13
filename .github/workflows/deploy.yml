@@ -6,22 +6,33 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      # إعداد Node
-      - uses: actions/setup-node@v4
+    steps:
+      # 1) جلب الكود
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2) إعداد Node
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # تثبيت التبعيات وبناء الموقع
-      - run: npm ci
-      - run: npx astro build --site https://tamermansour-ai.github.io/Tamer-Portfolio/
+      # 3) تثبيت التبعيات
+      - name: Install deps
+        run: npm ci
 
-      # نشر مجلّد dist إلى فرع gh-pages
-      - name: Deploy
+      # 4) بناء موقع Astro
+      - name: Build site
+        run: npx astro build --site https://tamermansour-ai.github.io/Tamer-Portfolio/
+
+      # 5) نشر مجلد dist إلى فرع gh-pages
+      - name: Publish to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
+          publish_dir: ./dist            # مجلد الخرج بعد build
+          publish_branch: gh-pages       # سينشئه إذا غير موجود
+          user_name: github-actions[bot] # هويّة الكوميت
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          force_orphan: true             # أنشئ تاريخ نظيف للفرع
