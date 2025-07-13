@@ -1,13 +1,27 @@
-name: Deploy
+name: Deploy to gh-pages
 on:
   push:
     branches: [main]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: withastro/action@v2
+
+      # إعداد Node
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
-          deploy-branch: gh-pages
+          node-version: 20
+
+      # تثبيت التبعيات وبناء الموقع
+      - run: npm ci
+      - run: npx astro build --site https://tamermansour-ai.github.io/Tamer-Portfolio/
+
+      # نشر مجلّد dist إلى فرع gh-pages
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
