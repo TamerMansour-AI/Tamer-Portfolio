@@ -1,0 +1,15 @@
+@import url("https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Cairo:wght@400;700&display=swap");
+
+:root{
+  --olive:#556b2f;
+  --gold :#cfaf3c;
+  --off  :#f7f7f5;
+  --black:#111;
+}
+body{font-family:"Inter","Cairo",sans-serif;background:var(--off);color:var(--black);scroll-behavior:smooth;transition:background .3s,color .3s;}
+[data-theme="dark"]{background:var(--black);color:var(--off);}  /* dark mode */
+
+/* components */
+.btn-glow{@apply px-6 py-3 rounded-full bg-[var(--olive)] text-white transition;} .btn-glow:hover{box-shadow:0 0 8px var(--gold);}
+.nav-shadow{transition:box-shadow .3s;} .nav-shadow.scrolled{box-shadow:0 2px 8px rgba(0,0,0,.15);} 

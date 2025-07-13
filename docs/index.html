@@ -1,74 +1,76 @@
-<!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8"><title>Tamer Mansour – Portfolio</title>
-<link rel="stylesheet" href="css/style.css"></head>
-<body class="bg-white text-zinc-900">
-<header class="max-w-6xl mx-auto flex justify-between items-center p-6">
-  <h1 class="text-xl font-bold text-[var(--olive)]">Tamer Mansour</h1>
-  <nav>
-    <a href="#about">About</a><a href="#projects">Projects</a><a href="#media">Media</a><a href="#blog">Blog</a><a href="#contact">Contact</a>
-  </nav>
-  <button onclick="switchLang('ar')" class="underline text-sm">عربي</button>
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tamer Mansour – Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head><body>
+<header id="nav" class="nav-shadow fixed inset-x-0 bg-[rgba(247,247,245,.8)] backdrop-blur-md z-50">
+  <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+    <a href="/Tamer-Portfolio/" class="font-bold text-lg text-[var(--olive)]">Tamer Mansour</a>
+    <nav class="space-x-6">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#media">Media</a>
+      <a href="#contact">Contact</a>
+      <a href="ar/" class="underline">عربي</a>
+      <button id="theme" class="border rounded px-2">🌓</button>
+    </nav>
+  </div>
 </header>
+<main class="pt-24">
+  <!-- Hero -->
+  <section id="hero" class="text-center py-24">
+    <img src="assets/profile.jpg" class="w-40 h-40 rounded-full mx-auto shadow mb-6" alt="profile">
+    <h1 class="text-4xl font-bold mb-4">Walk My AI Path — Unlock Your Future.</h1>
+    <p class="max-w-xl mx-auto mb-8">Blending AI mastery, creative vision, and a Palestinian spirit to inspire the next wave of innovators.</p>
+    <a href="#contact" class="btn-glow">Follow My Work</a>
+  </section>
 
-<!-- Hero -->
-<section id="hero" class="text-center">
-  <img src="assets/profile.jpg" alt="profile" class="w-40 h-40 rounded-full mx-auto shadow mb-6" />
-  <h2 class="text-4xl font-bold mb-4">Walk My AI Path — Unlock Your Future.</h2>
-  <p class="max-w-xl mx-auto mb-8">Blending AI mastery, creative vision, and a Palestinian spirit to inspire the next wave of innovators.</p>
-  <a href="#follow" class="hero-btn">Follow My Work</a>
-</section>
+  <!-- About -->
+  <section id="about" class="max-w-5xl mx-auto py-16 px-4">
+    <h2 class="text-2xl font-bold mb-4">About Me</h2>
+    <p>I’m Tamer, a Palestinian AI consultant & creative with a mindset that bends rules. I merge technology, art, and cultural identity to craft future‑proof experiences.</p>
+  </section>
 
-<!-- About -->
-<section id="about" class="max-w-4xl mx-auto">
-  <h3 class="text-2xl font-bold mb-4">About Me</h3>
-  <p>I’m Tamer, a Palestinian AI consultant, filmmaker, and creator. I fuse technology and art to craft impactful experiences and help others prosper through AI‑powered creativity.</p>
-</section>
+  <!-- Projects teaser -->
+  <section id="projects" class="bg-zinc-50 py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-bold mb-8">Featured Projects</h2>
+      <p class="mb-4">Coming soon: Atyaf Al Ard, generative music tools, AI film pipelines…</p>
+      <a href="projects/" class="btn-glow">View All Projects</a>
+    </div>
+  </section>
 
-<!-- Featured Projects -->
-<section id="projects" class="bg-zinc-100">
-  <h3 class="text-2xl font-bold text-center mb-6">Featured Projects</h3>
-  <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-    <!-- Card 1 -->
-    <article class="border rounded p-4">
-      <h4 class="font-semibold mb-2">Atyaf Al Ard</h4>
-      <p class="text-sm mb-2">AI‑generated documentary exploring Palestinian heritage.</p>
-      <a href="projects/atyaf.html" class="underline text-sm">Learn more</a>
-    </article>
-    <!-- TODO: more cards -->
-  </div>
-  <p class="text-center mt-6"><a href="projects/" class="underline">View all projects →</a></p>
-</section>
+  <!-- Media teaser -->
+  <section id="media" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-8">AI Media Gallery</h2>
+      <p class="mb-4">Images • Videos • Music – filterable showcase coming soon.</p>
+      <a href="media/" class="btn-glow">Enter Gallery</a>
+    </div>
+  </section>
 
-<!-- AI Media Gallery -->
-<section id="media" class="max-w-6xl mx-auto">
-  <h3 class="text-2xl font-bold mb-6 text-center">AI Media Showcase</h3>
-  <p class="text-center text-sm mb-4">Images · Videos · Music (filter coming soon)</p>
-  <div class="grid md:grid-cols-4 gap-4">
-    <div class="aspect-square bg-zinc-200 flex items-center justify-center text-xs">placeholder</div>
-    <!-- Repeat placeholders -->
-  </div>
-</section>
+  <!-- Blog teaser -->
+  <section class="bg-zinc-50 py-16 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-8">Latest Articles</h2>
+      <p class="mb-4">Thoughts on AI ethics, creative workflows, and Palestinian tech scenes.</p>
+      <a href="blog/" class="btn-glow">Read the Blog</a>
+    </div>
+  </section>
 
-<!-- Blog / Insights teaser -->
-<section id="blog" class="bg-zinc-100">
-  <h3 class="text-2xl font-bold text-center mb-6">Latest Insights</h3>
-  <p class="text-center text-sm mb-4">Coming soon – deep dives & tutorials.</p>
-</section>
-
-<!-- Services placeholder -->
-<section id="services" class="max-w-4xl mx-auto">
-  <h3 class="text-2xl font-bold mb-4">Services (Coming Soon)</h3>
-  <ul class="list-disc pl-6"><li>AI Consulting</li><li>Workshops & Training</li><li>Creative Direction</li></ul>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="text-center pt-12">
-  <h3 class="text-2xl font-bold mb-4">Get in Touch</h3>
-  <p>Email: <a href="mailto:ai.visionary.pioneer@gmail.com" class="underline">ai.visionary.pioneer@gmail.com</a></p>
-  <p>WhatsApp: +970 XXXX XXX</p>
-  <p class="mt-4 text-sm">© <span id="y"></span> Tamer Mansour</p>
-</section>
-
-<script src="js/main.js"></script>
-<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+  <!-- Contact -->
+  <section id="contact" class="max-w-5xl mx-auto py-16 px-4 text-center">
+    <h2 class="text-2xl font-bold mb-4">Get in Touch</h2>
+    <p class="mb-4">Email – <a href="mailto:ai.visionary.pioneer@gmail.com" class="underline">ai.visionary.pioneer@gmail.com</a><br>WhatsApp / Telegram – coming soon</p>
+  </section>
+</main>
+<footer class="text-center py-6 text-sm">
+  © <span id="y"></span> Tamer Mansour — Powered by GitHub Pages
+</footer>
+<script>
+const html=document.documentElement,y=document.getElementById('y');y.textContent=new Date().getFullYear();
+if(localStorage.theme)html.dataset.theme=localStorage.theme;
+document.getElementById('theme').onclick=()=>{html.dataset.theme=html.dataset.theme==='dark'?'light':'dark';localStorage.theme=html.dataset.theme;};
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',scrollY>10)});
+</script>
 </body></html>
