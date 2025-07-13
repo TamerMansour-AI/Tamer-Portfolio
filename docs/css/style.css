@@ -1,0 +1,7 @@
+@import url("https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css");
+:root{--olive:#556b2f;--gold:#cfaf3c;--off:#f7f7f5;}
+body{font-family:"Inter",sans-serif;scroll-behavior:smooth;}
+section{padding-block:4rem}
+.hero-btn{background:var(--olive);color:#fff;border-radius:9999px;padding:.8rem 2rem;transition:.2s;}
+.hero-btn:hover{box-shadow:0 0 10px var(--gold);} 
+nav a{margin-inline:.5rem}
