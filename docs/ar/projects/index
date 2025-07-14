@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>المشاريع – تامر منصور</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <div class="text-left p-4"><a href="../../projects/">EN</a></div>
+  <main class="max-w-6xl mx-auto p-8 text-right">
+    <h1 class="text-2xl font-bold mb-6">المشاريع</h1>
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="border rounded-lg overflow-hidden">
+        <img src="../../assets/image1.jpg" alt="مشروع أطياف الأرض" class="w-full h-auto">
+        <div class="p-4">
+          <h2 class="text-xl font-bold mb-2">أطياف الأرض</h2>
+          <p class="text-sm mb-2">قريبًا. <!-- TODO: وصف المشروع --></p>
+          <!-- TODO: رابط أو تفاصيل المشروع إن وجدت -->
+        </div>
+      </div>
+      <!-- TODO: بطاقات مشاريع إضافية حسب الحاجة -->
+    </div>
+    <p class="mt-8 text-sm text-gray-600">المزيد من المشاريع قريبًا...</p>
+    <a href="../" class="underline block mt-6">الرئيسية →</a>
+  </main>
+  <script src="../../js/theme.js"></script>
+</body>
+</html>
