@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>معرض الوسائط – تامر منصور</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <div class="text-left p-4"><a href="../../media/">EN</a></div>
+  <main class="max-w-6xl mx-auto p-8 text-right">
+    <h1 class="text-2xl font-bold mb-6">معرض الوسائط</h1>
+    <h2 class="text-xl font-bold mt-8 mb-4">الصور</h2>
+    <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+      <img src="../../assets/image1.jpg" alt="صورة 1" class="w-full">
+      <!-- TODO: صور أخرى -->
+    </div>
+    <h2 class="text-xl font-bold mt-12 mb-4">الفيديوهات</h2>
+    <div class="space-y-4">
+      <video controls class="w-full">
+        <source src="../../assets/video1.mp4" type="video/mp4">
+        متصفحك لا يدعم عرض الفيديو.
+      </video>
+      <!-- TODO: فيديوهات أخرى -->
+    </div>
+    <h2 class="text-xl font-bold mt-12 mb-4">المقاطع الصوتية</h2>
+    <div class="space-y-2">
+      <audio controls>
+        <source src="../../assets/audio1.mp3" type="audio/mpeg">
+        متصفحك لا يدعم تشغيل الصوت.
+      </audio>
+      <!-- TODO: مقاطع صوتية أخرى -->
+    </div>
+    <a href="../" class="underline block mt-8">الرئيسية →</a>
+  </main>
+  <script src="../../js/theme.js"></script>
+</body>
+</html>
