@@ -2,40 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tamer Mansour – Portfolio</title>
+  <title>Tamer Mansour — Portfolio</title>
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Font Awesome للرموز -->
+  <!-- Font Awesome icons -->
   <script src="https://kit.fontawesome.com/93b517e3ae.js" crossorigin="anonymous"></script>
 
-  <!-- خطوط Google -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- CSS المخصص -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 <header id="nav" class="nav-shadow fixed inset-x-0 bg-[rgba(247,247,245,0.8)] backdrop-blur-md z-50">
-  <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+  <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
     <a href="/Tamer-Portfolio/" class="font-bold text-lg text-[var(--olive)]">Tamer&nbsp;Mansour</a>
-    <nav class="space-x-4">
+
+    <!-- NAVBAR LINKS -->
+    <nav class="flex items-center gap-5 text-sm">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#media">Media</a>
       <a href="#contact">Contact</a>
       <a href="ar/" class="underline">عربي</a>
-      <a href="https://www.facebook.com/teamo1985">FB</a>
-      <a href="https://www.instagram.com/tamerpalestine/">IG</a>
-      <a href="https://www.youtube.com/@TamerAI-e5i">YT</a>
-      <a href="https://www.tiktok.com/@ai_visionary_tm">TT</a>
-      <a href="https://www.pinterest.com/TamerCreates/">PT</a>
-      <button id="theme" class="border rounded px-2">🌓</button>
+
+      <!-- SOCIAL ICONS -->
+      <div class="social flex gap-2">
+        <a href="https://www.facebook.com/teamo1985" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/tamerpalestine/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@TamerAI-e5i" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@ai_visionary_tm" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.pinterest.com/TamerCreates/" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+
+      <!-- THEME TOGGLE -->
+      <button id="theme" class="border rounded px-2 ml-2">🌓</button>
     </nav>
   </div>
 </header>
+
 <main class="pt-24">
   <!-- Hero -->
   <section id="hero" class="text-center py-24">
@@ -48,7 +56,7 @@
   <!-- About -->
   <section id="about" class="max-w-5xl mx-auto py-16 px-4">
     <h2 class="text-2xl font-bold mb-4">About&nbsp;Me</h2>
-    <p>I’m Tamer, a Palestinian AI consultant &amp; creative with a mindset that bends rules. I merge technology, art, and cultural identity to craft future‑proof experiences.</p>
+    <p>I’m Tamer, a Palestinian AI consultant &amp; creative with a mindset that bends rules. I merge technology, art, and cultural identity to craft future-proof experiences.</p>
   </section>
 
   <!-- Projects teaser -->
@@ -63,7 +71,7 @@
   <!-- Media teaser -->
   <section id="media" class="py-16 px-4">
     <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-2xl font-bold mb-8">AI&nbsp;Media Gallery</h2>
+      <h2 class="text-2xl font-bold mb-8">AI Media Gallery</h2>
       <p class="mb-4">Images • Videos • Music – filterable showcase coming soon.</p>
       <a href="media/" class="btn-glow">Enter Gallery</a>
     </div>
@@ -81,18 +89,18 @@
   <!-- Contact -->
   <section id="contact" class="max-w-5xl mx-auto py-16 px-4 text-center">
     <h2 class="text-2xl font-bold mb-4">Get&nbsp;in Touch</h2>
-    <p class="mb-4">Email – <a href="mailto:ai.visionary.pioneer@gmail.com" class="underline">ai.visionary.pioneer@gmail.com</a><br>WhatsApp / Telegram – coming soon</p>
+    <p class="mb-4">
+      Email – <a href="mailto:ai.visionary.pioneer@gmail.com" class="underline">ai.visionary.pioneer@gmail.com</a><br>
+      WhatsApp / Telegram – coming soon
+    </p>
   </section>
 </main>
-<footer class="text-center py-6 text-sm">
-  © <span id="y"></span> Tamer Mansour ·
-  <a href="mailto:ai.visionary.pioneer@gmail.com" class="underline">Email</a> ·
-  <a href="https://www.facebook.com/teamo1985">FB</a> ·
-  <a href="https://www.instagram.com/tamerpalestine/">IG</a> ·
-  <a href="https://www.youtube.com/@TamerAI-e5i">YT</a> ·
-  <a href="https://www.tiktok.com/@ai_visionary_tm">TT</a> ·
-  <a href="https://www.pinterest.com/TamerCreates/">PT</a>
+
+<footer class="text-center py-6 text-xs">
+  © <span id="y"></span> Tamer Mansour · 
+  <a href="mailto:ai.visionary.pioneer@gmail.com" class="underline">Email</a>
 </footer>
+
 <script src="js/theme.js"></script>
 </body>
 </html>
