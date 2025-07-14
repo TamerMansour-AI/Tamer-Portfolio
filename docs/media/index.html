@@ -1,1 +1,39 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Media – Tamer Mansour</title><link rel="stylesheet" href="../style.css"></head><body class="p-8"><h1 class="text-2xl font-bold mb-4">Media (coming soon)</h1><p>Gallery will appear here.</p><a href="../" class="underline">← Home</a></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Media – Tamer Mansour</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="text-right p-4"><a href="../ar/media/">عربي</a></div>
+  <main class="max-w-6xl mx-auto p-8">
+    <h1 class="text-2xl font-bold mb-6">Media Gallery</h1>
+    <h2 class="text-xl font-bold mt-8 mb-4">Images</h2>
+    <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+      <img src="../assets/image1.jpg" alt="Media image 1" class="w-full">
+      <!-- TODO: other images -->
+    </div>
+    <h2 class="text-xl font-bold mt-12 mb-4">Videos</h2>
+    <div class="space-y-4">
+      <video controls class="w-full">
+        <source src="../assets/video1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <!-- TODO: other videos -->
+    </div>
+    <h2 class="text-xl font-bold mt-12 mb-4">Audio</h2>
+    <div class="space-y-2">
+      <audio controls>
+        <source src="../assets/audio1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <!-- TODO: other audio files -->
+    </div>
+    <a href="../" class="underline block mt-8">← Home</a>
+  </main>
+  <script src="../js/theme.js"></script>
+</body>
+</html>
