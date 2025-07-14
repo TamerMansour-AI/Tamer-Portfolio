@@ -1,21 +1,20 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
   <meta charset="UTF-8">
-  <title>Tamer Mansour – Portfolio</title>
-
+  <title>تامر منصور – الموقع الشخصي</title>
   <!-- Tailwind CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css" rel="stylesheet">
-
   <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- ملف-ك الـCSS المخصص -->
-  <link rel="stylesheet" href="style.css">
+  <!-- الملف التصميمي المخصص -->
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-<header id="nav" class="nav-shadow fixed inset-x-0 bg-[rgba(247,247,245,.8)] backdrop-blur-md z-50">
+<header id="nav" class="nav-shadow fixed inset-x-0 bg-[rgba(247,247,245,0.8)] backdrop-blur-md z-50">
   <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
-    <a href="../" class="font-bold text-lg text-[var(--olive)]">تامر منصور</a>
-    <nav>
+    <a href="/Tamer-Portfolio/ar/" class="font-bold text-lg text-[var(--olive)]">تامر&nbsp;منصور</a>
+    <nav class="space-x-6">
       <a href="#about">تعريف</a>
       <a href="#projects">مشاريع</a>
       <a href="#media">معرض</a>
@@ -26,17 +25,56 @@
   </div>
 </header>
 <main class="pt-24 text-right">
+  <!-- Hero -->
   <section id="hero" class="text-center py-24">
     <img src="../assets/profile.jpg" class="w-40 h-40 rounded-full mx-auto shadow mb-6" alt="profile">
     <h1 class="text-3xl font-bold mb-4">سِرْ في طريقي بالذكاء الاصطناعي — وافتح مستقبلك.</h1>
     <p class="max-w-xl mx-auto mb-8">مزيج من إتقان أدوات الذكاء الاصطناعي ورؤية إبداعية ولمسة فلسطينية لإلهام المبدعين القادمين.</p>
     <a href="#contact" class="btn-glow">تابع أعمالي</a>
   </section>
-  <!-- الأقسام الباقية مماثلة للإنجليزية مع نص عربي مختصر -->
+
+  <!-- About -->
+  <section id="about" class="max-w-5xl mx-auto py-16 px-4">
+    <h2 class="text-2xl font-bold mb-4">تعريف</h2>
+    <p>أنا تامر، مستشار ومبدع فلسطيني في مجال الذكاء الاصطناعي بأسلوب يتجاوز المألوف. أمزج التقنية والفن والهوية الثقافية لصنع تجارب مبتكرة للمستقبل.</p>
+  </section>
+
+  <!-- Projects teaser -->
+  <section id="projects" class="bg-zinc-50 py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-bold mb-8">أهم المشاريع</h2>
+      <p class="mb-4">قريبًا: أطياف&nbsp;الأرض، أدوات الموسيقى التوليدية، خطوط إنتاج الأفلام بالذكاء الاصطناعي...</p>
+      <a href="../projects/" class="btn-glow">عرض جميع المشاريع</a>
+    </div>
+  </section>
+
+  <!-- Media teaser -->
+  <section id="media" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-8">معرض وسائط الذكاء الاصطناعي</h2>
+      <p class="mb-4">صور • فيديوهات • موسيقى – معرض قابل للفرز قريبًا.</p>
+      <a href="../media/" class="btn-glow">دخول المعرض</a>
+    </div>
+  </section>
+
+  <!-- Blog teaser -->
+  <section class="bg-zinc-50 py-16 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-8">أحدث المقالات</h2>
+      <p class="mb-4">أفكار حول أخلاقيات الذكاء الاصطناعي وأساليب العمل الإبداعي ومشاهد التقنية الفلسطينية.</p>
+      <a href="../blog/" class="btn-glow">اقرأ المدونة</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-5xl mx-auto py-16 px-4 text-center">
+    <h2 class="text-2xl font-bold mb-4">ابقَ على تواصل</h2>
+    <p class="mb-4">البريد الإلكتروني – <a href="mailto:ai.visionary.pioneer@gmail.com" class="underline">ai.visionary.pioneer@gmail.com</a><br>واتساب / تيليجرام – قريبًا</p>
+  </section>
 </main>
 <footer class="text-center py-6 text-sm">
-  © <span id="y"></span> تامر منصور — مستضاف على GitHub Pages
+  © <span id="y"></span>&nbsp;تامر&nbsp;منصور — مستضاف على GitHub Pages
 </footer>
-<script>const html=document.documentElement;document.getElementById('y').textContent=new Date().getFullYear();if(localStorage.theme)html.dataset.theme=localStorage.theme;document.getElementById('theme').onclick=()=>{html.dataset.theme=html.dataset.theme==='dark'?'light':'dark';localStorage.theme=html.dataset.theme};window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',scrollY>10)});
-</script>
-</body></html>
+<script src="../js/theme.js"></script>
+</body>
+</html>
