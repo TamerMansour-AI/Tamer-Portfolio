@@ -1,20 +1,19 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <title>Tamer Mansour – Portfolio</title>
-
   <!-- Tailwind CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css" rel="stylesheet">
-
   <!-- Google fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- ملف-ك الـCSS المخصص -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header id="nav" class="nav-shadow fixed inset-x-0 bg-[rgba(247,247,245,.8)] backdrop-blur-md z-50">
+<header id="nav" class="nav-shadow fixed inset-x-0 bg-[rgba(247,247,245,0.8)] backdrop-blur-md z-50">
   <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
-    <a href="/Tamer-Portfolio/" class="font-bold text-lg text-[var(--olive)]">Tamer Mansour</a>
+    <a href="/Tamer-Portfolio/" class="font-bold text-lg text-[var(--olive)]">Tamer&nbsp;Mansour</a>
     <nav class="space-x-6">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
@@ -36,15 +35,15 @@
 
   <!-- About -->
   <section id="about" class="max-w-5xl mx-auto py-16 px-4">
-    <h2 class="text-2xl font-bold mb-4">About Me</h2>
-    <p>I’m Tamer, a Palestinian AI consultant & creative with a mindset that bends rules. I merge technology, art, and cultural identity to craft future‑proof experiences.</p>
+    <h2 class="text-2xl font-bold mb-4">About&nbsp;Me</h2>
+    <p>I’m Tamer, a Palestinian AI consultant &amp; creative with a mindset that bends rules. I merge technology, art, and cultural identity to craft future‑proof experiences.</p>
   </section>
 
   <!-- Projects teaser -->
   <section id="projects" class="bg-zinc-50 py-16 px-4">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-2xl font-bold mb-8">Featured Projects</h2>
-      <p class="mb-4">Coming soon: Atyaf Al Ard, generative music tools, AI film pipelines…</p>
+      <p class="mb-4">Coming soon: Atyaf&nbsp;Al&nbsp;Ard, generative music tools, AI film pipelines…</p>
       <a href="projects/" class="btn-glow">View All Projects</a>
     </div>
   </section>
@@ -52,7 +51,7 @@
   <!-- Media teaser -->
   <section id="media" class="py-16 px-4">
     <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-2xl font-bold mb-8">AI Media Gallery</h2>
+      <h2 class="text-2xl font-bold mb-8">AI&nbsp;Media Gallery</h2>
       <p class="mb-4">Images • Videos • Music – filterable showcase coming soon.</p>
       <a href="media/" class="btn-glow">Enter Gallery</a>
     </div>
@@ -69,17 +68,13 @@
 
   <!-- Contact -->
   <section id="contact" class="max-w-5xl mx-auto py-16 px-4 text-center">
-    <h2 class="text-2xl font-bold mb-4">Get in Touch</h2>
-    <p class="mb-4">Email – <a href="mailto:ai.visionary.pioneer@gmail.com" class="underline">ai.visionary.pioneer@gmail.com</a><br>WhatsApp / Telegram – coming soon</p>
+    <h2 class="text-2xl font-bold mb-4">Get&nbsp;in Touch</h2>
+    <p class="mb-4">Email – <a href="mailto:ai.visionary.pioneer@gmail.com" class="underline">ai.visionary.pioneer@gmail.com</a><br>WhatsApp / Telegram – coming soon</p>
   </section>
 </main>
 <footer class="text-center py-6 text-sm">
-  © <span id="y"></span> Tamer Mansour — Powered by GitHub Pages
+  © <span id="y"></span>&nbsp;Tamer&nbsp;Mansour — Powered by GitHub Pages
 </footer>
-<script>
-const html=document.documentElement,y=document.getElementById('y');y.textContent=new Date().getFullYear();
-if(localStorage.theme)html.dataset.theme=localStorage.theme;
-document.getElementById('theme').onclick=()=>{html.dataset.theme=html.dataset.theme==='dark'?'light':'dark';localStorage.theme=html.dataset.theme;};
-window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',scrollY>10)});
-</script>
-</body></html>
+<script src="js/theme.js"></script>
+</body>
+</html>
