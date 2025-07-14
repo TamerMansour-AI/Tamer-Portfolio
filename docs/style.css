@@ -1,9 +1,68 @@
-:root{--olive:#556b2f;--gold:#cfaf3c;--off:#f7f7f5;--black:#111}
-body{font-family:"Inter","Cairo",sans-serif;background:var(--off);color:var(--black);scroll-behavior:smooth;@apply leading-relaxed;}
-[data-theme="dark"]{background:var(--black);color:var(--off)}
-section{@apply py-16 px-4;}
-.container{@apply max-w-6xl mx-auto;}
-.btn-glow{@apply inline-block rounded-full px-6 py-3 text-white transition shadow;background:var(--olive)}
-.btn-glow:hover{box-shadow:0 0 10px var(--gold)}
-.nav-shadow{@apply transition-shadow bg-[rgba(247,247,245,0.8)] backdrop-blur-md}
-.nav-shadow.scrolled{box-shadow:0 2px 6px rgba(0,0,0,.15)}
+/* ----------  CSS VARIABLES  ---------- */
+:root{
+  --olive:#556b2f;
+  --gold:#cfaf3c;
+  --off:#f7f7f5;
+  --black:#111;
+  --font-en:"Inter",sans-serif;
+  --font-ar:"Cairo",sans-serif;
+}
+
+/* ----------  GLOBAL  ---------- */
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--font-en);
+  background:var(--off);
+  color:var(--black);
+  line-height:1.7;
+  transition:background .3s,color .3s;
+}
+
+[data-theme="dark"]{
+  background:var(--black);
+  color:var(--off);
+}
+
+/* switch font automatically for Arabic pages */
+html[dir="rtl"] body{font-family:var(--font-ar);}
+
+/* ----------  NAVBAR  ---------- */
+#nav{
+  backdrop-filter:blur(10px);
+  background:rgba(247,247,245,.8);
+  transition:box-shadow .3s;
+}
+#nav.scrolled{box-shadow:0 2px 8px rgba(0,0,0,.15);}
+#nav a{padding:.5rem .25rem;font-weight:500;}
+#nav a:hover{color:var(--gold);}
+
+/* ----------  GLOW BUTTON  ---------- */
+.btn-glow{
+  display:inline-block;
+  padding:.75rem 1.5rem;
+  border-radius:9999px;
+  background:var(--olive);
+  color:#fff;
+  transition:box-shadow .25s;
+}
+.btn-glow:hover{box-shadow:0 0 10px var(--gold);}
+
+/* ----------  SOCIAL ICONS  ---------- */
+.social a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:2rem;height:2rem;
+  margin-left:.3rem;
+  border-radius:9999px;
+  background:var(--olive);
+  color:#fff;
+  font-size:.85rem;
+}
+.social a:hover{background:var(--gold);}
+
+/* ----------  SECTIONS  ---------- */
+section{padding:4rem 1rem;}
+.container{max-width:70rem;margin-inline:auto;text-align:center;}
+section h2{font-size:1.75rem;font-weight:700;margin-bottom:1.5rem;}
