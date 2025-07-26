@@ -1,0 +1,13 @@
+---
+layout: layouts/page.njk
+title: Research & Articles
+---
+<h1>Research & Articles</h1>
+{% for item in collections.all %}
+  {% if item.inputPath.includes('content/research/') %}
+  <article>
+    <h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
+    <p>{{ item.data.excerpt }}</p>
+  </article>
+  {% endif %}
+{% endfor %}
