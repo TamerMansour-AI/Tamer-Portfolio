@@ -1,7 +1,6 @@
 ---
-layout: layouts/page.njk
+layout: page.njk
 title: Projects
----
 <h1>Projects</h1>
 {% for item in collections.all %}
   {% if item.data.tags and item.data.tags.includes('project') %}
