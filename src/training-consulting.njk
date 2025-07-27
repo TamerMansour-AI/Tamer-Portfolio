@@ -4,7 +4,7 @@ title: Training & Consulting
 ---
 <h1>Training & Consulting</h1>
 {% for item in collections.all %}
-  {% if item.inputPath.includes('content/training-consulting/') %}
+  {% if item.data.tags and (item.data.tags.includes('training') or item.data.tags.includes('consulting')) %}
   <article>
     <h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
     <p>{{ item.data.excerpt }}</p>
