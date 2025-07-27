@@ -4,7 +4,7 @@ title: Media
 ---
 <h1>Media</h1>
 {% for item in collections.all %}
-  {% if item.inputPath.includes('content/media/') %}
+  {% if item.data.tags and item.data.tags.includes('media') %}
   <article>
     <h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
     <p>{{ item.data.excerpt }}</p>
