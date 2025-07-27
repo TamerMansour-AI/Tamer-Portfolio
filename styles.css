@@ -1,0 +1,47 @@
+:root {
+  --olive-green: #708238;
+  --text-color: #222;
+  --background-color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #f5f5f5;
+    --background-color: #1a1a1a;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+header {
+  background-color: var(--olive-green);
+  padding: 1rem;
+}
+
+header nav a {
+  color: #ffffff;
+  margin-right: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 1rem;
+}
+
+footer {
+  background-color: var(--olive-green);
+  color: #ffffff;
+  padding: 1rem;
+  text-align: center;
+}
