@@ -2,7 +2,7 @@
 layout: page.njk
 title: Media
 ---
-<h1>Media</h1>
+
 {% for item in collections.all %}
   {% if item.data.tags and item.data.tags.includes('media') %}
   <article>
