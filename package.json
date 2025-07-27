@@ -1,4 +1,13 @@
 {
   "name": "tamer-portfolio",
-  "private": true
+  "private": true,
+  "scripts": {
+    "build": "npx eleventy",
+    "dev": "npx eleventy --serve",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0",
+    "sharp": "^0.32.0"
+  }
 }
