@@ -3,11 +3,9 @@ layout: page.njk
 title: Media
 ---
 
-{% for item in collections.all %}
-  {% if item.data.tags and item.data.tags.includes('media') %}
-  <article>
+{% for item in collections.media %}
+  <article class="media-card">
     <h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
     <p>{{ item.data.excerpt }}</p>
   </article>
-  {% endif %}
 {% endfor %}

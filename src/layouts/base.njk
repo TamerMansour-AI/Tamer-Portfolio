@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-    <!-- Use an absolute path that includes the repository name so assets resolve correctly on GitHub Pages project sites -->
-    <link rel="stylesheet" href="/Tamer-Portfolio/styles.css">
-  </head>
-  <body>
-    <header>
-      <nav>
-        <a href="/Tamer-Portfolio/">Home</a>
-        <a href="/Tamer-Portfolio/projects/">Projects</a>
-        <a href="/Tamer-Portfolio/media/">Media</a>
-        <a href="/Tamer-Portfolio/research/">Research</a>
-        <a href="/Tamer-Portfolio/training-consulting/">Training</a>
-      </nav>
-    </header>
-    <main>
-      {{ content | safe }}
-    </main>
-    <footer>
-      <p>&copy; 2025 Tamer Mansour</p>
-    </footer>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/Tamer-Portfolio/styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/Tamer-Portfolio/">Home</a>
+      <a href="/Tamer-Portfolio/projects/">Projects</a>
+      <a href="/Tamer-Portfolio/media/">Media</a>
+      <a href="/Tamer-Portfolio/gallery/">Gallery</a>
+      <a href="/Tamer-Portfolio/research/">Research</a>
+      <a href="/Tamer-Portfolio/training-consulting/">Training &amp; Consulting</a>
+      <a href="/Tamer-Portfolio/blog/">Blog</a>
+      <a href="/Tamer-Portfolio/about/">About</a>
+      <a href="/Tamer-Portfolio/contact/">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Tamer Mansour</p>
+    <div class="social-icons">
+      <a href="https://www.pinterest.com/TamerCreates/" target="_blank" aria-label="Pinterest">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pinterest.svg" alt="Pinterest icon">
+      </a>
+      <a href="https://www.tiktok.com/@ai_visionary_tm" target="_blank" aria-label="TikTok">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok icon">
+      </a>
+      <a href="https://www.youtube.com/@TamerAI-e5i" target="_blank" aria-label="YouTube">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube icon">
+      </a>
+    </div>
+  </footer>
+</body>
 </html>

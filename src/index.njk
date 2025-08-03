@@ -3,18 +3,18 @@ layout: base.njk
 title: Home
 ---
 
-<section>
-  <h1>Welcome to Tamer Mansour's Portfolio</h1>
-  <p>An AI consultant, creator, and entrepreneur from Palestine.</p>
+<section class="hero">
+  <h1>AI, Identity &amp; Imagination Intertwined</h1>
+  <p>Crafting futures with technology, grounded in history</p>
+  <a href="/Tamer-Portfolio/projects/" class="btn">Explore the Work</a>
 </section>
 
 <section>
-  <h2>Featured Media</h2>
-  <article>
-    <h3>AI Youth Session</h3>
-    <p>Dialogue with youth in Palestine about the future of AI.</p>
-    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-      <iframe src="https://drive.google.com/file/d/1jGR-P_EeVjXBMkVphaERreJLbpORcQu0/preview" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </article>
+  <h2>Featured Videos</h2>
+  {% for item in collections.media %}
+    <article class="media-card">
+      <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+      <p>{{ item.data.excerpt }}</p>
+    </article>
+  {% endfor %}
 </section>

@@ -5,7 +5,6 @@ tags:
   - media
   - youth
   - video
-cover: ""
 excerpt: >
   Recording of a youth AI workshop session, discussing the future of AI and its impact on society.
 embed_url: https://drive.google.com/file/d/1jGR-P_EeVjXBMkVphaERreJLbpORcQu0/preview

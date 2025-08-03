@@ -1,33 +1,38 @@
-name: Deploy Eleventy site to GitHub Pages
+name: Deploy to GitHub Pages
 
+# Trigger the workflow on pushes to the main branch.
 on:
   push:
     branches:
       - main
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
+      # Check out the repository so the workflow can access the code.
       - uses: actions/checkout@v3
+
+      # Set up Node.js environment. Adjust the version if you need a newer Node.
+      - uses: actions/setup-node@v3
         with:
-          fetch-depth: 0
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - name: Install dependencies
-        run: npm install
-      - name: Build site
-        run: npm run build
-      - name: Deploy to GitHub Pages
+          node-version: '18'
+
+      # Install dependencies defined in package.json.
+      - run: npm install
+
+      # Build the site using Eleventy. The output goes to the `dist/` folder as
+      # configured in `.eleventy.js`.
+      - run: npx @11ty/eleventy
+
+      # Deploy the `dist` directory to the gh-pages branch using the official
+      # gh-pages action. The `force_orphan: true` option overwrites the
+      # existing history so the branch only contains the built assets.
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
           publish_branch: gh-pages
-          publish_dir: dist
+          force_orphan: true
+          destination_dir: /

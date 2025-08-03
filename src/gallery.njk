@@ -1,0 +1,10 @@
+---
+layout: page.njk
+title: Gallery
+---
+
+<div class="gallery-grid">
+  {% for img in collections.gallery %}
+    <img src="/Tamer-Portfolio/Media/{{ img.file }}" alt="{{ img.file }}">
+  {% endfor %}
+</div>

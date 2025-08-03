@@ -5,9 +5,9 @@ title: Research
 
 {% for item in collections.all %}
   {% if item.data.tags and item.data.tags.includes('research') %}
-  <article>
-    <h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
-    <p>{{ item.data.excerpt }}</p>
-  </article>
+    <article class="media-card">
+      <h2>{{ item.data.title }}</h2>
+      <p>{{ item.data.excerpt }}</p>
+    </article>
   {% endif %}
 {% endfor %}
