@@ -10,29 +10,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # Check out the repository so the workflow can access the code.
+      # 1) Checkout the code
       - uses: actions/checkout@v3
 
-      # Set up Node.js environment. Adjust the version if you need a newer Node.
+      # 2) Set up Node.js
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      # Install dependencies defined in package.json.
+      # 3) Install dependencies
       - run: npm install
 
-      # Build the site using Eleventy. The output goes to the `dist/` folder as
-      # configured in `.eleventy.js`.
+      # 4) Build the site (Eleventy outputs to dist/)
       - run: npx @11ty/eleventy
 
-      # Deploy the `dist` directory to the gh-pages branch using the official
-      # gh-pages action. The `force_orphan: true` option overwrites the
-      # existing history so the branch only contains the built assets.
+      # 5) Deploy dist/ to gh-pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist
-          publish_branch: gh-pages
+          publish_dir: dist          # مجلد التصدير النسبي
+          publish_branch: gh-pages   # فرع GitHub Pages
           force_orphan: true
-          destination_dir: /
