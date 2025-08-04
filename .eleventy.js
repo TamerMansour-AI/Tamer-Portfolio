@@ -1,5 +1,5 @@
-const path = require('path');
-const glob = require('glob');
+const glob = require("glob");
+const path = require("path");
 
 /**
  * Eleventy configuration for the Tamer Portfolio site.
@@ -15,7 +15,7 @@ module.exports = function (eleventyConfig) {
   // output folder. Without these passthroughs Eleventy will ignore the
   // resources because they live outside of markdown or template files.
   eleventyConfig.addPassthroughCopy({ 'src/styles.css': 'styles.css' });
-  eleventyConfig.addPassthroughCopy({ 'src/content/Media': 'Media' });
+  eleventyConfig.addPassthroughCopy({ 'src/content/media': 'Media' });
 
   // Create a collection of media posts based on the `media` tag. This makes
   // it simple to list featured videos on the home page and the full media
@@ -27,16 +27,29 @@ module.exports = function (eleventyConfig) {
   // Read all image files from the Media directory so they can be displayed
   // automatically in the gallery page. Only common image formats are
   // considered here; videos and other files will be ignored.
-  eleventyConfig.addCollection('gallery', () => {
+  eleventyConfig.addCollection("gallery", () => {
     return glob
-      .sync('src/content/Media/**/*.{png,jpg,jpeg,gif,webp}')
+      .sync("src/content/media/**/*.{png,jpg,jpeg,gif,webp,svg}")
       .map((filePath) => ({
         fileName: path.basename(filePath),
-        url: filePath.replace('src/content', '')
+        url: filePath.replace("src/content", "")
       }));
   });
 
-  eleventyConfig.addPassthroughCopy({ 'src/content/Media': 'Media' });
+  eleventyConfig.addFilter("youtubeEmbed", (url) => {
+    if (!url) return url;
+    // short URL
+    if (url.includes("youtu.be/")) {
+      const id = url.split("youtu.be/")[1].split(/[?&]/)[0];
+      return `https://www.youtube.com/embed/${id}`;
+    }
+    // watch URL
+    if (url.includes("watch?v=")) {
+      const id = url.split("watch?v=")[1].split(/[&]/)[0];
+      return `https://www.youtube.com/embed/${id}`;
+    }
+    return url; // already in embed form
+  });
 
   return {
     // When hosted on GitHub Pages the site lives under the repository name,
