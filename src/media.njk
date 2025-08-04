@@ -7,5 +7,16 @@ title: Media
   <article class="media-card">
     <h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
     <p>{{ item.data.excerpt }}</p>
+    {% if item.data.embed_url %}
+      <div class="video-wrapper">
+        <iframe
+          width="560"
+          height="315"
+          src="{{ item.data.embed_url }}"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    {% endif %}
   </article>
 {% endfor %}
