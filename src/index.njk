@@ -3,29 +3,71 @@ layout: base.njk
 title: Home
 ---
 
-<section class="hero">
+<section class="hero block">
   <h1>AI, Identity &amp; Imagination Intertwined</h1>
   <p>Crafting futures with technology, grounded in history</p>
   <a href="/Tamer-Portfolio/projects/" class="btn">Explore the Work</a>
 </section>
 
-<section>
+<section id="featured-videos" class="block">
   <h2>Featured Videos</h2>
-  {% for item in collections.media %}
-    <article class="media-card">
-      <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
-      <p>{{ item.data.excerpt }}</p>
-      {% if item.data.embed_url %}
-        <div class="video-wrapper">
-          <iframe
-            width="560"
-            height="315"
-            src="{{ item.data.embed_url | youtubeEmbed }}"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
-      {% endif %}
-    </article>
-  {% endfor %}
+  <article class="media-card">
+    <h3>أنا الأرض: قصيدة مصوّرة على لسان فلسطين</h3>
+    <div class="video-wrapper">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/dqGQJQ1jvHg"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </article>
+  <article class="media-card">
+    <h3>Mona Lisa in Glitch Mode – 3 min 30 of AI Chaos</h3>
+    <div class="video-wrapper">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/TcxHhyMLvfo"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </article>
+</section>
+
+<section id="music-preview" class="block">
+  <h2>Sound Experiments</h2>
+  <article class="music-card">
+    <h3>Forgotten Sparks</h3>
+    <p>marimba pulses, evolving pads, faint AM-radio texture</p>
+    <p><a href="https://suno.com/s/JUT6IYjmiTbpyjiu" target="_blank">Listen on Suno</a></p>
+  </article>
+  <article class="music-card">
+    <h3>Dreamcatcher Glow</h3>
+    <p>warm tape saturation, lo-fi lullaby, nostalgic vinyl crackle</p>
+    <p><a href="https://suno.com/s/0EFHyII8YjDHrPdg" target="_blank">Listen on Suno</a></p>
+  </article>
+</section>
+
+<section id="training" class="block">
+  <h2>AI Training &amp; Workshops</h2>
+  <p>Over the past year I’ve mentored professionals, kids, and elders on how to customise generative-AI tools. My approach? Build a flexible mindset that’s future-ready, not trapped in yesterday’s paradigms.</p>
+</section>
+
+<section id="inspiration" class="block">
+  <h2>Inspiration Boards</h2>
+  <ul>
+    <li>
+      <strong>Brides of Civilizations: A Global Couture Wedding</strong><br>
+      20 AI-imagined bridal looks across ten ancient cultures.<br>
+      <a href="https://www.pinterest.com/TamerCreates/brides-of-civilizations/" target="_blank">Explore on Pinterest</a>
+    </li>
+    <li>
+      <strong>Mythic Butterfly Visions</strong><br>
+      Metallic butterflies &amp; botanical masks fuse into high-fashion portraits.<br>
+      <a href="https://www.pinterest.com/TamerCreates/mythic-butterfly-visions/" target="_blank">Explore on Pinterest</a>
+    </li>
+  </ul>
 </section>
