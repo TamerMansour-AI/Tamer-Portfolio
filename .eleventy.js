@@ -38,6 +38,8 @@ module.exports = function (eleventyConfig) {
     return images.map((file) => ({ file }));
   });
 
+  eleventyConfig.addPassthroughCopy({ 'src/content/Media': 'Media' });
+
   return {
     // When hosted on GitHub Pages the site lives under the repository name,
     // so all links need this prefix. Keep it in sync with the repo name.
