@@ -3,64 +3,54 @@ const path = require("path");
 
 /**
  * Eleventy configuration for the Tamer Portfolio site.
- *
- * This configuration defines passthrough rules for static assets, registers
- * collections to make it easy to loop over media items and gallery images,
- * and sets the correct pathPrefix and directory structure. The gallery
- * collection reads the contents of the `src/content/Media` folder at build
- * time and exposes an array of image filenames.
  */
 module.exports = function (eleventyConfig) {
-  // Copy compiled CSS and any uploaded media files straight through to the
-  // output folder. Without these passthroughs Eleventy will ignore the
-  // resources because they live outside of markdown or template files.
-  eleventyConfig.addPassthroughCopy({ 'src/styles.css': 'styles.css' });
-  eleventyConfig.addPassthroughCopy({ 'src/content/media': 'Media' });
+  /* ---------- Passthrough assets ---------- */
+  eleventyConfig.addPassthroughCopy({ "src/styles.css": "styles.css" });
+  eleventyConfig.addPassthroughCopy({ "src/content/media": "Media" });
 
-  // Create a collection of media posts based on the `media` tag. This makes
-  // it simple to list featured videos on the home page and the full media
-  // archive on the media page.
-  eleventyConfig.addCollection('media', (collection) => {
-    return collection.getFilteredByTag('media');
+  /* ---------- Collections ---------- */
+  // Media (videos, etc.)
+  eleventyConfig.addCollection("media", (collection) => {
+    return collection.getFilteredByTag("media");
   });
 
-  // Read all image files from the Media directory so they can be displayed
-  // automatically in the gallery page. Only common image formats are
-  // considered here; videos and other files will be ignored.
+  // Gallery images
   eleventyConfig.addCollection("gallery", () => {
     return glob
       .sync("src/content/media/**/*.{png,jpg,jpeg,gif,webp,svg}")
       .map((filePath) => ({
         fileName: path.basename(filePath),
-        url: filePath.replace("src/content", "")
+        // ⇩⇩ fix path case to /Media/
+        url: filePath
+          .replace("src/content/media", "/Media")
+          .replace(/\\/g, "/")
       }));
   });
 
+  /* ---------- Filters ---------- */
   eleventyConfig.addFilter("youtubeEmbed", (url) => {
     if (!url) return url;
-    // short URL
     if (url.includes("youtu.be/")) {
       const id = url.split("youtu.be/")[1].split(/[?&]/)[0];
       return `https://www.youtube.com/embed/${id}`;
     }
-    // watch URL
     if (url.includes("watch?v=")) {
       const id = url.split("watch?v=")[1].split(/[&]/)[0];
       return `https://www.youtube.com/embed/${id}`;
     }
-    return url; // already in embed form
+    return url; // already embed form
   });
 
+  /* ---------- Eleventy options ---------- */
   return {
-    // When hosted on GitHub Pages the site lives under the repository name,
-    // so all links need this prefix. Keep it in sync with the repo name.
-    pathPrefix: '/Tamer-Portfolio',
+    pathPrefix: "/Tamer-Portfolio",
     dir: {
-      input: 'src',
-      output: 'dist',
-      includes: 'includes',
-      layouts: 'layouts',
-      data: 'data'
+      input: "src",
+      output: "dist",
+      includes: "includes",
+      layouts: "layouts",
+      data: "data"
     }
   };
 };
