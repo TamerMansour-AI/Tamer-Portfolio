@@ -9,6 +9,21 @@ title: Home
   <a href="/Tamer-Portfolio/projects/" class="btn">Explore the Work</a>
 </section>
 
+<section id="about" class="block">
+  <h2>About Me</h2>
+  <p>Hi, I’m <strong>Tamer Mansour</strong> — a Palestinian AI consultant
+     and creative explorer. I work solo as a freelancer, crafting ideas
+     into reality using AI tools across sound, visuals, education, and
+     storytelling. I’m passionate about simplifying complexity, sparking
+     curiosity, and building things that feel both futuristic and deeply
+     human. I don’t chase trends — I build timeless ideas with today’s
+     tech. Whether I’m composing a soundscape, mentoring a kid on
+     MidJourney, or designing a workshop for senior learners, I always
+     start with intention, empathy, and a spark of mischief. My mindset?
+     Flexible. My method? Hands-on. My goal? Empower people to imagine
+     differently.</p>
+</section>
+
 <section id="featured-videos" class="block">
   <h2>Featured Videos</h2>
   <article class="media-card">
@@ -37,34 +52,53 @@ title: Home
   </article>
 </section>
 
-<section id="music-preview" class="block">
-  <h2>AI-Composed Soundscapes</h2>
+<section id="sound-experiments" class="block">
+  <h2>Sound Experiments</h2>
   <ul class="music-list">
     <li>
-      <strong>Healing in Stasis</strong> — tibetan bowls, atmospheric pads. <a href="https://suno.com/s/aYr8WVp8Zydp6R9v">Listen on Suno</a>
+      <strong>Forgotten Sparks</strong> — marimba pulses, evolving pads,
+      faint AM-radio snippets. Mood: subtle binaural echoes.
+      <a href="https://suno.com/s/JUT6IYjmiTbpyjiu">Listen on Suno</a>
     </li>
     <li>
-      <strong>كم كنتي وحدك</strong> — nostalgic oud melody, daf textures. <a href="https://suno.com/s/MiaKO6Npkw1ykyBl">Listen on Suno</a>
-    </li>
-    <li>
-      <strong>Dabke</strong> — lively 6/8 groove with children’s choir. <a href="https://suno.com/s/imNYcMWjluAcaYyE">Listen on Suno</a>
+      <strong>Dreamcatcher Glow</strong> — lo-fi lullaby, warm tape
+      saturation, nostalgic vinyl crackle &amp; distant children's laughter.
+      <a href="https://suno.com/s/0EFHyII8YjDHrPdg">Listen on Suno</a>
     </li>
   </ul>
 </section>
 
+<section id="art-preview" class="block">
+  <h2>Artistic Snapshots</h2>
+  <div class="gallery-mini">
+    {% for img in collections.gallery | slice(0,3) %}
+      <a href="/Tamer-Portfolio/gallery/">
+        <img src="{{ img.url | url }}" alt="{{ img.fileName }}">
+      </a>
+    {% endfor %}
+  </div>
+  <p class="small">See more in the <a href="/Tamer-Portfolio/gallery/">full gallery</a>.</p>
+</section>
+
 <section id="training" class="block">
   <h2>AI Training &amp; Workshops</h2>
-  <p>Over the past year I’ve mentored professionals, kids, and elders on how to customise generative-AI tools. My approach? Build a flexible mindset that’s future-ready, not trapped in yesterday’s paradigms.</p>
+  <p>Over the past year, I’ve mentored professionals, kids, and elders on how
+     to customise generative-AI tools — not just to use them, but to think with
+     them. My approach is personal: no cookie-cutter methods, just deep
+     listening, creative hacks, and turning “I don’t get it” into “I made
+     this.” I believe in future-proofing minds, not just upskilling hands.
+     Whether it’s a 10-year-old or a 70-year-old, I meet them where they are
+     — and take them further.</p>
 </section>
 
 <section id="inspiration" class="block">
   <h2>Inspiration Boards</h2>
   <ul>
     <li>
-      <strong>Brides of Civilizations: A Global Couture Wedding</strong><br>
-      20 AI-imagined bridal looks across ten ancient cultures.<br>
-      <a href="https://www.pinterest.com/TamerCreates/brides-of-civilizations/" target="_blank">Explore on Pinterest</a>
-    </li>
+        <strong>Brides of Civilizations: A Global Couture Wedding</strong><br>
+        20 AI-imagined bridal looks across ten ancient cultures.<br>
+        <a href="https://pin.it/5HP2SxlGQ" target="_blank">Explore on Pinterest</a>
+      </li>
     <li>
       <strong>Mythic Butterfly Visions</strong><br>
       Metallic butterflies &amp; botanical masks fuse into high-fashion portraits.<br>

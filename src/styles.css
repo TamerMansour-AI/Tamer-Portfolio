@@ -136,3 +136,12 @@ footer .social-icons a img {
   border-radius: 4px;
   display: block;
 }
+
+/* mini-gallery grid on Home */
+.gallery-mini {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+.gallery-mini img { width: 100%; border-radius: 12px; }
