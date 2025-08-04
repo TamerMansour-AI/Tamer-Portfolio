@@ -1,5 +1,5 @@
-const fs = require('fs');
 const path = require('path');
+const glob = require('glob');
 
 /**
  * Eleventy configuration for the Tamer Portfolio site.
@@ -28,14 +28,12 @@ module.exports = function (eleventyConfig) {
   // automatically in the gallery page. Only common image formats are
   // considered here; videos and other files will be ignored.
   eleventyConfig.addCollection('gallery', () => {
-    const mediaDir = path.join(__dirname, 'src', 'content', 'Media');
-    let images = [];
-    if (fs.existsSync(mediaDir)) {
-      images = fs
-        .readdirSync(mediaDir)
-        .filter((file) => /\.(png|jpe?g|gif|webp)$/i.test(file));
-    }
-    return images.map((file) => ({ file }));
+    return glob
+      .sync('src/content/Media/**/*.{png,jpg,jpeg,gif,webp}')
+      .map((filePath) => ({
+        fileName: path.basename(filePath),
+        url: filePath.replace('src/content', '')
+      }));
   });
 
   eleventyConfig.addPassthroughCopy({ 'src/content/Media': 'Media' });
