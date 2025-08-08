@@ -176,3 +176,27 @@ footer .social-icons a img {
 .pinterest-boards { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 @media (max-width: 900px) { .pinterest-boards { grid-template-columns: 1fr; } }
 .p-board { background: var(--stone); border-radius: 16px; padding: .5rem; border: 1px solid rgba(0,0,0,.06); }
+
+/* kufiya accent behind hero image */
+.portfolio-figure{ position: relative; }
+.portfolio-figure::before{
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  background-image: url('https://cdn.midjourney.com/b9358230-0e6d-4e21-ae02-a171d1b36766/0_1.png');
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  opacity: .06; filter: contrast(.9) saturate(.9);
+  border-radius: 12px; /* match inner radius */
+}
+.portfolio-figure > *{ position: relative; z-index: 1; }
+
+/* shared figure styles */
+.about-visual, .video-cover, .sound-thumb, .workshops-visual{
+  margin: 1rem 0 1.25rem; border: 1px solid rgba(0,0,0,.08); border-radius: 14px;
+  padding: .5rem; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,.07);
+}
+.about-visual img, .video-cover img, .sound-thumb img, .workshops-visual img{
+  display:block; width:100%; height:auto; border-radius: 10px;
+}
+/* make Sound Experiments thumbnail float on wide screens */
+@media (min-width: 900px){
+  .sound-thumb{ float:right; width: 34%; margin-left: 1rem; }
+}
