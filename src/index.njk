@@ -9,6 +9,18 @@ title: Home
   <a href="/Tamer-Portfolio/projects/" class="btn">Explore the Work</a>
 </section>
 
+<!-- BEGIN: Portfolio Hero Figure -->
+<section id="portfolio-hero" class="container">
+  <figure class="portfolio-figure">
+    <img
+      src="https://cdn.midjourney.com/b37b2670-89dd-43d3-82f4-803445498bae/0_3.png"
+      alt="Tamer Mansour — featured AI visual exploring identity, memory, and imagination"
+      loading="lazy" />
+    <figcaption>AI-driven visual — identity, memory, imagination. © Tamer Mansour</figcaption>
+  </figure>
+</section>
+<!-- END: Portfolio Hero Figure -->
+
 <section id="about" class="block">
   <h2>About Me</h2>
   <p>Hi, I’m <strong>Tamer Mansour</strong> — a Palestinian AI consultant
@@ -68,17 +80,24 @@ title: Home
   </ul>
 </section>
 
-<section id="art-preview" class="block">
+
+<!-- BEGIN: Artistic Snapshots (updated) -->
+<section id="artistic-snapshots" class="container section-pad">
   <h2>Artistic Snapshots</h2>
-  <div class="gallery-mini">
-    {% for img in collections.gallery | slice(0,3) %}
-      <a href="/Tamer-Portfolio/gallery/">
-        <img src="{{ img.url | url }}" alt="{{ img.fileName }}">
-      </a>
-    {% endfor %}
+  <div class="art-grid">
+    <a class="art-card" href="https://cdn.midjourney.com/d945cbb5-5395-4dbd-bdee-88c574e1968e/0_1.png" target="_blank" rel="noopener">
+      <img src="https://cdn.midjourney.com/d945cbb5-5395-4dbd-bdee-88c574e1968e/0_1.png" alt="Editorial portrait — metallic motifs and soft chiaroscuro" loading="lazy">
+    </a>
+    <a class="art-card" href="https://cdn.midjourney.com/9c939e43-8b62-49d4-ae44-990575f1291d/0_2.png" target="_blank" rel="noopener">
+      <img src="https://cdn.midjourney.com/9c939e43-8b62-49d4-ae44-990575f1291d/0_2.png" alt="Fashion-inspired cinematic frame with layered textures" loading="lazy">
+    </a>
+    <a class="art-card" href="https://cdn.midjourney.com/6e63233f-c9f6-40da-8c5e-385f310ac779/0_2.png" target="_blank" rel="noopener">
+      <img src="https://cdn.midjourney.com/6e63233f-c9f6-40da-8c5e-385f310ac779/0_2.png" alt="Surreal-minimal study — masks, lines, and quiet symmetry" loading="lazy">
+    </a>
   </div>
-  <p class="small">See more in the <a href="/Tamer-Portfolio/gallery/">full gallery</a>.</p>
+  <p class="more-link"><a href="/Tamer-Portfolio/media/">See more in the full gallery →</a></p>
 </section>
+<!-- END: Artistic Snapshots (updated) -->
 
 <section id="training" class="block">
   <h2>AI Training &amp; Workshops</h2>
@@ -91,18 +110,34 @@ title: Home
      — and take them further.</p>
 </section>
 
-<section id="inspiration" class="block">
+<!-- BEGIN: Inspiration Boards (embedded) -->
+<section id="inspiration" class="container section-pad">
   <h2>Inspiration Boards</h2>
-  <ul>
-    <li>
-        <strong>Brides of Civilizations: A Global Couture Wedding</strong><br>
-        20 AI-imagined bridal looks across ten ancient cultures.<br>
-        <a href="https://pin.it/5HP2SxlGQ" target="_blank">Explore on Pinterest</a>
-      </li>
-    <li>
-      <strong>Mythic Butterfly Visions</strong><br>
-      Metallic butterflies &amp; botanical masks fuse into high-fashion portraits.<br>
-      <a href="https://www.pinterest.com/TamerCreates/mythic-butterfly-visions/" target="_blank">Explore on Pinterest</a>
-    </li>
-  </ul>
+  <div class="pinterest-boards">
+    <div class="p-board">
+      <a
+        data-pin-do="embedBoard"
+        href="https://www.pinterest.com/TamerCreates/brides-of-civilizations-a-global-couture-wedding/"
+        data-pin-board-width="520"
+        data-pin-scale-height="360"
+        data-pin-scale-width="120">
+      </a>
+    </div>
+    <div class="p-board">
+      <a
+        data-pin-do="embedBoard"
+        href="https://www.pinterest.com/TamerCreates/mythic-butterfly-visions/"
+        data-pin-board-width="520"
+        data-pin-scale-height="360"
+        data-pin-scale-width="120">
+      </a>
+    </div>
+  </div>
+  <noscript>
+    <ul>
+      <li><a href="https://www.pinterest.com/TamerCreates/brides-of-civilizations-a-global-couture-wedding/">Brides of Civilizations on Pinterest</a></li>
+      <li><a href="https://www.pinterest.com/TamerCreates/mythic-butterfly-visions/">Mythic Butterfly Visions on Pinterest</a></li>
+    </ul>
+  </noscript>
 </section>
+<!-- END: Inspiration Boards (embedded) -->

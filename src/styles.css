@@ -145,3 +145,34 @@ footer .social-icons a img {
   margin: 1rem 0 2rem;
 }
 .gallery-mini img { width: 100%; border-radius: 12px; }
+
+:root {
+  --olive: #6a7f4e;
+  --ink: #0e1116;
+  --stone: #f4f4f2;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+.section-pad { padding: 3rem 0; }
+/* Portfolio hero figure */
+.portfolio-figure {
+  display: grid; gap: .75rem;
+  border: 1px solid var(--olive);
+  border-radius: 16px;
+  padding: .75rem;
+  background: linear-gradient(0deg, rgba(106,127,78,.06), rgba(106,127,78,.06)), var(--stone);
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+}
+.portfolio-figure img { width: 100%; height: auto; display: block; border-radius: 12px; }
+.portfolio-figure figcaption { font-size: .9rem; color: #444; }
+/* Artistic Snapshots grid */
+.art-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+@media (max-width: 900px) { .art-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .art-grid { grid-template-columns: 1fr; } }
+.art-card { display: block; overflow: hidden; border-radius: 14px; border: 1px solid rgba(0,0,0,.06); background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.06); }
+.art-card img { width: 100%; height: auto; display: block; transition: transform .5s ease; }
+.art-card:hover img { transform: scale(1.03); }
+.more-link { margin-top: 1rem; }
+/* Pinterest boards layout */
+.pinterest-boards { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+@media (max-width: 900px) { .pinterest-boards { grid-template-columns: 1fr; } }
+.p-board { background: var(--stone); border-radius: 16px; padding: .5rem; border: 1px solid rgba(0,0,0,.06); }
