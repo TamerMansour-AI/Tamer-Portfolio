@@ -2,52 +2,125 @@
 layout: page.njk
 title: Music
 ---
-{% set isMusic = true %}
+
 <section class="container section-pad" aria-labelledby="music-index">
-  <header class="music-hero">
-    <h1 id="music-index">Music</h1>
-    <p class="lede">AI‑composed soundscapes & songs — browsable by mood.</p>
+  <h1 id="music-index">Music</h1>
+  <p class="lede">AI‑composed soundscapes and songs — curated by mood and style. Tap a card to listen on Suno.</p>
 
-    <div class="music-toolbar">
-      <div class="filters">
-        <button data-filter="all" class="pill active">All</button>
-        {% for cat in music.categories %}
-          <button data-filter="{{ cat.id }}" class="pill" style="--pill: {{ cat.color }}">{{ cat.label }}</button>
-        {% endfor %}
-      </div>
-      <input id="music-search" class="search" type="search" placeholder="Search titles & categories…" />
+  <!-- Quick nav -->
+  <nav class="music-nav">
+    <a href="#summer">Summer Vibes</a>
+    <a href="#relax">Relaxation & Calm</a>
+    <a href="#emotion">Emotional & Nostalgic</a>
+    <a href="#rap">Rap & Fusion</a>
+    <a href="#canaanite">Canaanite Phonetics</a>
+    <a href="#folk">Arabic Folk & Acoustic</a>
+    <a href="#healing">Healing & Ambient</a>
+    <a href="#experimental">Experimental & Electronic</a>
+    <a href="#unsorted">Unsorted / New Drafts</a>
+  </nav>
+
+  <!-- Summer Vibes -->
+  <section id="summer" class="music-group">
+    <h2>Summer Vibes</h2>
+    <div class="suno-grid music">
+      <article class="suno-card"><h3>Summer Music I</h3><a class="btn-suno" href="https://suno.com/s/PygzVoPOl0XkzZLs" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Summer Music II</h3><a class="btn-suno" href="https://suno.com/s/8qKZAGzttwRbsZ3W" target="_blank" rel="noopener">Listen on Suno</a></article>
     </div>
-  </header>
+  </section>
 
-  <div id="suno-list" class="suno-grid music">
-    {% for t in music.tracks %}
-      {% set cat = (music.categories | filterby('id', t.category) | first) %}
-      <article class="suno-card" data-cat="{{ t.category }}" data-title="{{ t.title | lower }}">
-        <div class="thumb" style="--accent: {{ cat.color }}">
-          {% if t.cover %}
-            <img src="{{ t.cover }}" alt="{{ t.title }} cover" loading="lazy" decoding="async">
-          {% else %}
-            <svg class="wave" viewBox="0 0 300 80" role="img" aria-label="waveform placeholder">
-              <defs>
-                <linearGradient id="g-{{ loop.index }}-{{ t.category }}" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%"  stop-color="{{ cat.color }}" />
-                  <stop offset="100%" stop-color="#ffffff" stop-opacity="0.15" />
-                </linearGradient>
-              </defs>
-              <rect width="300" height="80" rx="10" ry="10" fill="url(#g-{{ loop.index }}-{{ t.category }})"/>
-              <polyline fill="none" stroke="rgba(255,255,255,.75)" stroke-width="2"
-                points="0,60 8,52 16,56 24,36 32,46 40,30 48,42 56,24 64,28 72,20 80,30 88,36 96,24 104,30 112,18 120,26 128,34 136,20 144,28 152,16 160,24 168,32 176,20 184,26 192,18 200,24 208,30 216,22 224,26 232,24 240,28 248,26 256,30 264,28 272,30 280,28 288,30 296,28"/>
-            </svg>
-            <span class="play-badge" aria-hidden="true">▶</span>
-          {% endif %}
-        </div>
+  <!-- Relaxation & Calm -->
+  <section id="relax" class="music-group">
+    <h2>Relaxation & Calm</h2>
+    <div class="suno-grid music">
+      <article class="suno-card"><h3>Relaxing Music</h3><a class="btn-suno" href="https://suno.com/s/ccTwyoNG2Shb1QgI" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Calm & Catchy</h3><a class="btn-suno" href="https://suno.com/s/Pd6yFvryy7CkbIhV" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Calming Music</h3><a class="btn-suno" href="https://suno.com/s/bK7i1o8tV8DuYkPM" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Turkish Calm Music</h3><a class="btn-suno" href="https://suno.com/s/cKBHoqO8JBfe9UJX" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Ethereal Folk / Female Humming</h3><a class="btn-suno" href="https://suno.com/s/0N2KgWdUwAMdjsSp" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Evening Hush</h3><a class="btn-suno" href="https://suno.com/s/Fwh02KWh9O8L4LQD" target="_blank" rel="noopener">Listen on Suno</a></article>
+    </div>
+  </section>
 
-        <div class="suno-meta">
-          <span class="chip" style="--chip: {{ cat.color }}">{{ cat.label }}</span>
-          <h3>{{ t.title }}</h3>
-          <a class="btn-suno" href="{{ t.url }}" target="_blank" rel="noopener">Listen on Suno</a>
-        </div>
-      </article>
-    {% endfor %}
-  </div>
+  <!-- Emotional & Nostalgic -->
+  <section id="emotion" class="music-group">
+    <h2>Emotional & Nostalgic</h2>
+    <div class="suno-grid music">
+      <article class="suno-card"><h3>Emotional Song</h3><a class="btn-suno" href="https://suno.com/s/8hFfLpsSXmXl2Wve" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Nostalgic Music I</h3><a class="btn-suno" href="https://suno.com/s/5Tzs7HGqxM1QvUUJ" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Nostalgic Music II</h3><a class="btn-suno" href="https://suno.com/s/ms0OCAiuT8sQZ9j4" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Nostalgic Middle East</h3><a class="btn-suno" href="https://suno.com/s/rTHZfqruCDZF4RWf" target="_blank" rel="noopener">Listen on Suno</a></article>
+    </div>
+  </section>
+
+  <!-- Rap & Fusion -->
+  <section id="rap" class="music-group">
+    <h2>Rap & Fusion</h2>
+    <div class="suno-grid music">
+      <article class="suno-card"><h3>Arabic Rap</h3><a class="btn-suno" href="https://suno.com/s/wWPwjbW86etBQl37" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Mix: Arabic + Electronic</h3><a class="btn-suno" href="https://suno.com/s/liV3IwoMuWXhonYQ" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Mix: Arabic Instruments</h3><a class="btn-suno" href="https://suno.com/s/JvAaMoqqAXWdnaXM" target="_blank" rel="noopener">Listen on Suno</a></article>
+    </div>
+  </section>
+
+  <!-- Canaanite Phonetics -->
+  <section id="canaanite" class="music-group">
+    <h2>Canaanite Inspired Phonetics</h2>
+    <div class="suno-grid music">
+      <article class="suno-card"><h3>Ancient Whispers</h3><a class="btn-suno" href="https://suno.com/s/kQhY8O7MDhVUfeTP" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Canaanite Phonetics I</h3><a class="btn-suno" href="https://suno.com/s/FWXnl3kVOoigdMCC" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Canaanite Phonetics II</h3><a class="btn-suno" href="https://suno.com/s/F4AIaXvUaFiMy0cV" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Canaanite Phonetics III</h3><a class="btn-suno" href="https://suno.com/s/kTneYtfgyvKI5MbZ" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Canaanite Phonetics IV</h3><a class="btn-suno" href="https://suno.com/s/TeteqUVjs1DcYYDA" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Modern Canaanite Phonetics</h3><a class="btn-suno" href="https://suno.com/s/9OGJX2QxIhDj6KJf" target="_blank" rel="noopener">Listen on Suno</a></article>
+    </div>
+  </section>
+
+  <!-- Arabic Folk & Acoustic -->
+  <section id="folk" class="music-group">
+    <h2>Arabic Folk & Acoustic</h2>
+    <div class="suno-grid music">
+      <article class="suno-card"><h3>Acoustic Arabic Folk</h3><a class="btn-suno" href="https://suno.com/s/zL9CGJLCWJaJoGeQ" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Kitchen Laughs</h3><a class="btn-suno" href="https://suno.com/s/FivqpUInr2JZKSfq" target="_blank" rel="noopener">Listen on Suno</a></article>
+    </div>
+  </section>
+
+  <!-- Healing & Ambient -->
+  <section id="healing" class="music-group">
+    <h2>Healing & Ambient</h2>
+    <div class="suno-grid music">
+      <article class="suno-card"><h3>Healing Music</h3><a class="btn-suno" href="https://suno.com/s/8k2wRcV7ZTPQE4cM" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Nay Healing Music</h3><a class="btn-suno" href="https://suno.com/s/zx2O4Y4JrfF8jIru" target="_blank" rel="noopener">Listen on Suno</a></article>
+    </div>
+  </section>
+
+  <!-- Experimental & Electronic -->
+  <section id="experimental" class="music-group">
+    <h2>Experimental & Electronic</h2>
+    <div class="suno-grid music">
+      <article class="suno-card"><h3>Electro World Fusion</h3><a class="btn-suno" href="https://suno.com/s/s6eXkG49AuvUR895" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Glitch Music</h3><a class="btn-suno" href="https://suno.com/s/UaFYKMxExra29R9U" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Jazztronica</h3><a class="btn-suno" href="https://suno.com/s/72D90BABdj5d7w4g" target="_blank" rel="noopener">Listen on Suno</a></article>
+    </div>
+  </section>
+
+  <!-- Unsorted / New Drafts (unique links only) -->
+  <section id="unsorted" class="music-group">
+    <h2>Unsorted / New Drafts</h2>
+    <p class="note">Placeholders — we’ll label these after reviewing Suno descriptions.</p>
+    <div class="suno-grid music">
+      <article class="suno-card"><h3>Track A</h3><a class="btn-suno" href="https://suno.com/s/Zv2awMWmqyRr7hea" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Track B</h3><a class="btn-suno" href="https://suno.com/s/wqImReM1HvWMdKwV" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Track C</h3><a class="btn-suno" href="https://suno.com/s/UcaT7B6jSt2Tl9F3" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Track D</h3><a class="btn-suno" href="https://suno.com/s/lVfbglJeh5iYpWRU" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Track E</h3><a class="btn-suno" href="https://suno.com/s/AdHLkZJ4oKLWIaNF" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Track F</h3><a class="btn-suno" href="https://suno.com/s/JHn8WzDDnbxS7jpQ" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Track G</h3><a class="btn-suno" href="https://suno.com/s/QqhFSjX4jucLfdxU" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Track H</h3><a class="btn-suno" href="https://suno.com/s/MiaKO6Npkw1ykyBl" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Track I</h3><a class="btn-suno" href="https://suno.com/s/tpnTDJf6UAXxI9N5" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Track J</h3><a class="btn-suno" href="https://suno.com/s/8PgpObZ8DK604Anj" target="_blank" rel="noopener">Listen on Suno</a></article>
+      <article class="suno-card"><h3>Track K</h3><a class="btn-suno" href="https://suno.com/s/BXlFtWUMToJG6K4K" target="_blank" rel="noopener">Listen on Suno</a></article>
+    </div>
+  </section>
 </section>
+
