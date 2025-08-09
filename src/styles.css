@@ -200,3 +200,30 @@ footer .social-icons a img {
 @media (min-width: 900px){
   .sound-thumb{ float:right; width: 34%; margin-left: 1rem; }
 }
+
+/* Sound Experiments layout */
+#sound-experiments::after { content: ""; display: block; clear: both; }
+.sound-thumb { margin-bottom: 1rem; }
+
+/* Suno cards */
+.suno-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 900px) { .suno-grid { grid-template-columns: 1fr; } }
+.suno-card {
+  background: #1c1c1c;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+}
+.suno-card h3 { margin: 0 0 .35rem; font-size: 1.1rem; }
+.suno-card p { margin: 0 0 .6rem; color: #cfcfcf; }
+.btn-suno {
+  display: inline-block;
+  padding: .55rem 1rem;
+  border-radius: 999px;
+  background: var(--olive);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.btn-suno:hover { opacity: .9; }
