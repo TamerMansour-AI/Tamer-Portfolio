@@ -217,24 +217,32 @@ footer .social-icons a img {
 }
 .suno-card h3 { margin: 0 0 .35rem; font-size: 1.1rem; }
 .suno-card p { margin: 0 0 .6rem; color: #cfcfcf; }
-.btn-suno {
-  display: inline-block;
-  padding: .55rem 1rem;
-  border-radius: 999px;
-  background: var(--olive);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-}
-.btn-suno:hover { opacity: .9; }
-/* Music page layout */
-.suno-grid.music { grid-template-columns: repeat(3, 1fr); }
-@media (max-width: 1100px){ .suno-grid.music { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px){ .suno-grid.music { grid-template-columns: 1fr; } }
-.music-group { margin: 2.5rem 0; }
-.music-group > h2 { margin-bottom: .75rem; }
-.lede { color: #cfcfcf; margin-bottom: 1rem; }
-.music-nav { display:flex; flex-wrap:wrap; gap:.5rem; margin: .5rem 0 1.5rem; }
-.music-nav a { padding:.35rem .7rem; border:1px solid rgba(255,255,255,.12); border-radius:999px; text-decoration:none; color:#eaeaea; }
-.music-nav a:hover { background: rgba(255,255,255,.06); }
-.note { color:#bdbdbd; margin-bottom:.5rem; }
+
+/* ===== Music page (Suno link‑only) ===== */
+.music-hero { display:grid; gap:.6rem; margin-bottom:1rem; }
+.music-toolbar { display:flex; gap:1rem; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+.pill { border:1px solid rgba(255,255,255,.12); background:transparent; color:#eaeaea; padding:.35rem .7rem; border-radius:999px; cursor:pointer; }
+.pill.active, .pill:hover { background: rgba(255,255,255,.06); }
+.search { background:#0f0f0f; border:1px solid rgba(255,255,255,.12); color:#fff; border-radius:10px; padding:.5rem .75rem; min-width:240px; }
+
+.suno-grid.music { display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem; }
+@media (max-width:1100px){ .suno-grid.music { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width:640px){ .suno-grid.music { grid-template-columns: 1fr; } }
+
+.suno-card { display:flex; gap:.9rem; background:#121212; border:1px solid rgba(255,255,255,.08);
+  border-radius:16px; padding:.85rem; box-shadow:0 10px 26px rgba(0,0,0,.18); transition:transform .2s ease, box-shadow .2s ease; }
+.suno-card:hover { transform: translateY(-2px); box-shadow:0 16px 36px rgba(0,0,0,.24); }
+
+.suno-card .thumb { position:relative; flex:0 0 120px; height:80px; border-radius:12px; overflow:hidden; background: color-mix(in oklab, var(--accent) 14%, #0f0f0f); }
+.suno-card .thumb img, .suno-card .thumb .wave { width:100%; height:100%; object-fit:cover; display:block; }
+.play-badge { position:absolute; right:.4rem; bottom:.35rem; background: color-mix(in oklab, var(--accent) 60%, #000); color:#fff; font-size:.8rem; padding:.1rem .35rem; border-radius:6px; }
+
+.suno-meta { display:flex; flex-direction:column; gap:.4rem; min-width:0; }
+.suno-meta h3 { margin:0; font-size:1.06rem; line-height:1.2; }
+.chip { display:inline-block; padding:.15rem .5rem; border-radius:999px; background:color-mix(in oklab, var(--chip) 22%, #1a1a1a); border:1px solid color-mix(in oklab, var(--chip) 40%, #2a2a2a); font-size:.78rem; }
+
+.btn-row { display:flex; gap:.5rem; flex-wrap:wrap; }
+.btn-suno { display:inline-block; padding:.45rem .85rem; border-radius:999px; background:var(--olive); color:#fff; text-decoration:none; font-weight:600; }
+.btn-suno.ghost { background:transparent; border:1px solid rgba(255,255,255,.15); color:#eaeaea; }
+
+.empty-state { opacity:.7; grid-column:1/-1; text-align:center; padding:2rem 0; }
