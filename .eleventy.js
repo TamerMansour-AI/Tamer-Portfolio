@@ -1,9 +1,8 @@
+// /.eleventy.js
 const glob = require("glob");
 const path = require("path");
 
-/**
- * Eleventy configuration for the Tamer Portfolio site.
- */
+/** Eleventy configuration */
 module.exports = function (eleventyConfig) {
   /* ---------- Passthrough assets ---------- */
   // CSS الرئيسي
@@ -16,14 +15,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/static/.nojekyll": ".nojekyll" });
 
   /* ---------- Collections ---------- */
-  // Media (videos, etc.)
-  eleventyConfig.addCollection("media", (collection) => {
-    return collection.getFilteredByTag("media");
-  });
+  eleventyConfig.addCollection("media", (collection) =>
+    collection.getFilteredByTag("media")
+  );
 
-  // Gallery images
-  eleventyConfig.addCollection("gallery", () => {
-    return glob
+  eleventyConfig.addCollection("gallery", () =>
+    glob
       .sync("src/content/media/**/*.{png,jpg,jpeg,gif,webp,svg}")
       .map((filePath) => ({
         fileName: path.basename(filePath),
@@ -45,10 +42,10 @@ module.exports = function (eleventyConfig) {
       const id = url.split("watch?v=")[1].split(/[&]/)[0];
       return `https://www.youtube.com/embed/${id}`;
     }
-    return url; // already embed form
+    return url;
   });
 
-  /* ---------- Eleventy options ---------- */
+  /* ---------- Options ---------- */
   return {
     pathPrefix: "/Tamer-Portfolio",
     dir: {
