@@ -1,41 +1,51 @@
-name: Deploy to GitHub Pages
+name: Build & Deploy (Eleventy → GitHub Pages)
 
-# ⬇️ نمنح الـworkflow صلاحيات كافية لدفع (push) التغييرات إلى gh-pages
-permissions:
-  contents: write   # للسماح بإنشاء/تعديل ملفات في المستودع
-  pages: write      # في حال استخدام GitHub Pages بنظام OIDC
-  id-token: write   # مطلوبة لبعض إعدادات Pages الحديثة
-
-# يشغَّل عند أي push إلى فرع main
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      # 1) جلب الكود
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      # 2) تجهيز Node.js
-      - uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: 20
+          cache: 'npm'
 
-      # 3) تثبيت الاعتماديات من package.json
-      - run: npm install
+      - name: Install deps
+        run: npm install
 
-      # 4) بناء الموقع باستخدام Eleventy (المخرجات في مجلد dist/)
-      - run: npx @11ty/eleventy
+      # نبني Eleventy إلى docs/ (هذا يطابق إعداد المشروع)
+      - name: Build Eleventy to /docs
+        run: npx @11ty/eleventy --output=docs
 
-      # 5) نشر مجلد dist إلى فرع gh-pages
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist          # مجلد الإخراج (نسبي)
-          publish_branch: gh-pages   # الفرع الذي يستضيفه GitHub Pages
-          force_orphan: true         # إبقاء تاريخ gh-pages نظيفًا
+          path: ./docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
