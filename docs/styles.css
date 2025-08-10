@@ -1,20 +1,26 @@
 /*
  * Global stylesheet for the Tamer Portfolio site.
- *
- * The palette takes inspiration from the olive trees and the kufiya, using a
- * muted olive‑green accent for interactive elements. CSS variables are used
- * throughout to support dark mode via the prefers‑color‑scheme media query.
+ * Palette inspired by olive trees & kufiya.
  */
 
-:root {
-  --olive-green: #708238;
+/* ===== Tokens (موحّدة) ===== */
+:root{
+  /* brand accents */
+  --olive: #6a7f4e;               /* اللون الأساسي */
+  --olive-green: var(--olive);    /* توافق مع الأكواد القديمة */
+
+  /* neutrals / surfaces */
+  --ink: #0e1116;
+  --stone: #f4f4f2;
+
+  /* theme vars المستخدمة سابقًا */
   --background-light: #ffffff;
   --background-dark: #1a1a1a;
   --text-light: #222222;
   --text-dark: #f5f5f5;
 }
 
-/* Light theme defaults */
+/* ===== Light / Dark ===== */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -22,8 +28,6 @@ body {
   background-color: var(--background-light);
   color: var(--text-light);
 }
-
-/* Dark theme overrides */
 @media (prefers-color-scheme: dark) {
   body {
     background-color: var(--background-dark);
@@ -31,18 +35,16 @@ body {
   }
 }
 
-/* Header and navigation */
+/* ===== Header / Nav ===== */
 header {
   background-color: var(--olive-green);
   padding: 1rem;
 }
-
 header nav {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
-
 header nav a {
   color: #ffffff;
   margin-right: 1rem;
@@ -50,56 +52,28 @@ header nav a {
   font-weight: bold;
   position: relative;
 }
+header nav a:hover { text-decoration: underline; }
 
-header nav a:hover {
-  text-decoration: underline;
-}
+/* ===== Main / Footer ===== */
+main { padding: 1rem; max-width: 960px; margin: 0 auto; }
 
-/* Main content area */
-main {
-  padding: 1rem;
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-/* Footer styling */
 footer {
   background-color: var(--olive-green);
   color: #ffffff;
   padding: 1rem;
   text-align: center;
 }
-
-footer .social-icons {
-  margin-top: 0.5rem;
-}
-
+footer .social-icons { margin-top: 0.5rem; }
 footer .social-icons a img {
-  width: 24px;
-  height: 24px;
-  margin: 0 0.5rem;
-  vertical-align: middle;
-  /* The icons from simple-icons are monochrome SVGs; set fill via filter */
+  width: 24px; height: 24px; margin: 0 0.5rem; vertical-align: middle;
   filter: invert(1);
 }
 
-/* Hero section */
-.hero {
-  text-align: center;
-  padding: 3rem 1rem;
-}
+/* ===== Hero / Buttons ===== */
+.hero { text-align: center; padding: 3rem 1rem; }
+.hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.hero p { font-size: 1.2rem; margin-bottom: 1.5rem; }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Buttons */
 .btn {
   display: inline-block;
   background-color: var(--olive-green);
@@ -110,32 +84,18 @@ footer .social-icons a img {
   font-weight: bold;
   transition: background-color 0.2s ease;
 }
+.btn:hover { background-color: #5a6b2c; }
 
-.btn:hover {
-  background-color: #5a6b2c;
-}
+/* ===== Media / Gallery ===== */
+.media-card { margin-bottom: 1rem; }
+.media-card h3 { margin: 0 0 0.5rem; }
 
-/* Media cards */
-.media-card {
-  margin-bottom: 1rem;
-}
-
-.media-card h3 {
-  margin: 0 0 0.5rem;
-}
-
-/* Gallery grid */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
 }
-
-.gallery-grid img {
-  width: 100%;
-  border-radius: 4px;
-  display: block;
-}
+.gallery-grid img { width: 100%; border-radius: 4px; display: block; }
 
 /* mini-gallery grid on Home */
 .gallery-mini {
@@ -146,14 +106,11 @@ footer .social-icons a img {
 }
 .gallery-mini img { width: 100%; border-radius: 12px; }
 
-:root {
-  --olive: #6a7f4e;
-  --ink: #0e1116;
-  --stone: #f4f4f2;
-}
+/* ===== Layout helpers ===== */
 .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
 .section-pad { padding: 3rem 0; }
-/* Portfolio hero figure */
+
+/* ===== Portfolio hero figure ===== */
 .portfolio-figure {
   display: grid; gap: .75rem;
   border: 1px solid var(--olive);
@@ -164,6 +121,7 @@ footer .social-icons a img {
 }
 .portfolio-figure img { width: 100%; height: auto; display: block; border-radius: 12px; }
 .portfolio-figure figcaption { font-size: .9rem; color: #444; }
+
 /* Artistic Snapshots grid */
 .art-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 @media (max-width: 900px) { .art-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -172,6 +130,7 @@ footer .social-icons a img {
 .art-card img { width: 100%; height: auto; display: block; transition: transform .5s ease; }
 .art-card:hover img { transform: scale(1.03); }
 .more-link { margin-top: 1rem; }
+
 /* Pinterest boards layout */
 .pinterest-boards { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 @media (max-width: 900px) { .pinterest-boards { grid-template-columns: 1fr; } }
@@ -184,7 +143,7 @@ footer .social-icons a img {
   background-image: url('https://cdn.midjourney.com/b9358230-0e6d-4e21-ae02-a171d1b36766/0_1.png');
   background-size: cover; background-position: center; background-repeat: no-repeat;
   opacity: .06; filter: contrast(.9) saturate(.9);
-  border-radius: 12px; /* match inner radius */
+  border-radius: 12px;
 }
 .portfolio-figure > *{ position: relative; z-index: 1; }
 
@@ -200,12 +159,10 @@ footer .social-icons a img {
 @media (min-width: 900px){
   .sound-thumb{ float:right; width: 34%; margin-left: 1rem; }
 }
-
-/* Sound Experiments layout */
 #sound-experiments::after { content: ""; display: block; clear: both; }
 .sound-thumb { margin-bottom: 1rem; }
 
-/* Suno cards */
+/* ===== Suno (Music) ===== */
 .suno-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 @media (max-width: 900px) { .suno-grid { grid-template-columns: 1fr; } }
 .suno-card {
@@ -227,6 +184,7 @@ footer .social-icons a img {
   font-weight: 600;
 }
 .btn-suno:hover { opacity: .9; }
+
 /* Music page layout */
 .suno-grid.music { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 1100px){ .suno-grid.music { grid-template-columns: repeat(2, 1fr); } }
@@ -239,42 +197,80 @@ footer .social-icons a img {
 .music-nav a:hover { background: rgba(255,255,255,.06); }
 .note { color:#bdbdbd; margin-bottom:.5rem; }
 
-/* ===== Projects page layout ===== */
-.banner img{ width:100%; height:auto; border-radius:14px; display:block; }
+/* ===== Projects page — polished layout ===== */
 
-.project-section{ border-top:1px solid rgba(0,0,0,.08); }
-.section-head{ margin-bottom:1rem; }
+/* banner */
+.banner img{
+  width:100%;
+  height: clamp(220px, 42vw, 440px);
+  object-fit: cover;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow: 0 14px 36px rgba(0,0,0,.22);
+  display:block;
+}
 
-.split{ display:grid; grid-template-columns: 1.2fr 1fr; gap:1.25rem; align-items:start; }
+/* section shell */
+.project-section{
+  margin-block: 2rem;
+  padding-block: 1.25rem;
+  border-top: 1px dashed color-mix(in oklab, var(--olive) 35%, #ffffff);
+  background: linear-gradient(180deg, rgba(255,255,255,.02), transparent);
+}
+.section-head{ margin-bottom: 1rem; }
+.section-head h2{
+  display:inline-block;
+  margin:0;
+  padding-left:.65rem;
+  border-left:6px solid var(--olive);
+  letter-spacing:.2px;
+}
+
+/* grid layout */
+.split{
+  display:grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 1.1rem;
+  align-items: start;
+}
+@media (max-width: 1024px){
+  .split{ grid-template-columns: 1fr; }
+}
+
+/* images column */
+.split-media{
+  display:grid;
+  gap:.75rem;
+}
+.split-media img{
+  width:100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 14px;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow: 0 10px 26px rgba(0,0,0,.18);
+  background:#0f0f0f;
+  display:block;
+}
+
+/* text column */
 .split-body{ display:grid; gap:.6rem; }
-.split-media{ display:grid; gap:.75rem; }
-.split-media img{ width:100%; height:auto; border-radius:12px; display:block; background:#fff; }
 
-.bullets{ padding-left:1.2rem; display:grid; gap:.35rem; }
-.bullets li{ line-height:1.5; }
-
-/* Responsive */
-@media (max-width: 900px){ .split{ grid-template-columns: 1fr; } }
-
-/* Accent: subtle Palestinian touch */
-.project-section .section-head h2{ border-left:6px solid var(--olive); padding-left:.5rem; }
-
-/* ===== Projects page layout ===== */
-.banner img{ width:100%; height:auto; border-radius:14px; display:block; }
-
-.project-section{ border-top:1px solid rgba(0,0,0,.08); }
-.section-head{ margin-bottom:1rem; }
-
-.split{ display:grid; grid-template-columns: 1.2fr 1fr; gap:1.25rem; align-items:start; }
-.split-body{ display:grid; gap:.6rem; }
-.split-media{ display:grid; gap:.75rem; }
-.split-media img{ width:100%; height:auto; border-radius:12px; display:block; background:#fff; }
-
-.bullets{ padding-left:1.2rem; display:grid; gap:.35rem; }
-.bullets li{ line-height:1.5; }
-
-/* Responsive */
-@media (max-width: 900px){ .split{ grid-template-columns: 1fr; } }
-
-/* Accent: subtle Palestinian touch */
-.project-section .section-head h2{ border-left:6px solid var(--olive); padding-left:.5rem; }
+/* bullets styled with olive dots */
+.bullets{
+  margin:0; padding:0;
+  display:grid; gap:.45rem;
+}
+.bullets li{
+  list-style:none;
+  line-height:1.55;
+  padding-left:1.2rem;
+  position:relative;
+}
+.bullets li::before{
+  content:"";
+  position:absolute; left:.2rem; top:.55em;
+  width:.5rem; height:.5rem; border-radius:50%;
+  background: var(--olive);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--olive) 25%, transparent);
+}
