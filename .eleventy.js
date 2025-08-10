@@ -1,37 +1,27 @@
-// /.eleventy.js
 const glob = require("glob");
 const path = require("path");
 
-/** Eleventy configuration */
 module.exports = function (eleventyConfig) {
-  /* ---------- Passthrough assets ---------- */
-  // CSS الرئيسي
+  // ---------- Passthrough ----------
   eleventyConfig.addPassthroughCopy({ "src/styles.css": "styles.css" });
-  // وسائط المعرض (تحافظ على المسار العلوي /Media)
   eleventyConfig.addPassthroughCopy({ "src/content/media": "Media" });
-  // سكربتات المتصفح (مثل music.js)
   eleventyConfig.addPassthroughCopy({ "src/js": "js" });
-  // ضمان وجود .nojekyll في كل Build
   eleventyConfig.addPassthroughCopy({ "src/static/.nojekyll": ".nojekyll" });
 
-  /* ---------- Collections ---------- */
+  // ---------- Collections ----------
   eleventyConfig.addCollection("media", (collection) =>
     collection.getFilteredByTag("media")
   );
 
-  eleventyConfig.addCollection("gallery", () =>
-    glob
-      .sync("src/content/media/**/*.{png,jpg,jpeg,gif,webp,svg}")
-      .map((filePath) => ({
-        fileName: path.basename(filePath),
-        // ⇩⇩ fix path case to /Media/
-        url: filePath
-          .replace("src/content/media", "/Media")
-          .replace(/\\/g, "/"),
-      }));
+  eleventyConfig.addCollection("gallery", () => {
+    const files = glob.sync("src/content/media/**/*.{png,jpg,jpeg,gif,webp,svg}");
+    return files.map((fp) => ({
+      fileName: path.basename(fp),
+      url: fp.replace("src/content/media", "/Media").replace(/\\/g, "/")
+    }));
   });
 
-  /* ---------- Filters ---------- */
+  // ---------- Filters ----------
   eleventyConfig.addFilter("youtubeEmbed", (url) => {
     if (!url) return url;
     if (url.includes("youtu.be/")) {
@@ -45,15 +35,15 @@ module.exports = function (eleventyConfig) {
     return url;
   });
 
-  /* ---------- Options ---------- */
+  // ---------- Options ----------
   return {
     pathPrefix: "/Tamer-Portfolio",
     dir: {
       input: "src",
-      output: "docs",      // ← مهم: البناء إلى docs من أجل GitHub Pages
+      output: "docs",
       includes: "includes",
       layouts: "layouts",
-      data: "data",
-    },
+      data: "data"
+    }
   };
 };
