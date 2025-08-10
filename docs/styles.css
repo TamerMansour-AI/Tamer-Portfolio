@@ -238,3 +238,43 @@ footer .social-icons a img {
 .music-nav a { padding:.35rem .7rem; border:1px solid rgba(255,255,255,.12); border-radius:999px; text-decoration:none; color:#eaeaea; }
 .music-nav a:hover { background: rgba(255,255,255,.06); }
 .note { color:#bdbdbd; margin-bottom:.5rem; }
+
+/* ===== Projects page layout ===== */
+.banner img{ width:100%; height:auto; border-radius:14px; display:block; }
+
+.project-section{ border-top:1px solid rgba(0,0,0,.08); }
+.section-head{ margin-bottom:1rem; }
+
+.split{ display:grid; grid-template-columns: 1.2fr 1fr; gap:1.25rem; align-items:start; }
+.split-body{ display:grid; gap:.6rem; }
+.split-media{ display:grid; gap:.75rem; }
+.split-media img{ width:100%; height:auto; border-radius:12px; display:block; background:#fff; }
+
+.bullets{ padding-left:1.2rem; display:grid; gap:.35rem; }
+.bullets li{ line-height:1.5; }
+
+/* Responsive */
+@media (max-width: 900px){ .split{ grid-template-columns: 1fr; } }
+
+/* Accent: subtle Palestinian touch */
+.project-section .section-head h2{ border-left:6px solid var(--olive); padding-left:.5rem; }
+
+/* ===== Projects page layout ===== */
+.banner img{ width:100%; height:auto; border-radius:14px; display:block; }
+
+.project-section{ border-top:1px solid rgba(0,0,0,.08); }
+.section-head{ margin-bottom:1rem; }
+
+.split{ display:grid; grid-template-columns: 1.2fr 1fr; gap:1.25rem; align-items:start; }
+.split-body{ display:grid; gap:.6rem; }
+.split-media{ display:grid; gap:.75rem; }
+.split-media img{ width:100%; height:auto; border-radius:12px; display:block; background:#fff; }
+
+.bullets{ padding-left:1.2rem; display:grid; gap:.35rem; }
+.bullets li{ line-height:1.5; }
+
+/* Responsive */
+@media (max-width: 900px){ .split{ grid-template-columns: 1fr; } }
+
+/* Accent: subtle Palestinian touch */
+.project-section .section-head h2{ border-left:6px solid var(--olive); padding-left:.5rem; }
