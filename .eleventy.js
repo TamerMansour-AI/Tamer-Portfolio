@@ -6,8 +6,14 @@ const path = require("path");
  */
 module.exports = function (eleventyConfig) {
   /* ---------- Passthrough assets ---------- */
+  // CSS الرئيسي
   eleventyConfig.addPassthroughCopy({ "src/styles.css": "styles.css" });
+  // وسائط المعرض (تحافظ على المسار العلوي /Media)
   eleventyConfig.addPassthroughCopy({ "src/content/media": "Media" });
+  // سكربتات المتصفح (مثل music.js)
+  eleventyConfig.addPassthroughCopy({ "src/js": "js" });
+  // ضمان وجود .nojekyll في كل Build
+  eleventyConfig.addPassthroughCopy({ "src/static/.nojekyll": ".nojekyll" });
 
   /* ---------- Collections ---------- */
   // Media (videos, etc.)
@@ -24,7 +30,7 @@ module.exports = function (eleventyConfig) {
         // ⇩⇩ fix path case to /Media/
         url: filePath
           .replace("src/content/media", "/Media")
-          .replace(/\\/g, "/")
+          .replace(/\\/g, "/"),
       }));
   });
 
@@ -47,10 +53,10 @@ module.exports = function (eleventyConfig) {
     pathPrefix: "/Tamer-Portfolio",
     dir: {
       input: "src",
-      output: "dist",
+      output: "docs",      // ← مهم: البناء إلى docs من أجل GitHub Pages
       includes: "includes",
       layouts: "layouts",
-      data: "data"
-    }
+      data: "data",
+    },
   };
 };
