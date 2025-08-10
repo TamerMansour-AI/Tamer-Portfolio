@@ -8,6 +8,7 @@ module.exports = function (eleventyConfig) {
   /* ---------- Passthrough assets ---------- */
   eleventyConfig.addPassthroughCopy({ "src/styles.css": "styles.css" });
   eleventyConfig.addPassthroughCopy({ "src/content/media": "Media" });
+  eleventyConfig.addPassthroughCopy({ "src/js": "js" });
 
   /* ---------- Collections ---------- */
   // Media (videos, etc.)
@@ -47,10 +48,9 @@ module.exports = function (eleventyConfig) {
     pathPrefix: "/Tamer-Portfolio",
     dir: {
       input: "src",
-      output: "dist",
+      output: "docs",
       includes: "includes",
-      layouts: "layouts",
-      data: "data"
+      layouts: "layouts"
     }
   };
 };
