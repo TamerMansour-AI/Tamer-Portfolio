@@ -1,0 +1,62 @@
+{
+  "categories": [
+    { "id": "summer",       "label": "Summer Vibes",              "color": "#F2C94C" },
+    { "id": "relax",        "label": "Relaxation & Calm",         "color": "#56CCF2" },
+    { "id": "emotion",      "label": "Emotional & Nostalgic",     "color": "#BB6BD9" },
+    { "id": "rap",          "label": "Rap & Fusion",              "color": "#F2994A" },
+    { "id": "canaanite",    "label": "Canaanite Phonetics",       "color": "#6FCF97" },
+    { "id": "folk",         "label": "Arabic Folk & Acoustic",    "color": "#D1A46F" },
+    { "id": "healing",      "label": "Healing & Ambient",         "color": "#2D9CDB" },
+    { "id": "experimental", "label": "Experimental & Electronic", "color": "#00B894" },
+    { "id": "unsorted",     "label": "Unsorted / New Drafts",     "color": "#7D7D7D" }
+  ],
+  "tracks": [
+    { "url": "https://suno.com/s/PygzVoPOl0XkzZLs", "title": "Summer Music I",  "category": "summer", "cover": null },
+    { "url": "https://suno.com/s/8qKZAGzttwRbsZ3W", "title": "Summer Music II", "category": "summer", "cover": null },
+
+    { "url": "https://suno.com/s/ccTwyoNG2Shb1QgI", "title": "Relaxing Music",     "category": "relax", "cover": null },
+    { "url": "https://suno.com/s/Pd6yFvryy7CkbIhV", "title": "Calm & Catchy",      "category": "relax", "cover": null },
+    { "url": "https://suno.com/s/bK7i1o8tV8DuYkPM", "title": "Calming Music",      "category": "relax", "cover": null },
+    { "url": "https://suno.com/s/cKBHoqO8JBfe9UJX", "title": "Turkish Calm Music", "category": "relax", "cover": null },
+    { "url": "https://suno.com/s/0N2KgWdUwAMdjsSp", "title": "Ethereal Folk / Female Humming", "category": "relax", "cover": null },
+    { "url": "https://suno.com/s/Fwh02KWh9O8L4LQD", "title": "Evening Hush",       "category": "relax", "cover": null },
+
+    { "url": "https://suno.com/s/8hFfLpsSXmXl2Wve", "title": "Emotional Song",            "category": "emotion", "cover": null },
+    { "url": "https://suno.com/s/5Tzs7HGqxM1QvUUJ", "title": "Nostalgic Music I",         "category": "emotion", "cover": null },
+    { "url": "https://suno.com/s/ms0OCAiuT8sQZ9j4", "title": "Nostalgic Music II",        "category": "emotion", "cover": null },
+    { "url": "https://suno.com/s/rTHZfqruCDZF4RWf", "title": "Nostalgic Middle East",     "category": "emotion", "cover": null },
+
+    { "url": "https://suno.com/s/wWPwjbW86etBQl37", "title": "Arabic Rap",                "category": "rap", "cover": null },
+    { "url": "https://suno.com/s/liV3IwoMuWXhonYQ", "title": "Mix: Arabic + Electronic",  "category": "rap", "cover": null },
+    { "url": "https://suno.com/s/JvAaMoqqAXWdnaXM", "title": "Mix: Arabic Instruments",   "category": "rap", "cover": null },
+
+    { "url": "https://suno.com/s/kQhY8O7MDhVUfeTP", "title": "Ancient Whispers",          "category": "canaanite", "cover": null },
+    { "url": "https://suno.com/s/FWXnl3kVOoigdMCC", "title": "Canaanite Phonetics I",     "category": "canaanite", "cover": null },
+    { "url": "https://suno.com/s/F4AIaXvUaFiMy0cV", "title": "Canaanite Phonetics II",    "category": "canaanite", "cover": null },
+    { "url": "https://suno.com/s/kTneYtfgyvKI5MbZ", "title": "Canaanite Phonetics III",   "category": "canaanite", "cover": null },
+    { "url": "https://suno.com/s/TeteqUVjs1DcYYDA", "title": "Canaanite Phonetics IV",    "category": "canaanite", "cover": null },
+    { "url": "https://suno.com/s/9OGJX2QxIhDj6KJf", "title": "Modern Canaanite Phonetics","category": "canaanite", "cover": null },
+
+    { "url": "https://suno.com/s/zL9CGJLCWJaJoGeQ", "title": "Acoustic Arabic Folk", "category": "folk", "cover": null },
+    { "url": "https://suno.com/s/FivqpUInr2JZKSfq", "title": "Kitchen Laughs",       "category": "folk", "cover": null },
+
+    { "url": "https://suno.com/s/8k2wRcV7ZTPQE4cM", "title": "Healing Music",        "category": "healing", "cover": null },
+    { "url": "https://suno.com/s/zx2O4Y4JrfF8jIru", "title": "Nay Healing Music",    "category": "healing", "cover": null },
+
+    { "url": "https://suno.com/s/s6eXkG49AuvUR895", "title": "Electro World Fusion", "category": "experimental", "cover": null },
+    { "url": "https://suno.com/s/UaFYKMxExra29R9U", "title": "Glitch Music",         "category": "experimental", "cover": null },
+    { "url": "https://suno.com/s/72D90BABdj5d7w4g", "title": "Jazztronica",          "category": "experimental", "cover": null },
+
+    { "url": "https://suno.com/s/Zv2awMWmqyRr7hea", "title": "Track A", "category": "unsorted", "cover": null },
+    { "url": "https://suno.com/s/wqImReM1HvWMdKwV", "title": "Track B", "category": "unsorted", "cover": null },
+    { "url": "https://suno.com/s/UcaT7B6jSt2Tl9F3", "title": "Track C", "category": "unsorted", "cover": null },
+    { "url": "https://suno.com/s/lVfbglJeh5iYpWRU", "title": "Track D", "category": "unsorted", "cover": null },
+    { "url": "https://suno.com/s/AdHLkZJ4oKLWIaNF", "title": "Track E", "category": "unsorted", "cover": null },
+    { "url": "https://suno.com/s/JHn8WzDDnbxS7jpQ", "title": "Track F", "category": "unsorted", "cover": null },
+    { "url": "https://suno.com/s/QqhFSjX4jucLfdxU", "title": "Track G", "category": "unsorted", "cover": null },
+    { "url": "https://suno.com/s/MiaKO6Npkw1ykyBl", "title": "Track H", "category": "unsorted", "cover": null },
+    { "url": "https://suno.com/s/tpnTDJf6UAXxI9N5", "title": "Track I", "category": "unsorted", "cover": null },
+    { "url": "https://suno.com/s/8PgpObZ8DK604Anj", "title": "Track J", "category": "unsorted", "cover": null },
+    { "url": "https://suno.com/s/BXlFtWUMToJG6K4K", "title": "Track K", "category": "unsorted", "cover": null }
+  ]
+}
