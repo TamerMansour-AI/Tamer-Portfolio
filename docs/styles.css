@@ -197,80 +197,55 @@ footer .social-icons a img {
 .music-nav a:hover { background: rgba(255,255,255,.06); }
 .note { color:#bdbdbd; margin-bottom:.5rem; }
 
-/* ===== Projects page — polished layout ===== */
+/* ===== Projects 2.0 (clean, modern, subpath‑safe) ===== */
+:root {
+  /* Fallback chain so we work with either token set already in the file */
+  --accent-olive: var(--olive, var(--olive-green, #6a7f4e));
+  --ink-900: var(--ink, #0e1116);
+  --paper-50: var(--stone, #f4f4f2);
+}
 
-/* banner */
-.banner img{
-  width:100%;
-  height: clamp(220px, 42vw, 440px);
+/* Hero banner: crop tall images nicely */
+.project-hero .banner img{
+  width: 100%;
+  aspect-ratio: 21/9;
   object-fit: cover;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow: 0 14px 36px rgba(0,0,0,.22);
-  display:block;
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
 }
 
-/* section shell */
-.project-section{
-  margin-block: 2rem;
-  padding-block: 1.25rem;
-  border-top: 1px dashed color-mix(in oklab, var(--olive) 35%, #ffffff);
-  background: linear-gradient(180deg, rgba(255,255,255,.02), transparent);
-}
-.section-head{ margin-bottom: 1rem; }
-.section-head h2{
-  display:inline-block;
-  margin:0;
-  padding-left:.65rem;
-  border-left:6px solid var(--olive);
-  letter-spacing:.2px;
+/* Section framing */
+.project-section{ border-top:1px solid rgba(0,0,0,.08); }
+.section-head{ margin: 0 0 1rem; }
+.project-section .section-head h2{
+  margin: 0;
+  padding-left: .6rem;
+  border-left: 6px solid var(--accent-olive);
 }
 
-/* grid layout */
-.split{
-  display:grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 1.1rem;
+/* Two‑column layout with responsive stack */
+.project-split{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.25rem;
   align-items: start;
 }
-@media (max-width: 1024px){
-  .split{ grid-template-columns: 1fr; }
+@media (max-width: 900px){
+  .project-split{ grid-template-columns: 1fr; }
 }
 
-/* images column */
-.split-media{
-  display:grid;
-  gap:.75rem;
+/* Image stack */
+.project-media{ display: grid; gap: .75rem; }
+.project-media img{
+  width: 100%; height: auto; display: block;
+  border-radius: 12px; background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,.07);
+  transition: transform .28s ease;
 }
-.split-media img{
-  width:100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  border-radius: 14px;
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow: 0 10px 26px rgba(0,0,0,.18);
-  background:#0f0f0f;
-  display:block;
-}
+.project-media img:hover{ transform: scale(1.015); }
 
-/* text column */
-.split-body{ display:grid; gap:.6rem; }
-
-/* bullets styled with olive dots */
-.bullets{
-  margin:0; padding:0;
-  display:grid; gap:.45rem;
-}
-.bullets li{
-  list-style:none;
-  line-height:1.55;
-  padding-left:1.2rem;
-  position:relative;
-}
-.bullets li::before{
-  content:"";
-  position:absolute; left:.2rem; top:.55em;
-  width:.5rem; height:.5rem; border-radius:50%;
-  background: var(--olive);
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--olive) 25%, transparent);
-}
+/* Text column */
+.prose{ max-width: 65ch; }
+.bullets{ padding-left: 1.1rem; display: grid; gap: .5rem; }
+.bullets li{ line-height: 1.55; }
