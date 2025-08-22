@@ -296,3 +296,20 @@ footer .social-icons a img {
 .tags{ display:flex; gap:.35rem; flex-wrap:wrap; margin:.2rem 0 .6rem }
 .ext-link{ font-size:.9rem; text-decoration:none; color:inherit; opacity:.8 }
 .ext-link:hover{ text-decoration:underline }
+
+/* === Fix: readable text on white media cards === */
+.art-card{ background:#fff; }
+.art-card .art-body{ color:#111; }                 /* نص أساسي داكن */
+.art-card .art-title{ color:#111; }                /* عنوان الكرت */
+.art-card .art-desc{ color:#333; opacity:1; }      /* وصف أوضح (بدون بهتان) */
+.art-card .ext-link{ color:#1a1a1a; opacity:.85; } /* رابط خارجي */
+.art-card .chip{ color:#111; }                     /* نص التاغز */
+
+@media (prefers-color-scheme: dark){
+  /* لو فيه ستايل عام يفرض نص أبيض، نكسرُه هنا */
+  .art-card .art-body,
+  .art-card .art-title,
+  .art-card .art-desc,
+  .art-card .ext-link,
+  .art-card .chip{ color:#111 !important; }
+}
