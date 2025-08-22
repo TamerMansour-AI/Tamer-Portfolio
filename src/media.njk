@@ -1,84 +1,45 @@
 ---
 layout: page.njk
-title: Media
+title: Media & Reels
 permalink: /media/index.html
+description: "AI-generated films, reels, and visual poems by Tamer Mansour."
 ---
 
-{% set items = [
-  { url: 'https://youtu.be/L66kKVmgZRI' },
-  { url: 'https://youtu.be/_zTTKywCMu4' },
-  { url: 'https://youtu.be/ZvbIeKdasOc' },
-  { url: 'https://youtu.be/hrYES6lzX9E' },
-  { url: 'https://youtu.be/T64Vv0Opdfs' },
-  { url: 'https://youtu.be/T55aC2muItM' },
-  { url: 'https://youtu.be/o5f5cjZw_j8' },
-  { url: 'https://youtu.be/hjLWd6J86U8' },
-  { url: 'https://youtu.be/TcxHhyMLvfo' },
-  { url: 'https://youtu.be/dqGQJQ1jvHg' }
-] %}
-
 <section class="container section-pad media-hero">
-  <header class="section-head">
-    <h1 class="page-title">Media & Reels</h1>
-    <p class="page-kicker">Fast thumbnails. Click to play inline.</p>
+  <header class="media-head">
+    <h1>Media & Reels</h1>
+    <p class="lead">Cinematic experiments, visual poems, and reels from my AI lab.</p>
   </header>
-</section>
 
-<section class="container section-pad">
-  <div class="video-grid">
-    {% for video in items %}
-      {% set id = (video.url or '')
-        | replace('https://www.youtube.com/watch?v=', '')
-        | replace('http://www.youtube.com/watch?v=', '')
-        | replace('https://youtu.be/', '')
-        | replace('http://youtu.be/', '')
-      %}
-      {% set id = id.split('&')[0] %}
-      {% if id %}
-        {% set title = video.title or id %}
-        {% set desc = video.desc or '' %}
-        {% set thumb = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg' %}
+  <div class="media-tools">
+    <input id="mediaSearch" class="media-search" type="search" placeholder="Search videos…" aria-label="Search videos">
+    <div class="media-chips" id="mediaChips"></div>
+  </div>
 
-        <article class="video-card" data-ytid="{{ id }}">
-          <div class="player-wrap">
-            <button class="thumb" type="button" aria-label="Play {{ title }}">
-              <img src="{{ thumb }}" alt="Thumbnail: {{ title }}" loading="lazy" />
-              <span class="play-badge" aria-hidden="true">▶</span>
-            </button>
-          </div>
-          <div class="meta">
-            <h3 class="v-title">{{ title }}</h3>
-            {% if desc %}<p class="v-desc">{{ desc }}</p>{% endif %}
-          </div>
-          <noscript>
-            <p><a href="https://www.youtube.com/watch?v={{ id }}" target="_blank" rel="noopener">Open on YouTube</a></p>
-          </noscript>
-        </article>
-      {% endif %}
+  <div class="art-grid" id="mediaGrid">
+    {% for v in media.videos %}
+      {% set imgsrc = v.thumb and v.thumb or ("https://i.ytimg.com/vi/" + v.id + "/hqdefault.jpg") %}
+      <article class="art-card js-video" data-yt="{{ v.id }}" data-title="{{ v.title | escape }}" data-tags="{{ (v.tags or []) | join(',') }}">
+        <div class="art-thumb">
+          <img src="{{ imgsrc }}" alt="{{ v.title }}" loading="lazy" width="480" height="270">
+          <button class="watch-btn" type="button" aria-label="Play video">► Watch</button>
+        </div>
+        <div class="art-body">
+          <h3 class="art-title">{{ v.title }}</h3>
+          <p class="art-desc">{{ v.desc }}</p>
+          {% if v.tags and v.tags.length %}
+            <div class="tags">
+              {% for t in v.tags %}
+                <span class="chip">{{ t }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <a class="ext-link" href="https://www.youtube.com/watch?v={{ v.id }}" target="_blank" rel="noopener">Open on YouTube ↗</a>
+        </div>
+      </article>
     {% endfor %}
   </div>
 </section>
 
-<script>
-(function(){
-  const qsa = (s)=>Array.from(document.querySelectorAll(s));
-  qsa('.video-card .thumb').forEach(btn => {
-    btn.addEventListener('click', ()=>{
-      const card = btn.closest('.video-card');
-      const id = card && card.getAttribute('data-ytid');
-      const wrap = card && card.querySelector('.player-wrap');
-      if(!id || !wrap) return;
-      const iframe = document.createElement('iframe');
-      iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
-      iframe.title = 'YouTube player';
-      iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-      iframe.allowFullscreen = true;
-      iframe.style.width = '100%';
-      iframe.style.height = '100%';
-      wrap.innerHTML='';
-      wrap.appendChild(iframe);
-      card.classList.add('is-playing');
-    });
-  });
-})();
-</script>
+<!-- Page script (use | url to respect pathPrefix) -->
+<script defer src="{{ '/js/media.js' | url }}"></script>
