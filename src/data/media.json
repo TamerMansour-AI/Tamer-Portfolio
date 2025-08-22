@@ -1,10 +1,81 @@
+# /src/data/media.json
 {
   "videos": [
     {
       "id": "dqGQJQ1jvHg",
       "title": "I Am the Land — Visual Poem",
-      "desc": "A visual poem inspired by Mahmoud Darwish. Palestinian voice, memory-made imagery.",
+      "desc": "A visual poem inspired by Mahmoud Darwish — voice, memory-made imagery, and AI cinematics.",
       "tags": ["poem", "palestine", "visual"],
+      "thumb": ""
+    },
+    {
+      "id": "TcxHhyMLvfo",
+      "title": "Generative Portraits — Motion Study",
+      "desc": "Short study in generative motion and portrait texture. Hand-crafted prompts + minimal cuts.",
+      "tags": ["ai-film", "portrait", "study"],
+      "thumb": ""
+    },
+    {
+      "id": "hjLWd6J86U8",
+      "title": "Memory of Stones — Short Reel",
+      "desc": "Reel exploring stone, dust, and archival textures as living memory.",
+      "tags": ["reel", "palestine", "texture"],
+      "thumb": ""
+    },
+    {
+      "id": "nBkYRVSdio4",
+      "title": "City of Echoes — AI Music Cut",
+      "desc": "Music-driven visual cut; rhythms guide scenes through light and shadow.",
+      "tags": ["music", "ai-film", "reel"],
+      "thumb": ""
+    },
+    {
+      "id": "4_OvFXOjkWU",
+      "title": "Eyes of Gaza — Microfilm",
+      "desc": "Microfilm sequence — glances, rubble, and resilience. Minimal text, strong imagery.",
+      "tags": ["palestine", "microfilm", "poem"],
+      "thumb": ""
+    },
+    {
+      "id": "o5f5cjZw_j8",
+      "title": "Echoes of the Land — Song",
+      "desc": "A song from the heart of Palestine — traditional motifs blended with AI arrangement.",
+      "tags": ["music", "palestine"],
+      "thumb": ""
+    },
+    {
+      "id": "T55aC2muItM",
+      "title": "Desert Birds — Visual Study",
+      "desc": "Minimal shots and grain — studying motion like birds over dunes.",
+      "tags": ["study", "minimal", "reel"],
+      "thumb": ""
+    },
+    {
+      "id": "T64Vv0Opdfs",
+      "title": "Olive Branch Dreams — Reel",
+      "desc": "Olive leaves, fabric patterns, and soft light — a reel about calm resistance.",
+      "tags": ["olive", "reel", "visual"],
+      "thumb": ""
+    },
+    {
+      "id": "hrYES6lzX9E",
+      "title": "Dawn Over the Hills — Ambient Cut",
+      "desc": "Ambient visuals at first light — slow camera, long frames.",
+      "tags": ["ambient", "reel"],
+      "thumb": ""
+    },
+    {
+      "id": "ZvbIeKdasOc",
+      "title": "Broken Frame — Experimental Edit",
+      "desc": "Experimental pacing and frame tearing — testing limits of AI motion.",
+      "tags": ["experimental", "ai-film"],
+      "thumb": ""
+    },
+    {
+      "id": "L66kKVmgZRI",
+      "title": "Sand & Light — Minimal Poetics",
+      "desc": "Minimal visual poetics: sand, wind, and soft light in quiet loops.",
+      "tags": ["minimal", "poem", "visual"],
       "thumb": ""
     }
   ]
