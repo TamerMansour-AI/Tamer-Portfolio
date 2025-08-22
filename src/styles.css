@@ -313,3 +313,44 @@ footer .social-icons a img {
   .art-card .ext-link,
   .art-card .chip{ color:#111 !important; }
 }
+/* ===== External Gallery ===== */
+.gallery-grid{
+  display:grid; gap:1rem;
+  grid-template-columns: repeat(12, 1fr);
+}
+@media (max-width:1200px){ .gallery-grid{ grid-template-columns: repeat(8, 1fr) } }
+@media (max-width:800px){ .gallery-grid{ grid-template-columns: repeat(4, 1fr) } }
+
+.g-card{
+  grid-column: span 4; background:#fff; border:1px solid #f0f0f0; border-radius:16px; overflow:hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,.04);
+  opacity:0; transform: translateY(8px); transition: .2s ease;
+}
+@media (max-width:800px){ .g-card{ grid-column: span 4 } }
+.g-card.g-show{ opacity:1; transform: translateY(0) }
+
+.g-card img, .g-card video{ width:100%; height:auto; display:block }
+.g-cap{ padding:.6rem .8rem; color:#222 }
+.g-video{ background:#000 }
+.g-yt{ position:relative; aspect-ratio:16/9; background:#111; overflow:hidden }
+.g-yt img{ width:100%; height:100%; object-fit:cover; opacity:.9 }
+.yt-play{
+  position:absolute; inset:auto auto .6rem .6rem; border:0; border-radius:999px; padding:.45rem .7rem;
+  background:rgba(0,0,0,.75); color:#fff; cursor:pointer
+}
+
+.g-dlg::backdrop{ background:rgba(0,0,0,.65) }
+.g-dlg{ border:0; border-radius:16px; padding:0 }
+.g-dlg .g-dlg-body{ position:relative; padding:0; background:#000; border-radius:16px }
+.g-dlg .g-close{
+  position:absolute; top:.25rem; right:.25rem; border:0; background:#fff; border-radius:999px; width:32px; height:32px; cursor:pointer
+}
+.gallery-actions{ display:flex; justify-content:center; margin:1rem 0 }
+.loadmore{ padding:.6rem 1rem; border:1px solid #e3e3e3; border-radius:999px; background:#fff; cursor:pointer }
+.loadmore.is-hidden{ display:none }
+
+.media-tools{ display:flex; gap:.75rem; align-items:center; flex-wrap:wrap; margin: .5rem 0 1rem }
+.media-search{ flex:1 1 260px; padding:.65rem .8rem; border:1px solid #e3e3e3; border-radius:12px; font:inherit }
+.media-chips{ display:flex; gap:.5rem; flex-wrap:wrap }
+.chip{ padding:.35rem .7rem; border:1px solid #e3e3e3; border-radius:999px; background:#fff; cursor:pointer; font-size:.9rem }
+.chip--active{ border-color:var(--olive,#6a7f4e); background:rgba(106,127,78,.08) }
