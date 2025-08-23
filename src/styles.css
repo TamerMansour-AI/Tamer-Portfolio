@@ -420,3 +420,56 @@ footer .social-icons a img {
 }
 .toast.show{ opacity:1; transform:translateX(-50%) translateY(0) }
 
+/* === Fix: readable text on white cards (Contact page) === */
+.contact-card,
+.social-card{
+  background:#fff;
+  color:#111;               /* نص أساسي داكن */
+}
+
+/* عناوين وقيم داخل الكروت */
+.contact-card .cc-head h2,
+.contact-card .cc-value,
+.contact-card .cc-value a{
+  color:#111;
+}
+
+/* أزرار واضحة فوق خلفية بيضاء */
+.contact-page .btn{ color:#111; }
+.contact-page .btn-primary{
+  color:#111;
+  border-color: var(--olive, #6a7f4e);
+  background: rgba(106,127,78,.12);
+}
+.contact-page .btn-ghost{
+  color:#111;
+  background:#fff;
+  border-color:#e3e3e3;
+}
+
+/* شبكة السوشال */
+.social-card .sc-title{ color:#111; }
+.social-card .sc-handle{ color:#333; opacity:1; }
+
+/* حقول النموذج */
+.contact-form .form input,
+.contact-form .form textarea{
+  color:#111;
+  background:#fff;
+}
+.contact-form .form ::placeholder{ color:#777; }
+
+/* لو الثيم الداكن فارض لون أبيض بشكل عام، غلِّبه داخل الكروت */
+@media (prefers-color-scheme: dark){
+  .contact-card,
+  .social-card,
+  .contact-card *:not(svg),
+  .social-card *:not(svg),
+  .contact-form .form input,
+  .contact-form .form textarea{
+    color:#111 !important;
+    background:#fff;
+  }
+  .contact-page .btn{ color:#111 !important; }
+  .contact-card .cc-value a{ color:#111 !important; }
+}
