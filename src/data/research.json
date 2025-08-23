@@ -1,0 +1,103 @@
+{
+  "items": [
+    {
+      "type": "notebooklm",
+      "title": "Ramallah: Geography, History & Heritage",
+      "desc": "Survey of Ramallah’s geology and archaeological periods (Neolithic→Islamic/modern), with recommendations to use modern survey & AI for protection/documentation, plus community–academic partnerships and cultural tourism.",
+      "url": "https://notebooklm.google.com/notebook/ffb6d467-d0c1-4406-aab5-fcb8055db229",
+      "thumb": "",
+      "topics": ["palestine","archaeology","heritage"],
+      "date": "2025-08-23"
+    },
+    {
+      "type": "notebooklm",
+      "title": "Beginner’s AI Roadmap",
+      "desc": "Emphasizes core AI concepts over tool-chasing; roadmap covering LLMs, search, image/video/audio generation, automation/agents, and “vibe coding” to reclaim time and solve real pain points.",
+      "url": "https://notebooklm.google.com/notebook/af775138-9c58-47d5-ac47-f9ab34b48167",
+      "thumb": "",
+      "topics": ["ai-basics","workflow","learning"],
+      "date": "2025-08-23"
+    },
+    {
+      "type": "notebooklm",
+      "title": "Endless Conflict: Russia, the West, and Israel",
+      "desc": "Chronology and key figures shaping global politics, focusing on the Israeli–Palestinian conflict and the war in Ukraine; touches on debates around NATO expansion, Mearsheimer’s analyses, and macro impacts.",
+      "url": "https://notebooklm.google.com/notebook/623fa683-ec4a-4af9-a399-66c42670e695",
+      "thumb": "",
+      "topics": ["geopolitics","israel-palestine","ukraine"],
+      "date": "2025-08-23"
+    },
+    {
+      "type": "notebooklm",
+      "title": "AI Narratives: Reality & 2030 Futures",
+      "desc": "Six narratives—progress/empowerment vs replacement/threat, digital colonialism, posthumanism, ethics, and bias/mirror—assessed with current evidence and practical notes for Arab policymakers.",
+      "url": "https://notebooklm.google.com/notebook/421e3dc7-3b05-461c-8e2f-01e2a985abf4",
+      "thumb": "",
+      "topics": ["ai-futures","ethics","policy"],
+      "date": "2025-08-23"
+    },
+    {
+      "type": "notebooklm",
+      "title": "Canaanite Rituals: Roots & Expressions",
+      "desc": "Late Bronze → early Iron Age rituals tied to agrarian calendars; temple/open-air practices; influences (Egypt, Phoenicia, Moab, Israel); scholarly debates (e.g., human sacrifice) and continuities in Palestinian memory.",
+      "url": "https://notebooklm.google.com/notebook/b3ceba97-cea4-41ce-8d4d-3386eb816ba6",
+      "thumb": "",
+      "topics": ["canaan","rituals","archaeology"],
+      "date": "2025-08-23"
+    },
+    {
+      "type": "notebooklm",
+      "title": "Palestine’s Legacy: Global Phenomena from the Holy Land",
+      "desc": "Highlights contributions such as the earliest alphabet, grain agriculture/terracing/irrigation, trade/diplomacy hubs (e.g., Gaza, Jaffa), hospitality culture, stone architecture, herbal medicine, and resistance literature.",
+      "url": "https://notebooklm.google.com/notebook/9f2c9b5e-5d0d-4f80-8783-27e6d8fecffa",
+      "thumb": "",
+      "topics": ["palestine","civilization","heritage"],
+      "date": "2025-08-23"
+    },
+    {
+      "type": "notebooklm",
+      "title": "Palestine: Mirror of the World’s Conscience",
+      "desc": "Scenario brief to 2030 on the disappearance of Palestine and global implications—cultural memory erosion, strained civic movements, leadership failures, and a wider loss of heritage and moral bearings.",
+      "url": "https://notebooklm.google.com/notebook/ce6dff68-d847-49ed-9350-67ba34949c10",
+      "thumb": "",
+      "topics": ["scenario","palestine","culture"],
+      "date": "2025-08-23"
+    },
+    {
+      "type": "notebooklm",
+      "title": "Learning & AI: A Fundamental Shift",
+      "desc": "From rote learning to self-directed, flexible, higher-order skills; effects of AI on memory, focus, leadership; identity & bias considerations; the rise of continuous learning and uniquely human skills.",
+      "url": "https://notebooklm.google.com/notebook/f127e7e7-6638-4ee5-9687-f2ef13e7ed0f",
+      "thumb": "",
+      "topics": ["education","ai","skills"],
+      "date": "2025-08-23"
+    },
+    {
+      "type": "notebooklm",
+      "title": "Ancient Civilizations — Reappraising Durant",
+      "desc": "Re-evaluates Will & Ariel Durant’s theses with post-1980 research; brings in Americas, Sub-Saharan Africa, East Asia; analyzes shared patterns (environment, trade, governance).",
+      "url": "https://notebooklm.google.com/notebook/35375de7-596e-4773-b1e8-60bd37821432",
+      "thumb": "",
+      "topics": ["history","civilizations","comparative"],
+      "date": "2025-08-23"
+    },
+    {
+      "type": "notebooklm",
+      "title": "RAG (Retrieval-Augmented Generation): A Practical Guide",
+      "desc": "2025 tools landscape—NotebookLM, Midjourney v7, GPT/Claude, Suno, ElevenLabs, Veo, Gemini, Grok, DeepSeek—what RAG is, why it helps LLM accuracy, and where to apply it.",
+      "url": "https://notebooklm.google.com/notebook/1d062dc1-d3fa-45db-af07-b349d32b7693",
+      "thumb": "",
+      "topics": ["rag","llms","tooling"],
+      "date": "2025-08-23"
+    },
+    {
+      "type": "notebooklm",
+      "title": "Khazal Al-Majdi: Rethinking Narratives",
+      "desc": "A critical discussion with historian Khazal Al-Majdi on archaeology-driven historiography, development of Judaism, debates around evidence, the decline of rational inquiry, and a call for scientific/philosophical renewal.",
+      "url": "https://notebooklm.google.com/notebook/6d6de860-87df-4be8-a987-8142fa004f3d",
+      "thumb": "",
+      "topics": ["history","methodology","debate"],
+      "date": "2025-08-23"
+    }
+  ]
+}
