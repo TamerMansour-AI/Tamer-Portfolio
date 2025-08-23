@@ -1,0 +1,20 @@
+---
+layout: page.njk
+pagination:
+  data: collections.cats_ar
+  size: 1
+  alias: cat
+permalink: /ar/blog/category/{{ cat }}/index.html
+---
+<section class="container section-pad" dir="rtl">
+  <h1>تصنيف: {{ cat }}</h1>
+  {% for p in collections.posts_ar | reverse %}
+    {% if p.data.category == cat %}
+      <article class="b-card">
+        <h3><a href="{{ p.url | url }}">{{ p.data.title }}</a></h3>
+        <p class="b-meta">{{ p.date | dateDisplay }} • {{ p.data.category }}</p>
+        {% if p.data.summary %}<p class="b-summary">{{ p.data.summary }}</p>{% endif %}
+      </article>
+    {% endif %}
+  {% endfor %}
+</section>

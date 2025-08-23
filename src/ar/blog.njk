@@ -1,17 +1,17 @@
 ---
 layout: page.njk
-title: Blog
+title: المدونة
+permalink: /ar/blog/index.html
 pagination:
-  data: collections.posts_en
+  data: collections.posts_ar
   size: 10
   alias: posts
-permalink: "/blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
 ---
-<section class="container section-pad">
-  <h1>Blog</h1>
+<section class="container section-pad" dir="rtl">
+  <h1>المدونة</h1>
 
   <div class="media-tools">
-    <input id="blogSearch" class="media-search" type="search" placeholder="Search posts…" aria-label="Search posts">
+    <input id="blogSearch" class="media-search" type="search" placeholder="ابحث في المقالات…" aria-label="ابحث في المقالات">
   </div>
 
   <div id="blogList" class="blog-cards">
@@ -26,8 +26,8 @@ permalink: "/blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumbe
 
   {% if pagination.pages.length > 1 %}
   <nav class="pager">
-    {% if pagination.href.previous %}<a class="btn" href="{{ pagination.href.previous | url }}">← Newer</a>{% endif %}
-    {% if pagination.href.next %}<a class="btn" href="{{ pagination.href.next | url }}">Older →</a>{% endif %}
+    {% if pagination.href.previous %}<a class="btn" href="{{ pagination.href.previous | url }}">← الأحدث</a>{% endif %}
+    {% if pagination.href.next %}<a class="btn" href="{{ pagination.href.next | url }}">الأقدم →</a>{% endif %}
   </nav>
   {% endif %}
 </section>
