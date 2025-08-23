@@ -1,0 +1,21 @@
+---
+layout: page.njk
+pagination:
+  data: collections.tags_en
+  size: 1
+  alias: tag
+permalink: /blog/tag/{{ tag }}/index.html
+---
+<section class="container section-pad">
+  <h1>Tag: {{ tag }}</h1>
+  {% set posts = collections.posts_en | reverse %}
+  {% for p in posts %}
+    {% if p.data.tags and (tag in p.data.tags) %}
+      <article class="b-card">
+        <h3><a href="{{ p.url | url }}">{{ p.data.title }}</a></h3>
+        <p class="b-meta">{{ p.date | dateDisplay }} • {{ p.data.category }}</p>
+        {% if p.data.summary %}<p class="b-summary">{{ p.data.summary }}</p>{% endif %}
+      </article>
+    {% endif %}
+  {% endfor %}
+</section>
