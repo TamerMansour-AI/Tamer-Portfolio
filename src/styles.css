@@ -354,3 +354,69 @@ footer .social-icons a img {
 .media-chips{ display:flex; gap:.5rem; flex-wrap:wrap }
 .chip{ padding:.35rem .7rem; border:1px solid #e3e3e3; border-radius:999px; background:#fff; cursor:pointer; font-size:.9rem }
 .chip--active{ border-color:var(--olive,#6a7f4e); background:rgba(106,127,78,.08) }
+/* ===== Contact Page ===== */
+.contact-page{ display:grid; gap:1.2rem }
+.contact-hero h1{ margin:.2rem 0 .25rem }
+.contact-hero .lead{ opacity:.9 }
+
+.contact-primary{
+  display:grid; gap:1rem;
+  grid-template-columns: repeat(12, 1fr);
+}
+@media (max-width:1000px){ .contact-primary{ grid-template-columns: repeat(8, 1fr) } }
+@media (max-width:720px){ .contact-primary{ grid-template-columns: repeat(4, 1fr) } }
+
+.contact-card{
+  grid-column: span 6;
+  background:#fff; border:1px solid #eee; border-radius:16px; padding:1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,.04);
+}
+@media (max-width:720px){ .contact-card{ grid-column: span 4 } }
+.cc-head{ display:flex; align-items:center; gap:.6rem; margin-bottom:.35rem }
+.cc-icon{ width:38px; height:38px; display:grid; place-items:center; border-radius:10px; background:rgba(106,127,78,.08); color:var(--olive,#6a7f4e) }
+.cc-value a{ font-weight:600; text-decoration:none }
+.cc-actions{ display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.6rem }
+.btn{ padding:.6rem .9rem; border-radius:999px; border:1px solid #e3e3e3; background:#fff; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:.4rem }
+.btn:hover{ transform:translateY(-1px) }
+.btn-primary{ border-color:var(--olive,#6a7f4e); background:rgba(106,127,78,.1) }
+.btn-ghost{ background:#fff }
+
+.qr-wrap{ margin-top:.6rem }
+
+.contact-socials{ margin-top:.8rem }
+.contact-socials h3{ margin:0 0 .5rem }
+
+.social-grid{
+  display:grid; gap:.6rem;
+  grid-template-columns: repeat(12, 1fr);
+}
+@media (max-width:1000px){ .social-grid{ grid-template-columns: repeat(8, 1fr) } }
+@media (max-width:720px){ .social-grid{ grid-template-columns: repeat(4, 1fr) } }
+
+.social-card{
+  grid-column: span 4;
+  background:#fff; border:1px solid #eee; border-radius:16px; padding:.8rem .9rem;
+  text-decoration:none; color:inherit;
+  display:flex; flex-direction:column; gap:.15rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,.04);
+}
+@media (max-width:720px){ .social-card{ grid-column: span 4 } }
+.social-card:hover{ transform:translateY(-2px) }
+.sc-title{ font-weight:700 }
+.sc-handle{ opacity:.85; font-size:.95rem }
+
+.contact-form{ margin-top:1.2rem }
+.form{ display:grid; gap:.6rem; max-width:680px }
+.form input, .form textarea{
+  width:100%; padding:.7rem .8rem; border:1px solid #e3e3e3; border-radius:12px; font:inherit
+}
+.form-note{ opacity:.75; font-size:.9rem }
+
+/* Small toast for copy feedback */
+.toast{
+  position:fixed; left:50%; bottom:24px; transform:translateX(-50%) translateY(6px);
+  background:#111; color:#fff; padding:.5rem .75rem; border-radius:10px; opacity:0;
+  box-shadow:0 10px 26px rgba(0,0,0,.3); pointer-events:none; transition:.2s ease
+}
+.toast.show{ opacity:1; transform:translateX(-50%) translateY(0) }
+
