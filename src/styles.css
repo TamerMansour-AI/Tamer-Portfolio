@@ -473,3 +473,79 @@ footer .social-icons a img {
   .contact-page .btn{ color:#111 !important; }
   .contact-card .cc-value a{ color:#111 !important; }
 }
+/* ===== Contact page polish (icons + avatars + brand accents) ===== */
+.pro-hero{
+  background: linear-gradient(180deg, rgba(106,127,78,.18), rgba(106,127,78,.08));
+  border:1px solid rgba(106,127,78,.25);
+  border-radius:16px; padding:1rem; margin-bottom:.6rem;
+}
+
+.contact-card{
+  position:relative;
+  background:#fff; color:#111;
+  border:1px solid #ececec; border-radius:16px; padding:1rem;
+  box-shadow:0 8px 22px rgba(0,0,0,.05);
+}
+.cc-head{ display:flex; align-items:center; gap:.6rem; margin-bottom:.35rem }
+.cc-icon{
+  width:40px; height:40px; display:grid; place-items:center;
+  border-radius:12px; background:rgba(106,127,78,.12); color:var(--olive,#6a7f4e);
+}
+
+.contact-page .btn{ color:#111; }
+.contact-page .btn-primary{ border-color:var(--olive,#6a7f4e); background:rgba(106,127,78,.12) }
+.contact-page .btn-ghost{ background:#fff; border-color:#e3e3e3 }
+
+/* Social grid cards */
+.social-grid{
+  display:grid; gap:.8rem;
+  grid-template-columns: repeat(12, 1fr);
+}
+@media (max-width:1000px){ .social-grid{ grid-template-columns: repeat(8, 1fr) } }
+@media (max-width:720px){ .social-grid{ grid-template-columns: repeat(4, 1fr) } }
+
+.social-card{
+  grid-column: span 6;
+  display:flex; align-items:center; gap:.8rem;
+  text-decoration:none; color:inherit;
+  background:#fff; border:1px solid #ececec; border-radius:16px; padding:.8rem .9rem;
+  box-shadow:0 8px 22px rgba(0,0,0,.05); transition: transform .15s ease, box-shadow .15s ease;
+}
+@media (max-width:720px){ .social-card{ grid-column: span 4 } }
+
+.social-card:hover{ transform: translateY(-2px); box-shadow:0 14px 28px rgba(0,0,0,.08) }
+
+.sc-left{ display:flex; align-items:center; gap:.6rem }
+.sc-ico{
+  width:36px; height:36px; display:grid; place-items:center;
+  border-radius:12px; background:#f4f4f4; color:#111;
+}
+.sc-avatar{
+  width:38px; height:38px; border-radius:50%; object-fit:cover; background:#f1f1f1;
+  border:1px solid #eee;
+}
+.sc-body{ display:flex; flex-direction:column; }
+.sc-title{ font-weight:700; color:#111 }
+.sc-handle{ color:#333; opacity:.95 }
+.sc-arrow{ margin-left:auto; opacity:.6 }
+
+/* Brand color accents per platform */
+.sc--facebook .sc-ico{ background:rgba(24,119,242,.12); color:#1877F2 }
+.sc--x .sc-ico{ background:rgba(0,0,0,.12); color:#111 }
+.sc--tiktok .sc-ico{ background:rgba(0,0,0,.12); color:#111 }
+.sc--youtube .sc-ico{ background:rgba(255,0,0,.12); color:#FF0000 }
+.sc--substack .sc-ico{ background:rgba(255,102,0,.12); color:#FF6600 }
+.sc--instagram .sc-ico{ background:rgba(225,48,108,.12); color:#E1306C }
+
+/* Form fields readable on white */
+.contact-form .form input,
+.contact-form .form textarea{ color:#111; background:#fff; border:1px solid #e3e3e3 }
+.contact-form .form ::placeholder{ color:#777 }
+
+/* Dark-mode override: keep cards readable */
+@media (prefers-color-scheme: dark){
+  .contact-card, .social-card, .contact-card *:not(svg), .social-card *:not(svg){
+    color:#111 !important; background:#fff !important;
+  }
+}
+
