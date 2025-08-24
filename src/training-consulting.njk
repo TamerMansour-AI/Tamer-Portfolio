@@ -1,21 +1,127 @@
 ---
 layout: page.njk
 title: Training & Consulting
+permalink: /training-consulting/index.html
+description: "AI training and creative consulting for teams and creators (EN/AR)."
 ---
+{% set offers = offers_en %}
+<section class="container section-pad svc-page">
+  <header class="svc-hero">
+    <picture>
+      <source media="(max-width: 720px)" srcset="{{ offers.hero.image_mobile }}">
+      <img class="svc-hero-img" src="{{ offers.hero.image }}" alt="{{ offers.hero.alt }}" loading="eager" decoding="async">
+    </picture>
+    <div class="svc-hero-overlay" style="--pattern-url: url('{{ offers.hero.pattern }}')"></div>
+    <div class="svc-hero-body">
+      <h1>{{ offers.hero.title }}</h1>
+      <p class="lead">{{ offers.hero.subtitle }}</p>
+      <div class="svc-cta">
+        <a class="btn btn-primary" href="{{ offers.hero.cta_primary.url }}" target="_blank" rel="noopener">{{ offers.hero.cta_primary.label }}</a>
+        <a class="btn" href="{{ offers.hero.cta_secondary.url }}" target="_blank" rel="noopener">{{ offers.hero.cta_secondary.label }}</a>
+        <a class="btn btn-ghost" href="{{ offers.hero.cta_email.url }}">{{ offers.hero.cta_email.label }}</a>
+      </div>
+    </div>
+  </header>
 
-<h2>AI for Creative Professionals</h2>
-<p>This two‑hour session introduces artists, designers and filmmakers to the latest AI tools and workflows. Learn how to integrate generative models into your creative practice responsibly and effectively.</p>
+  <section class="svc-who">
+    <h2>Who I help</h2>
+    <ul class="svc-who-list">
+      {% for w in offers.who %}<li>{{ w }}</li>{% endfor %}
+    </ul>
+  </section>
 
-<h2>Custom Workshops</h2>
-<p>Looking for a customised training or consultation? I offer tailored workshops and one‑on‑one sessions. Reach out to discuss your needs.</p>
+  <section class="svc-workshops">
+    <h2>Signature workshops</h2>
+    <div class="svc-grid">
+      {% for w in offers.workshops %}
+      <article class="svc-card">
+        <figure class="svc-thumb"><img src="{{ w.thumb }}" alt="{{ w.alt }}" loading="lazy" decoding="async"></figure>
+        <div class="svc-card-body">
+          <h3>{{ w.title }}</h3>
+          <p class="svc-meta">{{ w.duration }} • {{ w.level }} • {{ w.format }}</p>
+          <ul class="svc-bullets">{% for o in w.outcomes %}<li>{{ o }}</li>{% endfor %}</ul>
+          <p class="svc-tools"><strong>Tools:</strong> {{ w.tools | join(', ') }}</p>
+          <div class="svc-card-actions">
+            <a class="btn btn-primary" href="mailto:ai.visionary.pioneer@gmail.com?subject=Workshop%20syllabus%20request%20(%20{{ w.id }}%20)" >Get syllabus</a>
+            <a class="btn" href="https://wa.me/970599797245?text=Workshop:%20{{ w.title | urlencode }}" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
 
-<p>For bookings and enquiries, see the <a href="/Tamer-Portfolio/contact/">contact page</a>.</p>
+  <section class="svc-packages">
+    <h2>Consulting packages</h2>
+    <div class="svc-grid">
+      {% for p in offers.packages %}
+      <article class="svc-card">
+        <figure class="svc-thumb"><img src="{{ p.thumb }}" alt="{{ p.alt }}" loading="lazy" decoding="async"></figure>
+        <div class="svc-card-body">
+          <h3>{{ p.title }}</h3>
+          <p class="svc-meta">{{ p.who }}</p>
+          <ul class="svc-bullets">{% for d in p.deliverables %}<li>{{ d }}</li>{% endfor %}</ul>
+          <p class="svc-result"><strong>Outcome:</strong> {{ p.result }}</p>
+          <div class="svc-card-actions">
+            <a class="btn btn-primary" href="https://wa.me/970599797245?text=Package:%20{{ p.title | urlencode }}" target="_blank" rel="noopener">Discuss</a>
+            <a class="btn btn-ghost js-copy" data-copy="https://wa.me/970599797245">Copy WhatsApp</a>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
 
-{% for item in collections.all %}
-  {% if item.data.tags and (item.data.tags.includes('training') or item.data.tags.includes('consulting')) %}
-    <article class="media-card">
-      <h2>{{ item.data.title }}</h2>
-      <p>{{ item.data.excerpt }}</p>
-    </article>
-  {% endif %}
-{% endfor %}
+  <section class="svc-cases">
+    <h2>Mini case snippets</h2>
+    <div class="svc-grid">
+      {% for c in offers.cases %}
+      <article class="svc-card">
+        <figure class="svc-thumb"><img src="{{ c.thumb }}" alt="{{ c.alt }}" loading="lazy" decoding="async"></figure>
+        <div class="svc-card-body">
+          <h3>{{ c.title }}</h3>
+          <p class="svc-meta"><strong>Problem:</strong> {{ c.problem }}</p>
+          <p class="svc-meta"><strong>Approach:</strong> {{ c.approach }}</p>
+          <p class="svc-meta"><strong>Result:</strong> {{ c.result }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="svc-process">
+    <h2>How we’ll work</h2>
+    <figure class="svc-process-fig">
+      <img src="{{ offers.process.image }}" alt="{{ offers.process.alt }}" loading="lazy" decoding="async">
+    </figure>
+    <ol class="svc-steps">{% for s in offers.process.steps %}<li><strong>{{ s.title }}</strong> — {{ s.desc }}</li>{% endfor %}</ol>
+  </section>
+
+  <section class="svc-faq">
+    <h2>FAQs</h2>
+    <div class="svc-faq-list">
+      {% for f in offers.faq %}
+      <details class="svc-faq-item">
+        <summary>{{ f.q }}</summary>
+        <p>{{ f.a }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="svc-cta">
+    <figure class="svc-cta-bg">
+      <img src="{{ offers.cta.image }}" alt="{{ offers.cta.alt }}" loading="lazy" decoding="async">
+    </figure>
+    <div class="svc-cta-body">
+      <h2>{{ offers.cta.title }}</h2>
+      <p class="lead">{{ offers.cta.subtitle }}</p>
+      <div class="svc-cta-actions">
+        {% for b in offers.cta.buttons %}
+          <a class="btn {% if loop.index == 1 %}btn-primary{% endif %}" href="{{ b.url }}" target="_blank" rel="noopener">{{ b.label }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</section>
+<script defer src="{{ '/js/services.js' | url }}"></script>
