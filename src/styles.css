@@ -628,3 +628,67 @@ footer .social-icons a img {
   .b-card, .b-card *:not(svg),
   .post-body, .post-body *:not(svg){ color:#111 !important; background:#fff !important; }
 }
+/* ===== Services (Training & Consulting) ===== */
+.svc-page{ display:grid; gap:1.2rem; color:#111 }
+.svc-hero{ position:relative; border-radius:18px; overflow:hidden; border:1px solid #ececec }
+.svc-hero-img{ width:100%; height:auto; display:block }
+.svc-hero-overlay{
+  position:absolute; inset:0;
+  background-image: radial-gradient(transparent, rgba(0,0,0,.15)), var(--pattern-url);
+  background-blend-mode: overlay; background-size: cover, 220px 220px; opacity:.35; pointer-events:none;
+}
+.svc-hero-body{
+  position:absolute; inset:auto 0 0 0; padding:1rem;
+  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.45));
+  color:#fff;
+}
+.svc-cta{ display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.5rem }
+.btn{ padding:.6rem .9rem; border:1px solid #e3e3e3; border-radius:999px; background:#fff; text-decoration:none; cursor:pointer }
+.btn-primary{ border-color:var(--olive,#6a7f4e); background:rgba(106,127,78,.12); color:#111 }
+.btn-ghost{ background:#fff; color:#111 }
+
+.svc-who .svc-who-list{ display:grid; gap:.35rem; padding-left:1rem }
+.svc-workshops h2, .svc-packages h2, .svc-cases h2, .svc-process h2, .svc-faq h2{ margin:.2rem 0 .4rem }
+
+.svc-grid{ display:grid; gap:1rem; grid-template-columns: repeat(12, 1fr) }
+@media (max-width:1200px){ .svc-grid{ grid-template-columns: repeat(8, 1fr) } }
+@media (max-width:800px){ .svc-grid{ grid-template-columns: repeat(4, 1fr) } }
+
+.svc-card{ grid-column: span 6; background:#fff; border:1px solid #ececec; border-radius:16px; overflow:hidden; box-shadow:0 8px 22px rgba(0,0,0,.05) }
+@media (max-width:800px){ .svc-card{ grid-column: span 4 } }
+.svc-thumb img{ width:100%; height:auto; display:block }
+.svc-card-body{ padding:.9rem }
+.svc-meta{ opacity:.9; margin:.25rem 0 .4rem }
+.svc-bullets{ margin:.35rem 0 .6rem; padding-left:1rem }
+.svc-tools{ margin:.2rem 0 .6rem }
+.svc-card-actions{ display:flex; gap:.5rem; flex-wrap:wrap }
+
+.svc-cases .svc-card .svc-card-body p{ margin:.15rem 0 }
+
+.svc-process-fig img{ width:100%; height:auto; border-radius:12px; border:1px solid #efefef }
+.svc-steps{ margin:.6rem 0 0; padding-left:1.2rem }
+
+.svc-faq-list{ display:grid; gap:.5rem }
+.svc-faq-item{ background:#fff; border:1px solid #ececec; border-radius:12px; padding:.6rem .8rem }
+.svc-cta{ position:relative; border:1px solid #ececec; border-radius:16px; overflow:hidden }
+.svc-cta-bg img{ width:100%; height:auto; display:block; filter: saturate(.95) contrast(.98) }
+.svc-cta-body{
+  position:absolute; inset:0; display:grid; place-items:center; text-align:center; padding:1rem;
+  background: radial-gradient( circle at center, rgba(255,255,255,.88), rgba(255,255,255,.6) );
+}
+.svc-cta-actions{ display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center }
+
+.toast{
+  position:fixed; left:50%; bottom:24px; transform:translateX(-50%) translateY(6px);
+  background:#111; color:#fff; padding:.5rem .75rem; border-radius:10px; opacity:0;
+  box-shadow:0 10px 26px rgba(0,0,0,.3); pointer-events:none; transition:.2s ease
+}
+.toast.show{ opacity:1; transform:translateX(-50%) translateY(0) }
+
+/* Dark-mode: force readable on white cards */
+@media (prefers-color-scheme: dark){
+  .svc-card, .svc-card *:not(svg),
+  .svc-faq-item, .svc-faq-item *:not(svg){
+    color:#111 !important; background:#fff !important;
+  }
+}

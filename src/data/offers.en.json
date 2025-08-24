@@ -1,0 +1,184 @@
+{
+  "hero": {
+    "title": "AI Training & Creative Consulting",
+    "subtitle": "For teams and creators — Arabic & English",
+    "image": "https://cdn.midjourney.com/d0efe43e-df4f-4b5c-a5fe-8b7c9208c37e/0_0.png",
+    "image_mobile": "https://cdn.midjourney.com/2d5124ab-172a-4e24-848d-deb142417ad1/0_2.png",
+    "alt": "Creative studio desk with kufiya shadow and olive branch",
+    "alt_mobile": "Close, warm workspace with olive branch",
+    "pattern": "https://cdn.midjourney.com/3e4f1649-ce3f-482b-bd3c-cea73fff8650/0_2.png",
+    "cta_primary": { "label": "Book a 20-min call", "url": "https://wa.me/970599797245?text=Hi%20Tamer%2C%20I%27d%20like%20to%20book%20a%2020-min%20discovery%20call" },
+    "cta_secondary": { "label": "WhatsApp", "url": "https://wa.me/970599797245" },
+    "cta_email": { "label": "Email", "url": "mailto:ai.visionary.pioneer@gmail.com?subject=Training%20%26%20Consulting%20inquiry" }
+  },
+  "who": [
+    "Creators & filmmakers",
+    "NGOs & cultural orgs",
+    "Startups & product teams",
+    "Educators & trainers"
+  ],
+  "workshops": [
+    {
+      "id": "story",
+      "title": "AI for Storytellers",
+      "duration": "Half-day",
+      "level": "Beginner–Intermediate",
+      "outcomes": [
+        "Build look-dev moodboards",
+        "Prompt stacks for styles/shots",
+        "Edit flow from frames → reel"
+      ],
+      "tools": ["Midjourney", "NotebookLM", "Premiere/Resolve"],
+      "format": "Online or onsite",
+      "thumb": "https://cdn.midjourney.com/ba6df411-c5c7-4b4b-8eeb-44a4fff40853/0_3.png",
+      "alt": "Storyboard frames with olive accents on a clean desk"
+    },
+    {
+      "id": "notebooklm",
+      "title": "NotebookLM for Research",
+      "duration": "2 hours",
+      "level": "All levels",
+      "outcomes": [
+        "Import sources & organize",
+        "Build living briefs",
+        "Q&A research workflows"
+      ],
+      "tools": ["NotebookLM"],
+      "format": "Online or onsite",
+      "thumb": "https://cdn.midjourney.com/5d543898-ee14-47b6-b1c5-f3c84cfb0558/0_1.png",
+      "alt": "Collage of notebook pages and clipped articles with olive tone"
+    },
+    {
+      "id": "prompting",
+      "title": "Creative Prompt Engineering",
+      "duration": "3 hours",
+      "level": "Intermediate",
+      "outcomes": [
+        "Reusable prompting patterns",
+        "Guardrails & evaluation",
+        "Faster iteration cycles"
+      ],
+      "tools": ["ChatGPT/Claude", "NotebookLM"],
+      "format": "Online or onsite",
+      "thumb": "https://cdn.midjourney.com/31909acd-58bf-41dd-815b-d02468775536/0_3.png",
+      "alt": "Macro shot of sticky notes and linking strings, premium editorial"
+    },
+    {
+      "id": "genvideo",
+      "title": "Gen-Video Look-Dev",
+      "duration": "Half-day",
+      "level": "Intermediate",
+      "outcomes": [
+        "Keyframes & camera moves",
+        "Shot tests & sequences",
+        "Playable reel prototype"
+      ],
+      "tools": ["MJ/Comfy or comparable", "Premiere/Resolve"],
+      "format": "Online or onsite",
+      "thumb": "https://cdn.midjourney.com/107589ad-b145-402d-9a8f-1747d4b7ed55/0_1.png",
+      "alt": "Cinematic film strip with abstract motion"
+    },
+    {
+      "id": "ethics",
+      "title": "Responsible AI",
+      "duration": "2 hours",
+      "level": "All levels",
+      "outcomes": [
+        "Attribution & consent basics",
+        "Bias testing & red-teaming",
+        "Ethical checklist for teams"
+      ],
+      "tools": ["Policy frameworks", "Checklists"],
+      "format": "Online or onsite",
+      "thumb": "https://cdn.midjourney.com/914baafb-c503-4740-9177-15b8770cef29/0_3.png",
+      "alt": "Balanced scales with data dots and olive motif"
+    }
+  ],
+  "packages": [
+    {
+      "id": "starter",
+      "title": "Starter (Ad-hoc)",
+      "who": "Individuals or small teams starting with AI.",
+      "deliverables": [
+        "3 × 60-min sessions in 30 days",
+        "Quick audit & tool stack",
+        "1-page roadmap with next steps"
+      ],
+      "result": "Quick wins and clarity on workflow.",
+      "thumb": "https://cdn.midjourney.com/06fa4a87-3a8f-45e5-88ca-8af4002211f4/0_3.png",
+      "alt": "Compass and roadmap card on stone surface"
+    },
+    {
+      "id": "pro",
+      "title": "Pro (Project Sprint)",
+      "who": "Teams shipping a specific AI-creative deliverable.",
+      "deliverables": [
+        "2-week sprint, goal-oriented",
+        "Prototypes & reviews",
+        "Handover doc & presets"
+      ],
+      "result": "A working prototype and a repeatable method.",
+      "thumb": "https://cdn.midjourney.com/66429bd2-7935-47f6-9644-341fb418ad59/0_0.png",
+      "alt": "Kanban board pieces with stopwatch vibe"
+    },
+    {
+      "id": "partner",
+      "title": "Partner (Retainer)",
+      "who": "Orgs needing ongoing support.",
+      "deliverables": [
+        "8–12 hours / month",
+        "Office hours & experiments",
+        "Reviews & guidance"
+      ],
+      "result": "Continuous improvement and team enablement.",
+      "thumb": "https://cdn.midjourney.com/9227a321-a2c1-4d15-ac96-dda20baa4e28/0_2.png",
+      "alt": "Two hands collaborating over a laptop, calm mood"
+    }
+  ],
+  "cases": [
+    {
+      "title": "Cultural org — research to reel",
+      "problem": "Scattered sources and no clear visual direction.",
+      "approach": "NotebookLM brief → prompt stacks → week-long look-dev.",
+      "result": "Sharable 45-sec prototype reel.",
+      "thumb": "https://cdn.midjourney.com/1b223b73-6be2-41b2-8525-eb6b595af6a4/0_0.png",
+      "alt": "Before/after abstract collage with progress arrow"
+    },
+    {
+      "title": "NGO — training starter",
+      "problem": "Team unsure where to begin with AI.",
+      "approach": "Starter package with tool setup and templates.",
+      "result": "Ready-to-use routines and safeguards.",
+      "thumb": "https://cdn.midjourney.com/ba6df411-c5c7-4b4b-8eeb-44a4fff40853/0_3.png",
+      "alt": "Workshop storyboard desk"
+    }
+  ],
+  "process": {
+    "image": "https://cdn.midjourney.com/fadc7c1c-86c9-4558-8736-3364e5638f7c/0_3.png",
+    "alt": "Five-step icons: discovery, proposal, kickoff, sessions, handover",
+    "steps": [
+      { "title": "Discovery", "desc": "Free 20-min call" },
+      { "title": "Proposal", "desc": "Scope & plan" },
+      { "title": "Kickoff", "desc": "Access & setup" },
+      { "title": "Working sessions", "desc": "Co-create & review" },
+      { "title": "Handover", "desc": "Docs, presets & next steps" }
+    ]
+  },
+  "faq": [
+    { "q": "Do I need any AI background?", "a": "No. We start from your context and goals." },
+    { "q": "Arabic or English?", "a": "Both. Materials can be bilingual." },
+    { "q": "NDA?", "a": "Yes, on request." },
+    { "q": "Can you work async with my team?", "a": "Yes—shared NotebookLM/Docs, recorded demos." }
+  ],
+  "cta": {
+    "title": "Let’s get started",
+    "subtitle": "Tell me about your team or project.",
+    "image": "https://cdn.midjourney.com/72f0db03-86c9-4651-b12b-7fafec566deb/0_2.png",
+    "alt": "Soft gradient with olive tint and subtle kufiya pattern",
+    "buttons": [
+      { "label": "Book a call", "url": "https://wa.me/970599797245?text=Hi%20Tamer%2C%20I%27d%20like%20to%20book%20a%20discovery%20call" },
+      { "label": "WhatsApp", "url": "https://wa.me/970599797245" },
+      { "label": "Email", "url": "mailto:ai.visionary.pioneer@gmail.com?subject=Training%20%26%20Consulting%20inquiry" }
+    ]
+  }
+}
