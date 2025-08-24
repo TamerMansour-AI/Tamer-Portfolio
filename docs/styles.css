@@ -599,3 +599,88 @@ footer .social-icons a img {
   .r-card, .r-card *:not(svg){ color:#111 !important; background:#fff !important; }
 }
 
+/* ===== Blog ===== */
+.blog-cards{ display:grid; gap:1rem; grid-template-columns: repeat(12, 1fr) }
+@media (max-width:1200px){ .blog-cards{ grid-template-columns: repeat(8, 1fr) } }
+@media (max-width:800px){ .blog-cards{ grid-template-columns: repeat(4, 1fr) } }
+
+.b-card{
+  grid-column: span 6; background:#fff; color:#111; border:1px solid #ececec; border-radius:16px;
+  padding:.9rem; box-shadow:0 8px 22px rgba(0,0,0,.05)
+}
+@media (max-width:800px){ .b-card{ grid-column: span 4 } }
+.b-title a{ text-decoration:none; color:#111 }
+.b-title a:hover{ text-decoration:underline }
+.b-meta{ opacity:.85; margin:.1rem 0 .4rem }
+.b-summary{ color:#333 }
+
+.post.container{ max-width: 860px }
+.post-title{ margin:.2rem 0 .35rem }
+.post-cover img{ border-radius:12px }
+.post-body{ color:#111; line-height:1.75; font-size:1.05rem }
+.post-body p{ margin: .8rem 0 }
+.post-body h2, .post-body h3{ margin:1.2rem 0 .5rem }
+.post-foot{ margin-top:1rem; display:flex; gap:.5rem; flex-wrap:wrap }
+.comments{ margin-top:1rem }
+
+/* Dark override: keep readable */
+@media (prefers-color-scheme: dark){
+  .b-card, .b-card *:not(svg),
+  .post-body, .post-body *:not(svg){ color:#111 !important; background:#fff !important; }
+}
+/* ===== Services (EN-only clean build) ===== */
+.svc-page{ display:grid; gap:1.2rem; color:#111 }
+.svc-hero{ position:relative; border-radius:18px; overflow:hidden; border:1px solid #ececec; background:#111 }
+.svc-hero-img{ width:100%; height:auto; display:block; opacity:.92 }
+.svc-hero-body{
+  position:absolute; left:0; right:0; bottom:0; padding:1rem;
+  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.55));
+  color:#fff;
+}
+.lead{ opacity:.95 }
+.svc-cta{ display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.6rem }
+.btn{ padding:.6rem .9rem; border:1px solid #e3e3e3; border-radius:999px; background:#fff; text-decoration:none; cursor:pointer }
+.btn-primary{ border-color:#6a7f4e; background:rgba(106,127,78,.12); color:#111 }
+.btn-ghost{ background:#fff; color:#111 }
+
+/* grids/cards */
+.svc-grid{ display:grid; gap:1rem; grid-template-columns: repeat(12, 1fr) }
+@media (max-width:1200px){ .svc-grid{ grid-template-columns: repeat(8, 1fr) } }
+@media (max-width:800px){ .svc-grid{ grid-template-columns: repeat(4, 1fr) } }
+.svc-card{ grid-column: span 6; background:#fff; border:1px solid #ececec; border-radius:16px; overflow:hidden; box-shadow:0 8px 22px rgba(0,0,0,.05) }
+@media (max-width:800px){ .svc-card{ grid-column: span 4 } }
+.svc-thumb img{ width:100%; height:auto; display:block }
+.svc-card-body{ padding:.9rem }
+.svc-meta{ opacity:.9; margin:.25rem 0 .4rem }
+.svc-bullets{ margin:.35rem 0 .6rem; padding-left:1rem }
+.svc-tools{ margin:.2rem 0 .6rem }
+.svc-card-actions{ display:flex; gap:.5rem; flex-wrap:wrap }
+
+.svc-process-fig img{ width:100%; height:auto; border-radius:12px; border:1px solid #efefef }
+.svc-steps{ margin:.6rem 0 0; padding-left:1.2rem }
+
+.svc-faq-list{ display:grid; gap:.5rem }
+.svc-faq-item{ background:#fff; border:1px solid #ececec; border-radius:12px; padding:.6rem .8rem }
+
+.svc-cta{ position:relative; border:1px solid #ececec; border-radius:16px; overflow:hidden }
+.svc-cta-bg img{ width:100%; height:auto; display:block; filter: saturate(.95) contrast(.98) }
+.svc-cta-body{
+  position:absolute; inset:0; display:grid; place-items:center; text-align:center; padding:1rem;
+  background: radial-gradient( circle at center, rgba(255,255,255,.9), rgba(255,255,255,.65) );
+}
+.svc-cta-actions{ display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center }
+
+.toast{
+  position:fixed; left:50%; bottom:24px; transform:translateX(-50%) translateY(6px);
+  background:#111; color:#fff; padding:.5rem .75rem; border-radius:10px; opacity:0;
+  box-shadow:0 10px 26px rgba(0,0,0,.3); pointer-events:none; transition:.18s ease
+}
+.toast.show{ opacity:1; transform:translateX(-50%) translateY(0) }
+
+/* Dark-mode: force readable on white cards */
+@media (prefers-color-scheme: dark){
+  .svc-card, .svc-card *:not(svg),
+  .svc-faq-item, .svc-faq-item *:not(svg){
+    color:#111 !important; background:#fff !important;
+  }
+}
