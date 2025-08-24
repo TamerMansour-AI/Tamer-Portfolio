@@ -1,24 +1,25 @@
 ---
 layout: page.njk
 title: التدريب والاستشارات
-permalink: /ar/services/index.html
-description: "تدريب ذكاء اصطناعي واستشارات إبداعية للفرق والمبدعين (عربي/إنجليزي)."
+permalink: /ar/training-consulting/index.html
+description: "تدريب ذكاء اصطناعي واستشارات إبداعية للفرق والمبدعين."
 ---
-{% set offers_ar = offers and offers.ar or {} %}
+{% set offers = offers_ar %}
 <section class="container section-pad svc-page" dir="rtl">
+  {# المحتوى مثل الإنجليزي لكن بالمتحولات offers_ar #}
   <header class="svc-hero">
     <picture>
-      <source media="(max-width: 720px)" srcset="{{ offers_ar.hero.image_mobile }}">
-      <img class="svc-hero-img" src="{{ offers_ar.hero.image }}" alt="{{ offers_ar.hero.alt }}" loading="eager" decoding="async">
+      <source media="(max-width: 720px)" srcset="{{ offers.hero.image_mobile }}">
+      <img class="svc-hero-img" src="{{ offers.hero.image }}" alt="{{ offers.hero.alt }}" loading="eager" decoding="async">
     </picture>
-    <div class="svc-hero-overlay" style="--pattern-url: url('{{ offers_ar.hero.pattern }}')"></div>
+    <div class="svc-hero-overlay" style="--pattern-url: url('{{ offers.hero.pattern }}')"></div>
     <div class="svc-hero-body">
-      <h1>{{ offers_ar.hero.title }}</h1>
-      <p class="lead">{{ offers_ar.hero.subtitle }}</p>
+      <h1>{{ offers.hero.title }}</h1>
+      <p class="lead">{{ offers.hero.subtitle }}</p>
       <div class="svc-cta">
-        <a class="btn btn-primary" href="{{ offers_ar.hero.cta_primary.url }}" target="_blank" rel="noopener">{{ offers_ar.hero.cta_primary.label }}</a>
-        <a class="btn" href="{{ offers_ar.hero.cta_secondary.url }}" target="_blank" rel="noopener">{{ offers_ar.hero.cta_secondary.label }}</a>
-        <a class="btn btn-ghost" href="{{ offers_ar.hero.cta_email.url }}">{{ offers_ar.hero.cta_email.label }}</a>
+        <a class="btn btn-primary" href="{{ offers.hero.cta_primary.url }}" target="_blank" rel="noopener">{{ offers.hero.cta_primary.label }}</a>
+        <a class="btn" href="{{ offers.hero.cta_secondary.url }}" target="_blank" rel="noopener">{{ offers.hero.cta_secondary.label }}</a>
+        <a class="btn btn-ghost" href="{{ offers.hero.cta_email.url }}">{{ offers.hero.cta_email.label }}</a>
       </div>
     </div>
   </header>
@@ -26,14 +27,14 @@ description: "تدريب ذكاء اصطناعي واستشارات إبداعي
   <section class="svc-who">
     <h2>مين أقدر أساعد؟</h2>
     <ul class="svc-who-list">
-      {% for w in offers_ar.who %}<li>{{ w }}</li>{% endfor %}
+      {% for w in offers.who %}<li>{{ w }}</li>{% endfor %}
     </ul>
   </section>
 
   <section class="svc-workshops">
     <h2>ورش مميّزة</h2>
     <div class="svc-grid">
-      {% for w in offers_ar.workshops %}
+      {% for w in offers.workshops %}
       <article class="svc-card">
         <figure class="svc-thumb"><img src="{{ w.thumb }}" alt="{{ w.alt }}" loading="lazy" decoding="async"></figure>
         <div class="svc-card-body">
@@ -54,7 +55,7 @@ description: "تدريب ذكاء اصطناعي واستشارات إبداعي
   <section class="svc-packages">
     <h2>باقات الاستشارات</h2>
     <div class="svc-grid">
-      {% for p in offers_ar.packages %}
+      {% for p in offers.packages %}
       <article class="svc-card">
         <figure class="svc-thumb"><img src="{{ p.thumb }}" alt="{{ p.alt }}" loading="lazy" decoding="async"></figure>
         <div class="svc-card-body">
@@ -75,7 +76,7 @@ description: "تدريب ذكاء اصطناعي واستشارات إبداعي
   <section class="svc-cases">
     <h2>نماذج نجاح</h2>
     <div class="svc-grid">
-      {% for c in offers_ar.cases %}
+      {% for c in offers.cases %}
       <article class="svc-card">
         <figure class="svc-thumb"><img src="{{ c.thumb }}" alt="{{ c.alt }}" loading="lazy" decoding="async"></figure>
         <div class="svc-card-body">
@@ -92,15 +93,15 @@ description: "تدريب ذكاء اصطناعي واستشارات إبداعي
   <section class="svc-process">
     <h2>كيف نشتغل؟</h2>
     <figure class="svc-process-fig">
-      <img src="{{ offers_ar.process.image }}" alt="{{ offers_ar.process.alt }}" loading="lazy" decoding="async">
+      <img src="{{ offers.process.image }}" alt="{{ offers.process.alt }}" loading="lazy" decoding="async">
     </figure>
-    <ol class="svc-steps">{% for s in offers_ar.process.steps %}<li><strong>{{ s.title }}</strong> — {{ s.desc }}</li>{% endfor %}</ol>
+    <ol class="svc-steps">{% for s in offers.process.steps %}<li><strong>{{ s.title }}</strong> — {{ s.desc }}</li>{% endfor %}</ol>
   </section>
 
   <section class="svc-faq">
     <h2>أسئلة شائعة</h2>
     <div class="svc-faq-list">
-      {% for f in offers_ar.faq %}
+      {% for f in offers.faq %}
       <details class="svc-faq-item">
         <summary>{{ f.q }}</summary>
         <p>{{ f.a }}</p>
@@ -111,18 +112,17 @@ description: "تدريب ذكاء اصطناعي واستشارات إبداعي
 
   <section class="svc-cta">
     <figure class="svc-cta-bg">
-      <img src="{{ offers_ar.cta.image }}" alt="{{ offers_ar.cta.alt }}" loading="lazy" decoding="async">
+      <img src="{{ offers.cta.image }}" alt="{{ offers.cta.alt }}" loading="lazy" decoding="async">
     </figure>
     <div class="svc-cta-body">
-      <h2>{{ offers_ar.cta.title }}</h2>
-      <p class="lead">{{ offers_ar.cta.subtitle }}</p>
+      <h2>{{ offers.cta.title }}</h2>
+      <p class="lead">{{ offers.cta.subtitle }}</p>
       <div class="svc-cta-actions">
-        {% for b in offers_ar.cta.buttons %}
+        {% for b in offers.cta.buttons %}
           <a class="btn {% if loop.index == 1 %}btn-primary{% endif %}" href="{{ b.url }}" target="_blank" rel="noopener">{{ b.label }}</a>
         {% endfor %}
       </div>
     </div>
   </section>
 </section>
-
 <script defer src="{{ '/js/services.js' | url }}"></script>
