@@ -5,7 +5,7 @@
     t.textContent = msg;
     document.body.appendChild(t);
     setTimeout(()=>t.classList.add('show'), 10);
-    setTimeout(()=>{ t.classList.remove('show'); setTimeout(()=>t.remove(), 180); }, 1600);
+    setTimeout(()=>{ t.classList.remove('show'); setTimeout(()=>t.remove(), 120); }, 1400);
   }
   document.addEventListener('click', (e)=>{
     const btn = e.target.closest('.js-copy');
