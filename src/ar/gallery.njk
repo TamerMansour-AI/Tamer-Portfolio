@@ -1,0 +1,51 @@
+---
+layout: page.njk
+lang: ar
+title: المعرض
+permalink: /ar/gallery/index.html
+description: "مختارات من المرئيات التوليدية والريلز (مصادر خارجية)."
+---
+<section class="container section-pad">
+  <h1>المعرض</h1>
+
+  <div class="media-tools">
+    <input id="galSearch" class="media-search" type="search" placeholder="ابحث في المعرض…" aria-label="ابحث في المعرض">
+    <div class="media-chips" id="galChips"></div>
+  </div>
+
+  <div id="galleryGrid" class="gallery-grid">
+    {% for it in gallery.items %}
+      {% set t = it.type or 'image' %}
+      <figure class="g-card js-item" data-type="{{ t }}" data-tags="{{ (it.tags or []) | join(',') }}">
+        {% if t == 'image' %}
+          <a href="{{ it.src }}" class="g-link" data-src="{{ it.src }}" data-type="image" data-alt="{{ it.alt | escape }}">
+            <img src="{{ it.src }}" alt="{{ it.alt }}" loading="lazy" decoding="async" />
+          </a>
+        {% elif t == 'video' %}
+          <video class="g-video" controls preload="metadata" playsinline {% if it.poster %}poster="{{ it.poster }}"{% endif %}>
+            <source src="{{ it.src }}" type="video/mp4">
+          </video>
+        {% elif t == 'youtube' %}
+          <div class="g-yt">
+            <button class="yt-play" data-yt="{{ it.id }}" aria-label="تشغيل الفيديو">▶</button>
+            <img src="{{ 'https://i.ytimg.com/vi/' + it.id + '/hqdefault.jpg' }}" alt="{{ it.alt }}" loading="lazy" decoding="async" />
+          </div>
+        {% endif %}
+        {% if it.alt %}<figcaption class="g-cap">{{ it.alt }}</figcaption>{% endif %}
+      </figure>
+    {% endfor %}
+  </div>
+
+  <div class="gallery-actions">
+    <button id="galLoadMore" class="loadmore">اعرض المزيد</button>
+  </div>
+</section>
+
+<dialog id="gdlg" class="g-dlg">
+  <div class="g-dlg-body">
+    <form method="dialog"><button class="g-close" aria-label="إغلاق">×</button></form>
+    <div id="gStage"></div>
+  </div>
+</dialog>
+
+<script defer src="{{ '/js/gallery.js' | url }}"></script>
