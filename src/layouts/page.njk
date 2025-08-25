@@ -20,35 +20,48 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  {% if lang == 'ar' %}
-    {% set base = '/ar' %}
-    {% set l_home = 'الرئيسية' %}
-    {% set l_projects = 'المشاريع' %}
-    {% set l_media = 'الوسائط' %}
-    {% set l_gallery = 'المعرض' %}
-    {% set l_music = 'الموسيقى' %}
-    {% set l_research = 'الأبحاث' %}
-    {% set l_training = 'التدريب والاستشارات' %}
-    {% set l_blog = 'المدونة' %}
-    {% set l_about = 'نبذة' %}
-    {% set l_contact = 'تواصل' %}
-    {% set l_lang_toggle = 'English' %}
-    {% set altUrl = (page.url | replace('/ar/', '/')) %}
+{% if lang == 'ar' %}
+  {% set base = '/ar' %}
+  {% set l_home = 'الرئيسية' %}
+  {% set l_projects = 'المشاريع' %}
+  {% set l_media = 'الوسائط' %}
+  {% set l_gallery = 'المعرض' %}
+  {% set l_music = 'الموسيقى' %}
+  {% set l_research = 'الأبحاث' %}
+  {% set l_training = 'التدريب والاستشارات' %}
+  {% set l_blog = 'المدونة' %}
+  {% set l_about = 'نبذة' %}
+  {% set l_contact = 'تواصل' %}
+  {% set l_lang_toggle = 'English' %}
+  {# Build the EN alt URL robustly #}
+  {% set current = page.url or '/' %}
+  {% set altRaw = current
+     | replace('/ar/index.html','/')
+     | replace('/ar/','/')
+     | replace('/ar','/') %}
+  {% set altUrl = altRaw | url %}
+{% else %}
+  {% set base = '' %}
+  {% set l_home = 'Home' %}
+  {% set l_projects = 'Projects' %}
+  {% set l_media = 'Media' %}
+  {% set l_gallery = 'Gallery' %}
+  {% set l_music = 'Music' %}
+  {% set l_research = 'Research' %}
+  {% set l_training = 'Training &amp; Consulting' %}
+  {% set l_blog = 'Blog' %}
+  {% set l_about = 'About' %}
+  {% set l_contact = 'Contact' %}
+  {% set l_lang_toggle = 'العربية' %}
+  {# Build the AR alt URL robustly #}
+  {% set current = page.url or '/' %}
+  {% if current == '/' or current == '/index.html' %}
+    {% set altRaw = '/ar/' %}
   {% else %}
-    {% set base = '' %}
-    {% set l_home = 'Home' %}
-    {% set l_projects = 'Projects' %}
-    {% set l_media = 'Media' %}
-    {% set l_gallery = 'Gallery' %}
-    {% set l_music = 'Music' %}
-    {% set l_research = 'Research' %}
-    {% set l_training = 'Training &amp; Consulting' %}
-    {% set l_blog = 'Blog' %}
-    {% set l_about = 'About' %}
-    {% set l_contact = 'Contact' %}
-    {% set l_lang_toggle = 'العربية' %}
-    {% set altUrl = '/ar' + page.url %}
+    {% set altRaw = '/ar' + current %}
   {% endif %}
+  {% set altUrl = altRaw | url %}
+{% endif %}
 
   <header class="site-header">
     <div class="container nav-row">
@@ -99,5 +112,6 @@
   <script defer src="{{ '/js/nav.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
   <script defer src="{{ '/js/lightbox.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
   <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+  <script>document.addEventListener('click',function(e){var x=e.target.closest('a.lang-switch');if(!x)return;var h=x.getAttribute('href');if(h){window.location.href=h;}});</script>
 </body>
 </html>

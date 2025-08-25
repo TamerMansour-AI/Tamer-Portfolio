@@ -938,3 +938,9 @@ html[dir="rtl"] .nav-links{justify-content:flex-start}
 html[dir="rtl"] .lang-switch{margin-inline-end:auto;margin-inline-start:0}
 .skip-link{position:absolute;left:-9999px;top:auto}
 .skip-link:focus{left:16px;top:12px;z-index:1001;background:#fff;color:#000;padding:.4rem .6rem;border-radius:6px}
+.site-header{position:sticky;top:0;z-index:1000}
+.nav-toggle{z-index:1001}
+.nav-links{pointer-events:none}
+.nav-links.open{pointer-events:auto}
+.nav-links a{pointer-events:auto}
+.lang-switch{font-weight:700;text-decoration:underline}
