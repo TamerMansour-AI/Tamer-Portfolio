@@ -72,6 +72,13 @@ module.exports = function (eleventyConfig) {
   );
 
   // --- Filters ---
+  eleventyConfig.addFilter("date", (d, fmt = "yyyy") => {
+    const dateObj = new Date(d);
+    if (fmt === "yyyy") {
+      return String(dateObj.getFullYear());
+    }
+    return dateObj.toString();
+  });
   eleventyConfig.addFilter("dateToISO", (d) => new Date(d).toISOString());
   eleventyConfig.addFilter("dateDisplay", (d) => {
     try {
