@@ -9,15 +9,84 @@ permalink: /contact/index.html
   <p class="lead">Let’s build something meaningful. Quick options below.</p>
 </section>
 
-<section class="container section-pad">
-  <h2>Find me online</h2>
-  <!-- keep your existing social cards block; no icon fonts needed because footer has brand SVGs -->
-  {{ collections.socialCards | safe if collections.socialCards }}
-</section>
+<section class="container section-pad contact-grid">
+  <!-- Email -->
+  <a class="contact-card" href="mailto:ai.visionary.pioneer@gmail.com" aria-label="Email">
+    <span class="icon">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#D44638" aria-hidden="true">
+        <path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11Zm2.3-.5l7.2 5.4L18.7 6H4.3Zm15.2 2.1-6.9 5.2a1.5 1.5 0 0 1-1.8 0L3.9 8.1V17.5c0 .55.45 1 1 1h14.2c.55 0 1-.45 1-1V8.1Z"/>
+      </svg>
+    </span>
+    <div class="meta"><h3>Email</h3><p>ai.visionary.pioneer@gmail.com</p></div>
+  </a>
 
-<section class="container section-pad">
-  <h2>Or send a quick note</h2>
-  <p>Email: <a href="mailto:ai.visionary.pioneer@gmail.com">ai.visionary.pioneer@gmail.com</a></p>
-  <p>WhatsApp: <a href="https://wa.me/970599797245" target="_blank" rel="noopener">+970 59 979 7245</a></p>
-  <!-- keep/replace your form if you enable a provider later -->
+  <!-- WhatsApp -->
+  <a class="contact-card" href="https://wa.me/970599797245" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <span class="icon">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#25D366" aria-hidden="true">
+        <path d="M20.5 3.5A11 11 0 0 0 3.1 17.6L2 22l4.5-1.2A11 11 0 1 0 20.5 3.5Zm-8.3 16.5a9 9 0 0 1-4.6-1.3l-.3-.2-2.7.7.7-2.6-.2-.3a9 9 0 1 1 7.1 3.7Zm5-6.6c-.3-.1-1.7-.9-1.9-1s-.4-.2-.6.2-.7 1-1 1.2-.4.2-.7 0a6.8 6.8 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.8c-.2-.3 0-.5.1-.7l.3-.4c.1-.2 0-.3 0-.5l-.2-.5c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.2 2.2 0 0 0-.7 1.6c0 .9.7 1.8.8 2s1.4 2.2 3.3 3.1 2 .7 2.4.6 1.2-.5 1.4-1 .6-1 .5-1.2-.2-.2-.5-.3Z"/>
+      </svg>
+    </span>
+    <div class="meta"><h3>WhatsApp</h3><p>+970 599 797 245</p></div>
+  </a>
+
+  <!-- Facebook -->
+  <a class="contact-card" href="https://www.facebook.com/teamo1985/" target="_blank" rel="noopener" aria-label="Facebook">
+    <span class="icon">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#1877F2" aria-hidden="true">
+        <path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.3V12h2.3V9.8c0-2.3 1.4-3.6 3.6-3.6 1 0 2.1.2 2.1.2v2.3h-1.2c-1.2 0-1.6.7-1.6 1.5V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/>
+      </svg>
+    </span>
+    <div class="meta"><h3>Facebook</h3><p>/teamo1985</p></div>
+  </a>
+
+  <!-- X (Twitter) -->
+  <a class="contact-card" href="https://x.com/TamerTeamo" target="_blank" rel="noopener" aria-label="X (Twitter)">
+    <span class="icon">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#000" aria-hidden="true">
+        <path d="M17.6 3H20l-6.3 7.1L21 21h-5.2l-4-5-4.6 5H4l6.8-7.6L3 3h5.3l3.6 4.7L17.6 3Zm-1.3 16h1.4L7.9 5H6.4l9.9 14Z"/>
+      </svg>
+    </span>
+    <div class="meta"><h3>X</h3><p>@TamerTeamo</p></div>
+  </a>
+
+  <!-- TikTok -->
+  <a class="contact-card" href="https://www.tiktok.com/@ai_visionary_tm" target="_blank" rel="noopener" aria-label="TikTok">
+    <span class="icon">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#000" aria-hidden="true">
+        <path d="M16.8 3c.4 1.9 1.9 3.4 3.7 3.8v3.3a7.8 7.8 0 0 1-3.7-1v5.6c0 3.8-3 6.8-6.7 6.8S3.4 18.5 3.4 14.7s3-6.8 6.7-6.8c.4 0 .8 0 1.2.1v3.5c-.4-.1-.8-.2-1.2-.2-1.8 0-3.2 1.5-3.2 3.3s1.4 3.3 3.2 3.3 3.2-1.5 3.2-3.3V3h4.1Z"/>
+      </svg>
+    </span>
+    <div class="meta"><h3>TikTok</h3><p>@ai_visionary_tm</p></div>
+  </a>
+
+  <!-- YouTube -->
+  <a class="contact-card" href="https://www.youtube.com/@TamerAI-e5i" target="_blank" rel="noopener" aria-label="YouTube">
+    <span class="icon">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#FF0000" aria-hidden="true">
+        <path d="M23 7.5A3.5 3.5 0 0 0 20.5 5C18.7 4.5 12 4.5 12 4.5s-6.7 0-8.5.5A3.5 3.5 0 0 0 1 7.5C.7 8.5.5 10.3.5 12s.2 3.5.5 4.5A3.5 3.5 0 0 0 3.5 19c1.8.5 8.5.5 8.5.5s6.7 0 8.5-.5A3.5 3.5 0 0 0 23 16.5c.3-1 .5-2.8.5-4.5s-.2-3.5-.5-4.5ZM9.8 15V9l5.7 3-5.7 3Z"/>
+      </svg>
+    </span>
+    <div class="meta"><h3>YouTube</h3><p>@TamerAI-e5i</p></div>
+  </a>
+
+  <!-- Substack -->
+  <a class="contact-card" href="https://substack.com/@snoopman?utm_campaign=profile&utm_medium=profile-page" target="_blank" rel="noopener" aria-label="Substack">
+    <span class="icon">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#FF6719" aria-hidden="true">
+        <path d="M3 5h18v2H3V5Zm0 4h18v2H3V9Zm0 4h18v6L12 15 3 19v-6Z"/>
+      </svg>
+    </span>
+    <div class="meta"><h3>Substack</h3><p>@snoopman</p></div>
+  </a>
+
+  <!-- Instagram -->
+  <a class="contact-card" href="https://www.instagram.com/tamerpalestine/" target="_blank" rel="noopener" aria-label="Instagram">
+    <span class="icon">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#E1306C" aria-hidden="true">
+        <path d="M12 2.2c3 0 3.4 0 4.6.1 1.1.1 1.7.2 2.1.4.5.2.9.4 1.3.8.4.4.6.8.8 1.3.2.4.3 1 .4 2.1.1 1.2.1 1.6.1 4.6s0 3.4-.1 4.6c-.1 1.1-.2 1.7-.4 2.1-.2.5-.4.9-.8 1.3-.4.4-.8.6-1.3.8-.4.2-1 .3-2.1.4-1.2.1-1.6.1-4.6.1s-3.4 0-4.6-.1c-1.1-.1-1.7-.2-2.1-.4a3.7 3.7 0 0 1-2.1-2.1c-.2-.4-.3-1-.4-2.1-.1-1.2-.1-1.6-.1-4.6s0-3.4.1-4.6c.1-1.1.2-1.7.4-2.1.2-.5.4-.9.8-1.3.4-.4.8-.6 1.3-.8.4-.2 1-.3 2.1-.4C8.6 2.2 9 2.2 12 2.2Zm0 2c-3 0-3.3 0-4.5.1-1 .1-1.6.2-1.9.3-.5.2-.9.4-1.1.8-.3.3-.6.7-.8 1.1-.1.3-.2.9-.3 1.9-.1 1.2-.1 1.5-.1 4.5s0 3.3.1 4.5c.1 1 .2 1.6.3 1.9.2.5.4.9.8 1.1.3.3.7.6 1.1.8.3.1.9.2 1.9.3 1.2.1 1.5.1 4.5.1s3.3 0 4.5-.1c1-.1 1.6-.2 1.9-.3.5-.2.9-.4 1.1-.8.3-.3.6-.7.8-1.1.1-.3.2-.9.3-1.9.1-1.2.1-1.5.1-4.5s0-3.3-.1-4.5c-.1-1-.2-1.6-.3-1.9-.2-.5-.4-.9-.8-1.1-.3-.3-.7-.6-1.1-.8-.3-.1-.9-.2-1.9-.3-1.2-.1-1.5-.1-4.5-.1Zm0 2.7a5.1 5.1 0 1 1 0 10.2 5.1 5.1 0 0 1 0-10.2Zm6-1.4a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/>
+      </svg>
+    </span>
+    <div class="meta"><h3>Instagram</h3><p>@tamerpalestine</p></div>
+  </a>
 </section>
