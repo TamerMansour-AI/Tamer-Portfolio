@@ -2,5 +2,6 @@
   "title": "Tamer Mansour",
   "url": "https://tamermansour-ai.github.io/Tamer-Portfolio",
   "pathPrefix": "/Tamer-Portfolio",
-  "defaultDescription": "Palestinian creative technologist — AI, identity & imagination."
+  "defaultDescription": "Palestinian creative technologist — AI, identity & imagination.",
+  "assetVersion": "v4"
 }

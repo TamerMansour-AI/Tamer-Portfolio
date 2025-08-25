@@ -835,3 +835,65 @@ toolbelt-note{ margin-top:.5rem; opacity:.9; }
 .section-pad{padding:56px 0}
 .card-section{background:#181818;border-radius:16px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.15)}
 .card-section h2{margin-top:0}
+
+/* --- Phase 1b: Home image sizing & responsive cropping --- */
+
+/* اضبط عرض الكونتينر شوية لتخفيف ضخامـة العناصر */
+.container{max-width:1040px}
+
+/* HERO image: نسبة 16:9 وارتفاع أقصى */
+.hero-figure{max-width:900px;margin-inline:auto}
+.hero-figure img{
+  width:100%;
+  height:auto;
+  aspect-ratio:16/9;
+  max-height:520px;
+  object-fit:cover;
+  border-radius:16px;
+}
+@media (max-width:640px){
+  .hero-figure img{max-height:280px}
+}
+
+/* About image: نسبة 4:3 وارتفاع أقصى */
+.media-split-figure img{
+  width:100%;
+  height:auto;
+  aspect-ratio:4/3;
+  max-height:420px;
+  object-fit:cover;
+  border-radius:16px;
+}
+@media (max-width:640px){
+  .media-split-figure img{max-height:260px}
+}
+
+/* Sound cards images: نسبة 16:9 وارتفاع أقصى */
+.card-figure img{
+  width:100%;
+  height:auto;
+  aspect-ratio:16/9;
+  max-height:360px;
+  object-fit:cover;
+}
+
+/* Artistic Snapshots thumbs: نسبة 3:2 وارتفاع أقصى */
+.snapshots-grid .snap img{
+  width:100%;
+  height:auto;
+  aspect-ratio:3/2;
+  max-height:260px;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+/* مسافات أخف شوية داخل الكروت */
+.card-section{padding:20px}
+@media (min-width:900px){
+  .card-section{padding:24px}
+}
+
+/* تحسين بسيط للمنيو على الشاشات الضيقة */
+@media (max-width:768px){
+  .nav-links a{padding:8px 0}
+}
