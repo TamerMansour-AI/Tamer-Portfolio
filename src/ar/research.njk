@@ -20,7 +20,7 @@ description: "دفاتر بحث تفاعلية يمكنك استكشافها (No
   <div id="rGrid" class="r-grid">
     {% for it in research.items %}
       {% set t = it.type or 'note' %}
-      <article class="r-card js-r" data-type="{{ t }}" data-topics="{{ (it.topics or []) | join(',') }}">
+      <article class="r-card js-r" data-type="{{ t }}" data-topics="{{ (it.topics or []) | join(',') }}" data-i="{{ loop.index0 }}">
         <div class="r-thumb">
           {% if it.thumb %}
             <img src="{{ it.thumb }}" alt="{{ it.title }}" loading="lazy" decoding="async">
@@ -39,8 +39,9 @@ description: "دفاتر بحث تفاعلية يمكنك استكشافها (No
         </div>
 
         <div class="r-body">
-          <h3 class="r-title">{{ it.title }}</h3>
-          {% if it.desc %}<p class="r-desc">{{ it.desc }}</p>{% endif %}
+          <h3 class="r-title">{{ it.title_ar or it.title }}</h3>
+          {% set _desc = it.desc_ar or it.desc %}
+          {% if _desc %}<p class="r-desc">{{ _desc }}</p>{% endif %}
 
           {% if it.topics and it.topics.length %}
             <div class="r-tags">

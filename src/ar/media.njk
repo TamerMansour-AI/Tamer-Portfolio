@@ -26,8 +26,8 @@ description: "أفلام وتراكيب و«قصائد بصرية» مُولّد
           <button class="watch-btn" type="button" aria-label="تشغيل الفيديو">► شاهد</button>
         </div>
         <div class="art-body">
-          <h3 class="art-title">{{ v.title }}</h3>
-          <p class="art-desc">{{ v.desc }}</p>
+          <h3 class="art-title">{{ v.title_ar or v.title }}</h3>
+          <p class="art-desc">{{ v.desc_ar or v.desc }}</p>
           {% if v.tags and v.tags.length %}
             <div class="tags">
               {% for t in v.tags %}
