@@ -6,7 +6,6 @@
   <title>{{ title or site.title }}</title>
   <meta name="theme-color" content="#5a6b2c">
 
-  {# SEO basics #}
   {% set desc = description or site.defaultDescription %}
   <meta name="description" content="{{ desc }}">
   <meta property="og:title" content="{{ title or site.title }}">
@@ -20,48 +19,45 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-{% if lang == 'ar' %}
-  {% set base = '/ar' %}
-  {% set l_home = 'الرئيسية' %}
-  {% set l_projects = 'المشاريع' %}
-  {% set l_media = 'الوسائط' %}
-  {% set l_gallery = 'المعرض' %}
-  {% set l_music = 'الموسيقى' %}
-  {% set l_research = 'الأبحاث' %}
-  {% set l_training = 'التدريب والاستشارات' %}
-  {% set l_blog = 'المدونة' %}
-  {% set l_about = 'نبذة' %}
-  {% set l_contact = 'تواصل' %}
-  {% set l_lang_toggle = 'English' %}
-  {# Build the EN alt URL robustly #}
-  {% set current = page.url or '/' %}
-  {% set altRaw = current
-     | replace('/ar/index.html','/')
-     | replace('/ar/','/')
-     | replace('/ar','/') %}
-  {% set altUrl = altRaw | url %}
-{% else %}
-  {% set base = '' %}
-  {% set l_home = 'Home' %}
-  {% set l_projects = 'Projects' %}
-  {% set l_media = 'Media' %}
-  {% set l_gallery = 'Gallery' %}
-  {% set l_music = 'Music' %}
-  {% set l_research = 'Research' %}
-  {% set l_training = 'Training &amp; Consulting' %}
-  {% set l_blog = 'Blog' %}
-  {% set l_about = 'About' %}
-  {% set l_contact = 'Contact' %}
-  {% set l_lang_toggle = 'العربية' %}
-  {# Build the AR alt URL robustly #}
-  {% set current = page.url or '/' %}
-  {% if current == '/' or current == '/index.html' %}
-    {% set altRaw = '/ar/' %}
+  {# === Locale labels + altUrl (RAW) === #}
+  {% if lang == 'ar' %}
+    {% set base = '/ar' %}
+    {% set l_home = 'الرئيسية' %}
+    {% set l_projects = 'المشاريع' %}
+    {% set l_media = 'الوسائط' %}
+    {% set l_gallery = 'المعرض' %}
+    {% set l_music = 'الموسيقى' %}
+    {% set l_research = 'الأبحاث' %}
+    {% set l_training = 'التدريب والاستشارات' %}
+    {% set l_blog = 'المدونة' %}
+    {% set l_about = 'نبذة' %}
+    {% set l_contact = 'تواصل' %}
+    {% set l_lang_toggle = 'English' %}
+    {% set current = page.url or '/' %}
+    {% set altUrlRaw = current
+       | replace('/ar/index.html','/')
+       | replace('/ar/','/')
+       | replace('/ar','/') %}
   {% else %}
-    {% set altRaw = '/ar' + current %}
+    {% set base = '' %}
+    {% set l_home = 'Home' %}
+    {% set l_projects = 'Projects' %}
+    {% set l_media = 'Media' %}
+    {% set l_gallery = 'Gallery' %}
+    {% set l_music = 'Music' %}
+    {% set l_research = 'Research' %}
+    {% set l_training = 'Training &amp; Consulting' %}
+    {% set l_blog = 'Blog' %}
+    {% set l_about = 'About' %}
+    {% set l_contact = 'Contact' %}
+    {% set l_lang_toggle = 'العربية' %}
+    {% set current = page.url or '/' %}
+    {% if current == '/' or current == '/index.html' %}
+      {% set altUrlRaw = '/ar/' %}
+    {% else %}
+      {% set altUrlRaw = '/ar' + current %}
+    {% endif %}
   {% endif %}
-  {% set altUrl = altRaw | url %}
-{% endif %}
 
   <header class="site-header">
     <div class="container nav-row">
@@ -77,13 +73,13 @@
         <a href="{{ (base + '/music/') | url }}">{{ l_music | safe }}</a>
         <a href="{{ (base + '/research/') | url }}">{{ l_research | safe }}</a>
         <a href="{{ (base + '/training-consulting/') | url }}">{{ l_training | safe }}</a>
-        {% if (collections.posts and collections.posts | length > 0) or (collections.posts_en and collections.posts_en | length > 0) %}
+        {% if (collections.posts and collections.posts | length > 0) or (collections.posts_en and collections.posts_en | length > 0) or (collections.posts_ar and collections.posts_ar | length > 0) %}
           <a href="{{ (base + '/blog/') | url }}">{{ l_blog | safe }}</a>
         {% endif %}
         <a href="{{ (base + '/about/') | url }}">{{ l_about | safe }}</a>
         <a href="{{ (base + '/contact/') | url }}">{{ l_contact | safe }}</a>
 
-        <a class="lang-switch" href="{{ altUrl | url }}">{{ l_lang_toggle }}</a>
+        <a class="lang-switch" href="{{ altUrlRaw | url }}">{{ l_lang_toggle }}</a>
       </nav>
     </div>
   </header>
@@ -112,6 +108,6 @@
   <script defer src="{{ '/js/nav.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
   <script defer src="{{ '/js/lightbox.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
   <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
-  <script>document.addEventListener('click',function(e){var x=e.target.closest('a.lang-switch');if(!x)return;var h=x.getAttribute('href');if(h){window.location.href=h;}});</script>
+  <script>document.addEventListener('click',function(e){var x=e.target.closest('a.lang-switch');if(!x)return;var h=x.getAttribute('href');if(h){/* ensure navigation on mobile */requestAnimationFrame(function(){window.location.href=h;});}});</script>
 </body>
 </html>

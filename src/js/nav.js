@@ -10,33 +10,20 @@
   }
 
   toggle.addEventListener('click', function () {
-    var willOpen = !nav.classList.contains('open');
-    setOpen(willOpen);
+    setOpen(!nav.classList.contains('open'));
   });
 
-  // CLOSE on link click; allow default navigation (only prevent for hashes)
   nav.addEventListener('click', function (e) {
     var a = e.target.closest('a');
     if (!a) return;
     var href = a.getAttribute('href') || '';
-    // If it's an in-page hash, scroll smoothly and prevent default
     if (href.startsWith('#')) {
       e.preventDefault();
-      try {
-        document.querySelector(href).scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } catch (_) {}
+      try { document.querySelector(href).scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch(_) {}
     }
-    // In all cases, close the menu
-    setOpen(false);
+    setOpen(false); // close regardless, don't block navigation
   });
 
-  // Close on Escape
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') setOpen(false);
-  });
-
-  // Close on resize to desktop
-  window.addEventListener('resize', function () {
-    if (window.innerWidth > 900) setOpen(false);
-  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+  window.addEventListener('resize', function () { if (window.innerWidth > 900) setOpen(false); });
 })();
