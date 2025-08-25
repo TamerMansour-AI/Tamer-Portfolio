@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title or site.title }}</title>
+  <meta name="theme-color" content="#5a6b2c">
 
   {# SEO basics #}
   {% set desc = description or site.defaultDescription %}
@@ -14,9 +15,11 @@
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
-  <link rel="stylesheet" href="{{ '/styles.css' | url }}">
+  <link rel="stylesheet" href="{{ '/styles.css' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="site-header">
     <div class="container nav-row">
       <a class="logo" href="{{ '/' | url }}">TM</a>
@@ -60,6 +63,7 @@
     </div>
   </footer>
 
-  <script defer src="{{ '/js/nav.js' | url }}"></script>
+  <script defer src="{{ '/js/nav.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
+  <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
 </body>
 </html>
