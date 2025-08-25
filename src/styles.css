@@ -807,3 +807,31 @@ toolbelt-note{ margin-top:.5rem; opacity:.9; }
 .about-cta .btn{ box-shadow:0 6px 18px rgba(0,0,0,.12); }
 /* Keep text dark over the light CTA bg */
 .about-cta *{ color:#111; }
+
+/* --- Phase 1: header + nav --- */
+:root{
+  --olive:#6a7f4e;
+  --olive-dark:#5a6b2c;
+}
+.site-header{position:sticky;top:0;z-index:1000;background:var(--olive-dark);color:#fff}
+.container{max-width:1100px;margin:auto;padding:0 16px}
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{color:#fff;text-decoration:none;font-weight:800;letter-spacing:.5px}
+.nav-toggle{background:none;border:0;color:#fff;font-size:1.6rem;line-height:1;cursor:pointer}
+.nav-toggle:focus{outline:2px dashed #fff;outline-offset:3px}
+.nav-links{display:flex;gap:16px}
+.nav-links a{color:#fff;text-decoration:none;font-weight:700}
+.nav-links a:focus{outline:2px dashed #fff;outline-offset:2px}
+@media (max-width: 768px){
+  .nav-links{display:none;position:absolute;left:0;right:0;top:100%;background:var(--olive-dark);flex-direction:column;padding:12px 16px}
+  .site-header.nav-open .nav-links{display:flex}
+  .nav-links a{padding:8px 0}
+}
+.site-footer{padding:24px 0;background:#111;color:#ddd}
+.footer-grid{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.foot-social a{display:inline-flex;align-items:center;justify-content:center;margin-left:10px}
+
+/* section cards */
+.section-pad{padding:56px 0}
+.card-section{background:#181818;border-radius:16px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+.card-section h2{margin-top:0}

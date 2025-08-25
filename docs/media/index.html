@@ -1,86 +1,342 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Media</title>
+  <title>Media &amp; Reels</title>
+
+  
+  
+  <meta name="description" content="AI-generated films, reels, and visual poems by Tamer Mansour.">
+  <meta property="og:title" content="Media &amp; Reels">
+  <meta property="og:description" content="AI-generated films, reels, and visual poems by Tamer Mansour.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tamermansour-ai.github.io/Tamer-Portfolio/media/">
+  <link rel="canonical" href="https://tamermansour-ai.github.io/Tamer-Portfolio/media/">
+
   <link rel="stylesheet" href="/Tamer-Portfolio/styles.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="/Tamer-Portfolio/">Home</a>
-      <a href="/Tamer-Portfolio/projects/">Projects</a>
-      <a href="/Tamer-Portfolio/media/">Media</a>
-      <a href="/Tamer-Portfolio/gallery/">Gallery</a>
-      <a href="/Tamer-Portfolio/music/">Music</a>
-      <a href="/Tamer-Portfolio/research/">Research</a>
-      <a href="/Tamer-Portfolio/training-consulting/">Training &amp; Consulting</a>
-      <a href="/Tamer-Portfolio/blog/">Blog</a>
-      <a href="/Tamer-Portfolio/about/">About</a>
-      <a href="/Tamer-Portfolio/contact/">Contact</a>
-    </nav>
+  <header class="site-header">
+    <div class="container nav-row">
+      <a class="logo" href="/Tamer-Portfolio/">TM</a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">☰</button>
+
+      <nav id="primary-nav" class="nav-links">
+        <a href="/Tamer-Portfolio/">Home</a>
+        <a href="/Tamer-Portfolio/projects/">Projects</a>
+        <a href="/Tamer-Portfolio/media/">Media</a>
+        <a href="/Tamer-Portfolio/research/">Research</a>
+        <a href="/Tamer-Portfolio/training-consulting/">Training &amp; Consulting</a>
+        
+        
+          <a href="/Tamer-Portfolio/blog/">Blog</a>
+        
+        <a href="/Tamer-Portfolio/about/">About</a>
+        <a href="/Tamer-Portfolio/contact/">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main id="main-content">
     
-<h1>Media</h1>
-
 <section class="container section-pad media-hero">
-  <header class="section-head">
-    <h1 class="page-title">Media & Reels</h1>
-    <p class="page-kicker">Fast thumbnails. Click to play inline.</p>
+  <header class="media-head">
+    <h1>Media & Reels</h1>
+    <p class="lead">Cinematic experiments, visual poems, and reels from my AI lab.</p>
   </header>
-</section>
 
+  <div class="media-tools">
+    <input id="mediaSearch" class="media-search" type="search" placeholder="Search videos…" aria-label="Search videos">
+    <div class="media-chips" id="mediaChips"></div>
+  </div>
 
-
-<section class="container section-pad">
-  <div class="video-grid">
+  <div class="art-grid" id="mediaGrid">
+    
+      
+      <article class="art-card js-video" data-yt="dqGQJQ1jvHg" data-title="I Am the Land — Visual Poem" data-tags="poem,palestine,visual">
+        <div class="art-thumb">
+          <img src="https://i.ytimg.com/vi/dqGQJQ1jvHg/hqdefault.jpg" alt="I Am the Land — Visual Poem" loading="lazy" width="480" height="270">
+          <button class="watch-btn" type="button" aria-label="Play video">► Watch</button>
+        </div>
+        <div class="art-body">
+          <h3 class="art-title">I Am the Land — Visual Poem</h3>
+          <p class="art-desc">A visual poem inspired by Mahmoud Darwish — voice, memory-made imagery, and AI cinematics.</p>
+          
+            <div class="tags">
+              
+                <span class="chip">poem</span>
+              
+                <span class="chip">palestine</span>
+              
+                <span class="chip">visual</span>
+              
+            </div>
+          
+          <a class="ext-link" href="https://www.youtube.com/watch?v=dqGQJQ1jvHg" target="_blank" rel="noopener">Open on YouTube ↗</a>
+        </div>
+      </article>
+    
+      
+      <article class="art-card js-video" data-yt="TcxHhyMLvfo" data-title="Generative Portraits — Motion Study" data-tags="ai-film,portrait,study">
+        <div class="art-thumb">
+          <img src="https://i.ytimg.com/vi/TcxHhyMLvfo/hqdefault.jpg" alt="Generative Portraits — Motion Study" loading="lazy" width="480" height="270">
+          <button class="watch-btn" type="button" aria-label="Play video">► Watch</button>
+        </div>
+        <div class="art-body">
+          <h3 class="art-title">Generative Portraits — Motion Study</h3>
+          <p class="art-desc">Short study in generative motion and portrait texture. Hand-crafted prompts + minimal cuts.</p>
+          
+            <div class="tags">
+              
+                <span class="chip">ai-film</span>
+              
+                <span class="chip">portrait</span>
+              
+                <span class="chip">study</span>
+              
+            </div>
+          
+          <a class="ext-link" href="https://www.youtube.com/watch?v=TcxHhyMLvfo" target="_blank" rel="noopener">Open on YouTube ↗</a>
+        </div>
+      </article>
+    
+      
+      <article class="art-card js-video" data-yt="hjLWd6J86U8" data-title="Memory of Stones — Short Reel" data-tags="reel,palestine,texture">
+        <div class="art-thumb">
+          <img src="https://i.ytimg.com/vi/hjLWd6J86U8/hqdefault.jpg" alt="Memory of Stones — Short Reel" loading="lazy" width="480" height="270">
+          <button class="watch-btn" type="button" aria-label="Play video">► Watch</button>
+        </div>
+        <div class="art-body">
+          <h3 class="art-title">Memory of Stones — Short Reel</h3>
+          <p class="art-desc">Reel exploring stone, dust, and archival textures as living memory.</p>
+          
+            <div class="tags">
+              
+                <span class="chip">reel</span>
+              
+                <span class="chip">palestine</span>
+              
+                <span class="chip">texture</span>
+              
+            </div>
+          
+          <a class="ext-link" href="https://www.youtube.com/watch?v=hjLWd6J86U8" target="_blank" rel="noopener">Open on YouTube ↗</a>
+        </div>
+      </article>
+    
+      
+      <article class="art-card js-video" data-yt="nBkYRVSdio4" data-title="City of Echoes — AI Music Cut" data-tags="music,ai-film,reel">
+        <div class="art-thumb">
+          <img src="https://i.ytimg.com/vi/nBkYRVSdio4/hqdefault.jpg" alt="City of Echoes — AI Music Cut" loading="lazy" width="480" height="270">
+          <button class="watch-btn" type="button" aria-label="Play video">► Watch</button>
+        </div>
+        <div class="art-body">
+          <h3 class="art-title">City of Echoes — AI Music Cut</h3>
+          <p class="art-desc">Music-driven visual cut; rhythms guide scenes through light and shadow.</p>
+          
+            <div class="tags">
+              
+                <span class="chip">music</span>
+              
+                <span class="chip">ai-film</span>
+              
+                <span class="chip">reel</span>
+              
+            </div>
+          
+          <a class="ext-link" href="https://www.youtube.com/watch?v=nBkYRVSdio4" target="_blank" rel="noopener">Open on YouTube ↗</a>
+        </div>
+      </article>
+    
+      
+      <article class="art-card js-video" data-yt="4_OvFXOjkWU" data-title="Eyes of Gaza — Microfilm" data-tags="palestine,microfilm,poem">
+        <div class="art-thumb">
+          <img src="https://i.ytimg.com/vi/4_OvFXOjkWU/hqdefault.jpg" alt="Eyes of Gaza — Microfilm" loading="lazy" width="480" height="270">
+          <button class="watch-btn" type="button" aria-label="Play video">► Watch</button>
+        </div>
+        <div class="art-body">
+          <h3 class="art-title">Eyes of Gaza — Microfilm</h3>
+          <p class="art-desc">Microfilm sequence — glances, rubble, and resilience. Minimal text, strong imagery.</p>
+          
+            <div class="tags">
+              
+                <span class="chip">palestine</span>
+              
+                <span class="chip">microfilm</span>
+              
+                <span class="chip">poem</span>
+              
+            </div>
+          
+          <a class="ext-link" href="https://www.youtube.com/watch?v=4_OvFXOjkWU" target="_blank" rel="noopener">Open on YouTube ↗</a>
+        </div>
+      </article>
+    
+      
+      <article class="art-card js-video" data-yt="o5f5cjZw_j8" data-title="Echoes of the Land — Song" data-tags="music,palestine">
+        <div class="art-thumb">
+          <img src="https://i.ytimg.com/vi/o5f5cjZw_j8/hqdefault.jpg" alt="Echoes of the Land — Song" loading="lazy" width="480" height="270">
+          <button class="watch-btn" type="button" aria-label="Play video">► Watch</button>
+        </div>
+        <div class="art-body">
+          <h3 class="art-title">Echoes of the Land — Song</h3>
+          <p class="art-desc">A song from the heart of Palestine — traditional motifs blended with AI arrangement.</p>
+          
+            <div class="tags">
+              
+                <span class="chip">music</span>
+              
+                <span class="chip">palestine</span>
+              
+            </div>
+          
+          <a class="ext-link" href="https://www.youtube.com/watch?v=o5f5cjZw_j8" target="_blank" rel="noopener">Open on YouTube ↗</a>
+        </div>
+      </article>
+    
+      
+      <article class="art-card js-video" data-yt="T55aC2muItM" data-title="Desert Birds — Visual Study" data-tags="study,minimal,reel">
+        <div class="art-thumb">
+          <img src="https://i.ytimg.com/vi/T55aC2muItM/hqdefault.jpg" alt="Desert Birds — Visual Study" loading="lazy" width="480" height="270">
+          <button class="watch-btn" type="button" aria-label="Play video">► Watch</button>
+        </div>
+        <div class="art-body">
+          <h3 class="art-title">Desert Birds — Visual Study</h3>
+          <p class="art-desc">Minimal shots and grain — studying motion like birds over dunes.</p>
+          
+            <div class="tags">
+              
+                <span class="chip">study</span>
+              
+                <span class="chip">minimal</span>
+              
+                <span class="chip">reel</span>
+              
+            </div>
+          
+          <a class="ext-link" href="https://www.youtube.com/watch?v=T55aC2muItM" target="_blank" rel="noopener">Open on YouTube ↗</a>
+        </div>
+      </article>
+    
+      
+      <article class="art-card js-video" data-yt="T64Vv0Opdfs" data-title="Olive Branch Dreams — Reel" data-tags="olive,reel,visual">
+        <div class="art-thumb">
+          <img src="https://i.ytimg.com/vi/T64Vv0Opdfs/hqdefault.jpg" alt="Olive Branch Dreams — Reel" loading="lazy" width="480" height="270">
+          <button class="watch-btn" type="button" aria-label="Play video">► Watch</button>
+        </div>
+        <div class="art-body">
+          <h3 class="art-title">Olive Branch Dreams — Reel</h3>
+          <p class="art-desc">Olive leaves, fabric patterns, and soft light — a reel about calm resistance.</p>
+          
+            <div class="tags">
+              
+                <span class="chip">olive</span>
+              
+                <span class="chip">reel</span>
+              
+                <span class="chip">visual</span>
+              
+            </div>
+          
+          <a class="ext-link" href="https://www.youtube.com/watch?v=T64Vv0Opdfs" target="_blank" rel="noopener">Open on YouTube ↗</a>
+        </div>
+      </article>
+    
+      
+      <article class="art-card js-video" data-yt="hrYES6lzX9E" data-title="Dawn Over the Hills — Ambient Cut" data-tags="ambient,reel">
+        <div class="art-thumb">
+          <img src="https://i.ytimg.com/vi/hrYES6lzX9E/hqdefault.jpg" alt="Dawn Over the Hills — Ambient Cut" loading="lazy" width="480" height="270">
+          <button class="watch-btn" type="button" aria-label="Play video">► Watch</button>
+        </div>
+        <div class="art-body">
+          <h3 class="art-title">Dawn Over the Hills — Ambient Cut</h3>
+          <p class="art-desc">Ambient visuals at first light — slow camera, long frames.</p>
+          
+            <div class="tags">
+              
+                <span class="chip">ambient</span>
+              
+                <span class="chip">reel</span>
+              
+            </div>
+          
+          <a class="ext-link" href="https://www.youtube.com/watch?v=hrYES6lzX9E" target="_blank" rel="noopener">Open on YouTube ↗</a>
+        </div>
+      </article>
+    
+      
+      <article class="art-card js-video" data-yt="ZvbIeKdasOc" data-title="Broken Frame — Experimental Edit" data-tags="experimental,ai-film">
+        <div class="art-thumb">
+          <img src="https://i.ytimg.com/vi/ZvbIeKdasOc/hqdefault.jpg" alt="Broken Frame — Experimental Edit" loading="lazy" width="480" height="270">
+          <button class="watch-btn" type="button" aria-label="Play video">► Watch</button>
+        </div>
+        <div class="art-body">
+          <h3 class="art-title">Broken Frame — Experimental Edit</h3>
+          <p class="art-desc">Experimental pacing and frame tearing — testing limits of AI motion.</p>
+          
+            <div class="tags">
+              
+                <span class="chip">experimental</span>
+              
+                <span class="chip">ai-film</span>
+              
+            </div>
+          
+          <a class="ext-link" href="https://www.youtube.com/watch?v=ZvbIeKdasOc" target="_blank" rel="noopener">Open on YouTube ↗</a>
+        </div>
+      </article>
+    
+      
+      <article class="art-card js-video" data-yt="L66kKVmgZRI" data-title="Sand &amp; Light — Minimal Poetics" data-tags="minimal,poem,visual">
+        <div class="art-thumb">
+          <img src="https://i.ytimg.com/vi/L66kKVmgZRI/hqdefault.jpg" alt="Sand &amp; Light — Minimal Poetics" loading="lazy" width="480" height="270">
+          <button class="watch-btn" type="button" aria-label="Play video">► Watch</button>
+        </div>
+        <div class="art-body">
+          <h3 class="art-title">Sand &amp; Light — Minimal Poetics</h3>
+          <p class="art-desc">Minimal visual poetics: sand, wind, and soft light in quiet loops.</p>
+          
+            <div class="tags">
+              
+                <span class="chip">minimal</span>
+              
+                <span class="chip">poem</span>
+              
+                <span class="chip">visual</span>
+              
+            </div>
+          
+          <a class="ext-link" href="https://www.youtube.com/watch?v=L66kKVmgZRI" target="_blank" rel="noopener">Open on YouTube ↗</a>
+        </div>
+      </article>
     
   </div>
 </section>
 
-<script>
-(function(){
-  const qsa = (s)=>Array.from(document.querySelectorAll(s));
-  qsa('.video-card .thumb').forEach(btn => {
-    btn.addEventListener('click', ()=>{
-      const card = btn.closest('.video-card');
-      const id = card && card.getAttribute('data-ytid');
-      const wrap = card && card.querySelector('.player-wrap');
-      if(!id || !wrap) return;
-      const iframe = document.createElement('iframe');
-      iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
-      iframe.title = 'YouTube player';
-      iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-      iframe.allowFullscreen = true;
-      iframe.style.width = '100%';
-      iframe.style.height = '100%';
-      wrap.innerHTML='';
-      wrap.appendChild(iframe);
-      card.classList.add('is-playing');
-    });
-  });
-})();
-</script>
+<!-- Page script (use | url to respect pathPrefix) -->
+<script defer src="/Tamer-Portfolio/js/media.js"></script>
 
   </main>
 
-  <footer>
-    <p>&copy; 2025 Tamer Mansour</p>
-    <div class="social-icons">
-      <a href="https://www.pinterest.com/TamerCreates/" target="_blank" aria-label="Pinterest">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pinterest.svg" alt="Pinterest icon">
-      </a>
-      <a href="https://www.tiktok.com/@ai_visionary_tm" target="_blank" aria-label="TikTok">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok icon">
-      </a>
-      <a href="https://www.youtube.com/@TamerAI-e5i" target="_blank" aria-label="YouTube">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube icon">
-      </a>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p class="foot-brand">© NaN Tamer Mansour</p>
+      <div class="foot-social">
+        <a href="https://www.pinterest.com/TamerCreates/" target="_blank" rel="noopener" aria-label="Pinterest">
+          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="#BD081C"><path d="M12 2a10 10 0 0 0-4 19.2c.06-.86.12-2.18.03-3.12l-1.1-4.68s-.28-.58-.28-1.44c0-1.35.78-2.36 1.75-2.36.83 0 1.22.62 1.22 1.36 0 .83-.53 2.07-.8 3.22-.23.97.49 1.76 1.44 1.76 1.72 0 3.04-1.81 3.04-4.42 0-2.31-1.66-3.93-4.04-3.93-2.75 0-4.37 2.06-4.37 4.19 0 .83.32 1.72.73 2.2.08.1.09.2.07.31l-.28 1.13c-.04.17-.14.2-.32.12-1.2-.56-1.95-2.3-1.95-3.71 0-3.01 2.19-5.78 6.31-5.78 3.31 0 5.89 2.36 5.89 5.51 0 3.29-2.07 5.94-4.94 5.94-0.96 0-1.86-.5-2.17-1.08l-.59 2.24c-.21.84-.78 1.9-1.17 2.55A10 10 0 1 0 12 2z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@ai_visionary_tm" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="#000"><path d="M16.8 3c.43 1.87 1.86 3.37 3.7 3.8v3.34a7.73 7.73 0 0 1-3.7-1.02v5.63c0 3.74-3 6.77-6.7 6.77S3.4 18.49 3.4 14.75s3-6.77 6.7-6.77c.4 0 .8.04 1.17.12v3.46a3.36 3.36 0 0 0-1.17-.21c-1.8 0-3.25 1.48-3.25 3.3s1.45 3.3 3.25 3.3 3.24-1.48 3.24-3.3V3h4.21z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@TamerAI-e5i" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="#FF0000"><path d="M23 7.5a3.5 3.5 0 0 0-2.46-2.48C18.7 4.5 12 4.5 12 4.5s-6.7 0-8.54.52A3.5 3.5 0 0 0 1 7.5 51.7 51.7 0 0 0 .5 12c0 1.75.28 3.5.46 4.5.34 1.77 1.8 2.46 3 2.6C5.84 19.62 12 19.5 12 19.5s6.7 0 8.54-.52a3.5 3.5 0 0 0 2.46-2.48c.3-1 .5-2.75.5-4.5s-.2-3.5-.5-4.5zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+        </a>
+      </div>
     </div>
   </footer>
-  <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+
+  <script defer src="/Tamer-Portfolio/js/nav.js"></script>
 </body>
 </html>

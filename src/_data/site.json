@@ -1,5 +1,6 @@
 {
-  "title": "Tamer Mansour — Portfolio",
+  "title": "Tamer Mansour",
   "url": "https://tamermansour-ai.github.io/Tamer-Portfolio",
-  "author": "Tamer Mansour"
+  "pathPrefix": "/Tamer-Portfolio",
+  "defaultDescription": "Palestinian creative technologist — AI, identity & imagination."
 }
