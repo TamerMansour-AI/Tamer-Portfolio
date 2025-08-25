@@ -1,0 +1,45 @@
+---
+layout: page.njk
+lang: ar
+title: الوسائط والريلز
+permalink: /ar/media/index.html
+description: "أفلام وتراكيب و«قصائد بصرية» مُولّدة بالذكاء الاصطناعي من تامر منصور."
+---
+
+<section class="container section-pad media-hero">
+  <header class="media-head">
+    <h1>الوسائط والريلز</h1>
+    <p class="lead">تجارب سينمائية، قصائد بصرية، وريلز من مختبر الذكاء الاصطناعي الخاص بي.</p>
+  </header>
+
+  <div class="media-tools">
+    <input id="mediaSearch" class="media-search" type="search" placeholder="ابحث في الفيديوهات…" aria-label="ابحث في الفيديوهات">
+    <div class="media-chips" id="mediaChips"></div>
+  </div>
+
+  <div class="art-grid" id="mediaGrid">
+    {% for v in media.videos %}
+      {% set imgsrc = v.thumb and v.thumb or ("https://i.ytimg.com/vi/" + v.id + "/hqdefault.jpg") %}
+      <article class="art-card js-video" data-yt="{{ v.id }}" data-title="{{ v.title | escape }}" data-tags="{{ (v.tags or []) | join(',') }}">
+        <div class="art-thumb">
+          <img src="{{ imgsrc }}" alt="{{ v.title }}" loading="lazy" width="480" height="270">
+          <button class="watch-btn" type="button" aria-label="تشغيل الفيديو">► شاهد</button>
+        </div>
+        <div class="art-body">
+          <h3 class="art-title">{{ v.title }}</h3>
+          <p class="art-desc">{{ v.desc }}</p>
+          {% if v.tags and v.tags.length %}
+            <div class="tags">
+              {% for t in v.tags %}
+                <span class="chip">{{ t }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <a class="ext-link" href="https://www.youtube.com/watch?v={{ v.id }}" target="_blank" rel="noopener">افتح على يوتيوب ↗</a>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<script defer src="{{ '/js/media.js' | url }}"></script>

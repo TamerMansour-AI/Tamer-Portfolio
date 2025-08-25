@@ -1,19 +1,21 @@
 ---
 layout: page.njk
+lang: ar
 title: المدونة
-permalink: /ar/blog/index.html
 pagination:
   data: collections.posts_ar
   size: 10
   alias: posts
+permalink: "/ar/blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
 ---
-<section class="container section-pad" dir="rtl">
+<section class="container section-pad">
   <h1>المدونة</h1>
 
   <div class="media-tools">
     <input id="blogSearch" class="media-search" type="search" placeholder="ابحث في المقالات…" aria-label="ابحث في المقالات">
   </div>
 
+  {% if posts and posts | length > 0 %}
   <div id="blogList" class="blog-cards">
     {% for p in posts | reverse %}
       <article class="b-card js-post" data-tags="{{ (p.data.tags or []) | join(',') }}" data-cat="{{ p.data.category or '' }}">
@@ -29,6 +31,9 @@ pagination:
     {% if pagination.href.previous %}<a class="btn" href="{{ pagination.href.previous | url }}">← الأحدث</a>{% endif %}
     {% if pagination.href.next %}<a class="btn" href="{{ pagination.href.next | url }}">الأقدم →</a>{% endif %}
   </nav>
+  {% endif %}
+  {% else %}
+    <p class="lead">لا توجد مقالات عربية بعد. <a href="{{ '/blog/' | url }}">تصفّح النسخة الإنجليزية</a>.</p>
   {% endif %}
 </section>
 

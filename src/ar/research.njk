@@ -1,0 +1,67 @@
+---
+layout: page.njk
+lang: ar
+title: الأبحاث
+permalink: /ar/research/index.html
+description: "دفاتر بحث تفاعلية يمكنك استكشافها (NotebookLM)."
+---
+
+<section class="container section-pad research-page">
+  <header class="r-hero">
+    <h1>الأبحاث</h1>
+    <p class="lead">دفاتر تفاعلية وغوصات عميقة — افتحها واستكشفها مباشرة.</p>
+  </header>
+
+  <div class="media-tools">
+    <input id="rSearch" class="media-search" type="search" placeholder="ابحث في الأبحاث…" aria-label="ابحث في الأبحاث">
+    <div class="media-chips" id="rChips"></div>
+  </div>
+
+  <div id="rGrid" class="r-grid">
+    {% for it in research.items %}
+      {% set t = it.type or 'note' %}
+      <article class="r-card js-r" data-type="{{ t }}" data-topics="{{ (it.topics or []) | join(',') }}">
+        <div class="r-thumb">
+          {% if it.thumb %}
+            <img src="{{ it.thumb }}" alt="{{ it.title }}" loading="lazy" decoding="async">
+          {% else %}
+            <div class="r-ph" aria-hidden="true">
+              {% if t == 'notebooklm' %}<span class="r-ico">📒</span>
+              {% elif t == 'chatgpt' %}<span class="r-ico">💬</span>
+              {% elif t == 'paper' %}<span class="r-ico">📄</span>
+              {% elif t == 'deck' %}<span class="r-ico">🗂️</span>
+              {% else %}<span class="r-ico">⭐</span>{% endif %}
+            </div>
+          {% endif %}
+          <span class="r-badge r-badge--{{ t }}">
+            {% if t == 'notebooklm' %}NotebookLM{% elif t == 'chatgpt' %}ChatGPT{% elif t == 'paper' %}Paper{% elif t == 'deck' %}Deck{% else %}Research{% endif %}
+          </span>
+        </div>
+
+        <div class="r-body">
+          <h3 class="r-title">{{ it.title }}</h3>
+          {% if it.desc %}<p class="r-desc">{{ it.desc }}</p>{% endif %}
+
+          {% if it.topics and it.topics.length %}
+            <div class="r-tags">
+              {% for x in it.topics %}<span class="chip">{{ x }}</span>{% endfor %}
+            </div>
+          {% endif %}
+
+          <div class="r-meta">{% if it.date %}<span class="r-date">{{ it.date }}</span>{% endif %}</div>
+
+          <div class="r-cta">
+            <a class="btn btn-primary" href="{{ it.url }}" target="_blank" rel="noopener">افتح الدفتر ↗</a>
+            <button class="btn btn-ghost js-copy" data-copy="{{ it.url }}">انسخ الرابط</button>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+
+  <div class="gallery-actions">
+    <button id="rLoadMore" class="loadmore">اعرض المزيد</button>
+  </div>
+</section>
+
+<script defer src="{{ '/js/research.js' | url }}"></script>
