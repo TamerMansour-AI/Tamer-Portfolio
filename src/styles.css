@@ -2,6 +2,10 @@
  * Global stylesheet for the Tamer Portfolio site.
  * Palette inspired by olive trees & kufiya.
  */
+/* Prevent horizontal overflow on all pages */
+html, body {
+  overflow-x: hidden;
+}
 
 /* ===== Tokens (موحّدة) ===== */
 :root{
