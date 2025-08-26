@@ -957,3 +957,107 @@ html[dir="rtl"] .lang-switch{margin-inline-end:auto}
 .r-card .r-ph{background:linear-gradient(160deg, hsl(calc(var(--i)*36) 65% 90%) 0%, hsl(calc(var(--i)*36) 60% 85%) 100%)}
 .r-badge{position:absolute;left:10px;bottom:10px;background:#222;color:#fff;font-size:.7rem;padding:.2rem .4rem;border-radius:6px;opacity:.9}
 html[dir="rtl"] .r-badge{left:auto;right:10px}
+
+@media (max-width:900px){
+  .site-header{position:sticky;top:0;z-index:1000}
+  .nav-toggle{display:block}
+
+  /* لوحة القائمة كطبقة كاملة قابلة للتمرير */
+  .site-header .nav-links{
+    position:fixed;
+    top:56px;              /* ارتفاع الترويسة التقريبي */
+    left:0; right:0; bottom:0;
+    display:none;          /* ستتحول لـ flex عند الفتح */
+    flex-direction:column;
+    align-items:flex-start;
+    gap:.6rem;
+    padding:1rem 1.25rem 1.25rem;
+    background:#fff;
+    z-index:1002;
+    overflow:auto;         /* المهم: تمكين التمرير */
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+    border-bottom:1px solid #e6e6e6;
+  }
+  .site-header .nav-links.open{display:flex}
+  .site-header .nav-links a{padding:.5rem 0}
+  html[dir="rtl"] .site-header .nav-links{align-items:flex-end}
+
+  /* زر اللغة مثبت أسفل القائمة */
+  .site-header .nav-links .lang-switch{
+    order:9999;           /* ضعه آخر عنصر بصرف النظر عن مكانه في الـ HTML */
+    margin-top:auto;      /* ادفعه لأسفل */
+    width:100%;
+    text-align:center;
+    display:block;
+    padding:.75rem 1rem;
+    font-weight:700;
+    text-decoration:none;
+    border-top:1px solid rgba(0,0,0,.08);
+    border-radius:10px;
+    background:#f4f5f2;
+  }
+
+  /* داكن */
+  @media (prefers-color-scheme:dark){
+    .site-header .nav-links{background:#111;color:#fff;border-color:#222;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+    .site-header .nav-links a{color:#fff}
+    .site-header .nav-links .lang-switch{
+      background:#1b1b1b;
+      border-top:1px solid rgba(255,255,255,.12);
+      color:#fff;
+    }
+  }
+
+  /* قفل سكرول الصفحة عند فتح القائمة */
+  body.nav-open{overflow:hidden}
+}
+:root{--header-h:56px}
+html,body{min-height:100%}
+body{background:#fff;color:#111}
+@media (prefers-color-scheme:dark){
+  body{background:#0b0b0b;color:#eee}
+}
+.site-header{position:sticky;top:0;z-index:1000;background:#fff}
+@media (prefers-color-scheme:dark){
+  .site-header{background:#121212}
+}
+.nav-row{display:flex;align-items:center;gap:1rem}
+.nav-toggle{display:none;background:transparent;border:0;font-size:1.35rem;line-height:1}
+.lang-switch-top{
+  margin-inline-start:auto;
+  padding:.4rem .7rem;border-radius:.6rem;border:1px solid rgba(0,0,0,.12);
+  text-decoration:none;font-weight:700
+}
+@media (prefers-color-scheme:dark){
+  .lang-switch-top{border-color:rgba(255,255,255,.2)}
+}
+.nav-links{display:flex;gap:.9rem;align-items:center}
+
+/* Mobile menu as stable layer (Android-friendly) */
+@media (max-width:900px){
+  .nav-toggle{display:block}
+  .nav-links{
+    position:fixed; left:0; right:0;
+    top:var(--header-h); 
+    /* Fallback first: */
+    max-height:calc(100vh - var(--header-h));
+    /* Modern viewport on Android/iOS: */
+    height:calc(100dvh - var(--header-h));
+    display:none; flex-direction:column; align-items:flex-start; gap:.6rem;
+    padding:1rem 1.25rem 1.25rem;
+    background:#fff; color:inherit; z-index:1002;
+    overflow:auto; box-shadow:0 6px 18px rgba(0,0,0,.08);
+    border-bottom:1px solid #e6e6e6;
+    transform:translateZ(0); /* avoid white/black flashes on some GPUs */
+    will-change:transform;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:.5rem 0}
+  body.nav-open{overflow:hidden}
+  html[dir="rtl"] .nav-links{align-items:flex-end}
+}
+html[dir="rtl"] .nav-row{flex-direction:row-reverse}
+html[dir="rtl"] .lang-switch-top{margin-inline-end:auto;margin-inline-start:0}
+
+/* Ensure main has a solid background to avoid "black frame" while images/video load */
+main#main-content{background:inherit}

@@ -19,7 +19,7 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  {# === Locale labels + altUrl (RAW) === #}
+  {# ===== Labels + alt URL (RAW) ===== #}
   {% if lang == 'ar' %}
     {% set base = '/ar' %}
     {% set l_home = 'الرئيسية' %}
@@ -63,9 +63,12 @@
     <div class="container nav-row">
       <a class="logo" href="{{ (base + '/') | url }}">TM</a>
 
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">☰</button>
+      {# Always-visible language switch (outside dropdown) #}
+      <a class="lang-switch-top" href="{{ altUrlRaw | url }}">{{ l_lang_toggle }}</a>
 
-      <nav id="primary-nav" class="nav-links">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu" aria-haspopup="true">☰</button>
+
+      <nav id="primary-nav" class="nav-links" aria-label="Primary">
         <a href="{{ (base + '/') | url }}">{{ l_home | safe }}</a>
         <a href="{{ (base + '/projects/') | url }}">{{ l_projects | safe }}</a>
         <a href="{{ (base + '/media/') | url }}">{{ l_media | safe }}</a>
@@ -78,8 +81,7 @@
         {% endif %}
         <a href="{{ (base + '/about/') | url }}">{{ l_about | safe }}</a>
         <a href="{{ (base + '/contact/') | url }}">{{ l_contact | safe }}</a>
-
-        <a class="lang-switch" href="{{ altUrlRaw | url }}">{{ l_lang_toggle }}</a>
+        {# removed in-menu lang switch to avoid duplication #}
       </nav>
     </div>
   </header>
@@ -108,6 +110,12 @@
   <script defer src="{{ '/js/nav.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
   <script defer src="{{ '/js/lightbox.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
   <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
-  <script>document.addEventListener('click',function(e){var x=e.target.closest('a.lang-switch');if(!x)return;var h=x.getAttribute('href');if(h){/* ensure navigation on mobile */requestAnimationFrame(function(){window.location.href=h;});}});</script>
+  <script>
+    // force navigation for the top language switch on some Android browsers
+    document.addEventListener('click',function(e){
+      var x=e.target.closest('a.lang-switch-top'); if(!x) return;
+      var h=x.getAttribute('href'); if(h){ requestAnimationFrame(function(){ window.location.href=h; }); }
+    });
+  </script>
 </body>
 </html>
