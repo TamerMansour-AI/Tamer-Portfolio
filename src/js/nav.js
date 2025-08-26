@@ -6,7 +6,7 @@
 
   function setHeaderH(){
     var h = header ? header.getBoundingClientRect().height : 56;
-    if (!h || h < 40) h = 56; // Android/Samsung occasional 0px sticky height
+    if (!h || h < 40) h = 56; // Android occasional 0px sticky height
     document.documentElement.style.setProperty('--header-h', h + 'px');
   }
   setHeaderH();

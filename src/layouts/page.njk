@@ -14,7 +14,7 @@
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
-  <link rel="stylesheet" href="{{ '/styles.css' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}">
+  <link rel="stylesheet" href="{{ '/styles.css' | url }}?v={{ site.assetVersion }}">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -107,7 +107,7 @@
     </div>
   </footer>
 
-  <script defer src="{{ '/js/nav.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
+  <script defer src="{{ '/js/nav.js' | url }}?v={{ site.assetVersion }}"></script>
   <script defer src="{{ '/js/lightbox.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
   <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
   <script>
