@@ -1039,28 +1039,45 @@ body{background:#fff;color:#111}
 .nav-links{display:flex;gap:.9rem;align-items:center}
 
 /* Mobile menu as stable layer (Android-friendly) */
-@media (max-width:900px){
-  .nav-toggle{display:block}
-  .nav-links{
-    position:fixed; left:0; right:0;
-    top:var(--header-h); 
-    /* Fallback first: */
-    max-height:calc(100vh - var(--header-h));
-    /* Modern viewport on Android/iOS: */
-    height:calc(100dvh - var(--header-h));
-    display:none; flex-direction:column; align-items:flex-start; gap:.6rem;
-    padding:1rem 1.25rem 1.25rem;
-    background:#fff; color:inherit; z-index:1002;
-    overflow:auto; box-shadow:0 6px 18px rgba(0,0,0,.08);
-    border-bottom:1px solid #e6e6e6;
-    transform:translateZ(0); /* avoid white/black flashes on some GPUs */
-    will-change:transform;
+@media (max-width: 900px) {
+  /*
+   * Unified mobile navigation layer for both LTR and RTL.
+   * Use inset-inline to stretch across the viewport regardless of writing direction
+   * and !important declarations to override any earlier conflicting rules.
+   */
+  .site-header .nav-links {
+    position: fixed !important;
+    top: var(--header-h) !important;
+    inset-inline: 0 !important; /* replaces left/right for LTR/RTL */
+    bottom: 0 !important;
+    display: none !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.6rem !important;
+    padding: 1rem 1.25rem 1.25rem !important;
+    background: #fff !important;
+    z-index: 1002 !important;
+    overflow: auto !important;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08) !important;
+    border-bottom: 1px solid #e6e6e6 !important;
+    transform: translateZ(0) !important;
   }
-  .nav-links.open{display:flex}
-  .nav-links a{padding:.5rem 0}
-  body.nav-open{overflow:hidden}
-  html[dir="rtl"] .nav-links{align-items:flex-end}
+  .site-header .nav-links.open {
+    display: flex !important;
+  }
+  .site-header .nav-links a {
+    padding: 0.5rem 0 !important;
+    display: block !important;
+  }
+  body.nav-open {
+    overflow: hidden !important;
+  }
+  html[dir="rtl"] .site-header .nav-links {
+    align-items: flex-end !important;
+    text-align: right !important;
+  }
 }
+
 html[dir="rtl"] .nav-row{flex-direction:row-reverse}
 html[dir="rtl"] .lang-switch-top{margin-inline-end:auto;margin-inline-start:0}
 
