@@ -1345,3 +1345,82 @@ a[data-pin-do="embedBoard"] {
 
 /* Any inline style using 100vw becomes 100% to avoid wide canvas */
 [style*="width:100vw"] { width: 100% !important; max-width: 100% !important; }
+
+/* === FINAL OVERRIDES (mobile nav + overflow/RTL) === */
+
+/* لا تمرير أفقي أبدًا */
+html, body {
+  margin:0;
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  -webkit-text-size-adjust:100%;
+}
+*,
+*::before,
+*::after { box-sizing:border-box; min-width:0; }
+
+/* عناصر كبيرة قد تسبب تمدد */
+main, header, section, footer { overflow-x:clip; }
+
+/* الحاوية آمنة */
+.container{ width:min(100%,1100px); margin-inline:auto; padding-inline:1rem; }
+
+/* لو سكريبت Pinterest حط عرض ثابت */
+iframe, .pinwdgt, .PinterestBoard, .PinterestGrid, .PDS_board, .PDS_wrapper {
+  max-width:100% !important; width:100% !important; overflow:hidden !important;
+}
+/* أي ستايل inline فيه 100vw أو 1000px */
+[style*="100vw"], [style*="1000px"] { width:100% !important; }
+
+/* طبقة تغميق للخلفية عند فتح المنيو */
+.nav-overlay{
+  position:fixed; inset:0; background:rgba(0,0,0,.45);
+  z-index:1001; backdrop-filter:saturate(120%) blur(1px);
+}
+
+/* قائمة الموبايل كلوحة كاملة قابلة للتمرير */
+.site-header .nav-links{
+  position:fixed;
+  top:var(--header-h,56px);
+  /* دعم قديم + حديث معًا */
+  left:0; right:0; inset-inline:0;
+  bottom:0;                               /* أفضل من 100vh */
+  display:none; flex-direction:column; gap:.6rem; align-items:flex-start;
+  padding:1rem 1.25rem 1.25rem;
+  background:#fff; color:#111; z-index:1002;
+  overflow:auto; border-bottom:1px solid #e6e6e6;
+  box-shadow:0 10px 24px rgba(0,0,0,.08);
+  transform:translateZ(0);
+}
+.site-header .nav-links.open{ display:flex !important; }
+.site-header .nav-links a{ color:#111 !important; text-decoration:none; padding:.5rem 0; }
+
+/* RTL: محاذاة يمين */
+html[dir="rtl"] .site-header .nav-links{ align-items:flex-end; text-align:right; }
+
+/* زر اللغة العلوي يبقى ظاهر وواضح */
+.lang-switch-top{
+  position:relative; z-index:1003;
+  margin-inline-start:auto; padding:.4rem .7rem; border:1px solid rgba(0,0,0,.12);
+  border-radius:.6rem; font-weight:700; text-decoration:none;
+}
+@supports not (margin-inline-start: 1rem) {
+  .lang-switch-top{ margin-left:auto; }
+  html[dir="rtl"] .lang-switch-top{ margin-right:auto; margin-left:0; }
+}
+
+/* وضع داكن */
+@media (prefers-color-scheme: dark){
+  .site-header{ background:#121212; }
+  .site-header .nav-links{ background:#111; color:#fff; border-color:#222; }
+  .site-header .nav-links a{ color:#fff !important; }
+  .lang-switch-top{ border-color:rgba(255,255,255,.22); }
+}
+
+/* عند فتح المنيو امنع تمرير الصفحة وأظهر الـ overlay */
+body.nav-open { overflow:hidden; }
+body.nav-open #navOverlay[hidden]{ display:block !important; }
+
+/* إصلاحات إضافية تمنع التمدد في العربي */
+html[dir="rtl"] body { direction: rtl; }
