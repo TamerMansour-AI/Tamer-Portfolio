@@ -2,10 +2,12 @@
 <html lang="{{ lang or 'en' }}" {% if lang == 'ar' %}dir="rtl"{% endif %}>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
   <title>{{ title or site.title }}</title>
   <meta name="theme-color" content="#5a6b2c">
 
+  {# SEO #}
   {% set desc = description or site.defaultDescription %}
   <meta name="description" content="{{ desc }}">
   <meta property="og:title" content="{{ title or site.title }}">
@@ -81,10 +83,12 @@
         {% endif %}
         <a href="{{ (base + '/about/') | url }}">{{ l_about | safe }}</a>
         <a href="{{ (base + '/contact/') | url }}">{{ l_contact | safe }}</a>
-        {# removed in-menu lang switch to avoid duplication #}
       </nav>
     </div>
   </header>
+
+  {# Overlay for mobile drawer (click to close) #}
+  <div class="nav-overlay" id="navOverlay" hidden></div>
 
   <main id="main-content">
     {{ content | safe }}
@@ -108,7 +112,7 @@
   </footer>
 
   <script defer src="{{ '/js/nav.js' | url }}?v={{ site.assetVersion }}"></script>
-  <script defer src="{{ '/js/lightbox.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
+  <script defer src="{{ '/js/lightbox.js' | url }}?v={{ site.assetVersion }}"></script>
   <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
   <script>
     // force navigation for the top language switch on some Android browsers
