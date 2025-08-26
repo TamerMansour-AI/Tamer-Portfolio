@@ -1,42 +1,60 @@
+// Mobile drawer nav — stable on Android/iOS + close on overlay/Escape
 (function () {
   var header = document.querySelector('.site-header');
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('primary-nav');
+  var overlay = document.getElementById('navOverlay');
   if (!toggle || !nav) return;
 
   function setHeaderH(){
     var h = header ? header.getBoundingClientRect().height : 56;
-    if (!h || h < 40) h = 56; // Android occasional 0px sticky height
     document.documentElement.style.setProperty('--header-h', h + 'px');
   }
-  setHeaderH();
-  window.addEventListener('resize', setHeaderH);
-  window.addEventListener('pageshow', setHeaderH);
-  window.addEventListener('orientationchange', setHeaderH);
-  document.addEventListener('DOMContentLoaded', setHeaderH);
+  function isDesktop(){ return window.innerWidth > 900; }
 
-  function setOpen(open) {
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    nav.classList.toggle('open', open);
-    document.body.classList.toggle('nav-open', open);
+  function openNav(){
+    document.body.classList.add('nav-open');
+    nav.classList.add('open');
+    if (overlay) overlay.hidden = false;
+    toggle.setAttribute('aria-expanded','true');
   }
-  setOpen(false);
+  function closeNav(){
+    document.body.classList.remove('nav-open');
+    nav.classList.remove('open');
+    if (overlay) overlay.hidden = true;
+    toggle.setAttribute('aria-expanded','false');
+  }
 
-  toggle.addEventListener('click', function () {
-    setOpen(!nav.classList.contains('open'));
+  setHeaderH();
+  closeNav();
+
+  toggle.addEventListener('click', function(){
+    if (nav.classList.contains('open')) closeNav(); else openNav();
   });
 
-  nav.addEventListener('click', function (e) {
-    var a = e.target.closest('a');
-    if (!a) return;
+  if (overlay){
+    overlay.addEventListener('click', closeNav);
+    overlay.addEventListener('touchstart', closeNav, {passive:true});
+  }
+
+  // Close after clicking a link (incl. hash links)
+  nav.addEventListener('click', function(e){
+    var a = e.target.closest('a'); if(!a) return;
     var href = a.getAttribute('href') || '';
     if (href.startsWith('#')) {
       e.preventDefault();
-      try { document.querySelector(href).scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch(_) {}
+      try { document.querySelector(href).scrollIntoView({behavior:'smooth', block:'start'}); } catch(_){}
     }
-    setOpen(false);
+    closeNav();
   });
 
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
-  window.addEventListener('resize', function () { if (window.innerWidth > 900) setOpen(false); });
+  // Safety: ESC / resize / orientation changes
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeNav(); });
+  window.addEventListener('resize', function(){
+    setHeaderH();
+    if (isDesktop()) closeNav();
+  });
+  window.addEventListener('orientationchange', function(){
+    setTimeout(function(){ setHeaderH(); closeNav(); }, 150);
+  });
 })();
