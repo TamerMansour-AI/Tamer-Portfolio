@@ -1207,3 +1207,82 @@ main, header, section, footer, .section-pad, .section-card{ overflow-x:clip }
 
 /* اجعل main يحمل نفس الخلفية لتجنب وميض أبيض/أسود */
 main#main-content{ background:inherit }
+
+/* ===== Fix Pack: RTL width + Android menu + Pinterest clamps (final overrides) ===== */
+
+/* Never allow horizontal overflow (some browsers ignore earlier rules if redefined mid-file) */
+html, body {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+/* Main containers should clip any accidental wide children */
+main, header, section, footer, .container, .section-pad { overflow-x: clip; }
+
+/* Ensure media never exceeds container */
+img, video, iframe, canvas { max-width: 100% !important; height: auto; display: block; }
+
+/* Pinterest iframes sometimes inject fixed widths; clamp all their wrappers */
+.pin-embed,
+.pin-embed *,
+.pinwdgt, .PinterestBoard, .PinterestGrid, .PDS_board, .PDS_pin, .PDS_wrapper, .PDS_module,
+a[data-pin-do="embedBoard"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+.pin-embed iframe { width: 100% !important; height: auto !important; display: block; }
+
+/* Robust mobile menu layer (text always visible, supports RTL) */
+:root { --header-h: 56px; }
+.site-header { position: sticky; top: 0; z-index: 1000; }
+
+/* Make nav text inherit current color (fix white-on-white on old Android) */
+.site-header .nav-links { color: #111; }
+.site-header .nav-links a { color: currentColor !important; text-decoration: none; font-weight: 700; }
+
+@media (prefers-color-scheme: dark) {
+  .site-header .nav-links { color: #fff; }
+}
+
+/* Stable fullscreen drawer on mobile (works on Android, iOS, RTL) */
+@media (max-width: 900px){
+  .nav-toggle{ display:block; }
+  .site-header .nav-links{
+    position: fixed;
+    inset-inline: 0;                 /* replaces left/right; RTL-safe */
+    top: var(--header-h, 56px);
+    bottom: 0;                       /* more reliable than 100vh on Android */
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .6rem;
+    padding: 1rem 1.25rem 1.25rem;
+    background: #fff;
+    color: inherit;
+    z-index: 1002;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 6px 18px rgba(0,0,0,.08);
+    border-bottom: 1px solid #e6e6e6;
+    transform: translateZ(0);  /* avoid white/black flashes on some GPUs */
+    will-change: transform;
+  }
+  .site-header .nav-links.open{ display: flex; }
+  .site-header .nav-links a{ padding: .5rem 0; }
+  html[dir="rtl"] .site-header .nav-links{ align-items: flex-end; }
+  body.nav-open{ overflow: hidden; }
+}
+
+/* Keep the floating top language button always tappable */
+.lang-switch-top{
+  position: relative;
+  z-index: 1003;
+  background: transparent;
+}
+
+/* Extra safety: any element that uses 100vw (common in embeds) becomes 100% max */
+[style*="width:100vw"] { width: 100% !important; max-width: 100% !important; }
+

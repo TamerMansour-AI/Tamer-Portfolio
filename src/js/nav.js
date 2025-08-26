@@ -6,11 +6,14 @@
 
   function setHeaderH(){
     var h = header ? header.getBoundingClientRect().height : 56;
+    if (!h || h < 40) h = 56; // Android/Samsung occasional 0px sticky height
     document.documentElement.style.setProperty('--header-h', h + 'px');
   }
   setHeaderH();
   window.addEventListener('resize', setHeaderH);
   window.addEventListener('pageshow', setHeaderH);
+  window.addEventListener('orientationchange', setHeaderH);
+  document.addEventListener('DOMContentLoaded', setHeaderH);
 
   function setOpen(open) {
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
