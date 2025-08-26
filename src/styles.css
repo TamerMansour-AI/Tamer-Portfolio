@@ -1061,3 +1061,71 @@ html[dir="rtl"] .lang-switch-top{margin-inline-end:auto;margin-inline-start:0}
 
 /* Ensure main has a solid background to avoid "black frame" while images/video load */
 main#main-content{background:inherit}
+*,
+*::before,
+*::after{ box-sizing:border-box }
+
+html,body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;               /* أهم سطر: لا عرض زائد */
+  background:#fff;
+}
+@media (prefers-color-scheme:dark){
+  html,body{ background:#0b0b0b; }
+}
+
+/* تأكد أن كل الوسائط لا تتجاوز العرض (يشمل iframes مثل Pinterest/YouTube) */
+img, video, iframe, canvas{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+/* حاوية مرنة لا تتجاوز العرض */
+.container{
+  width:min(100%, 1100px);
+  margin-inline:auto;
+  padding-inline:1rem;
+}
+
+/* شريط الهيدر ثابت ولون واضح */
+.site-header{ position:sticky; top:0; z-index:1000; background:#fff }
+@media (prefers-color-scheme:dark){ .site-header{ background:#121212 } }
+
+/* زر اللغة يبقى فوق المستوى */
+.lang-switch-top{ position:relative; z-index:1003 }
+
+/* منيو الموبايل: استخدم خصائص منطقية بدل left/right لتدعم RTL */
+@media (max-width:900px){
+  .nav-links{
+    position:fixed;
+    inset-inline:0;                      /* بديل left:0; right:0 */
+    top:var(--header-h,56px);
+    max-height:calc(100vh - var(--header-h,56px));
+    height:calc(100dvh - var(--header-h,56px));
+    display:none;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:.6rem;
+    padding:1rem 1.25rem 1.25rem;
+    background:#fff;
+    color:inherit;
+    z-index:1002;
+    overflow:auto;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+    border-bottom:1px solid #e6e6e6;
+    transform:translateZ(0);
+    will-change:transform;
+  }
+  .nav-links.open{ display:flex }
+  .nav-links a{ padding:.5rem 0 }
+  body.nav-open{ overflow:hidden }
+  html[dir="rtl"] .nav-links{ align-items:flex-end }
+}
+
+/* تجنّب أي عنصر بعرض 100vw يسبب تمرير أفقي */
+[style*="width:100vw"]{ width:100% !important }
+
+/* اجعل main يحمل الخلفية لتلافي فلاش أبيض/أسود عند فتح المنيو */
+main#main-content{ background:inherit }
