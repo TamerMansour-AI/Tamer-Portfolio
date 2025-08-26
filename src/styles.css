@@ -1114,3 +1114,20 @@ main#main-content{background:inherit}
     text-align: right;
   }
 }
+
+/* أعرض زر القائمة وعيّن له لونًا واضحًا في العناوين */
+.nav-toggle {
+  display: none; /* مخفي على الشاشات الكبيرة */
+}
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: block;
+    background: transparent;
+    border: none;
+    color: #fff;        /* أبيض ليظهر فوق الشريط الداكن */
+    font-size: 1.6rem;  /* حجم الأيقونة */
+    line-height: 1;
+    cursor: pointer;
+  }
+}
