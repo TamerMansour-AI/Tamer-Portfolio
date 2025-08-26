@@ -1129,3 +1129,81 @@ img, video, iframe, canvas{
 
 /* اجعل main يحمل الخلفية لتلافي فلاش أبيض/أسود عند فتح المنيو */
 main#main-content{ background:inherit }
+*,
+*::before,
+*::after{ box-sizing:border-box }
+
+html,body{
+  margin:0;
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;                 /* لا تمرير أفقي إطلاقًا */
+  background:#fff;
+}
+@media (prefers-color-scheme:dark){
+  html,body{ background:#0b0b0b; color:#eee }
+}
+
+/* الحاوية */
+.container{
+  width:min(100%, 1100px);
+  margin-inline:auto;
+  padding-inline:1rem;
+}
+
+/* الوسائط لا تتجاوز العرض */
+img, video, iframe, canvas{ max-width:100%; height:auto; display:block }
+
+/* عناصر قد تولّد عرض زائد تُقصّ أفقياً */
+main, header, section, footer, .section-pad, .section-card{ overflow-x:clip }
+
+/* الهيدر */
+.site-header{ position:sticky; top:0; z-index:1000; background:#fff }
+@media (prefers-color-scheme:dark){ .site-header{ background:#121212 } }
+.nav-row{ display:flex; align-items:center; gap:1rem; min-width:0 }
+.nav-row > *{ min-width:0 }
+.nav-toggle{ display:none; background:transparent; border:0; font-size:1.35rem; line-height:1 }
+.lang-switch-top{ margin-inline-start:auto; padding:.4rem .7rem; border-radius:.6rem; border:1px solid rgba(0,0,0,.12); font-weight:700; text-decoration:none; position:relative; z-index:1003 }
+@media (prefers-color-scheme:dark){ .lang-switch-top{ border-color:rgba(255,255,255,.2) } }
+.nav-links{ display:flex; gap:.9rem; align-items:center }
+
+/* منيو الموبايل: استخدم خصائص منطقية لتدعم RTL، واملأ المسافة بين أعلى الهيدر وأسفل الشاشة */
+@media (max-width:900px){
+  .nav-toggle{ display:block }
+  .nav-links{
+    position:fixed;
+    inset-inline:0;                  /* بديل left/right لدعم RTL */
+    top:var(--header-h,56px);
+    bottom:0;                        /* أهم من height: يعالج مشاكل 100vh/100dvh */
+    display:none;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:.6rem;
+    padding:1rem 1.25rem 1.25rem;
+    background:#fff; color:inherit;
+    z-index:1002;
+    overflow:auto;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+    border-bottom:1px solid #e6e6e6;
+    transform:translateZ(0); will-change:transform;
+  }
+  .nav-links.open{ display:flex }
+  .nav-links a{ padding:.5rem 0 }
+  body.nav-open{ overflow:hidden }
+  html[dir="rtl"] .nav-links{ align-items:flex-end }
+  html[dir="rtl"] .nav-row{ flex-direction:row-reverse }
+  html[dir="rtl"] .lang-switch-top{ margin-inline-end:auto; margin-inline-start:0 }
+}
+
+/* Pinterest embeds قد تُحقن بعرض ثابت: قيّد جميع حاوياتها */
+.pinwdgt, .PinterestBoard, .PinterestGrid, .PDS_board, .PDS_pin, .PDS_wrapper{
+  width:100% !important;
+  max-width:100% !important;
+  overflow:hidden !important;
+}
+
+/* عناصر بأسلوب inline قد تستعمل 100vw وتسبب تمرير: عدّلها */
+[style*="width:100vw"]{ width:100% !important }
+
+/* اجعل main يحمل نفس الخلفية لتجنب وميض أبيض/أسود */
+main#main-content{ background:inherit }
