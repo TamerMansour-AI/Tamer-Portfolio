@@ -1286,3 +1286,62 @@ a[data-pin-do="embedBoard"] {
 /* Extra safety: any element that uses 100vw (common in embeds) becomes 100% max */
 [style*="width:100vw"] { width: 100% !important; max-width: 100% !important; }
 
+/* ===== Final Overrides: RTL width + Android menu + Pinterest clamps ===== */
+
+/* Kill any horizontal overflow on all pages (Arabic/English) */
+html, body {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+/* Clip any rogue wide child */
+main, header, section, footer, .container, .section-pad { overflow-x: clip; }
+
+/* Media and embeds never exceed container width */
+img, video, iframe, canvas { max-width: 100% !important; height: auto; display: block; }
+
+/* Pinterest injected wrappers sometimes set fixed px widths */
+.pin-embed, .pin-embed * ,
+.pinwdgt, .PinterestBoard, .PinterestGrid, .PDS_board, .PDS_pin, .PDS_wrapper, .PDS_module,
+a[data-pin-do="embedBoard"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+.pin-embed iframe { width: 100% !important; height: auto !important; display: block; }
+
+/* Canonical mobile drawer — overrides any earlier nav rules */
+@media (max-width: 900px){
+  .nav-toggle { display: block; }
+  .nav-links { display: none !important; }
+  .nav-links.open {
+    display: flex !important;
+    position: fixed !important;
+    inset-inline: 0 !important;      /* RTL-safe left/right */
+    top: var(--header-h, 56px) !important;
+    bottom: 0 !important;             /* more robust than 100vh */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .6rem;
+    padding: 1rem 1.25rem 1.25rem;
+    background: #fff !important;      /* readable on old Android light mode */
+    color: #111 !important;
+    z-index: 1002;
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 6px 18px rgba(0,0,0,.08);
+    border-bottom: 1px solid #e6e6e6;
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  html[dir="rtl"] .nav-links.open { align-items: flex-end; }
+  body.nav-open { overflow: hidden; }
+}
+
+/* Keep the floating language switch tappable */
+.lang-switch-top { position: relative; z-index: 1003; }
+
+/* Any inline style using 100vw becomes 100% to avoid wide canvas */
+[style*="width:100vw"] { width: 100% !important; max-width: 100% !important; }
