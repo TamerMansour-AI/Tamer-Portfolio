@@ -6,14 +6,6 @@ permalink: /ar/research/index.html
 description: "دفاتر بحث تفاعلية يمكنك استكشافها (NotebookLM)."
 ---
 
----
-layout: page.njk
-lang: ar
-title: الأبحاث
-permalink: /ar/research/index.html
-description: "دفاتر بحث تفاعلية يمكنك استكشافها (NotebookLM)."
----
-
 <section class="container section-pad research-page">
   <header class="r-hero">
     <h1>الأبحاث</h1>
@@ -45,17 +37,11 @@ description: "دفاتر بحث تفاعلية يمكنك استكشافها (No
             </div>
           {% endif %}
           <span class="r-badge r-badge--{{ t }}">
-            {% if t == 'notebooklm' %}
-              NotebookLM
-            {% elif t == 'chatgpt' %}
-              محادثة
-            {% elif t == 'paper' %}
-              ورقة بحثية
-            {% elif t == 'deck' %}
-              عرض شرائح
-            {% else %}
-              بحث
-            {% endif %}
+            {% if t == 'notebooklm' %}NotebookLM
+            {% elif t == 'chatgpt' %}محادثة
+            {% elif t == 'paper' %}ورقة بحثية
+            {% elif t == 'deck' %}عرض شرائح
+            {% else %}بحث{% endif %}
           </span>
         </div>
 
@@ -65,7 +51,7 @@ description: "دفاتر بحث تفاعلية يمكنك استكشافها (No
           {% if _desc %}<p class="r-desc">{{ _desc }}</p>{% endif %}
 
           {% set _topics = it.topics_ar or it.topics %}
-          {% if _topics and _topics.length %}
+          {% if _topics and (_topics | length) %}
             <div class="r-tags">
               {% for x in _topics %}<span class="chip">{{ x }}</span>{% endfor %}
             </div>
