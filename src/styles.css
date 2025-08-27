@@ -1061,3 +1061,15 @@ html[dir="rtl"] .lang-switch-top{margin-inline-end:auto;margin-inline-start:0}
 
 /* Ensure main has a solid background to avoid "black frame" while images/video load */
 main#main-content{background:inherit}
+
+/path: src/styles.css (append at EOF)
+
+/* ---------- Accessibility: hide skip-link except on focus (LTR & RTL aware) ---------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  background: #fff;
+  color: #000;
+  padding: .4rem .6rem;
+  border-radius
