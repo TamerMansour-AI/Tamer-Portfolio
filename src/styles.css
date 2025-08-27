@@ -935,8 +935,6 @@ html[dir="rtl"] body{direction:rtl}
 html[dir="rtl"] .nav-row{flex-direction:row-reverse}
 html[dir="rtl"] .nav-links{justify-content:flex-start}
 .lang-switch{margin-inline-start:auto;font-weight:700;text-decoration:underline}
-.skip-link{position:absolute;left:-9999px;top:auto}
-.skip-link:focus{left:16px;top:12px;z-index:1001;background:#fff;color:#000;padding:.4rem .6rem;border-radius:6px}
 .site-header{position:sticky;top:0;z-index:1000}
 .nav-row{display:flex;align-items:center;gap:1rem}
 .nav-toggle{display:none;background:transparent;border:0;font-size:1.35rem}
@@ -1062,43 +1060,7 @@ html[dir="rtl"] .lang-switch-top{margin-inline-end:auto;margin-inline-start:0}
 /* Ensure main has a solid background to avoid "black frame" while images/video load */
 main#main-content{background:inherit}
 
-/path: src/styles.css (append at EOF)
 
-/* ---------- Accessibility: hide skip-link except on focus (LTR & RTL aware) ---------- */
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: auto;
-  background: #fff;
-  color: #000;
-  padding: .4rem .6rem;
-  border-radius
-
-/* ----- RTL-safe, overflow-safe skip link (override older rules) ----- */
-.skip-link {
-  position: absolute;
-  /* stop causing horizontal overflow on Android: */
-  transform: translateX(-9999px);
-  /* clean base styles */
-  background: #fff;
-  color: #000;
-  padding: .4rem .6rem;
-  border-radius: 6px;
-}
-
-.skip-link:focus {
-  transform: none;
-  /* logical placement: LTR default */
-  inset-block-start: .75rem;
-  inset-inline-start: .75rem;
-  z-index: 1001;
-}
-
-/* RTL focus placement (put it on the right) */
-[dir="rtl"] .skip-link:focus {
-  inset-inline-start: auto;
-  inset-inline-end: .75rem;
-}
 
 /* (Optional safety net—doesn't fix the root cause but prevents surprises) */
 html, body { overflow-x: hidden; }
