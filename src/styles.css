@@ -197,7 +197,7 @@ footer .social-icons a img {
 .music-nav a:hover { background: rgba(255,255,255,.06); }
 .note { color:#bdbdbd; margin-bottom:.5rem; }
 
-/* ===== Projects 2.0 (clean, modern, subpath‑safe) ===== */
+/* ===== Projects 2.0 (clean, modern, subpath-safe) ===== */
 :root {
   /* Fallback chain so we work with either token set already in the file */
   --accent-olive: var(--olive, var(--olive-green, #6a7f4e));
@@ -224,7 +224,7 @@ footer .social-icons a img {
   border-left: 6px solid var(--accent-olive);
 }
 
-/* Two‑column layout with responsive stack */
+/* Two-column layout with responsive stack */
 .project-split{
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -686,59 +686,40 @@ footer .social-icons a img {
 }
 
 /* === Fix contrast on Training & Consulting page === */
-
-/* خلي النص العام في الصفحة أبيض لأن الخلفية داكنة */
 .svc-page { color: #fff; }
-
-/* العناوين والسطر التعريفي في الهيرو أوضح */
 .svc-hero-body h1,
 .svc-hero-body .lead {
   color: #fff;
   text-shadow: 0 2px 10px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.45);
 }
-
-/* قوّي التعتيم تحت النص في الهيرو */
 .svc-hero-body {
   background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,.72));
 }
-
-/* الأقسام غير الموجودة داخل بطاقات بيضاء تبقى نصها فاتح */
 .svc-who,
 .svc-process,
 .svc-faq,
 .svc-cta { color: #f1f1f1; }
-
-/* البطاقات البيضاء: نضمن النص غامق ومقروء داخلها */
 .svc-card { color: #111; background:#fff; }
-.svc-card * { color: inherit; } /* يرثوا اللون الغامق داخل الكرت */
-
-/* عناوين الأقسام خارج البطاقات */
+.svc-card * { color: inherit; }
 .svc-page h2 { color: #fff; }
-
-/* تحسين صغير للأزرار فوق صورة الهيرو */
 .svc-cta .btn { box-shadow: 0 6px 18px rgba(0,0,0,.25); }
 
 /* === Fix CTA contrast (make text dark on light background) === */
 .svc-cta-body,
 .svc-cta-body * { color:#111 !important; }
-
-.svc-cta-body { 
-  /* نفس الخلفية الخفيفة لكن نص داكن */
+.svc-cta-body {
   background: radial-gradient(circle at center, rgba(255,255,255,.85), rgba(255,255,255,.60));
 }
-
 .svc-cta-body .lead { opacity:.85; }
-
-/* أزرار أوضح فوق الخلفية الفاتحة */
 .svc-cta .btn {
   background:#fff; color:#111;
   border:1px solid rgba(0,0,0,.12);
   box-shadow:0 6px 18px rgba(0,0,0,.12);
 }
-
 .svc-cta .btn-primary {
-  background:#6a7f4e; color:#fff; border-color:#6a7f4e;   /* زيتوني ممتلئ */
+  background:#6a7f4e; color:#fff; border-color:#6a7f4e;
 }
+
 /* ===== About Page ===== */
 .about-page{
   --olive:#6a7f4e;
@@ -837,11 +818,7 @@ toolbelt-note{ margin-top:.5rem; opacity:.9; }
 .card-section h2{margin-top:0}
 
 /* --- Phase 1b: Home image sizing & responsive cropping --- */
-
-/* اضبط عرض الكونتينر شوية لتخفيف ضخامـة العناصر */
 .container{max-width:1040px}
-
-/* HERO image: نسبة 16:9 وارتفاع أقصى */
 .hero-figure{max-width:900px;margin-inline:auto}
 .hero-figure img{
   width:100%;
@@ -854,8 +831,6 @@ toolbelt-note{ margin-top:.5rem; opacity:.9; }
 @media (max-width:640px){
   .hero-figure img{max-height:280px}
 }
-
-/* About image: نسبة 4:3 وارتفاع أقصى */
 .media-split-figure img{
   width:100%;
   height:auto;
@@ -867,8 +842,6 @@ toolbelt-note{ margin-top:.5rem; opacity:.9; }
 @media (max-width:640px){
   .media-split-figure img{max-height:260px}
 }
-
-/* Sound cards images: نسبة 16:9 وارتفاع أقصى */
 .card-figure img{
   width:100%;
   height:auto;
@@ -876,8 +849,6 @@ toolbelt-note{ margin-top:.5rem; opacity:.9; }
   max-height:360px;
   object-fit:cover;
 }
-
-/* Artistic Snapshots thumbs: نسبة 3:2 وارتفاع أقصى */
 .snapshots-grid .snap img{
   width:100%;
   height:auto;
@@ -886,14 +857,10 @@ toolbelt-note{ margin-top:.5rem; opacity:.9; }
   object-fit:cover;
   border-radius:12px;
 }
-
-/* مسافات أخف شوية داخل الكروت */
 .card-section{padding:20px}
 @media (min-width:900px){
   .card-section{padding:24px}
 }
-
-/* تحسين بسيط للمنيو على الشاشات الضيقة */
 @media (max-width:768px){
   .nav-links a{padding:8px 0}
 }
@@ -951,7 +918,9 @@ html[dir="rtl"] .nav-row{flex-direction:row-reverse}
 html[dir="rtl"] .lang-switch{margin-inline-end:auto}
 .r-ph{display:flex;align-items:center;justify-content:center;min-height:160px;border-radius:12px;background:hsl(210 10% 92% / .8);position:relative;overflow:hidden}
 .r-ph .r-ico{font-size:40px;opacity:.9}
-.r-card[data-i]{--i: attr(data-i number, 1)}
+
+/* تعطيل attr() لأنه يسبب مشاكل لبعض أدوات التصغير */
+.r-card[data-i]{ --i: 1; }
 .r-card .r-ph{background:linear-gradient(160deg, hsl(calc(var(--i)*36) 65% 90%) 0%, hsl(calc(var(--i)*36) 60% 85%) 100%)}
 .r-badge{position:absolute;left:10px;bottom:10px;background:#222;color:#fff;font-size:.7rem;padding:.2rem .4rem;border-radius:6px;opacity:.9}
 html[dir="rtl"] .r-badge{left:auto;right:10px}
@@ -963,16 +932,16 @@ html[dir="rtl"] .r-badge{left:auto;right:10px}
   /* لوحة القائمة كطبقة كاملة قابلة للتمرير */
   .site-header .nav-links{
     position:fixed;
-    top:56px;              /* ارتفاع الترويسة التقريبي */
+    top:56px;
     left:0; right:0; bottom:0;
-    display:none;          /* ستتحول لـ flex عند الفتح */
+    display:none;
     flex-direction:column;
     align-items:flex-start;
     gap:.6rem;
     padding:1rem 1.25rem 1.25rem;
     background:#fff;
     z-index:1002;
-    overflow:auto;         /* المهم: تمكين التمرير */
+    overflow:auto;
     box-shadow:0 6px 18px rgba(0,0,0,.08);
     border-bottom:1px solid #e6e6e6;
   }
@@ -982,8 +951,8 @@ html[dir="rtl"] .r-badge{left:auto;right:10px}
 
   /* زر اللغة مثبت أسفل القائمة */
   .site-header .nav-links .lang-switch{
-    order:9999;           /* ضعه آخر عنصر بصرف النظر عن مكانه في الـ HTML */
-    margin-top:auto;      /* ادفعه لأسفل */
+    order:9999;
+    margin-top:auto;
     width:100%;
     text-align:center;
     display:block;
@@ -995,20 +964,19 @@ html[dir="rtl"] .r-badge{left:auto;right:10px}
     background:#f4f5f2;
   }
 
-  /* داكن */
-  @media (prefers-color-scheme:dark){
-    .site-header .nav-links{background:#111;color:#fff;border-color:#222;box-shadow:0 10px 24px rgba(0,0,0,.35)}
-    .site-header .nav-links a{color:#fff}
-    .site-header .nav-links .lang-switch{
-      background:#1b1b1b;
-      border-top:1px solid rgba(255,255,255,.12);
-      color:#fff;
-    }
-  }
-
-  /* قفل سكرول الصفحة عند فتح القائمة */
-  body.nav-open{overflow:hidden}
+  /* (أُزيل التعشيش هنا) */
 }
+/* بديل قانوني لكتلة الدارك داخل الموبايل */
+@media (max-width:900px) and (prefers-color-scheme: dark){
+  .site-header .nav-links{background:#111;color:#fff;border-color:#222;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+  .site-header .nav-links a{color:#fff}
+  .site-header .nav-links .lang-switch{
+    background:#1b1b1b;
+    border-top:1px solid rgba(255,255,255,.12);
+    color:#fff;
+  }
+}
+
 :root{--header-h:56px}
 html,body{min-height:100%}
 body{background:#fff;color:#111}
@@ -1036,17 +1004,15 @@ body{background:#fff;color:#111}
   .nav-toggle{display:block}
   .nav-links{
     position:fixed; left:0; right:0;
-    top:var(--header-h); 
-    /* Fallback first: */
+    top:var(--header-h);
     max-height:calc(100vh - var(--header-h));
-    /* Modern viewport on Android/iOS: */
     height:calc(100dvh - var(--header-h));
     display:none; flex-direction:column; align-items:flex-start; gap:.6rem;
     padding:1rem 1.25rem 1.25rem;
     background:#fff; color:inherit; z-index:1002;
     overflow:auto; box-shadow:0 6px 18px rgba(0,0,0,.08);
     border-bottom:1px solid #e6e6e6;
-    transform:translateZ(0); /* avoid white/black flashes on some GPUs */
+    transform:translateZ(0);
     will-change:transform;
   }
   .nav-links.open{display:flex}
@@ -1059,8 +1025,6 @@ html[dir="rtl"] .lang-switch-top{margin-inline-end:auto;margin-inline-start:0}
 
 /* Ensure main has a solid background to avoid "black frame" while images/video load */
 main#main-content{background:inherit}
-
-
 
 /* (Optional safety net—doesn't fix the root cause but prevents surprises) */
 html, body { overflow-x: hidden; }
