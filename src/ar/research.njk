@@ -20,10 +20,13 @@ description: "دفاتر بحث تفاعلية يمكنك استكشافها (No
   <div id="rGrid" class="r-grid">
     {% for it in research.items %}
       {% set t = it.type or 'note' %}
-      <article class="r-card js-r" data-type="{{ t }}" data-topics="{{ (it.topics or []) | join(',') }}" data-i="{{ loop.index0 }}">
+      <article class="r-card js-r"
+               data-type="{{ t }}"
+               data-topics="{{ (it.topics_ar or it.topics or []) | join(',') }}"
+               data-i="{{ loop.index0 }}">
         <div class="r-thumb">
           {% if it.thumb %}
-            <img src="{{ it.thumb }}" alt="{{ it.title }}" loading="lazy" decoding="async">
+            <img src="{{ it.thumb }}" alt="{{ it.title_ar or it.title }}" loading="lazy" decoding="async">
           {% else %}
             <div class="r-ph" aria-hidden="true">
               {% if t == 'notebooklm' %}<span class="r-ico">📒</span>
@@ -34,7 +37,11 @@ description: "دفاتر بحث تفاعلية يمكنك استكشافها (No
             </div>
           {% endif %}
           <span class="r-badge r-badge--{{ t }}">
-            {% if t == 'notebooklm' %}NotebookLM{% elif t == 'chatgpt' %}ChatGPT{% elif t == 'paper' %}Paper{% elif t == 'deck' %}Deck{% else %}Research{% endif %}
+            {% if t == 'notebooklm' %}NotebookLM
+            {% elif t == 'chatgpt' %}محادثة
+            {% elif t == 'paper' %}ورقة بحثية
+            {% elif t == 'deck' %}عرض شرائح
+            {% else %}بحث{% endif %}
           </span>
         </div>
 
@@ -43,9 +50,10 @@ description: "دفاتر بحث تفاعلية يمكنك استكشافها (No
           {% set _desc = it.desc_ar or it.desc %}
           {% if _desc %}<p class="r-desc">{{ _desc }}</p>{% endif %}
 
-          {% if it.topics and it.topics.length %}
+          {% set _topics = it.topics_ar or it.topics %}
+          {% if _topics and _topics.length %}
             <div class="r-tags">
-              {% for x in it.topics %}<span class="chip">{{ x }}</span>{% endfor %}
+              {% for x in _topics %}<span class="chip">{{ x }}</span>{% endfor %}
             </div>
           {% endif %}
 
