@@ -2,79 +2,101 @@
   "videos": [
     {
       "id": "dqGQJQ1jvHg",
-      "title": "I Am the Land — Visual Poem",
-      "desc": "A visual poem inspired by Mahmoud Darwish — voice, memory-made imagery, and AI cinematics.",
+      "title": "I Am the Land — Visual Poem (Mahmoud Darwish-inspired)",
+      "title_ar": "أنا الأرض: قصيدة مصوّرة على لسان فلسطين",
+      "desc": "A visual poem voiced in the style of Mahmoud Darwish; memory-made imagery and AI cinematics weave Palestine’s voice into one intimate monologue.",
+      "desc_ar": "قصيدة بصرية بصوتٍ يحاكي محمود درويش؛ صور تولّدها الذاكرة وسينمائيات بالذكاء الاصطناعي تصوغ صوت فلسطين في مونولوج حميم.",
       "tags": ["poem", "palestine", "visual"],
       "thumb": ""
     },
     {
       "id": "TcxHhyMLvfo",
-      "title": "Generative Portraits — Motion Study",
-      "desc": "Short study in generative motion and portrait texture. Hand-crafted prompts + minimal cuts.",
-      "tags": ["ai-film", "portrait", "study"],
+      "title": "Mona Lisa Rewired — AI Glitch Journey",
+      "title_ar": "موناليزا بنسخة لا تصلح للجميع — رحلة Glitch بالذكاء الاصطناعي",
+      "desc": "A 3:30 sensory stress-test—dozens of AI style passes over the Mona Lisa under a raw Suno glitch track. Headphones advised.",
+      "desc_ar": "اختبار حسّي لمدة 3:30 دقائق: عشرات المعالجات الأسلوبية للصورة تحت موسيقى Glitch من Suno. يُنصح بسماعات.",
+      "tags": ["ai-film", "glitch", "mona-lisa"],
       "thumb": ""
     },
     {
       "id": "hjLWd6J86U8",
-      "title": "Memory of Stones — Short Reel",
-      "desc": "Reel exploring stone, dust, and archival textures as living memory.",
-      "tags": ["reel", "palestine", "texture"],
+      "title": "A Unified Palestinian Message (Veo 3)",
+      "title_ar": "رسالة فلسطينية موحّدة (Veo 3)",
+      "desc": "A collective cry from Gaza, the West Bank, Jerusalem, the ’48 lands, camps and diaspora—produced with Veo 3, voiced with real hope and resolve.",
+      "desc_ar": "صرخة موحّدة من غزة والضفة والقدس والـ48 والمخيمات والشتات—إنتاج بصري بـVeo 3 وكلمات ومشاعر حقيقية.",
+      "tags": ["palestine", "veo3", "message"],
       "thumb": ""
     },
     {
       "id": "nBkYRVSdio4",
-      "title": "City of Echoes — AI Music Cut",
-      "desc": "Music-driven visual cut; rhythms guide scenes through light and shadow.",
-      "tags": ["music", "ai-film", "reel"],
+      "title": "DNA & the Levant — Are Palestinians Canaanite Descendants? (Podcast)",
+      "title_ar": "هل الفلسطينيون من سلالة الكنعانيين؟ (بودكاست)",
+      "desc": "A clear dive into 2017–2025 ancient-DNA studies linking modern Palestinians to ancient Canaanites; identity, continuity and myth-busting.",
+      "desc_ar": "غوص مبسّط في دراسات DNA القديمة (2017–2025) التي تربط الفلسطينيين بالكنعانيين؛ هوية واستمرارية وتفنيد أساطير.",
+      "tags": ["podcast", "dna", "canaanites", "palestine"],
       "thumb": ""
     },
     {
       "id": "4_OvFXOjkWU",
-      "title": "Eyes of Gaza — Microfilm",
-      "desc": "Microfilm sequence — glances, rubble, and resilience. Minimal text, strong imagery.",
-      "tags": ["palestine", "microfilm", "poem"],
+      "title": "Do We Live in a Simulation? — 20 Theories (Podcast)",
+      "title_ar": "هل نعيش في محاكاة؟ — 20 نظرية (بودكاست)",
+      "desc": "An AI-assisted NotebookLM episode exploring 20 frameworks of reality—from simulation to multiverses—with prompts and thought exercises.",
+      "desc_ar": "حلقة NotebookLM تستكشف 20 إطارًا لفهم الواقع—من فرضية المحاكاة إلى الأكوان المتعددة—مع أسئلة وتمارين ذهنية.",
+      "tags": ["podcast", "philosophy", "simulation"],
       "thumb": ""
     },
     {
       "id": "o5f5cjZw_j8",
       "title": "Echoes of the Land — Song",
-      "desc": "A song from the heart of Palestine — traditional motifs blended with AI arrangement.",
-      "tags": ["music", "palestine"],
+      "title_ar": "أصداء الأرض — أغنية",
+      "desc": "A musical journey through eras of Palestine—motifs, dress, and languages woven into one emotive chorus.",
+      "desc_ar": "رحلة موسيقية عبر حضارات فلسطين—زخارف ولهجات وأزياء تتلاقى في كورسٍ عاطفي واحد.",
+      "tags": ["music", "palestine", "civilizations"],
       "thumb": ""
     },
     {
       "id": "T55aC2muItM",
-      "title": "Desert Birds — Visual Study",
-      "desc": "Minimal shots and grain — studying motion like birds over dunes.",
-      "tags": ["study", "minimal", "reel"],
+      "title": "The Unbroken Palestinian — Rap",
+      "title_ar": "أنا الفلسطيني… اللي ما ينكسر — راب",
+      "desc": "A raw anthem of resilience—sharp lyrics and heavy beats voicing pain, struggle and unyielding hope.",
+      "desc_ar": "نشيد صمودٍ خام—كلمات حادّة وإيقاع ثقيل يعبّر عن الألم والنضال والأمل الذي لا ينكسر.",
+      "tags": ["rap", "palestine", "resilience"],
       "thumb": ""
     },
     {
       "id": "T64Vv0Opdfs",
-      "title": "Olive Branch Dreams — Reel",
-      "desc": "Olive leaves, fabric patterns, and soft light — a reel about calm resistance.",
-      "tags": ["olive", "reel", "visual"],
+      "title": "The Metaphorical Map of Tamer’s Life",
+      "title_ar": "الخريطة المجازية لحياة تامر",
+      "desc": "A symbolic biography: inner landscapes, creatures and motifs mapping ambition, creativity and continual transformation.",
+      "desc_ar": "سيرة رمزية: مناظر داخلية وكائنات وعلامات ترسم الطموح والإبداع والتحوّل المتواصل.",
+      "tags": ["biography", "metaphor", "story"],
       "thumb": ""
     },
     {
       "id": "hrYES6lzX9E",
-      "title": "Dawn Over the Hills — Ambient Cut",
-      "desc": "Ambient visuals at first light — slow camera, long frames.",
-      "tags": ["ambient", "reel"],
+      "title": "Echoes of History — Ibn Sina",
+      "title_ar": "أصداء التاريخ — ابن سينا",
+      "desc": "A contemplative portrait of Avicenna—knowledge, medicine and philosophy in everyday scenes and timeless quotes.",
+      "desc_ar": "بورتريه تأملي لابن سينا—العلم والطب والفلسفة في مشاهد يومية واقتباسات خالدة.",
+      "tags": ["history", "ibn-sina", "philosophy"],
       "thumb": ""
     },
     {
       "id": "ZvbIeKdasOc",
-      "title": "Broken Frame — Experimental Edit",
-      "desc": "Experimental pacing and frame tearing — testing limits of AI motion.",
-      "tags": ["experimental", "ai-film"],
+      "title": "Echoes of History — Mandela’s Dawn",
+      "title_ar": "أصداء التاريخ — فجر مانديلا",
+      "desc": "A quiet moment around Mandela’s release—dawn of freedom and the road that followed.",
+      "desc_ar": "لحظة هادئة حول يوم الإفراج عن مانديلا—فجر الحرية والطريق الذي تلاه.",
+      "tags": ["history", "mandela", "freedom"],
       "thumb": ""
     },
     {
       "id": "L66kKVmgZRI",
-      "title": "Sand & Light — Minimal Poetics",
-      "desc": "Minimal visual poetics: sand, wind, and soft light in quiet loops.",
-      "tags": ["minimal", "poem", "visual"],
+      "title": "Roots of Resilience — A Journey Through Palestine",
+      "title_ar": "جذور الصمود — رحلة عبر فلسطين",
+      "desc": "An orchestral, image-rich tribute to Palestinian heritage—from olive groves to coastal waves and sacred streets.",
+      "desc_ar": "تحية أوركسترالية غنية بالصورة لإرث فلسطين—من زيتون جنين إلى أمواج غزة وشوارع القدس.",
+      "tags": ["palestine", "heritage", "orchestral"],
       "thumb": ""
     }
   ]
