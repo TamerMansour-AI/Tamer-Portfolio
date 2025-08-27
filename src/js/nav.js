@@ -1,4 +1,5 @@
 /* /src/js/nav.js
+
  * Builds EN/AR nav, keeps GH Pages prefix, and toggles mobile menu.
  */
 (function () {
