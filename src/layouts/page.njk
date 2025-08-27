@@ -64,25 +64,21 @@
 
       <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu" aria-haspopup="true">☰</button>
 
+      <!-- قائمة موحّدة للغتين -->
       <nav id="primary-nav" class="nav-links" aria-label="Primary">
         <a href="{{ (base + '/') | url }}">{{ l_home | safe }}</a>
         <a href="{{ (base + '/projects/') | url }}">{{ l_projects | safe }}</a>
         <a href="{{ (base + '/media/') | url }}">{{ l_media | safe }}</a>
-
-        {% if lang != 'ar' %}
-          <a href="{{ (base + '/gallery/') | url }}">{{ l_gallery | safe }}</a>
-          <a href="{{ (base + '/music/') | url }}">{{ l_music | safe }}</a>
-          <a href="{{ (base + '/research/') | url }}">{{ l_research | safe }}</a>
-          <a href="{{ (base + '/training-consulting/') | url }}">{{ l_training | safe }}</a>
-          {% if (collections.posts and collections.posts | length > 0) or (collections.posts_en and collections.posts_en | length > 0) or (collections.posts_ar and collections.posts_ar | length > 0) %}
-            <a href="{{ (base + '/blog/') | url }}">{{ l_blog | safe }}</a>
-          {% endif %}
-          <a href="{{ (base + '/about/') | url }}">{{ l_about | safe }}</a>
-        {% else %}
-          <a href="{{ (base + '/training-consulting/') | url }}">{{ l_training | safe }}</a>
-          <a href="{{ (base + '/about/') | url }}">{{ l_about | safe }}</a>
+        <a href="{{ (base + '/gallery/') | url }}">{{ l_gallery | safe }}</a>
+        <a href="{{ (base + '/music/') | url }}">{{ l_music | safe }}</a>
+        <a href="{{ (base + '/research/') | url }}">{{ l_research | safe }}</a>
+        <a href="{{ (base + '/training-consulting/') | url }}">{{ l_training | safe }}</a>
+        {% if (collections.posts and collections.posts | length > 0)
+              or (collections.posts_en and collections.posts_en | length > 0)
+              or (collections.posts_ar and collections.posts_ar | length > 0) %}
+          <a href="{{ (base + '/blog/') | url }}">{{ l_blog | safe }}</a>
         {% endif %}
-
+        <a href="{{ (base + '/about/') | url }}">{{ l_about | safe }}</a>
         <a href="{{ (base + '/contact/') | url }}">{{ l_contact | safe }}</a>
       </nav>
     </div>
