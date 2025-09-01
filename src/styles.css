@@ -1087,3 +1087,34 @@ html, body { overflow-x: hidden; }
 .iab-fb header svg { color:#fff; fill: currentColor; }
 /* تعطيل أي تأثير قد يتصرف بشكل سيئ في WebView */
 .iab-fb .has-backdrop { backdrop-filter: none; -webkit-backdrop-filter: none; }
+/* Facebook In-App fixes (scoped) */
+.iab-fb html,
+.iab-fb body{
+  background:#0e1116 !important;
+  color:#e7ecf2 !important;
+  overflow-x:hidden;
+  overscroll-behavior-x:none;
+}
+@media (max-width: 767px){
+  .iab-fb .nav-links,
+  .iab-fb nav .links,
+  .iab-fb .mobile-menu{
+    background:#0e1116 !important;
+    color:#fff !important;
+  }
+  .iab-fb .nav-toggle,
+  .iab-fb .menu-toggle{ color:#fff !important; }
+}
+.iab-fb .section,
+.iab-fb .panel,
+.iab-fb .card,
+.iab-fb .surface,
+.iab-fb .container{
+  background-color:#141a22 !important;
+  color:#e7ecf2 !important;
+}
+.iab-fb main p,
+.iab-fb main li,
+.iab-fb .section p,
+.iab-fb .section li{ color:#e0e6ed !important; }
+.iab-fb .has-backdrop{ backdrop-filter:none; -webkit-backdrop-filter:none; }
