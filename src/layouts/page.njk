@@ -107,7 +107,6 @@
   </footer>
 
   <script src="{{ '/js/nav.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
-  <script src="{{ '/js/iab.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
   <script defer src="{{ '/js/lightbox.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
   <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
   <script>
@@ -117,5 +116,7 @@
       var h=x.getAttribute('href'); if(h){ requestAnimationFrame(function(){ window.location.href=h; }); }
     });
   </script>
+  <script src="{{ '/js/iab.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
+  <script src="{{ '/js/iab-nav-fix.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
 </body>
 </html>
