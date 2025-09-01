@@ -6,7 +6,7 @@
   // --- DOM ---
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('primary-nav') || document.querySelector('.nav-links');
-  var header = document.querySelector('.site-header') || document;
+  var header = document.querySelector('header') || document.querySelector('.site-header') || document;
 
   // --- Detect GH Pages prefix (/Tamer-Portfolio) ---
   var PREFIX = (function () {
@@ -94,6 +94,9 @@
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     nav.classList.toggle('open', open);
     document.body.classList.toggle('nav-open', open);
+    if (header && header.classList) {
+      header.classList.toggle('nav-open', open);
+    }
   }
 
   renderMenu(isAR ? 'ar' : 'en');

@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <title>الموسيقى</title>
   <meta name="theme-color" content="#5a6b2c">
 
@@ -17,11 +18,9 @@
   <link rel="stylesheet" href="/Tamer-Portfolio/styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
 
   
   
-    
     
     
     
@@ -41,11 +40,11 @@
     <div class="container nav-row">
       <a class="logo" href="/Tamer-Portfolio/ar/">TM</a>
 
-      
       <a class="lang-switch-top" href="/Tamer-Portfolio/music/">English</a>
 
       <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu" aria-haspopup="true">☰</button>
 
+      <!-- قائمة موحّدة للغتين -->
       <nav id="primary-nav" class="nav-links" aria-label="Primary">
         <a href="/Tamer-Portfolio/ar/">الرئيسية</a>
         <a href="/Tamer-Portfolio/ar/projects/">المشاريع</a>
@@ -59,7 +58,6 @@
         
         <a href="/Tamer-Portfolio/ar/about/">نبذة</a>
         <a href="/Tamer-Portfolio/ar/contact/">تواصل</a>
-        
       </nav>
     </div>
   </header>
@@ -197,11 +195,12 @@
     </div>
   </footer>
 
-  <script defer src="/Tamer-Portfolio/js/nav.js"></script>
+  <script src="/Tamer-Portfolio/js/nav.js"></script>
+  <script src="/Tamer-Portfolio/js/iab.js"></script>
   <script defer src="/Tamer-Portfolio/js/lightbox.js"></script>
   <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
   <script>
-    // force navigation for the top language switch on some Android browsers
+    // تأكيد انتقال زر اللغة على بعض متصفحات أندرويد
     document.addEventListener('click',function(e){
       var x=e.target.closest('a.lang-switch-top'); if(!x) return;
       var h=x.getAttribute('href'); if(h){ requestAnimationFrame(function(){ window.location.href=h; }); }
