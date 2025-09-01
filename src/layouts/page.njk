@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <title>{{ title or site.title }}</title>
   <meta name="theme-color" content="#5a6b2c">
 
@@ -105,7 +106,8 @@
     </div>
   </footer>
 
-  <script defer src="{{ '/js/nav.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
+  <script src="{{ '/js/nav.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
+  <script src="{{ '/js/iab.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
   <script defer src="{{ '/js/lightbox.js' | url }}{% if site.assetVersion %}?v={{ site.assetVersion }}{% endif %}"></script>
   <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
   <script>
