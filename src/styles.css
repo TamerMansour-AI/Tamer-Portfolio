@@ -1118,3 +1118,7 @@ html, body { overflow-x: hidden; }
 .iab-fb .section p,
 .iab-fb .section li{ color:#e0e6ed !important; }
 .iab-fb .has-backdrop{ backdrop-filter:none; -webkit-backdrop-filter:none; }
+
+/* YouTube embed */
+.yt-embed { position: relative; width: 100%; aspect-ratio: 16/9; }
+.yt-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 12px; }
