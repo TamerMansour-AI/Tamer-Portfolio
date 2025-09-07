@@ -98,6 +98,21 @@ module.exports = function (eleventyConfig) {
     return (base || "").replace(/\/$/, "") + p;
   });
 
+  // ---------- Shortcodes ----------
+  // شورتكود يوتيوب (وضع الخصوصية + ريسبونسف)
+  eleventyConfig.addShortcode("youtube", function (id, title = "YouTube video") {
+    return `
+<div class="yt-embed">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/${id}"
+    title="${String(title).replace(/"/g, '&quot;')}"
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>`;
+  });
+
   // ---------- Options ----------
   return {
     pathPrefix: "/Tamer-Portfolio",
@@ -107,6 +122,8 @@ module.exports = function (eleventyConfig) {
       includes: "includes",
       layouts: "layouts",
       data: "data"
-    }
+    },
+    // ضروري لتفعيل الشورتكود داخل الـ Markdown
+    markdownTemplateEngine: "njk",
   };
 };
