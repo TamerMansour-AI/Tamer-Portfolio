@@ -9,7 +9,7 @@ excerpt: "كيف يحوّل الدحيح التاريخ الجاف إلى قصص
 youtube_id: "_N2cHld8fA0"
 translationKey: "arab-storytelling-dahih"
 ---
-{% youtube youtube_id, title %}
+<iframe src="https://www.youtube-nocookie.com/embed/{{ youtube_id }}" title="{{ title }}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 **لماذا ينجح؟**
 - **كسر التوقعات:** أطلنتس الرمال، الحاكم بأمر الله، فوضى المماليك… قراءات غير تقليدية.
