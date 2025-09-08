@@ -1,3 +1,4 @@
+{% macro PostCard(post) %}
 <a class="post-card" href="{{ post.url | url }}">
   {% if post.data.cover %}
     <figure class="post-media">
@@ -19,3 +20,4 @@
     </div>
   </div>
 </a>
+{% endmacro %}
