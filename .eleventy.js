@@ -35,10 +35,9 @@ module.exports = function (eleventyConfig) {
     return url;
   });
 
-  // NEW: versioned (cache-buster) — يسندّه الـ base.njk
+  // NEW: versioned (cache-buster)
   eleventyConfig.addFilter("versioned", (href) => {
     if (!href) return href;
-    // لا تعيد الإضافة إذا موجود v=
     if (/[?&]v=/.test(href)) return href;
     const build =
       (process.env.GITHUB_SHA ||
@@ -88,9 +87,7 @@ module.exports = function (eleventyConfig) {
   // --- Date/URL helpers ---
   eleventyConfig.addFilter("date", (d, fmt = "yyyy") => {
     const dateObj = new Date(d);
-    if (fmt === "yyyy") {
-      return String(dateObj.getFullYear());
-    }
+    if (fmt === "yyyy") return String(dateObj.getFullYear());
     return dateObj.toString();
   });
   eleventyConfig.addFilter("dateToISO", (d) => new Date(d).toISOString());
@@ -105,11 +102,11 @@ module.exports = function (eleventyConfig) {
       return d;
     }
   });
-  eleventyConfig.addFilter("absoluteUrl", (path, base) => {
-    if (!path) return base;
-    if (/^https?:\/\//.test(path)) return path;
-    const p = path.startsWith("/") ? path : "/" + path;
-    return (base || "").replace(/\/$/, "") + p;
+  eleventyConfig.addFilter("absoluteUrl", (p, base) => {
+    if (!p) return base;
+    if (/^https?:\/\//.test(p)) return p;
+    const norm = p.startsWith("/") ? p : "/" + p;
+    return (base || "").replace(/\/$/, "") + norm;
   });
 
   // ---------- Shortcodes ----------
@@ -126,6 +123,16 @@ module.exports = function (eleventyConfig) {
 </div>`;
   });
 
+  // ---------- Layout aliases (fix & backward compatibility) ----------
+  // Preferred short names:
+  eleventyConfig.addLayoutAlias("base", "layouts/base.njk");
+  eleventyConfig.addLayoutAlias("page", "layouts/page.njk");
+  eleventyConfig.addLayoutAlias("post", "layouts/blog-post.njk");
+  // Old absolute paths still used in some pages:
+  eleventyConfig.addLayoutAlias("/src/layouts/base.njk", "layouts/base.njk");
+  eleventyConfig.addLayoutAlias("/src/layouts/page.njk", "layouts/page.njk");
+  eleventyConfig.addLayoutAlias("/src/layouts/blog-post.njk", "layouts/blog-post.njk");
+
   // ---------- Options ----------
   return {
     pathPrefix: "/Tamer-Portfolio",
@@ -133,10 +140,9 @@ module.exports = function (eleventyConfig) {
       input: "src",
       output: "docs",
       includes: "includes",
-      layouts: "layouts",
-      data: "data",
+      layouts: "layouts", // points to /src/layouts
+      data: "data"
     },
-    // لتفعيل الشورتكود داخل Markdown
     markdownTemplateEngine: "njk",
   };
 };
