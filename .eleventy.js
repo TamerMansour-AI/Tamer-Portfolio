@@ -128,14 +128,14 @@ module.exports = function (eleventyConfig) {
 
   // ---------- Options ----------
   return {
+    pathPrefix: "/Tamer-Portfolio",
     dir: {
       input: "src",
       output: "docs",
       includes: "includes",
-      data: "_data",
       layouts: "layouts",
+      data: "data",
     },
-    pathPrefix: "/Tamer-Portfolio",
     // لتفعيل الشورتكود داخل Markdown
     markdownTemplateEngine: "njk",
   };
