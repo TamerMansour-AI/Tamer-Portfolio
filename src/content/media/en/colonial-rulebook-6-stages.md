@@ -9,7 +9,7 @@ excerpt: "From ‘innocent’ trade to mind control and divided legacies—has c
 youtube_id: "0ZKRA8QYBeQ"
 translationKey: "colonial-rulebook-6-stages"
 ---
-<iframe src="https://www.youtube-nocookie.com/embed/{{ youtube_id }}" title="{{ title }}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+{% youtube youtube_id, title %}
 
 **Chapters**
 1) Soft entry  

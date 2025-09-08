@@ -1,17 +1,142 @@
-module.exports = function(eleventyConfig) {
-  // Layout aliases (use in front‑matter: layout: base | page | post)
-  eleventyConfig.addLayoutAlias("base", "layouts/base.njk");
-  eleventyConfig.addLayoutAlias("page", "layouts/page.njk");
-  eleventyConfig.addLayoutAlias("post", "layouts/blog-post.njk");
+const glob = require("glob");
+const path = require("path");
 
+module.exports = function (eleventyConfig) {
+  // ---------- Passthrough ----------
+  eleventyConfig.addPassthroughCopy({ "src/styles.css": "styles.css" });
+  eleventyConfig.addPassthroughCopy({ "src/content/media": "Media" });
+  eleventyConfig.addPassthroughCopy({ "src/js": "js" });
+  eleventyConfig.addPassthroughCopy({ "src/static/.nojekyll": ".nojekyll" });
+
+  // ---------- Collections ----------
+  eleventyConfig.addCollection("media", (collection) =>
+    collection.getFilteredByTag("media")
+  );
+
+  eleventyConfig.addCollection("gallery", () => {
+    const files = glob.sync("src/content/media/**/*.{png,jpg,jpeg,gif,webp,svg}");
+    return files.map((fp) => ({
+      fileName: path.basename(fp),
+      url: fp.replace("src/content/media", "/Media").replace(/\\/g, "/"),
+    }));
+  });
+
+  // ---------- Filters ----------
+  eleventyConfig.addFilter("youtubeEmbed", (url) => {
+    if (!url) return url;
+    if (url.includes("youtu.be/")) {
+      const id = url.split("youtu.be/")[1].split(/[?&]/)[0];
+      return `https://www.youtube.com/embed/${id}`;
+    }
+    if (url.includes("watch?v=")) {
+      const id = url.split("watch?v=")[1].split(/[&]/)[0];
+      return `https://www.youtube.com/embed/${id}`;
+    }
+    return url;
+  });
+
+  // NEW: versioned (cache-buster) — يسندّه الـ base.njk
+  eleventyConfig.addFilter("versioned", (href) => {
+    if (!href) return href;
+    // لا تعيد الإضافة إذا موجود v=
+    if (/[?&]v=/.test(href)) return href;
+    const build =
+      (process.env.GITHUB_SHA ||
+        process.env.VERCEL_GIT_COMMIT_SHA ||
+        process.env.COMMIT_SHA ||
+        Date.now().toString()).slice(0, 7);
+    const sep = href.includes("?") ? "&" : "?";
+    return `${href}${sep}v=${build}`;
+  });
+
+  // --- Blog Collections ---
+  eleventyConfig.addCollection("posts_en", (c) =>
+    c.getFilteredByGlob("src/content/blog/en/**/*.md").filter((p) => !p.data.draft)
+  );
+  eleventyConfig.addCollection("posts_ar", (c) =>
+    c.getFilteredByGlob("src/content/blog/ar/**/*.md").filter((p) => !p.data.draft)
+  );
+
+  // --- Tag Lists (unique) ---
+  function uniqueTags(posts) {
+    const set = new Set();
+    posts.forEach((p) => (p.data.tags || []).forEach((t) => set.add(t)));
+    return Array.from(set).sort();
+  }
+  eleventyConfig.addCollection("tags_en", (c) =>
+    uniqueTags(c.getFilteredByGlob("src/content/blog/en/**/*.md"))
+  );
+  eleventyConfig.addCollection("tags_ar", (c) =>
+    uniqueTags(c.getFilteredByGlob("src/content/blog/ar/**/*.md"))
+  );
+
+  // --- Category Lists (single category per post) ---
+  function uniqueCats(posts) {
+    const set = new Set();
+    posts.forEach((p) => {
+      if (p.data.category) set.add(p.data.category);
+    });
+    return Array.from(set).sort();
+  }
+  eleventyConfig.addCollection("cats_en", (c) =>
+    uniqueCats(c.getFilteredByGlob("src/content/blog/en/**/*.md"))
+  );
+  eleventyConfig.addCollection("cats_ar", (c) =>
+    uniqueCats(c.getFilteredByGlob("src/content/blog/ar/**/*.md"))
+  );
+
+  // --- Date/URL helpers ---
+  eleventyConfig.addFilter("date", (d, fmt = "yyyy") => {
+    const dateObj = new Date(d);
+    if (fmt === "yyyy") {
+      return String(dateObj.getFullYear());
+    }
+    return dateObj.toString();
+  });
+  eleventyConfig.addFilter("dateToISO", (d) => new Date(d).toISOString());
+  eleventyConfig.addFilter("dateDisplay", (d) => {
+    try {
+      return new Date(d).toLocaleDateString("en-GB", {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+      });
+    } catch {
+      return d;
+    }
+  });
+  eleventyConfig.addFilter("absoluteUrl", (path, base) => {
+    if (!path) return base;
+    if (/^https?:\/\//.test(path)) return path;
+    const p = path.startsWith("/") ? path : "/" + path;
+    return (base || "").replace(/\/$/, "") + p;
+  });
+
+  // ---------- Shortcodes ----------
+  eleventyConfig.addShortcode("youtube", function (id, title = "YouTube video") {
+    return `
+<div class="yt-embed">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/${id}"
+    title="${String(title).replace(/"/g, '&quot;')}"
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>`;
+  });
+
+  // ---------- Options ----------
   return {
     dir: {
       input: "src",
       output: "docs",
-      // IMPORTANT: these are RELATIVE to input dir
       includes: "includes",
-      data: "_data"
-      // Do NOT set dir.layouts here; Eleventy will look for layouts under includes/ by default
-    }
+      data: "_data",
+      layouts: "layouts",
+    },
+    pathPrefix: "/Tamer-Portfolio",
+    // لتفعيل الشورتكود داخل Markdown
+    markdownTemplateEngine: "njk",
   };
 };

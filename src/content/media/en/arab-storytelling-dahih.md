@@ -9,7 +9,7 @@ excerpt: "How Al Da7ee7 turns dry history into living stories: subverting clich√
 youtube_id: "_N2cHld8fA0"
 translationKey: "arab-storytelling-dahih"
 ---
-<iframe src="https://www.youtube-nocookie.com/embed/{{ youtube_id }}" title="{{ title }}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+{% youtube youtube_id, title %}
 
 **Why it works**
 - **Subverting clich√©s:** Atlantis of the Sands, Al-Hakim bi-Amr Allah, Mamluk chaos reframed.
