@@ -1,20 +1,20 @@
 {
   "en": [
-    {"title":"AI as a Tool for Liberation","desc":"How I use AI to expand creative freedom despite limits of money, borders, and tools.","icon":"🗝️","bg":"https://cdn.midjourney.com/d2b575aa-4ab8-421d-a4bd-e9935e397d9f/0_3.png","color":"#0f5b63"},
-    {"title":"Palestine as a Living Visual Story","desc":"From Canaanites to now — research, images, music, and film rooted in our land.","icon":"🇵🇸","bg":"https://cdn.midjourney.com/fe5d971c-c66a-4ab7-8df7-fa1b0459305a/0_2.png","color":"#4a5a2c"},
-    {"title":"Experimenter’s Log","desc":"Daily notes from tries with prompts, Suno, imagegen, failures and small wins.","icon":"🧪","bg":"https://cdn.midjourney.com/df42de75-863f-4763-b5af-aaa44e0ca611/0_2.png","color":"#22303c"},
-    {"title":"Business as Resistance","desc":"Building an independent creative business from Ramallah under real constraints.","icon":"💼","bg":"https://cdn.midjourney.com/39aa28c7-937c-4e07-a4fa-0ce918a34aea/0_2.png","color":"#6b4a3a"},
-    {"title":"Cinema & Art through AI","desc":"Filmmaker’s eye: pipelines, shots, sound, and storytelling with modern tools.","icon":"🎬","bg":"https://cdn.midjourney.com/7ffd6b17-4341-49e7-9813-1869933e01b8/0_3.png","color":"#2a2e42"},
-    {"title":"Out-of-the-Box Thinking","desc":"Short, odd essays that connect distant dots—bold, playful, and useful.","icon":"🧭","bg":"https://cdn.midjourney.com/d44db966-4c0c-4ccf-8f30-20b416bb2362/0_0.png","color":"#b23c3a"},
-    {"title":"Future of Humans & Machines","desc":"Personal takes on where we’re going and how to stay human with AI.","icon":"🤖","bg":"https://cdn.midjourney.com/4cba4663-044c-4002-8bd0-6d987a78c3fe/0_0.png","color":"#3b2f5c"}
+    { "slug": "ai-palestine", "title": "AI × Palestine", "summary": "Practical AI work grounded in Palestinian reality.", "image": "https://cdn.midjourney.com/d2b575aa-4ab8-421d-a4bd-e9935e397d9f/0_3.png" },
+    { "slug": "field-notes", "title": "Field Notes & Workflows", "summary": "Build logs, experiments, and tools I actually use.", "image": "https://cdn.midjourney.com/fe5d971c-c66a-4ab7-8df7-fa1b0459305a/0_2.png" },
+    { "slug": "culture-media", "title": "Cultural Aesthetics & Media", "summary": "Visuals, reels, and identity-forward design.", "image": "https://cdn.midjourney.com/df42de75-863f-4763-b5af-aaa44e0ca611/0_2.png" },
+    { "slug": "startup-lab", "title": "Entrepreneurial Experiments", "summary": "Startup ideas, product bets, and lessons.", "image": "https://cdn.midjourney.com/39aa28c7-937c-4e07-a4fa-0ce918a34aea/0_2.png" },
+    { "slug": "teaching-community", "title": "Teaching & Community", "summary": "Workshops, curricula, and community notes.", "image": "https://cdn.midjourney.com/7ffd6b17-4341-49e7-9813-1869933e01b8/0_3.png" },
+    { "slug": "poetry-music-voice", "title": "Poetry, Music & Voice", "summary": "Where sound, language, and tech meet.", "image": "https://cdn.midjourney.com/d44db966-4c0c-4ccf-8f30-20b416bb2362/0_0.png" },
+    { "slug": "meta-reflections", "title": "Meta / Reflections", "summary": "Process, philosophy, and behind‑the‑scenes.", "image": "https://cdn.midjourney.com/4cba4663-044c-4002-8bd0-6d987a78c3fe/0_0.png" }
   ],
   "ar": [
-    {"title":"الذكاء الاصطناعي كأداة تحرّر","desc":"كيف أستخدم الذكاء الاصطناعي لتوسيع حرية الإبداع رغم قيود المال والحدود والأدوات.","icon":"🗝️","bg":"https://cdn.midjourney.com/d2b575aa-4ab8-421d-a4bd-e9935e397d9f/0_3.png","color":"#0f5b63"},
-    {"title":"فلسطين كحكاية بصرية حيّة","desc":"من الكنعانيين لليوم — أبحاث وصور وموسيقى وسينما متجذّرة في الأرض.","icon":"🇵🇸","bg":"https://cdn.midjourney.com/fe5d971c-c66a-4ab7-8df7-fa1b0459305a/0_2.png","color":"#4a5a2c"},
-    {"title":"يوميات مُجرّب","desc":"ملاحظات يومية من التجارب: برومبتات، Suno، توليد صور، تعثرات وانتصارات صغيرة.","icon":"🧪","bg":"https://cdn.midjourney.com/df42de75-863f-4763-b5af-aaa44e0ca611/0_2.png","color":"#22303c"},
-    {"title":"البزنس كفعل مقاومة","desc":"كيف أبني شغلًا إبداعيًا مستقلاً من رام الله وسط القيود، بخطوات عملية.","icon":"💼","bg":"https://cdn.midjourney.com/39aa28c7-937c-4e07-a4fa-0ce918a34aea/0_2.png","color":"#6b4a3a"},
-    {"title":"السينما والفن عبر الذكاء الاصطناعي","desc":"عين صانع الأفلام: لقطات وصوت وسرد بأدوات حديثة.","icon":"🎬","bg":"https://cdn.midjourney.com/7ffd6b17-4341-49e7-9813-1869933e01b8/0_3.png","color":"#2a2e42"},
-    {"title":"تفكير خارج المألوف","desc":"مقالات قصيرة وجريئة تربط نقاطًا بعيدة — ممتعة ومفيدة.","icon":"🧭","bg":"https://cdn.midjourney.com/d44db966-4c0c-4ccf-8f30-20b416bb2362/0_0.png","color":"#b23c3a"},
-    {"title":"مستقبل الإنسان والآلة","desc":"رؤى شخصية حول أين نتجه وكيف نظلّ بشرًا مع الذكاء الاصطناعي.","icon":"🤖","bg":"https://cdn.midjourney.com/4cba4663-044c-4002-8bd0-6d987a78c3fe/0_0.png","color":"#3b2f5c"}
+    { "slug": "ai-palestine", "title": "الذكاء الاصطناعي × فلسطين", "summary": "شغل عملي بالذكاء الاصطناعي مرتبط بالواقع الفلسطيني.", "image": "https://cdn.midjourney.com/d2b575aa-4ab8-421d-a4bd-e9935e397d9f/0_3.png" },
+    { "slug": "field-notes", "title": "ملاحظات ميدانية ومسارات العمل", "summary": "تجارب وأدوات يومية فعليًا.", "image": "https://cdn.midjourney.com/fe5d971c-c66a-4ab7-8df7-fa1b0459305a/0_2.png" },
+    { "slug": "culture-media", "title": "الجماليات الثقافية والإعلام", "summary": "فيديوهات وصور وهوية واضحة.", "image": "https://cdn.midjourney.com/df42de75-863f-4763-b5af-aaa44e0ca611/0_2.png" },
+    { "slug": "startup-lab", "title": "تجارب ريادية", "summary": "أفكار ومنتجات ناشئة ودروسها.", "image": "https://cdn.midjourney.com/39aa28c7-937c-4e07-a4fa-0ce918a34aea/0_2.png" },
+    { "slug": "teaching-community", "title": "تعليم ومجتمع", "summary": "ورش ومناهج وملاحظات مجتمعية.", "image": "https://cdn.midjourney.com/7ffd6b17-4341-49e7-9813-1869933e01b8/0_3.png" },
+    { "slug": "poetry-music-voice", "title": "شعر وموسيقى وصوت", "summary": "تلاقي الصوت واللغة والتقنية.", "image": "https://cdn.midjourney.com/d44db966-4c0c-4ccf-8f30-20b416bb2362/0_0.png" },
+    { "slug": "meta-reflections", "title": "تأملات ووراء الكواليس", "summary": "منهجية وفلسفة وطريقة العمل.", "image": "https://cdn.midjourney.com/4cba4663-044c-4002-8bd0-6d987a78c3fe/0_0.png" }
   ]
 }

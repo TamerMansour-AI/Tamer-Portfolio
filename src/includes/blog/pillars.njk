@@ -1,25 +1,20 @@
-{% macro Pillars(title, intro, items) %}
-<section class="pillars">
-  <div class="section-head">
+{# Macro: Pillars(title, subtitle, list) #}
+{% macro Pillars(title, subtitle, list) %}
+<section class="pillars container section-pad">
+  <header class="section-head">
     <h2 class="section-title">{{ title }}</h2>
-    {% if intro %}<p class="section-intro">{{ intro }}</p>{% endif %}
-  </div>
-
+    {% if subtitle %}<p class="section-sub">{{ subtitle }}</p>{% endif %}
+  </header>
   <div class="pillars-grid">
-    {% if items and items.length %}
-      {% for p in items %}
-        <article class="pillar" style="background-image: url('{{ p.bg }}');">
-          <div class="pillar-overlay"></div>
-          <div class="pillar-card">
-            <div class="pillar-icon">{{ p.icon }}</div>
-            <h3 class="pillar-title">{{ p.title }}</h3>
-            <p class="pillar-desc">{{ p.desc }}</p>
-          </div>
-        </article>
-      {% endfor %}
-    {% else %}
-      <p class="empty">No pillars data found. Check <code>/src/_data/blog_pillars.json</code>.</p>
-    {% endif %}
+    {% for p in list %}
+      <a class="pillar-tile" href="{{ '/blog/' | url }}?pillar={{ p.slug }}" style="--bg:url('{{ p.image }}')">
+        <div class="tile-overlay"></div>
+        <div class="tile-text">
+          <h3>{{ p.title }}</h3>
+          {% if p.summary %}<p>{{ p.summary }}</p>{% endif %}
+        </div>
+      </a>
+    {% endfor %}
   </div>
 </section>
 {% endmacro %}
