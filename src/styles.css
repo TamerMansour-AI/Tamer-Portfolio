@@ -1204,3 +1204,27 @@ html, body { overflow-x: hidden; }
 .media :is([class*="bg-white"],[style*="background: white"]) {
   background: var(--_chip-bg, var(--chip-bg)) !important;
 }
+
+/* === Media chipbar — enforce dark theme readability (desktop) === */
+:root{--chip-bg:#2b3a27;--chip-text:#eef6ec;--chip-border:#6f8c5c;--chip-bg-hover:#3a4c33;--chip-bg-active:#93b36f;--chip-text-active:#0e120c}
+
+/* Base pills styling inside the chipbar */
+.media-chipbar > *{display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .85rem;border-radius:999px;border:1px solid var(--chip-border);background:var(--chip-bg);color:var(--chip-text);text-decoration:none;line-height:1;font-size:.92rem;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+
+/* Catch common classnames for existing pills without changing markup */
+.media-chipbar :is(.chip,.tag,.filter,.filter-btn,[class*="chip"],[class*="tag"],[class*="filter"],button,a,span){background:var(--chip-bg)!important;color:var(--chip-text)!important;border-color:var(--chip-border)!important}
+
+/* Hover + active */
+.media-chipbar :is(.chip,.tag,.filter,.filter-btn,button,a,span):hover{background:var(--chip-bg-hover)!important}
+.media-chipbar :is(.active,.is-active,[aria-pressed="true"],[data-active="true"]){background:var(--chip-bg-active)!important;color:var(--chip-text-active)!important;border-color:var(--chip-bg-active)!important}
+
+/* Fix any utility that forces white background */
+.media-chipbar :is([class*="bg-white"],[style*="background: white"]){background:var(--chip-bg)!important;color:var(--chip-text)!important}
+
+/* Icons inside pills inherit currentColor */
+.media-chipbar svg{width:1rem;height:1rem;color:currentColor;fill:currentColor}
+
+/* Scope a desktop-only reinforcement so mobile remains as-is if already good */
+@media (min-width:768px){
+  .media-chipbar > *{box-shadow:none}
+}
