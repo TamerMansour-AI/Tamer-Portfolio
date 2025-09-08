@@ -1,0 +1,19 @@
+<section class="pillars">
+  <div class="section-head">
+    <h2 class="section-title">{{ pillars_title }}</h2>
+    {% if pillars_intro %}<p class="section-intro">{{ pillars_intro }}</p>{% endif %}
+  </div>
+
+  <div class="pillars-grid">
+    {% for p in pillars_items %}
+      <article class="pillar" style="background-image: url('{{ p.bg }}');">
+        <div class="pillar-overlay"></div>
+        <div class="pillar-card">
+          <div class="pillar-icon">{{ p.icon }}</div>
+          <h3 class="pillar-title">{{ p.title }}</h3>
+          <p class="pillar-desc">{{ p.desc }}</p>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>

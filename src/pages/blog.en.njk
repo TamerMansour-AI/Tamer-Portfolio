@@ -1,0 +1,30 @@
+---
+layout: base.njk
+title: "Blog"
+lang: en
+permalink: "/blog/"
+---
+
+{% set EN = blog_pillars.en %}
+{% set pillars_title = "7 Pillars of This Blog" %}
+{% set pillars_intro = "Themes that truly reflect me. Posts below are tagged accordingly." %}
+{% set pillars_items = EN %}
+{% include "blog/pillars.njk" %}
+
+<section class="posts">
+  <div class="section-head">
+    <h2 class="section-title">Latest Posts</h2>
+  </div>
+  <div class="post-grid">
+    {% set count = 0 %}
+    {% for post in collections.blog %}
+      {% if post.data.lang == "en" and not post.data.draft %}
+        {% include "blog/card.njk" %}
+        {% set count = count + 1 %}
+      {% endif %}
+    {% endfor %}
+    {% if count == 0 %}
+      <p class="empty">No posts yet. Add Markdown files under <code>/src/content/blog/</code> tagged with <code>blog</code>.</p>
+    {% endif %}
+  </div>
+</section>

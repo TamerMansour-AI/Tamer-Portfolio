@@ -1228,3 +1228,31 @@ html, body { overflow-x: hidden; }
 @media (min-width:768px){
   .media-chipbar > *{box-shadow:none}
 }
+/* === Blog: sections & text === */
+.section-head { margin-block: 1rem 0.5rem; }
+.section-title { font-size: clamp(1.4rem, 2vw, 2rem); font-weight: 700; }
+.section-intro { color: #5a5a5a; max-width: 72ch; }
+
+/* === Pillars grid === */
+.pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1rem; margin-block: 1rem 2rem; }
+.pillar { position: relative; min-height: 220px; border-radius: 18px; overflow: hidden; background-size: cover; background-position: center; }
+.pillar-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,.45), rgba(0,0,0,.35)); }
+.pillar-card { position: absolute; inset: auto 1rem 1rem 1rem; background: rgba(255,255,255,.82); -webkit-backdrop-filter: blur(6px) saturate(1.05); backdrop-filter: blur(6px) saturate(1.05); border: 1px solid rgba(255,255,255,.5); border-radius: 14px; padding: .85rem 1rem; box-shadow: 0 4px 18px rgba(0,0,0,.12); }
+.pillar-icon { font-size: 1.2rem; }
+.pillar-title { margin: .25rem 0 .25rem; font-weight: 800; }
+.pillar-desc { color: #333; margin: 0; }
+
+/* RTL tweaks */
+[dir="rtl"] .pillar-card { text-align: right; }
+
+/* === Posts grid === */
+.post-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1rem; }
+.post-card { display: block; border: 1px solid rgba(0,0,0,.08); border-radius: 16px; overflow: hidden; background: #fff; text-decoration: none; color: inherit; transition: transform .15s ease, box-shadow .15s ease; }
+.post-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+.post-media img { display: block; width: 100%; height: 180px; object-fit: cover; }
+.post-body { padding: .9rem 1rem; }
+.post-title { font-weight: 800; margin: 0 0 .35rem; }
+.post-summary { color: #4a4a4a; margin: 0 0 .5rem; }
+.post-meta { font-size: .85rem; color: #6a6a6a; display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
+.post-tags em { font-style: normal; opacity: .9; }
+.empty { color: #777; }
