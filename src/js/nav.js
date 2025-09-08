@@ -1,5 +1,4 @@
 /* /src/js/nav.js
-
  * Builds EN/AR nav, keeps GH Pages prefix, and toggles mobile menu.
  */
 (function () {
@@ -17,7 +16,7 @@
   var isAR = (location.pathname || '').startsWith(PREFIX + '/ar/');
   var u = function (p, lang) { return PREFIX + (lang === 'ar' ? '/ar' : '') + p; };
 
-  // --- Menus ---
+  // --- Menus (Blog removed) ---
   var MENU = {
     en: [
       { href: u('/', 'en'), label: 'Home' },
@@ -27,7 +26,6 @@
       { href: u('/music/', 'en'), label: 'Music' },
       { href: u('/research/', 'en'), label: 'Research' },
       { href: u('/training-consulting/', 'en'), label: 'Training & Consulting' },
-      { href: u('/blog/', 'en'), label: 'Blog' },
       { href: u('/about/', 'en'), label: 'About' },
       { href: u('/contact/', 'en'), label: 'Contact' }
     ],
@@ -39,7 +37,6 @@
       { href: u('/music/', 'ar'), label: 'الموسيقى' },
       { href: u('/research/', 'ar'), label: 'الأبحاث' },
       { href: u('/training-consulting/', 'ar'), label: 'التدريب والاستشارات' },
-      { href: u('/blog/', 'ar'), label: 'المدونة' },
       { href: u('/about/', 'ar'), label: 'نبذة' },
       { href: u('/contact/', 'ar'), label: 'تواصل' }
     ]
@@ -77,7 +74,7 @@
     if (lang === 'ar') { topSwitch.textContent = 'English'; topSwitch.href = switchPath('en'); }
     else { topSwitch.textContent = 'العربية'; topSwitch.href = switchPath('ar'); }
 
-    // زر لغة داخل القائمة للموبايل (لو تحب وجوده)
+    // زر لغة داخل القائمة للموبايل
     var bottomSwitch = nav.querySelector('.lang-switch');
     if (!bottomSwitch) {
       bottomSwitch = document.createElement('a');
@@ -88,7 +85,7 @@
     else { bottomSwitch.textContent = 'العربية'; bottomSwitch.href = switchPath('ar'); }
   }
 
-  // --- نفس منطق الفتح/الإغلاق الأصلي تبعك ---
+  // --- نفس منطق الفتح/الإغلاق ---
   function setOpen(open) {
     if (!toggle || !nav) return;
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
