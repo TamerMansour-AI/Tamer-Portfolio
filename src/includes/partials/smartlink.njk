@@ -1,4 +1,0 @@
-{% macro SmartLink(href, label) %}
-  {% set isExternal = href and ( '://' in href or href[0:2] == '//' ) %}
-  <a href="{{ href if isExternal else (href | url) }}" {% if isExternal %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ label or href }}</a>
-{% endmacro %}

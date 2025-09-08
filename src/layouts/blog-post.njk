@@ -1,12 +1,11 @@
 ---
-layout: base
+layout: base.njk
 ---
 <article class="post container">
   <header class="post-head">
     <h1 class="post-title">{{ title }}</h1>
     <p class="post-meta">
-      {% set _d = date %}
-      <time datetime="{{ _d.toISOString().slice(0,10) }}">{{ _d.toLocaleDateString('en-GB', {year:'numeric', month:'short', day:'2-digit'}) }}</time>
+      <time datetime="{{ date | dateToISO }}">{{ date | dateDisplay }}</time>
       {% if category %} • <a href="{{ (lang == 'ar' ? '/ar/blog/category/' : '/blog/category/') + category + '/' | url }}">{{ category }}</a>{% endif %}
       {% if tags and tags.length %} •
         {% for t in tags %}
@@ -25,7 +24,7 @@ layout: base
 
   <footer class="post-foot">
     <div class="share">
-      {% set shareUrl = site.url + (page.url | url) %}
+      {% set shareUrl = page.url | url | absoluteUrl(site.url) %}
       <a class="btn btn-ghost" href="https://twitter.com/intent/tweet?url={{ shareUrl | urlencode }}&text={{ title | urlencode }}" target="_blank" rel="noopener">Share on X</a>
       <a class="btn btn-ghost" href="https://www.facebook.com/sharer/sharer.php?u={{ shareUrl | urlencode }}" target="_blank" rel="noopener">Share on Facebook</a>
       <button class="btn btn-ghost js-copy" data-copy="{{ shareUrl }}">Copy link</button>
