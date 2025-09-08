@@ -1,5 +1,5 @@
 ---
-layout: page.njk
+layout: page
 pagination:
   data: collections.tags_en
   size: 1
@@ -13,7 +13,8 @@ permalink: /blog/tag/{{ tag }}/index.html
     {% if p.data.tags and (tag in p.data.tags) %}
       <article class="b-card">
         <h3><a href="{{ p.url | url }}">{{ p.data.title }}</a></h3>
-        <p class="b-meta">{{ p.date | dateDisplay }} • {{ p.data.category }}</p>
+        {% set _d = p.date %}
+        <p class="b-meta">{{ _d.toLocaleDateString('en-GB', {year:'numeric', month:'short', day:'2-digit'}) }} • {{ p.data.category }}</p>
         {% if p.data.summary %}<p class="b-summary">{{ p.data.summary }}</p>{% endif %}
       </article>
     {% endif %}

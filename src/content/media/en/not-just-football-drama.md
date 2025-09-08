@@ -9,7 +9,7 @@ excerpt: "Sports as human drama: from Mike Tyson and Steph Curry to the 2022 Wor
 youtube_id: "sslobJj7r4I"
 translationKey: "not-just-football-drama"
 ---
-{% youtube youtube_id, title %}
+<iframe src="https://www.youtube-nocookie.com/embed/{{ youtube_id }}" title="{{ title }}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 **In this video**
 - Why matches feel like movies

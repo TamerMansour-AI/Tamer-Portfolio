@@ -9,7 +9,7 @@ excerpt: "من التسلل التجاري إلى السيطرة على العق
 youtube_id: "0ZKRA8QYBeQ"
 translationKey: "colonial-rulebook-6-stages"
 ---
-{% youtube youtube_id, title %}
+<iframe src="https://www.youtube-nocookie.com/embed/{{ youtube_id }}" title="{{ title }}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 **الفصول**
 1) دخول ناعم  
