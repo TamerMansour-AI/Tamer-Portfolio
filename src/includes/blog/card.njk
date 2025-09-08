@@ -1,0 +1,21 @@
+<a class="post-card" href="{{ post.url | url }}">
+  {% if post.data.cover %}
+    <figure class="post-media">
+      <img src="{{ post.data.cover }}" alt="{{ post.data.cover_alt or post.data.title }}">
+    </figure>
+  {% endif %}
+  <div class="post-body">
+    <h3 class="post-title">{{ post.data.title }}</h3>
+    {% if post.data.summary %}<p class="post-summary">{{ post.data.summary }}</p>{% endif %}
+    <div class="post-meta">
+      <time datetime="{{ post.date | date('YYYY-MM-DD') }}">
+        {{ post.date | date(post.data.lang == 'ar' ? 'DD MMM YYYY' : 'MMM DD, YYYY') }}
+      </time>
+      {% if post.data.tags %}
+      <span class="post-tags">
+        {% for t in post.data.tags %}<em>#{{ t }}</em>{% if not loop.last %} {% endif %}{% endfor %}
+      </span>
+      {% endif %}
+    </div>
+  </div>
+</a>

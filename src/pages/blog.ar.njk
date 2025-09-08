@@ -1,0 +1,31 @@
+---
+layout: base.njk
+title: "المدوّنة"
+lang: ar
+dir: rtl
+permalink: "/ar/blog/"
+---
+
+{% set AR = blog_pillars.ar %}
+{% set pillars_title = "الأعمدة السبعة للمدوّنة" %}
+{% set pillars_intro = "محاور بتعكس شخصيتي فعلًا. التدوينات تحت رح تتأشر حسب هالأعمدة." %}
+{% set pillars_items = AR %}
+{% include "blog/pillars.njk" %}
+
+<section class="posts">
+  <div class="section-head">
+    <h2 class="section-title">آخر التدوينات</h2>
+  </div>
+  <div class="post-grid">
+    {% set count = 0 %}
+    {% for post in collections.blog %}
+      {% if post.data.lang == "ar" and not post.data.draft %}
+        {% include "blog/card.njk" %}
+        {% set count = count + 1 %}
+      {% endif %}
+    {% endfor %}
+    {% if count == 0 %}
+      <p class="empty">لسّا ما في تدوينات. أضف ملفات ماركداون داخل <code>/src/content/blog/</code> وبوسم <code>blog</code>.</p>
+    {% endif %}
+  </div>
+</section>
