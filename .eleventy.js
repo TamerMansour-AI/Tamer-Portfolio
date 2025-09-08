@@ -1,7 +1,6 @@
 const glob = require("glob");
 const path = require("path");
 
-
 module.exports = function (eleventyConfig) {
   // ---------- Passthrough ----------
   eleventyConfig.addPassthroughCopy({ "src/styles.css": "styles.css" });
@@ -18,7 +17,7 @@ module.exports = function (eleventyConfig) {
     const files = glob.sync("src/content/media/**/*.{png,jpg,jpeg,gif,webp,svg}");
     return files.map((fp) => ({
       fileName: path.basename(fp),
-      url: fp.replace("src/content/media", "/Media").replace(/\\/g, "/")
+      url: fp.replace("src/content/media", "/Media").replace(/\\/g, "/"),
     }));
   });
 
@@ -34,6 +33,20 @@ module.exports = function (eleventyConfig) {
       return `https://www.youtube.com/embed/${id}`;
     }
     return url;
+  });
+
+  // NEW: versioned (cache-buster) — يسندّه الـ base.njk
+  eleventyConfig.addFilter("versioned", (href) => {
+    if (!href) return href;
+    // لا تعيد الإضافة إذا موجود v=
+    if (/[?&]v=/.test(href)) return href;
+    const build =
+      (process.env.GITHUB_SHA ||
+        process.env.VERCEL_GIT_COMMIT_SHA ||
+        process.env.COMMIT_SHA ||
+        Date.now().toString()).slice(0, 7);
+    const sep = href.includes("?") ? "&" : "?";
+    return `${href}${sep}v=${build}`;
   });
 
   // --- Blog Collections ---
@@ -72,7 +85,7 @@ module.exports = function (eleventyConfig) {
     uniqueCats(c.getFilteredByGlob("src/content/blog/ar/**/*.md"))
   );
 
-  // --- Filters ---
+  // --- Date/URL helpers ---
   eleventyConfig.addFilter("date", (d, fmt = "yyyy") => {
     const dateObj = new Date(d);
     if (fmt === "yyyy") {
@@ -100,7 +113,6 @@ module.exports = function (eleventyConfig) {
   });
 
   // ---------- Shortcodes ----------
-  // شورتكود يوتيوب (وضع الخصوصية + ريسبونسف)
   eleventyConfig.addShortcode("youtube", function (id, title = "YouTube video") {
     return `
 <div class="yt-embed">
@@ -122,9 +134,9 @@ module.exports = function (eleventyConfig) {
       output: "docs",
       includes: "includes",
       layouts: "layouts",
-      data: "data"
+      data: "data",
     },
-    // ضروري لتفعيل الشورتكود داخل الـ Markdown
+    // لتفعيل الشورتكود داخل Markdown
     markdownTemplateEngine: "njk",
   };
 };
