@@ -1,0 +1,5 @@
+{
+  "permalink": "/ar/media/{{ page.fileSlug }}/",
+  "lang": "ar",
+  "rtl": true
+}

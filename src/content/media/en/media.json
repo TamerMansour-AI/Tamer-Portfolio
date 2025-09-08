@@ -1,0 +1,4 @@
+{
+  "permalink": "/en/media/{{ page.fileSlug }}/",
+  "lang": "en"
+}
