@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+{# detect language (default en) and set RTL for Arabic #}
+{% set __lang = lang or page.lang or 'en' %}
+<html lang="{{ __lang }}" {% if __lang == 'ar' %}dir="rtl"{% endif %}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>{{ title }}</title>
+
+  {# basic SEO #}
+  {% if description %}<meta name="description" content="{{ description }}">{% endif %}
+  {% set __base = 'https://tamermansour-ai.github.io/Tamer-Portfolio' %}
+  <link rel="canonical" href="{{ page.url | absoluteUrl(__base) }}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ page.url | absoluteUrl(__base) }}">
+  {% if description %}<meta property="og:description" content="{{ description }}">{% endif %}
+
   <link rel="preconnect" href="https://cdn.midjourney.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.midjourney.com">
   <link rel="preconnect" href="https://api.qrserver.com" crossorigin>
@@ -12,21 +24,22 @@
   <link rel="dns-prefetch" href="https://unavatar.io">
   <link rel="preconnect" href="https://notebooklm.google.com" crossorigin>
   <link rel="dns-prefetch" href="https://notebooklm.google.com">
+
   <link rel="stylesheet" href="{{ '/styles.css' | url }}?v=chipfix">
 </head>
 <body>
   <header>
     <nav>
-      <a href="/Tamer-Portfolio/">Home</a>
-      <a href="/Tamer-Portfolio/projects/">Projects</a>
-      <a href="/Tamer-Portfolio/media/">Media</a>
-      <a href="/Tamer-Portfolio/gallery/">Gallery</a>
-      <a href="/Tamer-Portfolio/music/">Music</a>
-      <a href="/Tamer-Portfolio/research/">Research</a>
-      <a href="/Tamer-Portfolio/training-consulting/">Training &amp; Consulting</a>
-      <a href="/Tamer-Portfolio/blog/">Blog</a>
-      <a href="/Tamer-Portfolio/about/">About</a>
-      <a href="/Tamer-Portfolio/contact/">Contact</a>
+      <a href="{{ '/' | url }}">Home</a>
+      <a href="{{ '/projects/' | url }}">Projects</a>
+      <a href="{{ '/media/' | url }}">Media</a>
+      <a href="{{ '/gallery/' | url }}">Gallery</a>
+      <a href="{{ '/music/' | url }}">Music</a>
+      <a href="{{ '/research/' | url }}">Research</a>
+      <a href="{{ '/training-consulting/' | url }}">Training &amp; Consulting</a>
+      <a href="{{ '/blog/' | url }}">Blog</a>
+      <a href="{{ '/about/' | url }}">About</a>
+      <a href="{{ '/contact/' | url }}">Contact</a>
     </nav>
   </header>
 
@@ -35,7 +48,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Tamer Mansour</p>
+    <p>&copy; <span id="year"></span> Tamer Mansour</p>
     <div class="social-icons">
       <a href="https://www.pinterest.com/TamerCreates/" target="_blank" aria-label="Pinterest">
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pinterest.svg" alt="Pinterest icon">
@@ -48,9 +61,15 @@
       </a>
     </div>
   </footer>
-  <script src="{{ '/src/js/nav.js' | url | versioned }}"></script>
+
+  {# JS — fixed paths and removed missing `versioned` filter #}
+  <script defer src="{{ '/js/nav.js' | url }}"></script>
   <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
-  <script src="{{ '/src/js/iab.js' | url | versioned }}"></script>
-  <script src="{{ '/src/js/iab-nav-fix.js' | url | versioned }}"></script>
+  <script defer src="{{ '/js/iab.js' | url }}"></script>
+  <script defer src="{{ '/js/iab-nav-fix.js' | url }}"></script>
+  <script>
+    // dynamic year to avoid NaN footer bug
+    document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
+  </script>
 </body>
 </html>
