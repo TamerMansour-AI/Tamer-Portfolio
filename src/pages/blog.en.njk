@@ -1,30 +1,33 @@
 ---
-layout: base.njk
+layout: /src/layouts/base.njk
 title: "Blog"
 lang: en
 permalink: "/blog/"
 ---
 
-{% macro PostCard(post) %}
-<a class="post-card" href="{{ post.url | url }}">
-  {% if post.data.cover %}
-    <figure class="post-media">
-      <img src="{{ post.data.cover }}" alt="{{ post.data.cover_alt or post.data.title }}">
-    </figure>
-  {% endif %}
-  <div class="post-body">
-    <h3 class="post-title">{{ post.data.title }}</h3>
-    {% if post.data.summary %}<p class="post-summary">{{ post.data.summary }}</p>{% endif %}
-    <div class="post-meta">
-      <time datetime="{{ post.date | date('YYYY-MM-DD') }}">
-        {{ post.date | date(post.data.lang == 'ar' ? 'DD MMM YYYY' : 'MMM DD, YYYY') }}
-      </time>
-      {% if post.data.tags %}
-      <span class="post-tags">
-        {% for t in post.data.tags %}<em>#{{ t }}</em>{% if not loop.last %} {% endif %}{% endfor %}
-      </span>
-      {% endif %}
-    </div>
+{% from "blog/pillars.njk" import Pillars %}
+{% from "blog/card.njk" import PostCard %}
+
+{{ Pillars(
+  "7 Pillars of This Blog",
+  "Themes that truly reflect me. Posts below are tagged accordingly.",
+  blog_pillars.en
+) }}
+
+<section class="posts">
+  <div class="section-head">
+    <h2 class="section-title">Latest Posts</h2>
   </div>
-</a>
-{% endmacro %}
+  <div class="post-grid">
+    {% set count = 0 %}
+    {% for post in collections.blog %}
+      {% if post.data.lang == "en" and not post.data.draft %}
+        {{ PostCard(post) }}
+        {% set count = count + 1 %}
+      {% endif %}
+    {% endfor %}
+    {% if count == 0 %}
+      <p class="empty">No posts yet. Add Markdown files under <code>/src/content/blog/</code> with tag <code>blog</code>.</p>
+    {% endif %}
+  </div>
+</section>
