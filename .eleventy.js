@@ -133,12 +133,19 @@ module.exports = function (eleventyConfig) {
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  // تشغيل التتبّع + وضع التصحيح مؤقتًا
-  gtag('config', '${GA_ID}', { debug_mode: true, send_page_view: true });
+  // نجبر GA يستخدم طريقة إرسال أقلّ حساسية للحجب
+  gtag('config', '${GA_ID}', { 
+    debug_mode: true, 
+    send_page_view: true,
+    transport_type: 'image' // جرّب كـ image بدلاً من XHR/fetch
+  });
 
-  // حدث اختبار مؤقت ليظهر فورًا في Realtime/DebugView
+  // حدث اختبار مؤقت — عشان يظهر فورًا
   setTimeout(() => {
-    try { gtag('event', 'tm_debug_ping', { page: location.pathname + location.search }); } catch(e) {}
+    try { 
+      gtag('event', 'tm_debug_ping', { page: location.pathname + location.search }); 
+      console.log('tm_debug_ping sent');
+    } catch(e) { console.warn('tm_debug_ping failed', e); }
   }, 2000);
 </script>
 `;
