@@ -35,10 +35,9 @@ module.exports = function (eleventyConfig) {
     return url;
   });
 
-  // NEW: versioned (cache-buster) — يسندّه الـ base.njk
+  // NEW: versioned (cache-buster)
   eleventyConfig.addFilter("versioned", (href) => {
     if (!href) return href;
-    // لا تعيد الإضافة إذا موجود v=
     if (/[?&]v=/.test(href)) return href;
     const build =
       (process.env.GITHUB_SHA ||
@@ -88,9 +87,7 @@ module.exports = function (eleventyConfig) {
   // --- Date/URL helpers ---
   eleventyConfig.addFilter("date", (d, fmt = "yyyy") => {
     const dateObj = new Date(d);
-    if (fmt === "yyyy") {
-      return String(dateObj.getFullYear());
-    }
+    if (fmt === "yyyy") return String(dateObj.getFullYear());
     return dateObj.toString();
   });
   eleventyConfig.addFilter("dateToISO", (d) => new Date(d).toISOString());
@@ -127,7 +124,7 @@ module.exports = function (eleventyConfig) {
   });
 
   // ---------- Inject Google Analytics (GA4) في كل صفحة HTML ----------
-  const GA_ID = "G-CEWMN3HYF8"; // بدّلها لاحقًا إذا تغيّر الـID
+  const GA_ID = "G-CEWMN3HYF8"; // غيّرها إذا تبدّل الـID
   const GA_SNIPPET = `
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
@@ -135,13 +132,19 @@ module.exports = function (eleventyConfig) {
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', '${GA_ID}');
+
+  // تشغيل التتبّع + وضع التصحيح مؤقتًا
+  gtag('config', '${GA_ID}', { debug_mode: true, send_page_view: true });
+
+  // حدث اختبار مؤقت ليظهر فورًا في Realtime/DebugView
+  setTimeout(() => {
+    try { gtag('event', 'tm_debug_ping', { page: location.pathname + location.search }); } catch(e) {}
+  }, 2000);
 </script>
 `;
 
   eleventyConfig.addTransform("inject-ga", function (content, outputPath) {
     if (outputPath && outputPath.endsWith(".html")) {
-      // نحقن قبل </head> إن وُجدت، وإلا نترك الصفحة كما هي
       return content.includes("</head>")
         ? content.replace("</head>", `${GA_SNIPPET}\n</head>`)
         : content;
@@ -159,7 +162,6 @@ module.exports = function (eleventyConfig) {
       layouts: "layouts",
       data: "data",
     },
-    // لتفعيل الشورتكود داخل Markdown
     markdownTemplateEngine: "njk",
   };
 };
