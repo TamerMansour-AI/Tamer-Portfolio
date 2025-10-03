@@ -126,6 +126,29 @@ module.exports = function (eleventyConfig) {
 </div>`;
   });
 
+  // ---------- Inject Google Analytics (GA4) في كل صفحة HTML ----------
+  const GA_ID = "G-CEWMN3HYF8"; // بدّلها لاحقًا إذا تغيّر الـID
+  const GA_SNIPPET = `
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '${GA_ID}');
+</script>
+`;
+
+  eleventyConfig.addTransform("inject-ga", function (content, outputPath) {
+    if (outputPath && outputPath.endsWith(".html")) {
+      // نحقن قبل </head> إن وُجدت، وإلا نترك الصفحة كما هي
+      return content.includes("</head>")
+        ? content.replace("</head>", `${GA_SNIPPET}\n</head>`)
+        : content;
+    }
+    return content;
+  });
+
   // ---------- Options ----------
   return {
     pathPrefix: "/Tamer-Portfolio",
