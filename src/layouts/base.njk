@@ -10,11 +10,15 @@
 
   {# basic SEO #}
   {% if description %}<meta name="description" content="{{ description }}">{% endif %}
-  {% set __base = 'https://tamermansour-ai.github.io/Tamer-Portfolio' %}
+  {% set __base = site.url or 'https://tamermansour-ai.github.io/Tamer-Portfolio' %}
+  {% set __og_image = site.url + '/assets/img/og-cover.svg' %}
   <link rel="canonical" href="{{ page.url | absoluteUrl(__base) }}">
   <meta property="og:title" content="{{ title }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ page.url | absoluteUrl(__base) }}">
+  <meta property="og:image" content="{{ __og_image }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ __og_image }}">
   {% if description %}<meta property="og:description" content="{{ description }}">{% endif %}
 
   <link rel="preconnect" href="https://cdn.midjourney.com" crossorigin>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Tamer Mansour — AI, Identity &amp; Imagination</title>
+  <desc id="desc">Open Graph cover with dark background and centered text</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1020" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <g fill="#e5e7eb" font-family="'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif">
+    <text x="600" y="300" font-size="64" font-weight="700" text-anchor="middle" letter-spacing="0.5px">Tamer Mansour</text>
+    <text x="600" y="360" font-size="32" font-weight="500" text-anchor="middle" fill="#cbd5e1">AI, Identity &amp; Imagination</text>
+  </g>
+</svg>

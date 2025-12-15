@@ -13,9 +13,36 @@
   <meta property="og:description" content="Tamer Mansour — Palestinian creative technologist building AI-native stories &amp; systems.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tamermansour-ai.github.io/Tamer-Portfolio/about/">
+  <meta property="og:image" content="https://tamermansour-ai.github.io/Tamer-Portfolio/assets/img/og-cover.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://tamermansour-ai.github.io/Tamer-Portfolio/assets/img/og-cover.svg">
   <link rel="canonical" href="https://tamermansour-ai.github.io/Tamer-Portfolio/about/">
 
   <link rel="stylesheet" href="/Tamer-Portfolio/styles.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CEWMN3HYF8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // نجبر GA يستخدم طريقة إرسال أقلّ حساسية للحجب
+  gtag('config', 'G-CEWMN3HYF8', { 
+    debug_mode: true, 
+    send_page_view: true,
+    transport_type: 'image' // جرّب كـ image بدلاً من XHR/fetch
+  });
+
+  // حدث اختبار مؤقت — عشان يظهر فورًا
+  setTimeout(() => {
+    try { 
+      gtag('event', 'tm_debug_ping', { page: location.pathname + location.search }); 
+      console.log('tm_debug_ping sent');
+    } catch(e) { console.warn('tm_debug_ping failed', e); }
+  }, 2000);
+</script>
+
 </head>
 <body>
 
@@ -66,7 +93,8 @@
 
   <main id="main-content">
     
-<section class="about-page" style="--bg-tile-url: url('https://cdn.midjourney.com/d101fa42-20b7-43ac-bba9-9ead7c15086c/0_1.png')">
+<section class="about-page" style="--bg-tile-url: url('https://cdn.midjourney.com/800db657-ba1a-4ac7-8bf5-89f57374754a/0_3.png')">
+
 
   <header class="about-hero">
     <div class="about-hero__media">
@@ -204,9 +232,9 @@
   </section>
 
   <section class="about-cta">
-    <figure class="about-cta__bg">
-      <img src="https://cdn.midjourney.com/20917ee0-3866-4888-95c4-d83e2943e463/0_2.png" alt="Soft sunrise olive gradient with whisper kufiya emboss" loading="lazy" decoding="async">
-    </figure>
+  <figure class="about-cta__bg">
+    <img src="https://cdn.midjourney.com/85a973b3-6ff2-492b-a32d-4c061ce3356e/0_0.png" alt="Olive branches on warm sand plaster, clean negative space" loading="lazy" decoding="async">
+  </figure>
     <div class="about-cta__body container">
       <h2>Let’s build something.</h2>
       <div class="btn-row">
@@ -240,7 +268,6 @@
   </footer>
 
   <script src="/Tamer-Portfolio/js/nav.js"></script>
-  <script src="/Tamer-Portfolio/js/iab.js"></script>
   <script defer src="/Tamer-Portfolio/js/lightbox.js"></script>
   <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
   <script>
@@ -250,5 +277,7 @@
       var h=x.getAttribute('href'); if(h){ requestAnimationFrame(function(){ window.location.href=h; }); }
     });
   </script>
+  <script src="/Tamer-Portfolio/js/iab.js"></script>
+  <script src="/Tamer-Portfolio/js/iab-nav-fix.js"></script>
 </body>
 </html>
