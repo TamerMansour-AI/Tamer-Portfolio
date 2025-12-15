@@ -1087,3 +1087,172 @@ html, body { overflow-x: hidden; }
 .iab-fb header svg { color:#fff; fill: currentColor; }
 /* تعطيل أي تأثير قد يتصرف بشكل سيئ في WebView */
 .iab-fb .has-backdrop { backdrop-filter: none; -webkit-backdrop-filter: none; }
+/* Facebook In-App fixes (scoped) */
+.iab-fb html,
+.iab-fb body{
+  background:#0e1116 !important;
+  color:#e7ecf2 !important;
+  overflow-x:hidden;
+  overscroll-behavior-x:none;
+}
+@media (max-width: 767px){
+  .iab-fb .nav-links,
+  .iab-fb nav .links,
+  .iab-fb .mobile-menu{
+    background:#0e1116 !important;
+    color:#fff !important;
+  }
+  .iab-fb .nav-toggle,
+  .iab-fb .menu-toggle{ color:#fff !important; }
+}
+.iab-fb .section,
+.iab-fb .panel,
+.iab-fb .card,
+.iab-fb .surface,
+.iab-fb .container{
+  background-color:#141a22 !important;
+  color:#e7ecf2 !important;
+}
+.iab-fb main p,
+.iab-fb main li,
+.iab-fb .section p,
+.iab-fb .section li{ color:#e0e6ed !important; }
+.iab-fb .has-backdrop{ backdrop-filter:none; -webkit-backdrop-filter:none; }
+
+/* YouTube embed */
+.yt-embed { position: relative; width: 100%; aspect-ratio: 16/9; }
+.yt-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 12px; }
+
+/* FILE: /src/styles.css  
+   PURPOSE: Make keyword chips visible on dark background (Media & Reels filter pills)
+   NOTE: Paste this block at the END of styles.css. Safe, scoped, and idempotent. */
+
+/* === Media chips — dark theme readable pills === */
+:root {
+  /* tweak if needed */
+  --chip-bg: #2b3a27;          /* deep olive */
+  --chip-text: #eef6ec;        /* near-white */
+  --chip-border: #6f8c5c;      /* olive border */
+  --chip-bg-hover: #3a4c33;    /* hover */
+  --chip-bg-active: #93b36f;   /* active */
+  --chip-text-active: #0e120c; /* active text */
+}
+
+/* Try to catch common class names used for tag/filter chips without touching other buttons */
+/* Container guesses (any that exist on your page will apply) */
+.media, .media-page, .media-section, .filter-bar, .filters, .tag-list, .tags {
+  --_chip-bg: var(--chip-bg);
+  --_chip-text: var(--chip-text);
+  --_chip-border: var(--chip-border);
+  --_chip-bg-hover: var(--chip-bg-hover);
+  --_chip-bg-active: var(--chip-bg-active);
+  --_chip-text-active: var(--chip-text-active);
+}
+
+/* The actual pills (class name agnostic) */
+.media :is(.chip, .tag, .filter, .filter-btn, [class*="chip"], [class*="tag"], [class*="filter"]),
+.media-page :is(.chip, .tag, .filter, .filter-btn, [class*="chip"], [class*="tag"], [class*="filter"]),
+.filter-bar :is(.chip, .tag, .filter, .filter-btn, [class*="chip"], [class*="tag"], [class*="filter"]),
+.filters :is(.chip, .tag, .filter, .filter-btn, [class*="chip"], [class*="tag"], [class*="filter"]),
+.tag-list :is(.chip, .tag, .filter, .filter-btn, [class*="chip"], [class*="tag"], [class*="filter"]),
+.tags :is(.chip, .tag, .filter, .filter-btn, [class*="chip"], [class*="tag"], [class*="filter"]) {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .45rem .85rem;
+  border-radius: 999px;
+  border: 1px solid var(--_chip-border, var(--chip-border));
+  background: var(--_chip-bg, var(--chip-bg));
+  color: var(--_chip-text, var(--chip-text));
+  text-decoration: none;
+  line-height: 1;
+  font-size: .92rem;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+/* Hover/focus */
+.media :is(.chip, .tag, .filter, .filter-btn, [class*="chip"], [class*="tag"], [class*="filter"]):hover,
+.media-page :is(.chip, .tag, .filter, .filter-btn, [class*="chip"], [class*="tag"], [class*="filter"]):hover,
+.filter-bar :is(.chip, .tag, .filter, .filter-btn, [class*="chip"], [class*="tag"], [class*="filter"]):hover,
+.filters :is(.chip, .tag, .filter, .filter-btn, [class*="chip"], [class*="tag"], [class*="filter"]):hover,
+.tag-list :is(.chip, .tag, .filter, .filter-btn, [class*="chip"], [class*="tag"], [class*="filter"]):hover,
+.tags :is(.chip, .tag, .filter, .filter-btn, [class*="chip"], [class*="tag"], [class*="filter"]):hover {
+  background: var(--_chip-bg-hover, var(--chip-bg-hover));
+}
+
+/* Active states (common patterns) */
+.media :is(.active, .is-active, [aria-pressed="true"], [data-active="true"]) ,
+.media-page :is(.active, .is-active, [aria-pressed="true"], [data-active="true"]) ,
+.filter-bar :is(.active, .is-active, [aria-pressed="true"], [data-active="true"]) ,
+.filters :is(.active, .is-active, [aria-pressed="true"], [data-active="true"]) ,
+.tag-list :is(.active, .is-active, [aria-pressed="true"], [data-active="true"]) ,
+.tags :is(.active, .is-active, [aria-pressed="true"], [data-active="true"]) {
+  background: var(--_chip-bg-active, var(--chip-bg-active)) !important;
+  color: var(--_chip-text-active, var(--chip-text-active)) !important;
+  border-color: var(--_chip-bg-active, var(--chip-bg-active)) !important;
+}
+
+/* Ensure icons inside chips are visible */
+.media :is(.chip svg, .tag svg, .filter svg),
+.filters :is(.chip svg, .tag svg, .filter svg) {
+  width: 1rem; height: 1rem; flex: 0 0 auto;
+  color: currentColor; fill: currentColor;
+}
+
+/* Reduce white background leak if any utility class forces bg-white */
+.media :is([class*="bg-white"],[style*="background: white"]) {
+  background: var(--_chip-bg, var(--chip-bg)) !important;
+}
+
+/* === Media chipbar — enforce dark theme readability (desktop) === */
+:root{--chip-bg:#2b3a27;--chip-text:#eef6ec;--chip-border:#6f8c5c;--chip-bg-hover:#3a4c33;--chip-bg-active:#93b36f;--chip-text-active:#0e120c}
+
+/* Base pills styling inside the chipbar */
+.media-chipbar > *{display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .85rem;border-radius:999px;border:1px solid var(--chip-border);background:var(--chip-bg);color:var(--chip-text);text-decoration:none;line-height:1;font-size:.92rem;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+
+/* Catch common classnames for existing pills without changing markup */
+.media-chipbar :is(.chip,.tag,.filter,.filter-btn,[class*="chip"],[class*="tag"],[class*="filter"],button,a,span){background:var(--chip-bg)!important;color:var(--chip-text)!important;border-color:var(--chip-border)!important}
+
+/* Hover + active */
+.media-chipbar :is(.chip,.tag,.filter,.filter-btn,button,a,span):hover{background:var(--chip-bg-hover)!important}
+.media-chipbar :is(.active,.is-active,[aria-pressed="true"],[data-active="true"]){background:var(--chip-bg-active)!important;color:var(--chip-text-active)!important;border-color:var(--chip-bg-active)!important}
+
+/* Fix any utility that forces white background */
+.media-chipbar :is([class*="bg-white"],[style*="background: white"]){background:var(--chip-bg)!important;color:var(--chip-text)!important}
+
+/* Icons inside pills inherit currentColor */
+.media-chipbar svg{width:1rem;height:1rem;color:currentColor;fill:currentColor}
+
+/* Scope a desktop-only reinforcement so mobile remains as-is if already good */
+@media (min-width:768px){
+  .media-chipbar > *{box-shadow:none}
+}
+/* === Blog: sections & text === */
+.section-head { margin-block: 1rem 0.5rem; }
+.section-title { font-size: clamp(1.4rem, 2vw, 2rem); font-weight: 700; }
+.section-intro { color: #5a5a5a; max-width: 72ch; }
+
+/* === Pillars grid === */
+.pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1rem; margin-block: 1rem 2rem; }
+.pillar { position: relative; min-height: 220px; border-radius: 18px; overflow: hidden; background-size: cover; background-position: center; }
+.pillar-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,.45), rgba(0,0,0,.35)); }
+.pillar-card { position: absolute; inset: auto 1rem 1rem 1rem; background: rgba(255,255,255,.82); -webkit-backdrop-filter: blur(6px) saturate(1.05); backdrop-filter: blur(6px) saturate(1.05); border: 1px solid rgba(255,255,255,.5); border-radius: 14px; padding: .85rem 1rem; box-shadow: 0 4px 18px rgba(0,0,0,.12); }
+.pillar-icon { font-size: 1.2rem; }
+.pillar-title { margin: .25rem 0 .25rem; font-weight: 800; }
+.pillar-desc { color: #333; margin: 0; }
+
+/* RTL tweaks */
+[dir="rtl"] .pillar-card { text-align: right; }
+
+/* === Posts grid === */
+.post-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1rem; }
+.post-card { display: block; border: 1px solid rgba(0,0,0,.08); border-radius: 16px; overflow: hidden; background: #fff; text-decoration: none; color: inherit; transition: transform .15s ease, box-shadow .15s ease; }
+.post-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+.post-media img { display: block; width: 100%; height: 180px; object-fit: cover; }
+.post-body { padding: .9rem 1rem; }
+.post-title { font-weight: 800; margin: 0 0 .35rem; }
+.post-summary { color: #4a4a4a; margin: 0 0 .5rem; }
+.post-meta { font-size: .85rem; color: #6a6a6a; display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
+.post-tags em { font-style: normal; opacity: .9; }
+.empty { color: #777; }
