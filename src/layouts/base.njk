@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 {# detect language (default en) and set RTL for Arabic #}
-{% set __lang = lang or page.lang or 'en' %}
+{% set __pageUrl = page.url or '/' %}
+{% set __isArabic = (__pageUrl | slice(0, 4)) == '/ar/' %}
+{% set __lang = lang or page.lang %}
+{% if not __lang %}
+  {% if __isArabic %}
+    {% set __lang = 'ar' %}
+  {% else %}
+    {% set __lang = 'en' %}
+  {% endif %}
+{% endif %}
 <html lang="{{ __lang }}" {% if __lang == 'ar' %}dir="rtl"{% endif %}>
 <head>
   <meta charset="UTF-8">
@@ -11,15 +20,60 @@
   {# basic SEO #}
   {% if description %}<meta name="description" content="{{ description }}">{% endif %}
   {% set __base = site.url or 'https://tamermansour-ai.github.io/Tamer-Portfolio' %}
+  {% set __canonical = __pageUrl | absoluteUrl(__base) %}
+  {% if __isArabic %}
+    {% set __enPath = __pageUrl | replace('/ar/', '/') %}
+    {% set __arPath = __pageUrl %}
+  {% else %}
+    {% set __enPath = __pageUrl %}
+    {% if __pageUrl == '/' %}
+      {% set __arPath = '/ar/' %}
+    {% else %}
+      {% set __arPath = '/ar' + __pageUrl %}
+    {% endif %}
+  {% endif %}
   {% set __og_image = site.url + '/assets/img/og-cover.svg' %}
-  <link rel="canonical" href="{{ page.url | absoluteUrl(__base) }}">
+  <link rel="canonical" href="{{ __canonical }}">
   <meta property="og:title" content="{{ title }}">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ page.url | absoluteUrl(__base) }}">
+  <meta property="og:url" content="{{ __canonical }}">
   <meta property="og:image" content="{{ __og_image }}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="{{ __og_image }}">
   {% if description %}<meta property="og:description" content="{{ description }}">{% endif %}
+
+  <link rel="alternate" hreflang="en" href="{{ __enPath | absoluteUrl(__base) }}">
+  <link rel="alternate" hreflang="ar" href="{{ __arPath | absoluteUrl(__base) }}">
+  <link rel="alternate" hreflang="x-default" href="{{ '/' | absoluteUrl(__base) }}">
+
+  {% set __socialLinks = [
+    'https://www.pinterest.com/TamerCreates/',
+    'https://www.tiktok.com/@ai_visionary_tm',
+    'https://www.youtube.com/@TamerAI-e5i'
+  ] %}
+  <script type="application/ld+json">
+    {{ {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": site.title or site.name or 'Tamer Mansour',
+      "url": __base,
+      "inLanguage": __lang,
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": __base + '/search?q={search_term_string}',
+        "query-input": "required name=search_term_string"
+      }
+    } | dump | safe }}
+  </script>
+  <script type="application/ld+json">
+    {{ {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": site.title or site.name or 'Tamer Mansour',
+      "url": __base,
+      "sameAs": __socialLinks
+    } | dump | safe }}
+  </script>
 
   <link rel="preconnect" href="https://cdn.midjourney.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.midjourney.com">
