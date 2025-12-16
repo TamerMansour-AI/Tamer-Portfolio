@@ -3,6 +3,7 @@
 {% set __isArabic = (__pageUrl | slice(0, 4)) == '/ar/' %}
 {% set __lang = lang or page.lang %}
 {% set __siteName = site.name or site.title or 'Tamer Mansour' %}
+{% set __schemaName = site.name or 'Tamer Mansour' %}
 {% if title %}
   {% set __seoTitle = title + ' — ' + __siteName %}
 {% else %}
@@ -36,18 +37,21 @@
       {% set __arPath = '/ar' + __pageUrl %}
     {% endif %}
   {% endif %}
-  {% set __og_image = (site.url or __base) + '/assets/img/og-cover.svg' %}
+  {% set __og_image = __base + '/assets/img/og-cover.svg' %}
 
   {% set desc = description or site.defaultDescription %}
   <meta name="description" content="{{ desc }}">
   <meta property="og:title" content="{{ __seoTitle }}">
   <meta property="og:description" content="{{ desc }}">
+  <meta property="og:site_name" content="{{ __schemaName }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ __canonical }}">
   <meta property="og:image" content="{{ __og_image }}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="{{ __og_image }}">
   <meta name="twitter:title" content="{{ __seoTitle }}">
+  <meta name="twitter:url" content="{{ __canonical }}">
+  <meta name="twitter:description" content="{{ desc }}">
   <link rel="canonical" href="{{ __canonical }}">
 
   <link rel="alternate" hreflang="en" href="{{ __enPath | absoluteUrl(__base) }}">
@@ -63,21 +67,16 @@
     {{ {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": __siteName,
+      "name": __schemaName,
       "url": __base,
-      "inLanguage": __lang,
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": __base + '/search?q={search_term_string}',
-        "query-input": "required name=search_term_string"
-      }
+      "inLanguage": __lang
     } | dump | safe }}
   </script>
   <script type="application/ld+json">
     {{ {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": __siteName,
+      "name": __schemaName,
       "url": __base,
       "sameAs": __socialLinks
     } | dump | safe }}
