@@ -5,10 +5,13 @@
 {% set __lang = lang or page.lang %}
 {% set __siteName = site.name or site.title or 'Tamer Mansour' %}
 {% set __schemaName = site.name or 'Tamer Mansour' %}
-{% if title %}
-  {% set __seoTitle = title + ' — ' + __siteName %}
+{% set __isHome = __pageUrl == '/' or __pageUrl == '/ar/' %}
+{% if __isHome %}
+  {% set seoTitle = __siteName + ' — Portfolio' %}
+{% elseif title %}
+  {% set seoTitle = title + ' — ' + __siteName %}
 {% else %}
-  {% set __seoTitle = __siteName + ' — Portfolio' %}
+  {% set seoTitle = __siteName + ' — Portfolio' %}
 {% endif %}
 {% if not __lang %}
   {% if __isArabic %}
@@ -22,7 +25,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>{{ __seoTitle }}</title>
+  <title>{{ seoTitle }}</title>
 
   {# basic SEO #}
   {% if description %}<meta name="description" content="{{ description }}">{% endif %}
@@ -41,7 +44,7 @@
   {% endif %}
   {% set __og_image = __base + '/assets/img/og-cover.svg' %}
   <link rel="canonical" href="{{ __canonical }}">
-  <meta property="og:title" content="{{ __seoTitle }}">
+  <meta property="og:title" content="{{ seoTitle }}">
   <meta property="og:site_name" content="{{ __schemaName }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ __canonical }}">
@@ -49,7 +52,7 @@
   {% if description %}<meta property="og:description" content="{{ description }}">{% endif %}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="{{ __og_image }}">
-  <meta name="twitter:title" content="{{ __seoTitle }}">
+  <meta name="twitter:title" content="{{ seoTitle }}">
   <meta name="twitter:url" content="{{ __canonical }}">
   {% if description %}<meta name="twitter:description" content="{{ description }}">{% endif %}
 
