@@ -1,6 +1,6 @@
 <!doctype html>
 {% set __pageUrl = page.url or '/' %}
-{% set __isArabic = (__pageUrl | slice(0, 4)) == '/ar/' %}
+{% set __isArabic = __pageUrl.startsWith('/ar/') %}
 {% set __lang = lang or page.lang %}
 {% set __siteName = site.name or site.title or 'Tamer Mansour' %}
 {% set __schemaName = site.name or 'Tamer Mansour' %}
@@ -30,15 +30,17 @@
   {% set __base = site.url or 'https://tamermansour-ai.github.io/Tamer-Portfolio' %}
   {% set __canonical = __pageUrl | absoluteUrl(__base) %}
   {% if __isArabic %}
-    {% set __enPath = __pageUrl | replace('/ar/', '/') %}
+    {% set __enPath = __pageUrl.slice(3) %}
     {% set __arPath = __pageUrl %}
   {% else %}
     {% set __enPath = __pageUrl %}
-    {% if __pageUrl == '/' %}
-      {% set __arPath = '/ar/' %}
-    {% else %}
-      {% set __arPath = '/ar' + __pageUrl %}
-    {% endif %}
+    {% set __arPath = '/ar' + __pageUrl %}
+  {% endif %}
+  {% if __enPath == '' %}
+    {% set __enPath = '/' %}
+  {% endif %}
+  {% if __arPath == '/ar' %}
+    {% set __arPath = '/ar/' %}
   {% endif %}
   {% set __og_image = __base + '/assets/img/og-cover.svg' %}
 
