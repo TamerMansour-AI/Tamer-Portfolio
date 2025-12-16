@@ -2,6 +2,12 @@
 {% set __pageUrl = page.url or '/' %}
 {% set __isArabic = (__pageUrl | slice(0, 4)) == '/ar/' %}
 {% set __lang = lang or page.lang %}
+{% set __siteName = site.name or site.title or 'Tamer Mansour' %}
+{% if title %}
+  {% set __seoTitle = title + ' — ' + __siteName %}
+{% else %}
+  {% set __seoTitle = __siteName + ' — Portfolio' %}
+{% endif %}
 {% if not __lang %}
   {% if __isArabic %}
     {% set __lang = 'ar' %}
@@ -14,7 +20,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>{{ title or site.title }}</title>
+  <title>{{ __seoTitle }}</title>
   <meta name="theme-color" content="#5a6b2c">
 
   {% set __base = site.url or 'https://tamermansour-ai.github.io/Tamer-Portfolio' %}
@@ -34,13 +40,14 @@
 
   {% set desc = description or site.defaultDescription %}
   <meta name="description" content="{{ desc }}">
-  <meta property="og:title" content="{{ title or site.title }}">
+  <meta property="og:title" content="{{ __seoTitle }}">
   <meta property="og:description" content="{{ desc }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ __canonical }}">
   <meta property="og:image" content="{{ __og_image }}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="{{ __og_image }}">
+  <meta name="twitter:title" content="{{ __seoTitle }}">
   <link rel="canonical" href="{{ __canonical }}">
 
   <link rel="alternate" hreflang="en" href="{{ __enPath | absoluteUrl(__base) }}">
@@ -56,7 +63,7 @@
     {{ {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": site.title or site.name or 'Tamer Mansour — Portfolio',
+      "name": __siteName,
       "url": __base,
       "inLanguage": __lang,
       "potentialAction": {
@@ -70,7 +77,7 @@
     {{ {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": site.title or site.name or 'Tamer Mansour',
+      "name": __siteName,
       "url": __base,
       "sameAs": __socialLinks
     } | dump | safe }}
@@ -152,7 +159,7 @@
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <p class="foot-brand">© {{ now | date('yyyy') }} Tamer Mansour</p>
+      <p class="foot-brand">© {{ site.year }} Tamer Mansour</p>
       <div class="foot-social">
         <a href="https://www.pinterest.com/TamerCreates/" target="_blank" rel="noopener" aria-label="Pinterest">
           <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="#BD081C"><path d="M12 2a10 10 0 0 0-4 19.2c.06-.86.12-2.18.03-3.12l-1.1-4.68s-.28-.58-.28-1.44c0-1.35.78-2.36 1.75-2.36.83 0 1.22.62 1.22 1.36 0 .83-.53 2.07-.8 3.22-.23.97.49 1.76 1.44 1.76 1.72 0 3.04-1.81 3.04-4.42 0-2.31-1.66-3.93-4.04-3.93-2.75 0-4.37 2.06-4.37 4.19 0 .83.32 1.72.73 2.2.08.1.09.2.07.31l-.28 1.13c-.04.17-.14.2-.32.12-1.2-.56-1.95-2.3-1.95-3.71 0-3.01 2.19-5.78 6.31-5.78 3.31 0 5.89 2.36 5.89 5.51 0 3.29-2.07 5.94-4.94 5.94-0.96 0-1.86-.5-2.17-1.08l-.59 2.24c-.21.84-.78 1.9-1.17 2.55A10 10 0 1 0 12 2z"/></svg>
