@@ -4,10 +4,13 @@
 {% set __lang = lang or page.lang %}
 {% set __siteName = site.name or site.title or 'Tamer Mansour' %}
 {% set __schemaName = site.name or 'Tamer Mansour' %}
-{% if title %}
-  {% set __seoTitle = title + ' — ' + __siteName %}
+{% set __isHome = __pageUrl == '/' or __pageUrl == '/ar/' %}
+{% if __isHome %}
+  {% set seoTitle = __siteName + ' — Portfolio' %}
+{% elseif title %}
+  {% set seoTitle = title + ' — ' + __siteName %}
 {% else %}
-  {% set __seoTitle = __siteName + ' — Portfolio' %}
+  {% set seoTitle = __siteName + ' — Portfolio' %}
 {% endif %}
 {% if not __lang %}
   {% if __isArabic %}
@@ -21,7 +24,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>{{ __seoTitle }}</title>
+  <title>{{ seoTitle }}</title>
   <meta name="theme-color" content="#5a6b2c">
 
   {% set __base = site.url or 'https://tamermansour-ai.github.io/Tamer-Portfolio' %}
@@ -41,7 +44,7 @@
 
   {% set desc = description or site.defaultDescription %}
   <meta name="description" content="{{ desc }}">
-  <meta property="og:title" content="{{ __seoTitle }}">
+  <meta property="og:title" content="{{ seoTitle }}">
   <meta property="og:description" content="{{ desc }}">
   <meta property="og:site_name" content="{{ __schemaName }}">
   <meta property="og:type" content="website">
@@ -49,7 +52,7 @@
   <meta property="og:image" content="{{ __og_image }}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="{{ __og_image }}">
-  <meta name="twitter:title" content="{{ __seoTitle }}">
+  <meta name="twitter:title" content="{{ seoTitle }}">
   <meta name="twitter:url" content="{{ __canonical }}">
   <meta name="twitter:description" content="{{ desc }}">
   <link rel="canonical" href="{{ __canonical }}">
