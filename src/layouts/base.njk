@@ -3,6 +3,12 @@
 {% set __pageUrl = page.url or '/' %}
 {% set __isArabic = (__pageUrl | slice(0, 4)) == '/ar/' %}
 {% set __lang = lang or page.lang %}
+{% set __siteName = site.name or site.title or 'Tamer Mansour' %}
+{% if title %}
+  {% set __seoTitle = title + ' — ' + __siteName %}
+{% else %}
+  {% set __seoTitle = __siteName + ' — Portfolio' %}
+{% endif %}
 {% if not __lang %}
   {% if __isArabic %}
     {% set __lang = 'ar' %}
@@ -15,7 +21,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>{{ title }}</title>
+  <title>{{ __seoTitle }}</title>
 
   {# basic SEO #}
   {% if description %}<meta name="description" content="{{ description }}">{% endif %}
@@ -34,12 +40,13 @@
   {% endif %}
   {% set __og_image = site.url + '/assets/img/og-cover.svg' %}
   <link rel="canonical" href="{{ __canonical }}">
-  <meta property="og:title" content="{{ title }}">
+  <meta property="og:title" content="{{ __seoTitle }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ __canonical }}">
   <meta property="og:image" content="{{ __og_image }}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="{{ __og_image }}">
+  <meta name="twitter:title" content="{{ __seoTitle }}">
   {% if description %}<meta property="og:description" content="{{ description }}">{% endif %}
 
   <link rel="alternate" hreflang="en" href="{{ __enPath | absoluteUrl(__base) }}">
@@ -55,7 +62,7 @@
     {{ {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": site.title or site.name or 'Tamer Mansour',
+      "name": __siteName,
       "url": __base,
       "inLanguage": __lang,
       "potentialAction": {
@@ -69,7 +76,7 @@
     {{ {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": site.title or site.name or 'Tamer Mansour',
+      "name": __siteName,
       "url": __base,
       "sameAs": __socialLinks
     } | dump | safe }}
@@ -117,7 +124,7 @@
   </main>
 
   <footer>
-    <p>&copy; <span id="year"></span> Tamer Mansour</p>
+    <p>&copy; {{ site.year }} Tamer Mansour</p>
     <div class="social-icons">
       <a href="https://www.pinterest.com/TamerCreates/" target="_blank" aria-label="Pinterest">
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pinterest.svg" alt="Pinterest icon">
@@ -136,10 +143,5 @@
   <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
   <script defer src="{{ '/js/iab.js' | url }}"></script>
   <script defer src="{{ '/js/iab-nav-fix.js' | url }}"></script>
-  <script>
-    // dynamic year to avoid NaN footer bug
-    const y = document.getElementById('year');
-    if (y) y.textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
