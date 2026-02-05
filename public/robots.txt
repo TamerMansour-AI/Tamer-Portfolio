@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tamermansour-ai.github.io/Tamer-Portfolio/sitemap-index.xml
