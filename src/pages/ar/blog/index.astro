@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Section from "../../../components/Section.astro";
+
+const posts = [
+  {
+    title: "كيف يرفع الإخراج السينمائي معدل المشاهدة في الفيديو القصير",
+    date: "فبراير 2026",
+    excerpt: "تفكيك عملي لخيارات الكادر والإيقاع التي تحافظ على انتباه المشاهد."
+  },
+  {
+    title: "بناء نظام إنتاج ذكاء اصطناعي يمكن للفريق الاعتماد عليه",
+    date: "يناير 2026",
+    excerpt: "مبادئ تشغيل تساعدك على زيادة السرعة دون خسارة الجودة."
+  },
+  {
+    title: "تعليم الفرق الإبداعية التفكير بالقصة لا بالأصول فقط",
+    date: "ديسمبر 2025",
+    excerpt: "لماذا وضوح السرد يتفوق على الإنتاج العشوائي في نمو العلامة."
+  }
+];
+---
+<BaseLayout
+  title="المدونة | تامر منصور"
+  description="مقالات وأفكار حول السرد البصري، أنظمة الذكاء الاصطناعي، وتطوير المبدعين."
+  path="/ar/blog/"
+  lang="ar"
+  dir="rtl"
+>
+  <Section title="المدونة" copy="ملاحظات عملية من التجربة: سرد، أنظمة، ونمو إبداعي." className="text-right">
+    <div class="space-y-4">
+      {
+        posts.map((post) => (
+          <article class="glass-card p-6">
+            <p class="text-xs uppercase tracking-wide text-gold">{post.date}</p>
+            <h2 class="mt-2 text-xl font-semibold text-white">{post.title}</h2>
+            <p class="mt-3 text-sm text-sand/80">{post.excerpt}</p>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
+</BaseLayout>

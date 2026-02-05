@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CTAButtons from "../../../components/CTAButtons.astro";
+import Section from "../../../components/Section.astro";
+import { pinterestPlaceholderAr, workItemsAr } from "../../../data/work";
+---
+<BaseLayout
+  title="الأعمال | تامر منصور"
+  description="استعرض أعمال تامر منصور في السرد البصري السينمائي وصناعة المحتوى بالذكاء الاصطناعي."
+  path="/ar/work/"
+  lang="ar"
+  dir="rtl"
+>
+  <Section
+    title="أعمال تمزج القصة بالأثر"
+    copy="كل مشروع يُبنى ليحمل قيمة بصرية واضحة ونتيجة عملية."
+    className="text-right"
+  >
+    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {
+        workItemsAr.map((item) => (
+          <article class="glass-card overflow-hidden">
+            <img src={item.image} alt={item.title} loading="lazy" class="h-52 w-full object-cover" />
+            <div class="p-5">
+              <p class="text-xs uppercase tracking-wide text-gold">{item.type}</p>
+              <h2 class="mt-2 text-lg font-semibold text-white">{item.title}</h2>
+              <p class="mt-2 text-sm text-sand/75">{item.summary}</p>
+              <a href={item.youtubeUrl} class="gold-link mt-4 inline-block text-sm font-semibold" target="_blank" rel="noreferrer">
+                مشاهدة على يوتيوب
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
+  <Section title={pinterestPlaceholderAr.title} copy={pinterestPlaceholderAr.description} className="text-right">
+    <a href={pinterestPlaceholderAr.url} class="gold-link text-sm font-semibold" target="_blank" rel="noreferrer">
+      فتح Pinterest
+    </a>
+  </Section>
+  <Section title="لنبدأ مشروعك القادم" copy="شارك الهدف والجدول الزمني وسأقترح مسار التنفيذ المناسب." className="text-right">
+    <CTAButtons bookHref="/ar/contact/" labels={{ book: "احجز مكالمة", whatsapp: "راسلني على واتساب" }} />
+  </Section>
+</BaseLayout>
