@@ -1,0 +1,31 @@
+---
+import { whatsappLinks } from "../data/site";
+import { withBase } from "../utils/withBase";
+
+type Props = {
+  className?: string;
+  bookHref?: string;
+  labels?: {
+    book: string;
+    whatsapp: string;
+  };
+};
+
+const { className = "", bookHref = "/contact/", labels } = Astro.props;
+---
+<div class={`flex flex-wrap items-center gap-3 ${className}`}>
+  <a
+    href={withBase(bookHref)}
+    class="rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-ink shadow-glow hover:bg-gold-soft"
+  >
+    {labels?.book ?? "Book a Call"}
+  </a>
+  <a
+    href={whatsappLinks.primary}
+    target="_blank"
+    rel="noreferrer"
+    class="rounded-full border border-gold/60 px-5 py-2.5 text-sm font-semibold text-sand hover:border-gold hover:text-white"
+  >
+    {labels?.whatsapp ?? "Message on WhatsApp"}
+  </a>
+</div>

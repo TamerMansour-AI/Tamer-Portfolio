@@ -1,0 +1,37 @@
+---
+import Footer from "../components/Footer.astro";
+import HeadMeta from "../components/HeadMeta.astro";
+import Nav from "../components/Nav.astro";
+import "../styles/global.css";
+
+type Props = {
+  title: string;
+  description: string;
+  path?: string;
+  lang?: "en" | "ar";
+  dir?: "ltr" | "rtl";
+};
+
+const { title, description, path = "/", lang = "en", dir = "ltr" } = Astro.props;
+---
+<!doctype html>
+<html lang={lang} dir={dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <HeadMeta title={title} description={description} path={path} lang={lang} />
+  </head>
+  <body class="min-h-screen bg-ink bg-[radial-gradient(circle_at_top,rgba(200,165,106,0.08),transparent_45%)]">
+    <Nav lang={lang} dir={dir} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} dir={dir} />
+  </body>
+</html>

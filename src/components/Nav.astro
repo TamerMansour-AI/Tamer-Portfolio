@@ -1,0 +1,105 @@
+---
+import { navAr, navEn, type NavItem } from "../data/nav";
+import { siteData } from "../data/site";
+import { withBase } from "../utils/withBase";
+
+type Props = {
+  lang?: "en" | "ar";
+  dir?: "ltr" | "rtl";
+};
+
+const { lang = "en", dir = "ltr" } = Astro.props;
+const currentPathRaw = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+
+const stripBase = (path: string) => {
+  if (path.startsWith(base)) {
+    const value = path.slice(base.length - 1);
+    return value.startsWith("/") ? value : `/${value}`;
+  }
+  return path;
+};
+
+const currentPath = stripBase(currentPathRaw);
+const items: NavItem[] = lang === "ar" ? navAr : navEn;
+
+const switchPath = (path: string) => {
+  const clean = path.endsWith("/") ? path : `${path}/`;
+  if (lang === "ar") {
+    const normalized = clean.replace(/^\/ar/, "") || "/";
+    return normalized.startsWith("/") ? normalized : `/${normalized}`;
+  }
+  return clean === "/" ? "/ar/" : `/ar${clean}`;
+};
+
+const isActive = (href: string) => {
+  const normalizedCurrent = currentPath.endsWith("/") ? currentPath : `${currentPath}/`;
+  return normalizedCurrent === href;
+};
+---
+<header class="sticky top-0 z-30 border-b border-white/10 bg-ink/85 backdrop-blur">
+  <div class="container-shell flex items-center justify-between py-4">
+    <a href={withBase(lang === "ar" ? "/ar/" : "/")} class="text-sm font-semibold tracking-[0.2em] text-white">
+      {siteData.name}
+    </a>
+    <button
+      id="menu-toggle"
+      class="inline-flex rounded-md border border-white/20 p-2 text-sand md:hidden"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+    >
+      <span class="sr-only">Menu</span>
+      <svg viewBox="0 0 20 20" class="h-5 w-5 fill-current">
+        <path d="M3 5h14v2H3zM3 9h14v2H3zM3 13h14v2H3z"></path>
+      </svg>
+    </button>
+    <nav id="primary-nav" class="hidden items-center gap-6 md:flex" dir={dir}>
+      {
+        items.map((item) => (
+          <a
+            href={withBase(item.href)}
+            class={`text-sm ${isActive(item.href) ? "text-gold" : "text-sand/80 hover:text-white"}`}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a
+        href={withBase(switchPath(currentPath))}
+        class="rounded-full border border-gold/60 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold hover:border-gold hover:text-gold-soft"
+      >
+        {lang === "ar" ? "EN" : "AR"}
+      </a>
+    </nav>
+  </div>
+  <nav id="primary-nav-mobile" class="container-shell hidden flex-col gap-3 pb-4 md:hidden" dir={dir}>
+    {
+      items.map((item) => (
+        <a
+          href={withBase(item.href)}
+          class={`text-sm ${isActive(item.href) ? "text-gold" : "text-sand/80 hover:text-white"}`}
+        >
+          {item.label}
+        </a>
+      ))
+    }
+    <a
+      href={withBase(switchPath(currentPath))}
+      class="w-max rounded-full border border-gold/60 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold hover:border-gold hover:text-gold-soft"
+    >
+      {lang === "ar" ? "EN" : "AR"}
+    </a>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const mobileNav = document.getElementById("primary-nav-mobile");
+  if (toggle && mobileNav) {
+    toggle.addEventListener("click", () => {
+      const expanded = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!expanded));
+      mobileNav.classList.toggle("hidden");
+    });
+  }
+</script>

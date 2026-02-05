@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  @apply m-0 p-0 bg-ink text-sand antialiased;
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+a {
+  @apply transition-colors duration-200;
+}
+
+.container-shell {
+  @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+}
+
+.glass-card {
+  @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur;
+}
+
+.section-title {
+  @apply text-2xl font-semibold tracking-tight text-white sm:text-3xl;
+}
+
+.section-copy {
+  @apply mt-3 max-w-2xl text-sm leading-relaxed text-sand/80 sm:text-base;
+}
+
+.gold-link {
+  @apply text-gold hover:text-gold-soft;
+}
