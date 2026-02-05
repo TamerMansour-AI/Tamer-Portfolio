@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTAButtons from "../../components/CTAButtons.astro";
+import Section from "../../components/Section.astro";
+---
+<BaseLayout
+  title="About | Tamer Mansour"
+  description="Meet Tamer Mansour, AI media creator and visual storyteller based in Ramallah working with global teams remotely."
+  path="/about/"
+>
+  <Section
+    title="About Tamer Mansour"
+    copy="I build visual stories that make complex ideas feel clear, modern, and human. My work sits at the intersection of cinematic direction, AI workflows, and practical education."
+  >
+    <div class="grid gap-6 md:grid-cols-2">
+      <article class="glass-card p-6">
+        <h2 class="text-xl font-semibold text-white">Creative Lens</h2>
+        <p class="mt-3 text-sm text-sand/80">
+          My approach starts with narrative intent. I shape visual flow, pacing, and tone to make every frame serve a purpose.
+        </p>
+      </article>
+      <article class="glass-card p-6">
+        <h2 class="text-xl font-semibold text-white">Educational Mindset</h2>
+        <p class="mt-3 text-sm text-sand/80">
+          I do not just deliver content. I transfer systems and standards so teams can sustain quality after project handoff.
+        </p>
+      </article>
+    </div>
+  </Section>
+  <Section
+    title="From Ramallah, built for remote collaboration"
+    copy="I partner with clients across regions through structured communication, fast iteration cycles, and clear milestones."
+  >
+    <CTAButtons />
+  </Section>
+</BaseLayout>

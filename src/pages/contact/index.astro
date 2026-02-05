@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTAButtons from "../../components/CTAButtons.astro";
+import Section from "../../components/Section.astro";
+import { siteData, whatsappLinks } from "../../data/site";
+---
+<BaseLayout
+  title="Contact | Tamer Mansour"
+  description="Book a call or message Tamer Mansour on WhatsApp to discuss your next visual storytelling project."
+  path="/contact/"
+>
+  <Section
+    title="Let’s build your next visual story"
+    copy="Share your objective, timeline, and target audience. I will propose a clear, premium execution path."
+  >
+    <div class="grid gap-6 lg:grid-cols-2">
+      <article class="glass-card p-6">
+        <h2 class="text-xl font-semibold text-white">Direct Contact</h2>
+        <ul class="mt-4 space-y-3 text-sm text-sand/85">
+          <li>Email: <a class="gold-link" href={`mailto:${siteData.email}`}>{siteData.email}</a></li>
+          <li>
+            WhatsApp 1:
+            <a class="gold-link" href={whatsappLinks.primary} target="_blank" rel="noreferrer">{siteData.whatsappPrimary}</a>
+          </li>
+          <li>
+            WhatsApp 2:
+            <a class="gold-link" href={whatsappLinks.secondary} target="_blank" rel="noreferrer">{siteData.whatsappSecondary}</a>
+          </li>
+          <li>Location: {siteData.location}</li>
+        </ul>
+      </article>
+      <article class="glass-card p-6">
+        <h2 class="text-xl font-semibold text-white">Social Channels</h2>
+        <ul class="mt-4 space-y-3 text-sm text-sand/85">
+          <li><a class="gold-link" href={siteData.social.instagram} target="_blank" rel="noreferrer">Instagram</a></li>
+          <li><a class="gold-link" href={siteData.social.facebook} target="_blank" rel="noreferrer">Facebook</a></li>
+          <li><a class="gold-link" href={siteData.social.tiktok} target="_blank" rel="noreferrer">TikTok</a></li>
+          <li><a class="gold-link" href={siteData.social.pinterest} target="_blank" rel="noreferrer">Pinterest</a></li>
+        </ul>
+      </article>
+    </div>
+    <CTAButtons className="mt-8" />
+  </Section>
+</BaseLayout>
