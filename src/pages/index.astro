@@ -49,7 +49,7 @@ import { withBase } from "../utils/withBase";
       {
         workItemsEn.slice(0, 3).map((item) => (
           <article class="glass-card overflow-hidden">
-            <img src={item.image} alt={item.title} loading="lazy" class="h-48 w-full object-cover" />
+            <img src={withBase(item.image)} alt={item.title} loading="lazy" class="h-48 w-full object-cover" />
             <div class="p-5">
               <p class="text-xs uppercase tracking-wide text-gold">{item.type}</p>
               <h3 class="mt-2 text-lg font-semibold text-white">{item.title}</h3>

@@ -3,6 +3,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import CTAButtons from "../../../components/CTAButtons.astro";
 import Section from "../../../components/Section.astro";
 import { pinterestPlaceholderAr, workItemsAr } from "../../../data/work";
+import { withBase } from "../../../utils/withBase";
 ---
 <BaseLayout
   title="الأعمال | تامر منصور"
@@ -20,7 +21,7 @@ import { pinterestPlaceholderAr, workItemsAr } from "../../../data/work";
       {
         workItemsAr.map((item) => (
           <article class="glass-card overflow-hidden">
-            <img src={item.image} alt={item.title} loading="lazy" class="h-52 w-full object-cover" />
+            <img src={withBase(item.image)} alt={item.title} loading="lazy" class="h-52 w-full object-cover" />
             <div class="p-5">
               <p class="text-xs uppercase tracking-wide text-gold">{item.type}</p>
               <h2 class="mt-2 text-lg font-semibold text-white">{item.title}</h2>

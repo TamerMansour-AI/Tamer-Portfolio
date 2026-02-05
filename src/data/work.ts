@@ -1,9 +1,9 @@
-const stillA = new URL("../../Images/Gemini_Generated_Image_if30hgif30hgif30.png", import.meta.url).href;
-const stillB = new URL("../../Images/Gemini_Generated_Image_c36kacc36kacc36k.png", import.meta.url).href;
-const stillC = new URL("../../Images/Gemini_Generated_Image_9z1sp9z1sp9z1sp9.png", import.meta.url).href;
-const stillD = new URL("../../Images/Gemini_Generated_Image_9vnkdt9vnkdt9vnk.png", import.meta.url).href;
-const stillE = new URL("../../Images/Gemini_Generated_Image_9p376m9p376m9p37.png", import.meta.url).href;
-const stillF = new URL("../../Images/Gemini_Generated_Image_qoehg3qoehg3qoeh.png", import.meta.url).href;
+const stillA = "/assets/images/projects/Gemini_Generated_Image_if30hgif30hgif30.png";
+const stillB = "/assets/images/projects/Gemini_Generated_Image_c36kacc36kacc36k.png";
+const stillC = "/assets/images/projects/Gemini_Generated_Image_9z1sp9z1sp9z1sp9.png";
+const stillD = "/assets/images/projects/Gemini_Generated_Image_9vnkdt9vnkdt9vnk.png";
+const stillE = "/assets/images/projects/Gemini_Generated_Image_9p376m9p376m9p37.png";
+const stillF = "/assets/images/projects/Gemini_Generated_Image_qoehg3qoehg3qoeh.png";
 
 export type WorkItem = {
   title: string;
