@@ -6,40 +6,72 @@ import { servicesEn } from "../data/services";
 import { siteData } from "../data/site";
 import { workItemsEn } from "../data/work";
 import { withBase } from "../utils/withBase";
+
+const heroVideo = withBase("/media/hero/hero.mp4");
+const heroPoster = withBase("/media/hero/hero-poster.jpg");
 ---
 <BaseLayout
   title="Tamer Mansour | Cinematic AI Storytelling"
   description="Premium AI media creation, cinematic storytelling, and creator education for brands and teams that want attention and trust."
   path="/"
 >
-  <section class="container-shell py-16 sm:py-24">
-    <p class="text-xs uppercase tracking-[0.25em] text-gold">AI Media Creator • Visual Storyteller • Educator-Consultant</p>
-    <h1 class="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-6xl">
-      Cinematic storytelling that turns attention into trust, and trust into action.
-    </h1>
-    <p class="mt-6 max-w-2xl text-base leading-relaxed text-sand/80">
-      I help founders, teams, and institutions build premium visual narratives using modern AI workflows and human-first direction.
-      From Ramallah to global audiences, the goal is always clear: meaningful impact and measurable conversion.
-    </p>
-    <CTAButtons className="mt-8" />
+  <section class="container-shell py-14 sm:py-20">
+    <div class="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
+      <div>
+        <p class="text-xs uppercase tracking-[0.22em] text-gold">Cinematic Production * Training * Practical AI Systems</p>
+        <h1 class="mt-5 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
+          Cinematic storytelling that turns attention into trust, and trust into action.
+        </h1>
+        <p class="mt-5 max-w-2xl text-sm leading-relaxed text-sand/85 sm:text-base">
+          I help founders, teams, and institutions build premium visual narratives with repeatable systems. Every project is designed
+          for brand clarity, audience retention, and measurable conversion.
+        </p>
+        <CTAButtons className="mt-7" />
+      </div>
+      <div class="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 bg-white/5 sm:aspect-video">
+        <div
+          id="hero-video-fallback"
+          class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(212,175,106,0.35),transparent_45%),radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.08),transparent_50%),linear-gradient(130deg,rgba(15,15,15,0.95),rgba(30,30,30,0.95))]"
+        >
+          <div class="flex h-full items-end p-6">
+            <div>
+              <p class="text-xs uppercase tracking-[0.2em] text-gold">Hero Video Slot</p>
+              <p class="mt-2 text-sm text-sand/80">Upload `public/media/hero/hero.mp4` and `hero-poster.jpg` to activate this panel.</p>
+            </div>
+          </div>
+        </div>
+        <video
+          id="hero-video"
+          class="absolute inset-0 hidden h-full w-full object-cover"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster={heroPoster}
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+      </div>
+    </div>
   </section>
 
   <Section
-    title="Why teams hire me"
-    copy="You need more than content volume. You need visual clarity, strategic consistency, and stories your audience remembers."
+    title="What I Build"
+    copy="I combine cinematic quality, training depth, and practical AI implementation so your team can ship better work consistently."
   >
     <div class="grid gap-4 sm:grid-cols-3">
       <article class="glass-card p-6">
-        <h3 class="text-lg font-semibold text-white">Message Precision</h3>
-        <p class="mt-3 text-sm text-sand/80">Every frame supports your positioning and your commercial objective.</p>
+        <h3 class="text-lg font-semibold text-white">Cinematic Production</h3>
+        <p class="mt-3 text-sm leading-relaxed text-sand/80">Ads, short films, and visual narratives crafted for emotional clarity and conversion.</p>
       </article>
       <article class="glass-card p-6">
-        <h3 class="text-lg font-semibold text-white">Cinematic Execution</h3>
-        <p class="mt-3 text-sm text-sand/80">Premium visual language crafted for social retention and brand memory.</p>
+        <h3 class="text-lg font-semibold text-white">Training and Workshops</h3>
+        <p class="mt-3 text-sm leading-relaxed text-sand/80">Hands-on programs for teams, creators, and educators ready to level up visual output.</p>
       </article>
       <article class="glass-card p-6">
         <h3 class="text-lg font-semibold text-white">Practical AI Systems</h3>
-        <p class="mt-3 text-sm text-sand/80">Sustainable production frameworks your team can actually run.</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/80">Prompt libraries, workflows, and content systems your team can run without chaos.</p>
       </article>
     </div>
   </Section>
@@ -88,9 +120,21 @@ import { withBase } from "../utils/withBase";
 
   <Section
     title="Ready to elevate your visual presence?"
-    copy="If your next campaign, launch, or program needs a stronger story and sharper creative direction, let’s build it properly."
+    copy="If your next campaign, launch, or program needs a stronger story and sharper creative direction, let's build it properly."
   >
     <CTAButtons />
     <p class="mt-4 text-sm text-sand/70">{siteData.location}</p>
   </Section>
 </BaseLayout>
+
+<script>
+  const heroVideo = document.getElementById("hero-video");
+  const heroFallback = document.getElementById("hero-video-fallback");
+
+  if (heroVideo instanceof HTMLVideoElement && heroFallback instanceof HTMLElement) {
+    heroVideo.addEventListener("loadeddata", () => {
+      heroVideo.classList.remove("hidden");
+      heroFallback.classList.add("hidden");
+    });
+  }
+</script>
