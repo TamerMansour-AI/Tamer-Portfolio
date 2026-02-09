@@ -7,7 +7,7 @@ export const siteData = {
   email: "ai.visionary.pioneer@gmail.com",
   whatsappPrimary: "+970599797245",
   whatsappSecondary: "+970592037973",
-  location: "Ramallah — Remote",
+  location: "Ramallah \u2014 Remote",
   social: {
     facebook: "https://www.facebook.com/teamo1985",
     instagram: "https://www.instagram.com/tamerpalestine/",
@@ -22,3 +22,4 @@ export const whatsappLinks = {
   primary: "https://wa.me/970599797245",
   secondary: "https://wa.me/970592037973"
 };
+
