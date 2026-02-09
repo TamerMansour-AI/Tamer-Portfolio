@@ -76,25 +76,34 @@ const heroPoster = withBase("/media/hero/hero-poster.jpg");
     </div>
   </Section>
 
-  <Section title="Selected Work" copy="Recent pieces that blend story, speed, and cinematic finish.">
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+  <Section title="Selected Work" copy="Seven recent pieces spanning cinematic storytelling, documentary framing, and practical education.">
+    <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
       {
-        workItemsEn.slice(0, 3).map((item) => (
-          <article class="glass-card overflow-hidden">
-            <img src={withBase(item.image)} alt={item.title} loading="lazy" class="h-48 w-full object-cover" />
-            <div class="p-5">
-              <p class="text-xs uppercase tracking-wide text-gold">{item.type}</p>
-              <h3 class="mt-2 text-lg font-semibold text-white">{item.title}</h3>
-              <p class="mt-2 text-sm text-sand/75">{item.summary}</p>
-              <a href={item.youtubeUrl} class="gold-link mt-4 inline-block text-sm font-semibold" target="_blank" rel="noreferrer">
-                Watch project
-              </a>
+        workItemsEn.map((item) => (
+          <a href={item.youtubeUrl} target="_blank" rel="noreferrer" class="glass-card block overflow-hidden">
+            <div class="relative aspect-video overflow-hidden bg-white/5">
+              <img
+                src={item.image}
+                data-fallback={item.thumbnailFallback}
+                onerror="this.onerror=null;this.src=this.dataset.fallback;"
+                alt={item.title}
+                loading="lazy"
+                class="h-full w-full object-cover"
+              />
             </div>
-          </article>
+            <div class="space-y-3 p-5">
+              <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.type}</p>
+              <h3 class="text-lg font-semibold leading-tight text-white">{item.title}</h3>
+              <p class="text-sm leading-relaxed text-sand/75">{item.summary}</p>
+              <div class="flex flex-wrap gap-2">
+                {item.tags.map((tag) => <span class="rounded-full border border-white/15 px-2.5 py-1 text-xs text-sand/80">{tag}</span>)}
+              </div>
+              <p class="text-sm font-semibold text-gold">Watch on YouTube</p>
+            </div>
+          </a>
         ))
       }
     </div>
-    <a href={withBase("/work/")} class="gold-link mt-8 inline-block text-sm font-semibold">View all work</a>
   </Section>
 
   <Section title="Services" copy="Conversion-focused offers for creators, brands, and organizations.">
