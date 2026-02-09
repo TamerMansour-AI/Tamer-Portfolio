@@ -13,10 +13,10 @@ type Props = {
 
 const { className = "", bookHref = "/contact/", labels } = Astro.props;
 ---
-<div class={`flex flex-wrap items-center gap-3 ${className}`}>
+<div class={`flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center ${className}`}>
   <a
     href={withBase(bookHref)}
-    class="rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-ink shadow-glow hover:bg-gold-soft"
+    class="inline-flex w-full items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-ink shadow-glow hover:bg-gold-soft sm:w-auto"
   >
     {labels?.book ?? "Book a Call"}
   </a>
@@ -24,7 +24,7 @@ const { className = "", bookHref = "/contact/", labels } = Astro.props;
     href={whatsappLinks.primary}
     target="_blank"
     rel="noreferrer"
-    class="rounded-full border border-gold/60 px-5 py-2.5 text-sm font-semibold text-sand hover:border-gold hover:text-white"
+    class="inline-flex w-full items-center justify-center rounded-full border border-gold/60 px-5 py-3 text-sm font-semibold text-sand hover:border-gold hover:text-white sm:w-auto"
   >
     {labels?.whatsapp ?? "Message on WhatsApp"}
   </a>

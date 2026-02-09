@@ -8,7 +8,7 @@ type Props = {
 
 const { id, title, copy, className = "" } = Astro.props;
 ---
-<section id={id} class={`py-14 sm:py-20 ${className}`}>
+<section id={id} class={`py-16 sm:py-20 ${className}`}>
   <div class="container-shell">
     <h2 class="section-title">{title}</h2>
     {copy && <p class="section-copy">{copy}</p>}

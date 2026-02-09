@@ -38,22 +38,24 @@ const isActive = (href: string) => {
 };
 ---
 <header class="sticky top-0 z-30 border-b border-white/10 bg-ink/85 backdrop-blur">
-  <div class="container-shell flex items-center justify-between py-4">
-    <a href={withBase(lang === "ar" ? "/ar/" : "/")} class="text-sm font-semibold tracking-[0.2em] text-white">
-      {siteData.name}
-    </a>
-    <button
-      id="menu-toggle"
-      class="inline-flex rounded-md border border-white/20 p-2 text-sand md:hidden"
-      aria-expanded="false"
-      aria-controls="primary-nav"
-    >
-      <span class="sr-only">Menu</span>
-      <svg viewBox="0 0 20 20" class="h-5 w-5 fill-current">
-        <path d="M3 5h14v2H3zM3 9h14v2H3zM3 13h14v2H3z"></path>
-      </svg>
-    </button>
-    <nav id="primary-nav" class="hidden items-center gap-6 md:flex" dir={dir}>
+  <div class="container-shell py-4">
+    <div class="flex items-center justify-between gap-4">
+      <a href={withBase(lang === "ar" ? "/ar/" : "/")} class="text-sm font-semibold tracking-[0.2em] text-white">
+        {siteData.name}
+      </a>
+      <button
+        id="menu-toggle"
+        class="inline-flex rounded-md border border-white/20 p-2 text-sand md:hidden"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+      >
+        <span class="sr-only">Menu</span>
+        <svg viewBox="0 0 20 20" class="h-5 w-5 fill-current">
+          <path d="M3 5h14v2H3zM3 9h14v2H3zM3 13h14v2H3z"></path>
+        </svg>
+      </button>
+    </div>
+    <nav id="primary-nav" class="hidden flex-col gap-3 pt-4 md:flex md:flex-row md:items-center md:justify-end md:gap-6 md:pt-0" dir={dir}>
       {
         items.map((item) => (
           <a
@@ -66,40 +68,23 @@ const isActive = (href: string) => {
       }
       <a
         href={withBase(switchPath(currentPath))}
-        class="rounded-full border border-gold/60 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold hover:border-gold hover:text-gold-soft"
+        class="mt-1 w-max rounded-full border border-gold/60 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold hover:border-gold hover:text-gold-soft md:mt-0"
       >
         {lang === "ar" ? "EN" : "AR"}
       </a>
     </nav>
   </div>
-  <nav id="primary-nav-mobile" class="container-shell hidden flex-col gap-3 pb-4 md:hidden" dir={dir}>
-    {
-      items.map((item) => (
-        <a
-          href={withBase(item.href)}
-          class={`text-sm ${isActive(item.href) ? "text-gold" : "text-sand/80 hover:text-white"}`}
-        >
-          {item.label}
-        </a>
-      ))
-    }
-    <a
-      href={withBase(switchPath(currentPath))}
-      class="w-max rounded-full border border-gold/60 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold hover:border-gold hover:text-gold-soft"
-    >
-      {lang === "ar" ? "EN" : "AR"}
-    </a>
-  </nav>
 </header>
 
 <script>
   const toggle = document.getElementById("menu-toggle");
-  const mobileNav = document.getElementById("primary-nav-mobile");
-  if (toggle && mobileNav) {
+  const nav = document.getElementById("primary-nav");
+  if (toggle && nav) {
     toggle.addEventListener("click", () => {
       const expanded = toggle.getAttribute("aria-expanded") === "true";
       toggle.setAttribute("aria-expanded", String(!expanded));
-      mobileNav.classList.toggle("hidden");
+      nav.classList.toggle("hidden");
+      nav.classList.toggle("flex");
     });
   }
 </script>
