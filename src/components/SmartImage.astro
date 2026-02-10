@@ -20,69 +20,21 @@ const {
 } = Astro.props;
 
 const resolveSrc = (src: string) => (/^(https?:)?\/\//.test(src) || src.startsWith("data:") ? src : withBase(src));
-const resolvedCandidates = candidates.map((src) => resolveSrc(src));
-const resolvedFallback = resolveSrc(fallback);
-const resolvedFinalFallback = resolveSrc(finalFallback);
-const ultimateFallback =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 675'%3E%3Crect width='1200' height='675' fill='%23151515'/%3E%3Ccircle cx='260' cy='180' r='220' fill='%23d4af6a' fill-opacity='0.2'/%3E%3Ccircle cx='980' cy='140' r='180' fill='%23ffffff' fill-opacity='0.07'/%3E%3Ctext x='60' y='580' font-size='42' fill='%23c7b18a' font-family='Arial, sans-serif'%3EMedia Placeholder%3C/text%3E%3C/svg%3E";
-const initialSrc = resolvedCandidates[0] ?? resolvedFallback;
+const sourceList = [...candidates.map((src) => resolveSrc(src)), resolveSrc(fallback), resolveSrc(finalFallback)];
+const sourceListEncoded = sourceList.join("||");
 ---
 <img
-  src={initialSrc}
+  src={sourceList[0]}
   alt={alt}
   loading={loading}
   decoding="async"
   class={className}
-  data-candidates={JSON.stringify(resolvedCandidates)}
-  data-fallback={resolvedFallback}
-  data-final-fallback={resolvedFinalFallback}
-  data-ultimate-fallback={ultimateFallback}
+  data-src-list={sourceListEncoded}
+  data-src-index="0"
+  onerror="
+    var srcList=(this.dataset.srcList||'').split('||').filter(Boolean);
+    var nextIndex=Number(this.dataset.srcIndex||'0')+1;
+    this.dataset.srcIndex=String(nextIndex);
+    this.src=srcList[nextIndex] || srcList[srcList.length-1];
+  "
 />
-
-<script is:inline>
-  (() => {
-    const script = document.currentScript;
-    if (!script) return;
-
-    const image = script.previousElementSibling;
-    if (!(image instanceof HTMLImageElement)) return;
-
-    let candidates = [];
-    try {
-      candidates = JSON.parse(image.dataset.candidates ?? "[]");
-    } catch {
-      candidates = [];
-    }
-
-    const fallback = image.dataset.fallback ?? "";
-    const finalFallback = image.dataset.finalFallback ?? "";
-    const ultimateFallback = image.dataset.ultimateFallback ?? "";
-    let candidateIndex = candidates.indexOf(image.getAttribute("src") ?? "");
-
-    const rotateSource = () => {
-      candidateIndex += 1;
-      const current = image.getAttribute("src") ?? "";
-
-      if (candidateIndex >= 0 && candidateIndex < candidates.length) {
-        image.src = candidates[candidateIndex];
-        return;
-      }
-
-      if (fallback && current !== fallback) {
-        image.src = fallback;
-        return;
-      }
-
-      if (finalFallback && current !== finalFallback) {
-        image.src = finalFallback;
-        return;
-      }
-
-      if (ultimateFallback && current !== ultimateFallback) {
-        image.src = ultimateFallback;
-      }
-    };
-
-    image.addEventListener("error", rotateSource);
-  })();
-</script>
