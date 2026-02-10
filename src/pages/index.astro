@@ -95,7 +95,7 @@ const heroPoster = withBase("/media/hero/hero-poster.jpg");
             <div class="relative aspect-[4/3] overflow-hidden bg-[radial-gradient(circle_at_20%_20%,rgba(212,175,106,0.28),transparent_40%),linear-gradient(135deg,rgba(30,30,30,0.98),rgba(18,18,18,0.98))]">
               <img
                 src={withBase(board.thumbLocal)}
-                data-fallback={withBase("/media/pinterest/fallback.jpg")}
+                data-fallback={withBase("/media/pinterest/boards/gallery-muse.jpg")}
                 onerror="if (this.dataset.fallback && this.src !== this.dataset.fallback) { this.src = this.dataset.fallback; } else { this.classList.add('hidden'); }"
                 alt={board.title}
                 loading="lazy"

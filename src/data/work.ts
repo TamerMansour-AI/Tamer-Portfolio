@@ -1,4 +1,4 @@
-const youtubeThumbCandidates = (videoId: string) => [
+﻿const youtubeThumbCandidates = (videoId: string) => [
   `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
   `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
   `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`
@@ -67,8 +67,7 @@ const workSeed: WorkSeedItem[] = [
     title_en: "Rituals in Motion",
     title_ar: "طقوس في حركة",
     desc_en: "A silent cinematic short from Gaza where a dog and boy reunite and return to a damaged home of memory and sketches.",
-    desc_ar:
-      "رحلة صامتة لكلب من غزة يبحث عن الصبي الذي كان يرسم حياتهما: يلتقيان ويعودان إلى بيتٍ متضرّر… وإلى الرسومات التي تُركت.",
+    desc_ar: "فيلم صامت قصير من غزة يتتبع رحلة كلب وطفل يعودان إلى بيت الذاكرة والرسومات.",
     url: "https://youtu.be/lqVwVUdH6Hk?si=bFrBQseef10kjFxG",
     type: "Art Documentary",
     tags: ["#Gaza", "#ShortFilm", "#AIArt", "#SilentFilm"]
@@ -79,7 +78,7 @@ const workSeed: WorkSeedItem[] = [
     desc_en:
       "A symbolic visual poem on Palestinian identity, memory, and renewal, framed with hope and enduring cultural roots.",
     desc_ar:
-      "تجسد هذه القصيدة الرمزية صمود الهوية الفلسطينية وقدرتها الفائقة على التجدد والانبعاث من بين الركام رغم محاولات التفتيت والبيع في المحافل الدولية. ينسج النص علاقة عضوية بين الأرض والذاكرة الحية، حيث تتحول تفاصيل الطبيعة كاللوز والزعتر إلى أدوات للمقاومة السلمية والبقاء التي تتجاوز حدود الخرائط السياسية الضيقة. يبرز المحتوى قوة الإرادة الشعبية التي تعيد ترتيب شتاتها \"حصاة فوق حصاة\"، مؤكدة أن جوهر الوجود الفلسطيني أوسع من التاريخ المكتوب وأبقى من الحصار. تختتم المقطوعة برؤية أمل عميقة، معلنة أن الاستحقاق للحياة ينبع من تفاصيل يومية بسيطة وشجرة زيتون تظل شاهدة على الخلود رغم عواصف الزمن.",
+      "قصيدة بصرية عن الهوية الفلسطينية والذاكرة والتجدد، تقدم الأمل بوصفه امتدادا للجذور الثقافية.",
     url: "https://youtu.be/dqGQJQ1jvHg?list=TLGGX1bvsOfqR0swOTAyMjAyNg",
     type: "Visual Narrative",
     tags: ["Identity", "Poetry", "Narrative"]
@@ -90,7 +89,7 @@ const workSeed: WorkSeedItem[] = [
     desc_en:
       "An AI-driven dialogue between ChatGPT and Gemini exploring identity as deep-rooted history with adaptive modern expression.",
     desc_ar:
-      "يستعرض هذا المصدر تجربة فكرية فريدة توظف الذكاء الاصطناعي لاستكشاف الهوية الفلسطينية عبر مناظرة بين \"ChatGPT\" و\"Gemini\"، متجاوزةً بذلك القوالب السياسية التقليدية. يكمن جوهر الحوار في التوفيق بين مفهومين: الأصالة التاريخية الضاربة في القدم والتحول السياسي الحديث، حيث خلص الطرفان إلى أن الهوية الوطنية ليست مجرد نتاج للصراعات المعاصرة، بل هي امتداد لثقافة عريقة مرتبطة بالأرض. ويبرز مفهوم السكان الأصليين (Indigeneity) كحلقة وصل تسمح برؤية الفلسطينيين كحراس لحضارة قديمة تطور أدواتها لحماية وجودها، مع استخدام شجرة الزيتون كرمز بلاغي يجمع بين الجذور العميقة والقدرة على التجدد. ويهدف النص في النهاية إلى تقديم صورة تركيبية للهوية بصفتها جذوراً متحركة، تمزج بين الاستقرار التاريخي والقدرة المذهلة على البقاء والتكيف عبر الزمن.",
+      "حوار مدعوم بالذكاء الاصطناعي بين ChatGPT وGemini حول الهوية كجذور تاريخية تتجدد بأدوات معاصرة.",
     url: "https://youtu.be/ft0zRjyBNQ4?list=TLGGjNIzCLeVJBAwOTAyMjAyNg",
     type: "Campaign Film",
     tags: ["AI Debate", "Identity", "Dialogue"]
@@ -101,7 +100,7 @@ const workSeed: WorkSeedItem[] = [
     desc_en:
       "An animated cultural essay that revives ten iconic masterpieces and reveals the hidden drama behind each brushstroke.",
     desc_ar:
-      "يقدم هذا المقطع سرداً بصرياً وثقافياً يستعرض عشرة من أعظم الأعمال الفنية عبر التاريخ، حيث يتم بث الحياة في اللوحات الجامدة من خلال تقنيات التحريك. يتنقل المحتوى بين روائع كلاسيكية مثل \"خلق آدم\" وصولاً إلى \"الموناليزا\"، مسلطاً الضوء على العبقرية الكامنة في التفاصيل وكيفية تجسيد الرسامين لمشاعر معقدة كالخوف والحب والحركة. تكمن الغاية الأساسية من هذا العرض في تحويل الفن الساكن إلى تجربة حية، مما يساعد المشاهد على استيعاب القصص والدراما المختبئة خلف ضربات الفرشاة. يُبرز النص كيف تظل هذه الأيقونات خالدة بفضل الغموض والابتكار الذي يمنحها القدرة على مخاطبة الوجدان الإنساني عبر العصور.",
+      "مقال بصري متحرك يعيد إحياء عشر روائع فنية ويكشف الدراما المختبئة خلف ضربات الفرشاة.",
     url: "https://youtu.be/4HPt1qOpIw0?list=TLGGVDWoj-0-l0cwOTAyMjAyNg",
     type: "Art Documentary",
     tags: ["Classic Art", "Animation", "Culture"]
@@ -112,7 +111,7 @@ const workSeed: WorkSeedItem[] = [
     desc_en:
       "A modern song-film about digital alienation that calls for compassion, human truth, and action over empty ritual.",
     desc_ar:
-      "تُصور هذه الأغنية الحديثة حالة الاغتراب الإنساني في عصر تهيمن عليه الشاشات والضجيج الرقمي، حيث يتساءل العمل عن جوهر هويتنا وسط عالم متسارع ومقسم. ينتقل النص ببراعة من نقد الانفصال العاطفي رغم الاتصال التكنولوجي إلى دعوة ملحة للبحث عن الرحمة والصدق في التعاملات البشرية. تهدف الكلمات إلى تحفيز المستمع على إبطاء إيقاع الحياة وتجاوز الحواجز النفسية والمادية لإعادة إحياء لغة الحب. وفي الختام، يبرز النص وحدة المصير الإنساني، مشدداً على أن التغلب على الخوف والكراهية يبدأ بمد يد العون وبناء غدٍ يقوم على الأفعال لا المجرد الصلوات الفارغة.",
+      "أغنية فيلم حديثة عن الاغتراب الرقمي تدعو إلى التعاطف والفعل الإنساني بدلا من الطقوس الفارغة.",
     url: "https://youtu.be/E6Rt-agXCYM?list=TLGGzII0OhNHrdQwOTAyMjAyNg",
     type: "Cinematic Production",
     tags: ["Music", "Humanity", "Digital Age"]
@@ -123,7 +122,7 @@ const workSeed: WorkSeedItem[] = [
     desc_en:
       "An AI-produced song reflects inner conflict in the digital era and argues for empathy as resistance to fragmentation.",
     desc_ar:
-      "تُصور هذه الأغنية التي أُنتجت بواسطة الذكاء الاصطناعي حالة من الاغتراب الإنساني في العصر الرقمي، حيث تعكس الصراع الداخلي بين ضجيج الأخبار المتسارع والرغبة العميقة في السكينة. يركز النص على تآكل التواصل الحقيقي بسبب الانقسامات الفكرية و\"القبائل\" الرقمية، محذراً من أن الكلمات أصبحت تُستخدم كأدوات للقطيعة بدلاً من التفاهم. يسعى العمل في جوهره إلى استعادة التعاطف الإنساني كبديل لمشاعر الخوف والارتباك، داعياً المستمع إلى إبطاء وتيرة الحياة واختيار المحبة كفعل مقاومة ضد الكراهية السائدة. ترسم الكلمات لوحة للأمل الهش الذي يتمسك به الفرد، مؤكدة على ضرورة الاتحاد الوجداني لتجاوز وطأة الواقع المعاصر.",
+      "أغنية منتجة بالذكاء الاصطناعي تعكس صراعا داخليا في العصر الرقمي وتطرح التعاطف كفعل مقاومة للتشظي.",
     url: "https://youtu.be/N7T1ouDs9bs?list=TLGG0KmB1K6djqgwOTAyMjAyNg",
     type: "Visual Narrative",
     tags: ["AI Song", "Compassion", "Resilience"]
@@ -134,7 +133,7 @@ const workSeed: WorkSeedItem[] = [
     desc_en:
       "A structured AI debate frames identity as living continuity: rooted in land and culture yet adaptive across eras.",
     desc_ar:
-      "يستعرض هذا المصدر مناظرة فكرية مبتكرة بين نموذجين من الذكاء الاصطناعي حول جدلية الهوية الفلسطينية، حيث يحلل الطرفان التداخل بين العمق التاريخي والتمثيل السياسي المعاصر. يطرح النص فكرة أن الهوية ليست مجرد كيان سياسي حديث نشأ كرد فعل للظروف الحالية، بل هي امتداد عضوي لحضارة ضاربة في القدم تتجلى في تفاصيل الأرض والثقافة الشعبية. استقر الحوار في النهاية على مفهوم الأصالة كقوة ديناميكية، واصفاً الشعب الفلسطيني بأنه صاحب \"جذور متحركة\" تجمع بين الثبات على الأرض والقدرة على التكيف مع متغيرات العصر. تُختتم الرؤية باستعارة بليغة تشبه هذه الهوية بشجرة الزيتون المعمرة، التي ترمز بجذوعها الملتوية لآلام التاريخ وبأغصانها المتجددة للأمل والصمود المستمر.",
+      "مناظرة منظمة بالذكاء الاصطناعي تقدم الهوية كاستمرارية حية، ثابتة في الأرض والثقافة وقادرة على التكيف عبر الزمن.",
     url: "https://youtu.be/QquQdE2YZGU?list=TLGGUvcpT0katqwwOTAyMjAyNg",
     type: "Training and Workshops",
     tags: ["AI Dialogue", "Identity", "Olive Tree"]
@@ -164,7 +163,7 @@ export const pinterestPlaceholderEn = {
 };
 
 export const pinterestPlaceholderAr = {
-  title: "Pinterest Boards",
-  description: "A living set of visual references for campaign tone, color, and composition.",
+  title: "لوحات Pinterest",
+  description: "مراجع بصرية متجددة تساعد على تحديد النبرة والألوان واتجاه التصميم.",
   url: "https://www.pinterest.com/TamerCreates/"
 };

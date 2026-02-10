@@ -12,6 +12,11 @@ body {
   font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
+html[lang="ar"] body,
+body[dir="rtl"] {
+  font-family: "Noto Sans Arabic", "Tahoma", "Segoe UI", Arial, sans-serif;
+}
+
 a {
   @apply transition-colors duration-200;
 }

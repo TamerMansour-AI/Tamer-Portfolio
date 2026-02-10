@@ -1,4 +1,4 @@
-export type ServiceItem = {
+﻿export type ServiceItem = {
   title: string;
   summary: string;
   deliverables: string[];
@@ -43,9 +43,9 @@ export const servicesEn: ServiceItem[] = [
 
 export const servicesAr: ServiceItem[] = [
   {
-    title: "سباق القصة البصرية السينمائية",
+    title: "سباق السرد البصري السينمائي",
     summary:
-      "برنامج مركّز يحوّل رسالتك إلى سرد بصري قوي يترك أثراً واضحاً لدى جمهورك.",
+      "برنامج مركز يحول رسالتك إلى قصة بصرية قوية تترك أثرا واضحا لدى جمهورك.",
     deliverables: [
       "توجيه إبداعي وبناء الرسالة",
       "أفكار فيديو قصير وخطط مشاهد",
@@ -67,7 +67,7 @@ export const servicesAr: ServiceItem[] = [
   {
     title: "تدريب واستشارات للمبدعين",
     summary:
-      "جلسات عملية للمبدعين والمدرّبين والفرق لبناء مستوى إنتاج حديث وواثق.",
+      "جلسات عملية للمبدعين والمدربين والفرق لبناء مستوى إنتاج حديث وواثق.",
     deliverables: [
       "ورش تفاعلية مباشرة",
       "خارطة طريق للمحتوى",

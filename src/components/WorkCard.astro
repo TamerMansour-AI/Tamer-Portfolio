@@ -1,4 +1,4 @@
----
+﻿---
 import SmartImage from "./SmartImage.astro";
 import type { WorkItem } from "../data/work";
 
@@ -27,16 +27,16 @@ const isArabic = lang === "ar";
     <button
       type="button"
       class="js-work-toggle text-xs font-semibold uppercase tracking-[0.16em] text-gold hover:text-gold-soft"
-      data-more={isArabic ? "قراءة المزيد" : "Read more"}
+      data-more={isArabic ? "اقرأ المزيد" : "Read more"}
       data-less={isArabic ? "عرض أقل" : "Show less"}
     >
-      {isArabic ? "قراءة المزيد" : "Read more"}
+      {isArabic ? "اقرأ المزيد" : "Read more"}
     </button>
     <div class="flex flex-wrap gap-2">
       {item.tags.map((tag) => <span class="rounded-full border border-white/15 px-2.5 py-1 text-xs text-sand/80">{tag}</span>)}
     </div>
     <a href={item.url} target="_blank" rel="noreferrer" class="text-sm font-semibold text-gold">
-      {isArabic ? "مشاهدة على يوتيوب" : "Watch on YouTube"}
+      {isArabic ? "شاهد على يوتيوب" : "Watch on YouTube"}
     </a>
   </div>
 </article>
