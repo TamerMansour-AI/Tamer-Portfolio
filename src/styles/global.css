@@ -35,3 +35,10 @@ a {
 .gold-link {
   @apply text-gold hover:text-gold-soft;
 }
+
+.work-desc-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

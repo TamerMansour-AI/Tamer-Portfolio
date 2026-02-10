@@ -1,23 +1,21 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import CTAButtons from "../../components/CTAButtons.astro";
-import Section from "../../components/Section.astro";
-import WorkCard from "../../components/WorkCard.astro";
-import { pinterestPlaceholderEn, workItemsEn } from "../../data/work";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CTAButtons from "../../../components/CTAButtons.astro";
+import Section from "../../../components/Section.astro";
+import WorkCard from "../../../components/WorkCard.astro";
+import { pinterestPlaceholderEn, workItemsEn } from "../../../data/work";
 ---
 <BaseLayout
   title="Work | Tamer Mansour"
   description="Explore cinematic AI-powered visual projects by Tamer Mansour across storytelling, education, and branded content."
-  path="/work/"
+  path="/en/work/"
 >
   <Section
     title="Work that blends story and performance"
     copy="Each project is built to carry emotional weight while supporting strategic outcomes."
   >
     <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-      {
-        workItemsEn.map((item) => <WorkCard item={item} lang="en" imageClass="h-52 w-full object-cover" />)
-      }
+      {workItemsEn.map((item) => <WorkCard item={item} lang="en" imageClass="h-52 w-full object-cover" />)}
     </div>
   </Section>
   <Section title={pinterestPlaceholderEn.title} copy={pinterestPlaceholderEn.description}>

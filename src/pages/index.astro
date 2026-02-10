@@ -2,6 +2,7 @@
 import CTAButtons from "../components/CTAButtons.astro";
 import SmartImage from "../components/SmartImage.astro";
 import Section from "../components/Section.astro";
+import WorkCard from "../components/WorkCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { pinterestBoardsEn } from "../data/pinterest";
 import { servicesEn } from "../data/services";
@@ -81,27 +82,7 @@ const heroPoster = withBase("/media/hero/hero-poster.jpg");
   <Section title="Selected Work" copy="Seven recent pieces spanning cinematic storytelling, documentary framing, and practical education.">
     <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
       {
-        workItemsEn.map((item) => (
-          <a href={item.url} target="_blank" rel="noreferrer" class="glass-card block overflow-hidden">
-            <div class="relative aspect-video overflow-hidden bg-white/5">
-              <SmartImage
-                candidates={item.thumbRemoteCandidates}
-                fallback={item.thumbLocal}
-                alt={item.title}
-                class="h-full w-full object-cover"
-              />
-            </div>
-            <div class="space-y-3 p-5">
-              <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.type}</p>
-              <h3 class="text-lg font-semibold leading-tight text-white">{item.title}</h3>
-              <p class="whitespace-pre-line text-sm leading-relaxed text-sand/75">{item.description}</p>
-              <div class="flex flex-wrap gap-2">
-                {item.tags.map((tag) => <span class="rounded-full border border-white/15 px-2.5 py-1 text-xs text-sand/80">{tag}</span>)}
-              </div>
-              <p class="text-sm font-semibold text-gold">Watch on YouTube</p>
-            </div>
-          </a>
-        ))
+        workItemsEn.map((item) => <WorkCard item={item} lang="en" imageClass="h-full w-full object-cover" />)
       }
     </div>
   </Section>
