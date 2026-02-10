@@ -2,6 +2,7 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import CTAButtons from "../../../components/CTAButtons.astro";
 import Section from "../../../components/Section.astro";
+import SmartImage from "../../../components/SmartImage.astro";
 import { servicesAr } from "../../../data/services";
 ---
 <BaseLayout
@@ -11,6 +12,17 @@ import { servicesAr } from "../../../data/services";
   lang="ar"
   dir="rtl"
 >
+  <section class="container-shell pt-6 sm:pt-8">
+    <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+      <SmartImage
+        fallback="/media/services/services-ar.png"
+        alt="الملصق التعريفي للخدمات"
+        class="h-[34vh] w-full object-cover sm:h-[44vh] lg:h-[52vh]"
+        loading="eager"
+      />
+    </div>
+  </section>
+
   <Section
     title="خدمات مصممة للتحويل والاستمرارية"
     copy="يمكنك اختيار باقة واحدة أو دمج أكثر من خدمة ضمن شراكة إبداعية متكاملة."

@@ -11,13 +11,24 @@ import { workItemsEn } from "../data/work";
 import { withBase } from "../utils/withBase";
 
 const heroVideo = withBase("/media/hero/hero.mp4");
-const heroPoster = withBase("/media/hero/hero-poster.jpg");
+const heroPoster = withBase("/media/hero/hero-poster.png");
 ---
 <BaseLayout
   title="Tamer Mansour | Cinematic AI Storytelling"
   description="Premium AI media creation, cinematic storytelling, and creator education for brands and teams that want attention and trust."
   path="/"
 >
+  <section class="container-shell pt-4 sm:pt-6">
+    <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+      <SmartImage
+        fallback="/media/hero/hero-poster.png"
+        alt="Hero visual poster"
+        class="h-[34vh] w-full object-cover sm:h-[44vh] lg:h-[52vh]"
+        loading="eager"
+      />
+    </div>
+  </section>
+
   <section class="container-shell py-14 sm:py-20">
     <div class="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
       <div>
@@ -39,7 +50,7 @@ const heroPoster = withBase("/media/hero/hero-poster.jpg");
           <div class="flex h-full items-end p-6">
             <div>
               <p class="text-xs uppercase tracking-[0.2em] text-gold">Hero Video Slot</p>
-              <p class="mt-2 text-sm text-sand/80">Upload `public/media/hero/hero.mp4` and `hero-poster.jpg` to activate this panel.</p>
+              <p class="mt-2 text-sm text-sand/80">Upload `public/media/hero/hero.mp4` and `hero-poster.png` to activate this panel.</p>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTAButtons from "../../components/CTAButtons.astro";
 import Section from "../../components/Section.astro";
+import SmartImage from "../../components/SmartImage.astro";
 import { servicesEn } from "../../data/services";
 ---
 <BaseLayout
@@ -9,6 +10,17 @@ import { servicesEn } from "../../data/services";
   description="Premium offers for cinematic storytelling, AI media systems, and creator education."
   path="/services/"
 >
+  <section class="container-shell pt-6 sm:pt-8">
+    <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+      <SmartImage
+        fallback="/media/services/services-en.png"
+        alt="Services overview poster"
+        class="h-[34vh] w-full object-cover sm:h-[44vh] lg:h-[52vh]"
+        loading="eager"
+      />
+    </div>
+  </section>
+
   <Section
     title="Services designed for conversion and consistency"
     copy="Choose a focused engagement or combine offers into a full creative growth partnership."

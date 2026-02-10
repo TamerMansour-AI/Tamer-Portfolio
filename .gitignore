@@ -10,6 +10,12 @@ Images/
 # local backups
 _backup_before_workfix_*/
 
+# Codex temp workdirs
+workfix/
+buildcheck/
+backup*/
+workrepo/
+
 
 # local backups
 _backup_before_workfix_*/

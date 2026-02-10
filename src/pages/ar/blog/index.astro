@@ -1,22 +1,14 @@
 ﻿---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Section from "../../../components/Section.astro";
+import { withBase } from "../../../utils/withBase";
 
 const posts = [
   {
-    title: "كيف يرفع الإخراج السينمائي معدل المشاهدة في الفيديو القصير",
+    title: "اقفز قبل أن تشعر أنك جاهز: ملاحظات فلسطيني قرر يلاحق شغفه أخيرًا",
     date: "فبراير 2026",
-    excerpt: "تفكيك عملي لخيارات الكادر والإيقاع التي تحافظ على انتباه المشاهد."
-  },
-  {
-    title: "بناء نظام إنتاج ذكاء اصطناعي يمكن للفريق الاعتماد عليه",
-    date: "يناير 2026",
-    excerpt: "مبادئ تشغيل تساعدك على زيادة السرعة دون خسارة الجودة."
-  },
-  {
-    title: "تعليم الفرق الإبداعية التفكير بالقصة لا بالأصول فقط",
-    date: "ديسمبر 2025",
-    excerpt: "لماذا وضوح السرد يتفوق على الإنتاج العشوائي في نمو العلامة."
+    excerpt: "كيف تركت المسار “الآمن”، وبنيت حياتي حول الذكاء الاصطناعي والسرد البصري، وما الذي أقوله لأي شخص واقف على الحافة.",
+    href: "/ar/blog/jump-before-you-feel-ready/"
   }
 ];
 ---
@@ -31,11 +23,12 @@ const posts = [
     <div class="space-y-4">
       {
         posts.map((post) => (
-          <article class="glass-card p-6">
+          <a href={withBase(post.href)} class="glass-card block p-6 text-right transition hover:border-gold/50">
             <p class="text-xs uppercase tracking-wide text-gold">{post.date}</p>
             <h2 class="mt-2 text-xl font-semibold text-white">{post.title}</h2>
             <p class="mt-3 text-sm text-sand/80">{post.excerpt}</p>
-          </article>
+            <p class="mt-4 text-sm font-semibold text-gold">اقرأ المقال</p>
+          </a>
         ))
       }
     </div>

@@ -1,12 +1,17 @@
 ﻿---
 import CTAButtons from "../../components/CTAButtons.astro";
+import SmartImage from "../../components/SmartImage.astro";
 import Section from "../../components/Section.astro";
 import WorkCard from "../../components/WorkCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { pinterestBoardsAr } from "../../data/pinterest";
 import { servicesAr } from "../../data/services";
 import { siteData } from "../../data/site";
 import { workItemsAr } from "../../data/work";
 import { withBase } from "../../utils/withBase";
+
+const heroVideo = withBase("/media/hero/hero.mp4");
+const heroPoster = withBase("/media/hero/hero-poster.png");
 ---
 <BaseLayout
   title="تامر منصور | السرد السينمائي بالذكاء الاصطناعي"
@@ -15,6 +20,45 @@ import { withBase } from "../../utils/withBase";
   lang="ar"
   dir="rtl"
 >
+  <section class="container-shell pt-4 sm:pt-6">
+    <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+      <SmartImage
+        fallback="/media/hero/hero-poster.png"
+        alt="الملصق البصري الرئيسي"
+        class="h-[34vh] w-full object-cover sm:h-[44vh] lg:h-[52vh]"
+        loading="eager"
+      />
+    </div>
+  </section>
+
+  <section class="container-shell py-10 sm:py-14">
+    <div class="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 bg-white/5 sm:aspect-video">
+      <div
+        id="hero-video-fallback-ar"
+        class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(212,175,106,0.35),transparent_45%),radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.08),transparent_50%),linear-gradient(130deg,rgba(15,15,15,0.95),rgba(30,30,30,0.95))]"
+      >
+        <div class="flex h-full items-end p-6">
+          <div class="text-right">
+            <p class="text-xs uppercase tracking-[0.2em] text-gold">Hero Video</p>
+            <p class="mt-2 text-sm text-sand/80">الفيديو الرئيسي يظهر تلقائيًا عند توفر الملف.</p>
+          </div>
+        </div>
+      </div>
+      <video
+        id="hero-video-ar"
+        class="absolute inset-0 hidden h-full w-full object-cover"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster={heroPoster}
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
+    </div>
+  </section>
+
   <section class="container-shell py-16 sm:py-24 text-right">
     <p class="text-xs uppercase tracking-[0.2em] text-gold">إنتاج سينمائي • تدريب عملي • أنظمة ذكاء اصطناعي</p>
     <h1 class="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-6xl">
@@ -70,6 +114,36 @@ import { withBase } from "../../utils/withBase";
   </Section>
 
   <Section
+    title="لوحات Pinterest"
+    copy="مراجع بصرية مختارة للهوية والأسلوب والاتجاه الإبداعي."
+    className="text-right"
+  >
+    <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+      {
+        pinterestBoardsAr.map((board) => (
+          <a href={board.url} target="_blank" rel="noreferrer" class="glass-card block overflow-hidden">
+            <div class="relative aspect-[4/3] overflow-hidden bg-[radial-gradient(circle_at_20%_20%,rgba(212,175,106,0.28),transparent_40%),linear-gradient(135deg,rgba(30,30,30,0.98),rgba(18,18,18,0.98))]">
+              <img
+                src={withBase(board.thumbLocal)}
+                data-fallback={withBase("/media/pinterest/boards/gallery-muse.jpg")}
+                onerror="if (this.dataset.fallback && this.src !== this.dataset.fallback) { this.src = this.dataset.fallback; } else { this.classList.add('hidden'); }"
+                alt={board.title}
+                loading="lazy"
+                class="h-full w-full object-cover"
+              />
+            </div>
+            <div class="space-y-2 p-5 text-right">
+              <h3 class="text-lg font-semibold leading-tight text-white">{board.title}</h3>
+              <p class="text-sm leading-relaxed text-sand/75">{board.description}</p>
+              <p class="text-sm font-semibold text-gold">فتح اللوحة</p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section
     title="من أنا"
     copy="تعرف على منهجي في الدمج بين الإخراج البصري والتقنيات الحديثة لبناء أثر مستدام."
     className="text-right"
@@ -82,3 +156,15 @@ import { withBase } from "../../utils/withBase";
     <p class="mt-4 text-sm text-sand/70">{siteData.location}</p>
   </Section>
 </BaseLayout>
+
+<script>
+  const heroVideo = document.getElementById("hero-video-ar");
+  const heroFallback = document.getElementById("hero-video-fallback-ar");
+
+  if (heroVideo instanceof HTMLVideoElement && heroFallback instanceof HTMLElement) {
+    heroVideo.addEventListener("loadeddata", () => {
+      heroVideo.classList.remove("hidden");
+      heroFallback.classList.add("hidden");
+    });
+  }
+</script>
