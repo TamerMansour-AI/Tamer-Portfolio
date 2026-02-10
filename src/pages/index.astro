@@ -1,5 +1,6 @@
 ---
 import CTAButtons from "../components/CTAButtons.astro";
+import SmartImage from "../components/SmartImage.astro";
 import Section from "../components/Section.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { pinterestBoardsEn } from "../data/pinterest";
@@ -81,21 +82,19 @@ const heroPoster = withBase("/media/hero/hero-poster.jpg");
     <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
       {
         workItemsEn.map((item) => (
-          <a href={item.youtubeUrl} target="_blank" rel="noreferrer" class="glass-card block overflow-hidden">
+          <a href={item.url} target="_blank" rel="noreferrer" class="glass-card block overflow-hidden">
             <div class="relative aspect-video overflow-hidden bg-white/5">
-              <img
-                src={item.image}
-                data-fallback={item.thumbnailFallback}
-                onerror="this.onerror=null;this.src=this.dataset.fallback;"
+              <SmartImage
+                candidates={item.thumbRemoteCandidates}
+                fallback={item.thumbLocal}
                 alt={item.title}
-                loading="lazy"
                 class="h-full w-full object-cover"
               />
             </div>
             <div class="space-y-3 p-5">
               <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.type}</p>
               <h3 class="text-lg font-semibold leading-tight text-white">{item.title}</h3>
-              <p class="text-sm leading-relaxed text-sand/75">{item.summary}</p>
+              <p class="whitespace-pre-line text-sm leading-relaxed text-sand/75">{item.description}</p>
               <div class="flex flex-wrap gap-2">
                 {item.tags.map((tag) => <span class="rounded-full border border-white/15 px-2.5 py-1 text-xs text-sand/80">{tag}</span>)}
               </div>
@@ -113,17 +112,17 @@ const heroPoster = withBase("/media/hero/hero-poster.jpg");
         pinterestBoardsEn.map((board) => (
           <a href={board.url} target="_blank" rel="noreferrer" class="glass-card block overflow-hidden">
             <div class="relative aspect-[4/3] overflow-hidden bg-[radial-gradient(circle_at_20%_20%,rgba(212,175,106,0.28),transparent_40%),linear-gradient(135deg,rgba(30,30,30,0.98),rgba(18,18,18,0.98))]">
-              <img
-                src={withBase(board.image)}
-                onerror="this.classList.add('hidden');"
+              <SmartImage
+                candidates={[]}
+                fallback={board.thumbLocal}
+                finalFallback="/media/pinterest/fallback.jpg"
                 alt={board.title}
-                loading="lazy"
                 class="h-full w-full object-cover"
               />
             </div>
             <div class="space-y-2 p-5">
               <h3 class="text-lg font-semibold leading-tight text-white">{board.title}</h3>
-              <p class="text-sm leading-relaxed text-sand/75">{board.summary}</p>
+              <p class="text-sm leading-relaxed text-sand/75">{board.description}</p>
               <p class="text-sm font-semibold text-gold">Open board</p>
             </div>
           </a>

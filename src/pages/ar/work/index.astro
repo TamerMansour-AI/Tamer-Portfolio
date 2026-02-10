@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import CTAButtons from "../../../components/CTAButtons.astro";
+import SmartImage from "../../../components/SmartImage.astro";
 import Section from "../../../components/Section.astro";
 import { pinterestPlaceholderAr, workItemsAr } from "../../../data/work";
-import { withBase } from "../../../utils/withBase";
 ---
 <BaseLayout
   title="الأعمال | تامر منصور"
@@ -21,12 +21,12 @@ import { withBase } from "../../../utils/withBase";
       {
         workItemsAr.map((item) => (
           <article class="glass-card overflow-hidden">
-            <img src={withBase(item.image)} alt={item.title} loading="lazy" class="h-52 w-full object-cover" />
+            <SmartImage candidates={item.thumbRemoteCandidates} fallback={item.thumbLocal} alt={item.title} class="h-52 w-full object-cover" />
             <div class="p-5">
               <p class="text-xs uppercase tracking-wide text-gold">{item.type}</p>
               <h2 class="mt-2 text-lg font-semibold text-white">{item.title}</h2>
-              <p class="mt-2 text-sm text-sand/75">{item.summary}</p>
-              <a href={item.youtubeUrl} class="gold-link mt-4 inline-block text-sm font-semibold" target="_blank" rel="noreferrer">
+              <p class="mt-2 text-sm text-sand/75">{item.description}</p>
+              <a href={item.url} class="gold-link mt-4 inline-block text-sm font-semibold" target="_blank" rel="noreferrer">
                 مشاهدة على يوتيوب
               </a>
             </div>
@@ -44,3 +44,4 @@ import { withBase } from "../../../utils/withBase";
     <CTAButtons bookHref="/ar/contact/" labels={{ book: "احجز مكالمة", whatsapp: "راسلني على واتساب" }} />
   </Section>
 </BaseLayout>
+
