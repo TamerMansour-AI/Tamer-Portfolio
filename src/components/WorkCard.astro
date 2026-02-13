@@ -8,17 +8,19 @@ type Props = {
   imageClass?: string;
 };
 
-const { item, lang = "en", imageClass = "h-full w-full object-cover" } = Astro.props;
+const { item, lang = "en", imageClass = "absolute inset-0 h-full w-full object-contain" } = Astro.props;
 const isArabic = lang === "ar";
 ---
 <article class="glass-card overflow-hidden">
   <a href={item.url} target="_blank" rel="noreferrer" class="block">
-    <SmartImage
-      candidates={item.thumbRemoteCandidates}
-      fallback={item.thumbLocal}
-      alt={item.title}
-      class={imageClass}
-    />
+    <div class="relative aspect-video w-full bg-white/5">
+      <SmartImage
+        candidates={item.thumbRemoteCandidates}
+        fallback={item.thumbLocal}
+        alt={item.title}
+        class={imageClass}
+      />
+    </div>
   </a>
   <div class="space-y-3 p-5">
     <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.type}</p>
