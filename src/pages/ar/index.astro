@@ -31,44 +31,45 @@ const heroPoster = withBase("/media/hero/hero-poster.png");
     </div>
   </section>
 
-  <section class="container-shell py-10 sm:py-14">
-    <div class="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 bg-white/5 sm:aspect-video">
-      <div
-        id="hero-video-fallback-ar"
-        class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(212,175,106,0.35),transparent_45%),radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.08),transparent_50%),linear-gradient(130deg,rgba(15,15,15,0.95),rgba(30,30,30,0.95))]"
-      >
-        <div class="flex h-full items-end p-6">
-          <div class="text-right">
-            <p class="text-xs uppercase tracking-[0.2em] text-gold">Hero Video</p>
-            <p class="mt-2 text-sm text-sand/80">الفيديو الرئيسي يظهر تلقائيًا عند توفر الملف.</p>
+  <section class="container-shell py-14 sm:py-20">
+    <div class="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
+      <div class="text-right">
+        <p class="text-xs uppercase tracking-[0.22em] text-gold">إنتاج سينمائي * تدريب عملي * أنظمة ذكاء اصطناعي</p>
+        <h1 class="mt-5 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
+          سرد سينمائي يحول الانتباه إلى ثقة، والثقة إلى نتائج.
+        </h1>
+        <p class="mt-5 max-w-2xl text-sm leading-relaxed text-sand/85 sm:text-base">
+          أساعد المؤسسين والفرق والمؤسسات على بناء قصص بصرية قوية بأنظمة واضحة وقابلة للتكرار.
+          كل مشروع مصمم لرفع وضوح العلامة وزيادة التفاعل وتحقيق أثر ملموس.
+        </p>
+        <CTAButtons className="mt-7" bookHref="/ar/contact/" labels={{ book: "احجز مكالمة", whatsapp: "راسلني على واتساب" }} />
+      </div>
+      <div class="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 bg-white/5 sm:aspect-video">
+        <div
+          id="hero-video-fallback-ar"
+          class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(212,175,106,0.35),transparent_45%),radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.08),transparent_50%),linear-gradient(130deg,rgba(15,15,15,0.95),rgba(30,30,30,0.95))]"
+        >
+          <div class="flex h-full items-end p-6">
+            <div class="text-right">
+              <p class="text-xs uppercase tracking-[0.2em] text-gold">Hero Video</p>
+              <p class="mt-2 text-sm text-sand/80">الفيديو الرئيسي يظهر تلقائيًا عند توفر الملف.</p>
+            </div>
           </div>
         </div>
+        <video
+          id="hero-video-ar"
+          class="absolute inset-0 hidden h-full w-full object-cover"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster={heroPoster}
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
       </div>
-      <video
-        id="hero-video-ar"
-        class="absolute inset-0 hidden h-full w-full object-cover"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        poster={heroPoster}
-      >
-        <source src={heroVideo} type="video/mp4" />
-      </video>
     </div>
-  </section>
-
-  <section class="container-shell py-16 sm:py-24 text-right">
-    <p class="text-xs uppercase tracking-[0.2em] text-gold">إنتاج سينمائي • تدريب عملي • أنظمة ذكاء اصطناعي</p>
-    <h1 class="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-6xl">
-      سرد سينمائي يحول الانتباه إلى ثقة، والثقة إلى نتائج.
-    </h1>
-    <p class="mt-6 max-w-2xl text-base leading-relaxed text-sand/80">
-      أساعد المؤسسين والفرق والمؤسسات على بناء قصص بصرية قوية بأنظمة واضحة وقابلة للتكرار.
-      كل مشروع مصمم لرفع وضوح العلامة وزيادة التفاعل وتحقيق أثر ملموس.
-    </p>
-    <CTAButtons className="mt-8" bookHref="/ar/contact/" labels={{ book: "احجز مكالمة", whatsapp: "راسلني على واتساب" }} />
   </section>
 
   <Section

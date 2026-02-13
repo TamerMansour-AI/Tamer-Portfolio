@@ -47,3 +47,17 @@ a {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Services hero: show full image (no crop) */
+.services-hero {
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+.services-hero img,
+.services-hero .services-hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
