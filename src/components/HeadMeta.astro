@@ -1,4 +1,6 @@
 ---
+import { siteData } from "../data/site";
+
 type Props = {
   title: string;
   description: string;
@@ -11,20 +13,72 @@ const { title, description, path = "/", lang = "en" } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const site = Astro.site?.toString() ?? "https://tamermansour-ai.github.io";
 const normalizedPath = path.startsWith("/") ? path.slice(1) : path;
-const canonical = new URL(`${base}${normalizedPath}`, site).toString();
+const urlForPath = (value: string) => {
+  const normalizedValue = value.startsWith("/") ? value.slice(1) : value;
+  return new URL(`${base}${normalizedValue}`, site).toString();
+};
+const canonical = urlForPath(path);
 const ogImage = new URL(`${base}assets/og.svg`, site).toString();
+const strippedPath = normalizedPath.replace(/^(ar|en)\//, "");
+const englishPath = strippedPath ? `/${strippedPath}` : "/";
+const arabicPath = strippedPath ? `/ar/${strippedPath}` : "/ar/";
+const englishAlternate = urlForPath(englishPath);
+const arabicAlternate = urlForPath(arabicPath);
+const homeUrl = urlForPath("/");
+const sameAs = Object.values(siteData.social);
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${homeUrl}#website`,
+      url: homeUrl,
+      name: siteData.name,
+      description: siteData.description,
+      inLanguage: ["en", "ar"]
+    },
+    {
+      "@type": "Person",
+      "@id": `${homeUrl}#person`,
+      name: siteData.name,
+      jobTitle: siteData.title,
+      description: siteData.description,
+      url: homeUrl,
+      image: ogImage,
+      email: `mailto:${siteData.email}`,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Ramallah",
+        addressCountry: "PS"
+      },
+      knowsLanguage: ["en", "ar"],
+      sameAs
+    }
+  ]
+};
 ---
 <title>{title}</title>
 <meta name="description" content={description} />
 <meta name="robots" content="index,follow" />
+<meta name="theme-color" content="#0f0f0f" />
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content={siteData.name} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content={ogImage} />
+<meta property="og:image:alt" content={`${siteData.name} portfolio preview`} />
 <meta property="og:locale" content={lang === "ar" ? "ar_PS" : "en_US"} />
+<meta property="og:locale:alternate" content={lang === "ar" ? "en_US" : "ar_PS"} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
+<meta name="twitter:url" content={canonical} />
 <meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={`${siteData.name} portfolio preview`} />
 <link rel="canonical" href={canonical} />
+<link rel="alternate" hreflang="en" href={englishAlternate} />
+<link rel="alternate" hreflang="ar" href={arabicAlternate} />
+<link rel="alternate" hreflang="x-default" href={englishAlternate} />
+<meta name="author" content={siteData.name} />
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

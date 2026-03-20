@@ -7,9 +7,9 @@
 
 export const servicesEn: ServiceItem[] = [
   {
-    title: "Cinematic Brand Story Sprint",
+    title: "Brand Story Sprint",
     summary:
-      "A focused sprint to turn your message into a sharp visual narrative your audience remembers and shares.",
+      "A focused front-door offer to clarify the message, visual direction, and scene plan for a premium launch or campaign.",
     deliverables: [
       "Creative direction + message architecture",
       "Short-form video concepts and scene plans",
@@ -18,9 +18,9 @@ export const servicesEn: ServiceItem[] = [
     cta: "Book a Call"
   },
   {
-    title: "AI Media Production System",
+    title: "AI Production System Setup",
     summary:
-      "Design and deploy a practical AI workflow for ideation, visuals, and content velocity without losing quality.",
+      "Build a practical AI workflow for ideation, visuals, review, and delivery without sacrificing quality or taste.",
     deliverables: [
       "Custom tool stack + prompt framework",
       "Team-ready production playbook",
@@ -29,9 +29,9 @@ export const servicesEn: ServiceItem[] = [
     cta: "Message on WhatsApp"
   },
   {
-    title: "Creator Education & Advisory",
+    title: "Workshops & Advisory",
     summary:
-      "Hands-on coaching for creators, educators, and teams who want confident, modern output with clear standards.",
+      "Hands-on training and strategic guidance for creators, educators, and teams that need stronger output and clearer standards.",
     deliverables: [
       "Live workshop sessions",
       "Content strategy roadmap",
@@ -43,9 +43,9 @@ export const servicesEn: ServiceItem[] = [
 
 export const servicesAr: ServiceItem[] = [
   {
-    title: "سباق السرد البصري السينمائي",
+    title: "صياغة قصة العلامة بصريا",
     summary:
-      "برنامج مركز يحول رسالتك إلى قصة بصرية قوية تترك أثرا واضحا لدى جمهورك.",
+      "عرض تمهيدي مركز يوضح الرسالة والاتجاه البصري وخطة المشاهد لحملة أو إطلاق بمستوى احترافي.",
     deliverables: [
       "توجيه إبداعي وبناء الرسالة",
       "أفكار فيديو قصير وخطط مشاهد",
@@ -54,9 +54,9 @@ export const servicesAr: ServiceItem[] = [
     cta: "احجز مكالمة"
   },
   {
-    title: "نظام إنتاج محتوى بالذكاء الاصطناعي",
+    title: "إعداد نظام إنتاج بالذكاء الاصطناعي",
     summary:
-      "تصميم سير عمل عملي للإلهام والإنتاج السريع مع الحفاظ على جودة احترافية ثابتة.",
+      "بناء سير عمل عملي للتفكير والإنتاج والمراجعة والتسليم مع الحفاظ على الجودة والذوق.",
     deliverables: [
       "هيكلة أدوات وإطارات أوامر مخصصة",
       "دليل تشغيل واضح للفريق",
@@ -65,9 +65,9 @@ export const servicesAr: ServiceItem[] = [
     cta: "راسلني على واتساب"
   },
   {
-    title: "تدريب واستشارات للمبدعين",
+    title: "ورشات واستشارات",
     summary:
-      "جلسات عملية للمبدعين والمدربين والفرق لبناء مستوى إنتاج حديث وواثق.",
+      "تدريب عملي وإرشاد استراتيجي للمبدعين والمدربين والفرق التي تحتاج مستوى أقوى ومعايير أوضح.",
     deliverables: [
       "ورش تفاعلية مباشرة",
       "خارطة طريق للمحتوى",

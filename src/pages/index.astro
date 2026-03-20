@@ -14,8 +14,8 @@ const heroVideo = withBase("/media/hero/hero.mp4");
 const heroPoster = withBase("/media/hero/hero-poster.png");
 ---
 <BaseLayout
-  title="Tamer Mansour | Cinematic AI Storytelling"
-  description="Premium AI media creation, cinematic storytelling, and creator education for brands and teams that want attention and trust."
+  title="Tamer Mansour | Cinematic AI Storytelling, Training, and Systems"
+  description="Tamer Mansour builds cinematic AI storytelling, bilingual training, and practical production systems for brands, teams, and institutions."
   path="/"
 >
   <section class="container-shell pt-4 sm:pt-6">
@@ -32,13 +32,16 @@ const heroPoster = withBase("/media/hero/hero-poster.png");
   <section class="container-shell py-14 sm:py-20">
     <div class="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
       <div>
-        <p class="text-xs uppercase tracking-[0.22em] text-gold">Cinematic Production * Training * Practical AI Systems</p>
+        <p class="text-xs uppercase tracking-[0.22em] text-gold">Cinematic Storytelling * Practical Training * AI Workflow Design</p>
         <h1 class="mt-5 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
-          Cinematic storytelling that turns attention into trust, and trust into action.
+          Tamer Mansour builds cinematic AI stories, workshops, and production systems that feel human and hold up in real use.
         </h1>
         <p class="mt-5 max-w-2xl text-sm leading-relaxed text-sand/85 sm:text-base">
-          I help founders, teams, and institutions build premium visual narratives with repeatable systems. Every project is designed
-          for brand clarity, audience retention, and measurable conversion.
+          I help founders, teams, and institutions move from vague AI experimentation to clear visual direction, repeatable workflows,
+          and stronger audience trust.
+        </p>
+        <p class="mt-4 max-w-2xl text-sm leading-relaxed text-sand/72 sm:text-[15px]">
+          Ramallah-rooted, globally legible, and guided by human judgment at every stage.
         </p>
         <CTAButtons className="mt-7" />
       </div>
@@ -66,6 +69,50 @@ const heroPoster = withBase("/media/hero/hero-poster.png");
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-shell pb-10 sm:pb-12">
+    <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-5 sm:p-6">
+      <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <div class="max-w-2xl">
+          <p class="text-xs uppercase tracking-[0.22em] text-gold">Early Trust</p>
+          <h2 class="mt-3 text-xl font-semibold tracking-tight text-white sm:text-2xl">
+            Cinematic craft, practical teaching, and systems designed to survive real delivery.
+          </h2>
+        </div>
+        <p class="max-w-xl text-sm leading-relaxed text-sand/75">
+          The work spans branded visuals, team workshops, bilingual communication, and production frameworks built for consistent use,
+          not one-off inspiration.
+        </p>
+      </div>
+
+      <div class="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        <article class="glass-card p-5">
+          <p class="text-xs uppercase tracking-[0.2em] text-gold">Campaign Visuals</p>
+          <p class="mt-3 text-sm leading-relaxed text-sand/78">
+            Branded films, launch visuals, and short-form concepts shaped for trust and attention.
+          </p>
+        </article>
+        <article class="glass-card p-5">
+          <p class="text-xs uppercase tracking-[0.2em] text-gold">Workshops</p>
+          <p class="mt-3 text-sm leading-relaxed text-sand/78">
+            Hands-on teaching for creators, internal teams, and institutions that need better output fast.
+          </p>
+        </article>
+        <article class="glass-card p-5">
+          <p class="text-xs uppercase tracking-[0.2em] text-gold">Workflow Systems</p>
+          <p class="mt-3 text-sm leading-relaxed text-sand/78">
+            Prompt frameworks, review checkpoints, and production playbooks that reduce chaos.
+          </p>
+        </article>
+        <article class="glass-card p-5">
+          <p class="text-xs uppercase tracking-[0.2em] text-gold">Bilingual Delivery</p>
+          <p class="mt-3 text-sm leading-relaxed text-sand/78">
+            English and Arabic communication with regional nuance and global readability.
+          </p>
+        </article>
       </div>
     </div>
   </section>
@@ -124,7 +171,7 @@ const heroPoster = withBase("/media/hero/hero-poster.png");
     </div>
   </Section>
 
-  <Section title="Services" copy="Conversion-focused offers for creators, brands, and organizations.">
+  <Section title="Services" copy="Start with a focused sprint, then expand into system build or team training if the work needs a deeper rollout.">
     <div class="grid gap-4 md:grid-cols-3">
       {
         servicesEn.map((service) => (

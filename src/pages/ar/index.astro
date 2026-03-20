@@ -14,8 +14,8 @@ const heroVideo = withBase("/media/hero/hero.mp4");
 const heroPoster = withBase("/media/hero/hero-poster.png");
 ---
 <BaseLayout
-  title="تامر منصور | السرد السينمائي بالذكاء الاصطناعي"
-  description="إنتاج بصري احترافي مدعوم بالذكاء الاصطناعي للعلامات التجارية والفرق وصناع المحتوى."
+  title="تامر منصور | سرد بصري سينمائي وتدريب وأنظمة إنتاج"
+  description="تامر منصور يقدم سردا بصريا سينمائيا مدعوما بالذكاء الاصطناعي، وتدريبا عمليا، وأنظمة إنتاج قابلة للتطبيق للعلامات والفرق والمؤسسات."
   path="/ar/"
   lang="ar"
   dir="rtl"
@@ -34,13 +34,16 @@ const heroPoster = withBase("/media/hero/hero-poster.png");
   <section class="container-shell py-14 sm:py-20">
     <div class="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
       <div class="text-right">
-        <p class="text-xs uppercase tracking-[0.22em] text-gold">إنتاج سينمائي * تدريب عملي * أنظمة ذكاء اصطناعي</p>
+        <p class="text-xs uppercase tracking-[0.22em] text-gold">سرد سينمائي * تدريب عملي * تصميم سير عمل بالذكاء الاصطناعي</p>
         <h1 class="mt-5 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
-          سرد سينمائي يحول الانتباه إلى ثقة، والثقة إلى نتائج.
+          تامر منصور يبني سردا بصريا سينمائيا، وورشات عملية، وأنظمة إنتاج بالذكاء الاصطناعي تبدو إنسانية وتصمد في التنفيذ الحقيقي.
         </h1>
         <p class="mt-5 max-w-2xl text-sm leading-relaxed text-sand/85 sm:text-base">
-          أساعد المؤسسين والفرق والمؤسسات على بناء قصص بصرية قوية بأنظمة واضحة وقابلة للتكرار.
-          كل مشروع مصمم لرفع وضوح العلامة وزيادة التفاعل وتحقيق أثر ملموس.
+          أساعد المؤسسين والفرق والمؤسسات على الانتقال من تجريب مبهم للذكاء الاصطناعي إلى اتجاه بصري واضح،
+          وسير عمل قابل للتكرار، وثقة أقوى لدى الجمهور.
+        </p>
+        <p class="mt-4 max-w-2xl text-sm leading-relaxed text-sand/72 sm:text-[15px]">
+          من رام الله إلى جمهور أوسع، مع حس إنساني واضح وحكم مهني حاضر في كل مرحلة.
         </p>
         <CTAButtons className="mt-7" bookHref="/ar/contact/" labels={{ book: "احجز مكالمة", whatsapp: "راسلني على واتساب" }} />
       </div>
@@ -68,6 +71,49 @@ const heroPoster = withBase("/media/hero/hero-poster.png");
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-shell pb-10 sm:pb-12">
+    <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-5 sm:p-6">
+      <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <div class="max-w-2xl text-right">
+          <p class="text-xs uppercase tracking-[0.22em] text-gold">مؤشرات ثقة مبكرة</p>
+          <h2 class="mt-3 text-xl font-semibold tracking-tight text-white sm:text-2xl">
+            جودة سينمائية، تدريب عملي، وأنظمة إنتاج قادرة على الاستمرار بعد التسليم.
+          </h2>
+        </div>
+        <p class="max-w-xl text-sm leading-relaxed text-sand/75 text-right">
+          العمل هنا يجمع بين الإنتاج البصري، وتدريب الفرق، والتواصل الثنائي اللغة، وبناء أنظمة تشغيل واضحة لا تعتمد على الإلهام العابر فقط.
+        </p>
+      </div>
+
+      <div class="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        <article class="glass-card p-5 text-right">
+          <p class="text-xs uppercase tracking-[0.2em] text-gold">حملات بصرية</p>
+          <p class="mt-3 text-sm leading-relaxed text-sand/78">
+            أفلام وهوية إطلاق ومفاهيم قصيرة مصممة لبناء الثقة ولفت الانتباه.
+          </p>
+        </article>
+        <article class="glass-card p-5 text-right">
+          <p class="text-xs uppercase tracking-[0.2em] text-gold">ورشات وتدريب</p>
+          <p class="mt-3 text-sm leading-relaxed text-sand/78">
+            تدريب تطبيقي للمبدعين والفرق والمؤسسات التي تريد رفع جودة الإنتاج بسرعة.
+          </p>
+        </article>
+        <article class="glass-card p-5 text-right">
+          <p class="text-xs uppercase tracking-[0.2em] text-gold">أنظمة سير عمل</p>
+          <p class="mt-3 text-sm leading-relaxed text-sand/78">
+            أطر أوامر، ونقاط مراجعة، وأدلة تشغيل تقلل الفوضى وتحسن الاتساق.
+          </p>
+        </article>
+        <article class="glass-card p-5 text-right">
+          <p class="text-xs uppercase tracking-[0.2em] text-gold">تنفيذ ثنائي اللغة</p>
+          <p class="mt-3 text-sm leading-relaxed text-sand/78">
+            عرض وتواصل بالإنجليزية والعربية بحس محلي واضح ووضوح عالمي.
+          </p>
+        </article>
       </div>
     </div>
   </section>
@@ -100,7 +146,7 @@ const heroPoster = withBase("/media/hero/hero-poster.png");
     <a href={withBase("/ar/work/")} class="gold-link mt-8 inline-block text-sm font-semibold">عرض كل الأعمال</a>
   </Section>
 
-  <Section title="الخدمات" copy="حلول إبداعية موجهة للأثر والنمو." className="text-right">
+  <Section title="الخدمات" copy="ابدأ بعرض مركز، ثم وسع العمل إلى بناء نظام أو تدريب فريق إذا كان المشروع يحتاج تنفيذا أعمق." className="text-right">
     <div class="grid gap-4 md:grid-cols-3">
       {
         servicesAr.map((service) => (
