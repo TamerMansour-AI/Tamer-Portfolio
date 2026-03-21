@@ -10,6 +10,11 @@ type WorkSeedItem = {
   url?: string;
   linkLabel_en?: string;
   linkLabel_ar?: string;
+  secondaryUrl?: string;
+  secondaryLabel_en?: string;
+  secondaryLabel_ar?: string;
+  note_en?: string;
+  note_ar?: string;
   tags_en: string[];
   tags_ar: string[];
   thumbLocal: string;
@@ -33,6 +38,9 @@ export type WorkItem = {
   description: string;
   url?: string;
   linkLabel?: string;
+  secondaryUrl?: string;
+  secondaryLabel?: string;
+  note?: string;
   tags: string[];
   type: string;
   featured: boolean;
@@ -52,6 +60,9 @@ const workSeed: WorkSeedItem[] = [
       "A reinterpretation of Men in the Sun as a 1980s anime-inspired visual narrative, developed in parallel Arabic and English versions to test tone, memory, and emotional pacing.",
     desc_ar:
       "إعادة تخيل لرواية رجال في الشمس كسرد بصري مستلهم من لغة أنمي الثمانينيات، طورت منه نسختان بالعربية والإنجليزية لاختبار النبرة والذاكرة والإيقاع العاطفي.",
+    url: "https://youtube.com/shorts/qkhfHVbYxpY?feature=share",
+    linkLabel_en: "Watch on YouTube",
+    linkLabel_ar: "شاهد على YouTube",
     tags_en: ["Literary Retelling", "Arabic + English", "1980s Anime Language"],
     tags_ar: ["إعادة سرد أدبي", "عربي + إنجليزي", "لغة أنمي الثمانينيات"],
     thumbLocal: "/media/work/men-in-the-sun-bilingual.jpg",
@@ -68,6 +79,12 @@ const workSeed: WorkSeedItem[] = [
       "A trailer concept from Atyaf Al Ard that translates heritage, atmosphere, and mythic tension into a concise worldbuilding frame.",
     desc_ar:
       "تريلر مفاهيمي من أطياف الأرض يحول التراث والأجواء والتوتر الأسطوري إلى قطعة مركزة لبناء العالم السردي.",
+    url: "https://tamermansour-ai.github.io/atyaf-al-ard-website/",
+    linkLabel_en: "Open project site",
+    linkLabel_ar: "افتح موقع المشروع",
+    secondaryUrl: "https://www.facebook.com/profile.php?id=61574424444648",
+    secondaryLabel_en: "Facebook page",
+    secondaryLabel_ar: "صفحة Facebook",
     tags_en: ["Trailer Concept", "Heritage", "Worldbuilding"],
     tags_ar: ["تريلر مفاهيمي", "تراث", "بناء عالم"],
     thumbLocal: "/media/work/princes-of-ashes.jpg",
@@ -100,11 +117,15 @@ const workSeed: WorkSeedItem[] = [
     context_en: "Structured book-to-slide transformations",
     context_ar: "تحويلات منظمة من الكتب إلى الشرائح",
     desc_en:
-      "Deck reconstructions such as Digital Prometheus and The Prince Dossier that turn dense books into sharp visual briefings and teaching assets.",
+      "NotebookLM-based deck reconstructions such as Digital Prometheus and The Prince Dossier that turn dense books into sharp visual briefings and teaching assets.",
     desc_ar:
-      "إعادة بناء كتب مثل Digital Prometheus وThe Prince Dossier في عروض شرائح منظمة تحول المادة الكثيفة إلى إحاطات بصرية واضحة وأصول تعليمية.",
-    tags_en: ["Book-to-Deck", "Educational Design", "Structured Summaries"],
-    tags_ar: ["تحويل كتاب إلى عرض", "تصميم تعليمي", "تلخيص منظم"],
+      "إعادة بناء كتب عبر NotebookLM مثل Digital Prometheus وThe Prince Dossier في عروض شرائح منظمة تحول المادة الكثيفة إلى إحاطات بصرية واضحة وأصول تعليمية.",
+    note_en:
+      "The current NotebookLM artifact links open behind Google sign-in, so this stays a reference card until a cleaner public destination is available.",
+    note_ar:
+      "روابط NotebookLM الحالية تفتح خلف تسجيل الدخول إلى Google، لذلك يبقى هذا العنصر مرجعا بصريا إلى أن يتوفر مسار عام أوضح.",
+    tags_en: ["Digital Prometheus", "The Prince Dossier", "NotebookLM"],
+    tags_ar: ["Digital Prometheus", "The Prince Dossier", "NotebookLM"],
     thumbLocal: "/media/work/book-to-deck-reconstructions.jpg",
     featured: true
   }
@@ -118,6 +139,8 @@ const localizeWorkItem = (item: WorkSeedItem, locale: Localized): WorkItem => ({
   tags: locale === "ar" ? item.tags_ar : item.tags_en,
   type: locale === "ar" ? item.type_ar : item.type_en,
   linkLabel: locale === "ar" ? item.linkLabel_ar : item.linkLabel_en,
+  secondaryLabel: locale === "ar" ? item.secondaryLabel_ar : item.secondaryLabel_en,
+  note: locale === "ar" ? item.note_ar : item.note_en,
   featured: item.featured ?? false,
   thumbRemoteCandidates: item.thumbRemoteCandidates ?? []
 });

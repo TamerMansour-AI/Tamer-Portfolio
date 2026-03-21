@@ -13,6 +13,9 @@ const isArabic = lang === "ar";
 const hasLink = Boolean(item.url);
 const isExternal = item.url?.startsWith("http");
 const linkLabel = item.linkLabel ?? (isArabic ? "شاهد العمل" : "View project");
+const hasSecondaryLink = Boolean(item.secondaryUrl);
+const secondaryIsExternal = item.secondaryUrl?.startsWith("http");
+const secondaryLabel = item.secondaryLabel ?? (isArabic ? "رابط إضافي" : "Supporting link");
 ---
 <article class="glass-card overflow-hidden">
   {
@@ -46,14 +49,31 @@ const linkLabel = item.linkLabel ?? (isArabic ? "شاهد العمل" : "View pr
     <div class="flex flex-wrap gap-2">
       {item.tags.map((tag) => <span class="rounded-full border border-white/15 px-2.5 py-1 text-xs text-sand/80">{tag}</span>)}
     </div>
+    {item.note && <p class="text-xs leading-relaxed text-sand/58">{item.note}</p>}
     {
-      hasLink ? (
-        <a href={item.url} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined} class="text-sm font-semibold text-gold">
-          {linkLabel}
-        </a>
-      ) : (
-        <p class="text-sm font-semibold text-sand/55">{isArabic ? "مرجع مختار من الاستوديو" : "Selected studio reference"}</p>
-      )
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+        {
+          hasLink ? (
+            <a href={item.url} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined} class="text-sm font-semibold text-gold">
+              {linkLabel}
+            </a>
+          ) : (
+            <p class="text-sm font-semibold text-sand/55">{isArabic ? "مرجع مختار من الاستوديو" : "Selected studio reference"}</p>
+          )
+        }
+        {
+          hasSecondaryLink && (
+            <a
+              href={item.secondaryUrl}
+              target={secondaryIsExternal ? "_blank" : undefined}
+              rel={secondaryIsExternal ? "noreferrer" : undefined}
+              class="text-xs font-medium text-sand/70 transition hover:text-white"
+            >
+              {secondaryLabel}
+            </a>
+          )
+        }
+      </div>
     }
   </div>
 </article>
