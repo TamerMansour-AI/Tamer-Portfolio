@@ -1,0 +1,195 @@
+---
+import CTAButtons from "./CTAButtons.astro";
+import Section from "./Section.astro";
+import SmartImage from "./SmartImage.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { deckItemsAr, deckItemsEn } from "../data/decks";
+import { withBase } from "../utils/withBase";
+
+type Props = {
+  lang?: "en" | "ar";
+  path: string;
+};
+
+const { lang = "en", path } = Astro.props;
+const isArabic = lang === "ar";
+const decks = isArabic ? deckItemsAr : deckItemsEn;
+
+const page = isArabic
+  ? {
+      title: "إعادة بناء الكتب كعروض | تامر منصور",
+      description:
+        "مجموعة مختارة من عروض تامر منصور التي تحول الكتب والمادة الفكرية الكثيفة إلى أنظمة بصرية واضحة وقابلة للتدريس.",
+      heroTitle: "إعادة بناء الكتب كعروض بصرية",
+      heroCopy:
+        "ثلاثة أمثلة مختارة من مواد مصدرة محليا تظهر كيف يمكن تحويل كتاب كثيف إلى عرض واضح، منظم، وسهل الاستخدام في التعلم أو العرض أو النقاش.",
+      cards: [
+        {
+          title: "لماذا هذه الثلاثة",
+          body: "لأنها تمثل ثلاث لغات بصرية مختلفة ضمن نفس القدرة: بناء هيكل واضح من مادة فكرية كثيفة."
+        },
+        {
+          title: "ما الذي تراه هنا",
+          body: "المعاينات المعروضة مأخوذة من الشرائح العربية المصدرة نفسها. تمت صياغة الشرح في الموقع بعناية، لكننا لم نخترع نسخة إنجليزية جديدة من الشرائح."
+        },
+        {
+          title: "ما الذي تثبته",
+          body: "أن تصميم المعرفة هنا لا يقتصر على الزينة البصرية، بل ينظم الحجة ويضبط الإيقاع ويجعل المادة أسهل في الفهم والتذكر."
+        }
+      ],
+      jumpLabel: "اذهب إلى المعاينة",
+      deckSectionTitle: "معاينات مختارة من العروض",
+      deckSectionCopy:
+        "المسار هنا داخلي ومقصود: تفتح المعاينات داخل الموقع نفسه لتوضح المنطق البصري من دون الاعتماد على روابط خارجية محجوبة أو غير مستقرة.",
+      previewLabel: "افتح الشريحة بحجم كامل",
+      bottomTitle: "هل تريد تحويل مادة كثيفة إلى نظام بصري أو تدريبي أو تشغيلي؟",
+      bottomCopy:
+        "إذا كانت الفكرة تحتاج صياغة بصرية وتنظيما أوضح فهذه الأعمال تعطي صورة مباشرة عن نوع التحويل الذي يمكن بناؤه معك.",
+      serviceLink: "استكشف الخدمات",
+      workLink: "ارجع إلى صفحة الأعمال",
+      serviceHref: "/ar/services/",
+      workHref: "/ar/work/",
+      bookHref: "/ar/contact/",
+      ctaLabels: {
+        book: "احجز مكالمة",
+        whatsapp: "راسلني على واتساب"
+      }
+    }
+  : {
+      title: "Book-to-Deck Reconstructions | Tamer Mansour",
+      description:
+        "A curated set of book-to-deck reconstructions by Tamer Mansour, showing how dense material can become sharp, teachable visual systems.",
+      heroTitle: "Book-to-deck reconstructions",
+      heroCopy:
+        "Three exported deck examples that show how dense books can become clear visual systems for teaching, briefing, and strategic communication.",
+      cards: [
+        {
+          title: "Why These Three",
+          body: "They show three distinct visual systems built from the same core capability: structuring complex material without flattening its point of view."
+        },
+        {
+          title: "What You Are Seeing",
+          body: "These previews come from the original Arabic deck exports. The on-page English framing is editorial, but no new English slide edition was fabricated for this pass."
+        },
+        {
+          title: "What This Proves",
+          body: "The work is not just about attractive slides. It is about turning argument, sequence, tone, and teaching logic into a clearer visual system."
+        }
+      ],
+      jumpLabel: "Jump to preview",
+      deckSectionTitle: "Selected deck previews",
+      deckSectionCopy:
+        "The gallery lives inside the site so visitors can inspect the deck logic without getting pushed into inaccessible external artifacts.",
+      previewLabel: "Open full slide",
+      bottomTitle: "Need to turn a dense body of material into a clearer system?",
+      bottomCopy:
+        "These deck examples show the same practice applied to books, briefs, and teachable frameworks: tighter structure, sharper pacing, and a more legible visual argument.",
+      serviceLink: "Explore services",
+      workLink: "Back to selected work",
+      serviceHref: "/services/",
+      workHref: "/work/",
+      bookHref: "/contact/",
+      ctaLabels: {
+        book: "Book a Call",
+        whatsapp: "Message on WhatsApp"
+      }
+    };
+---
+<BaseLayout title={page.title} description={page.description} path={path} lang={lang} dir={isArabic ? "rtl" : "ltr"}>
+  <Section title={page.heroTitle} copy={page.heroCopy} className={isArabic ? "text-right" : ""}>
+    <div class="mb-8 grid gap-4 md:grid-cols-3">
+      {
+        page.cards.map((card) => (
+          <article class={`glass-card p-5 ${isArabic ? "text-right" : ""}`}>
+            <p class="text-xs uppercase tracking-[0.18em] text-gold">{card.title}</p>
+            <p class="mt-3 text-sm leading-relaxed text-sand/78">{card.body}</p>
+          </article>
+        ))
+      }
+    </div>
+    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {
+        decks.map((deck) => (
+          <a href={`#${deck.slug}`} class={`glass-card overflow-hidden transition hover:border-gold/40 hover:bg-white/10 ${isArabic ? "text-right" : ""}`}>
+            <div class="relative aspect-video w-full bg-white/5">
+              <SmartImage fallback={deck.cover} alt={deck.title} class="h-full w-full object-contain p-2" />
+            </div>
+            <div class="space-y-3 p-5">
+              <p class="text-xs uppercase tracking-[0.18em] text-gold">{deck.category}</p>
+              <h3 class="text-lg font-semibold leading-tight text-white">{deck.title}</h3>
+              <p class="text-sm font-medium text-white/80">{deck.context}</p>
+              <div class={`flex items-center gap-2 text-sm font-semibold text-gold ${isArabic ? "justify-end" : ""}`}>
+                <span>{page.jumpLabel}</span>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section title={page.deckSectionTitle} copy={page.deckSectionCopy} className={isArabic ? "text-right" : ""}>
+    <div class="space-y-8">
+      {
+        decks.map((deck) => (
+          <article id={deck.slug} class="glass-card overflow-hidden p-5 sm:p-6">
+            <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+              <div class={`space-y-4 ${isArabic ? "text-right" : ""}`}>
+                <p class="text-xs uppercase tracking-[0.18em] text-gold">{deck.category}</p>
+                <h3 class="text-2xl font-semibold leading-tight text-white">{deck.title}</h3>
+                <p class="text-sm font-medium text-white/82">{deck.context}</p>
+                <p class="text-sm leading-relaxed text-sand/78">{deck.description}</p>
+                <div class={`flex flex-wrap gap-2 ${isArabic ? "justify-end" : ""}`}>
+                  {deck.tags.map((tag) => <span class="rounded-full border border-white/15 px-2.5 py-1 text-xs text-sand/80">{tag}</span>)}
+                </div>
+                <p class="text-xs leading-relaxed text-sand/58">{deck.note}</p>
+              </div>
+              <a
+                href={withBase(deck.cover)}
+                target="_blank"
+                rel="noreferrer"
+                class="group block overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+              >
+                <div class="relative aspect-video w-full bg-white/5">
+                  <SmartImage fallback={deck.cover} alt={deck.title} class="h-full w-full object-contain p-2 transition duration-300 group-hover:scale-[1.01]" />
+                </div>
+              </a>
+            </div>
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              {
+                deck.previews.map((preview) => (
+                  <a
+                    href={withBase(preview.src)}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="group overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+                  >
+                    <div class="relative aspect-video w-full bg-white/5">
+                      <SmartImage
+                        fallback={preview.src}
+                        alt={`${deck.title} - ${preview.label}`}
+                        class="h-full w-full object-contain p-2 transition duration-300 group-hover:scale-[1.01]"
+                      />
+                    </div>
+                    <div class={`flex items-center justify-between gap-3 px-4 py-3 text-sm ${isArabic ? "flex-row-reverse text-right" : ""}`}>
+                      <span class="text-sand/78">{preview.label}</span>
+                      <span class="font-semibold text-gold">{page.previewLabel}</span>
+                    </div>
+                  </a>
+                ))
+              }
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section title={page.bottomTitle} copy={page.bottomCopy} className={isArabic ? "text-right" : ""}>
+    <CTAButtons bookHref={page.bookHref} labels={page.ctaLabels} className={isArabic ? "sm:justify-end" : ""} />
+    <div class={`mt-4 flex flex-wrap items-center gap-4 text-sm ${isArabic ? "justify-end" : ""}`}>
+      <a href={withBase(page.serviceHref)} class="gold-link font-semibold">{page.serviceLink}</a>
+      <a href={withBase(page.workHref)} class="text-sand/75 transition hover:text-white">{page.workLink}</a>
+    </div>
+  </Section>
+</BaseLayout>

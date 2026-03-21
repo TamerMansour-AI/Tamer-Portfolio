@@ -7,6 +7,8 @@ type WorkSeedItem = {
   context_ar: string;
   desc_en: string;
   desc_ar: string;
+  url_en?: string;
+  url_ar?: string;
   url?: string;
   linkLabel_en?: string;
   linkLabel_ar?: string;
@@ -117,15 +119,15 @@ const workSeed: WorkSeedItem[] = [
     context_en: "Structured book-to-slide transformations",
     context_ar: "تحويلات منظمة من الكتب إلى الشرائح",
     desc_en:
-      "NotebookLM-based deck reconstructions such as Digital Prometheus and The Prince Dossier that turn dense books into sharp visual briefings and teaching assets.",
+      "A curated deck gallery featuring Digital Prometheus, The Prince Dossier, and The Liberty Manifesto, showing how dense books can become sharp visual briefings and teaching assets.",
     desc_ar:
-      "إعادة بناء كتب عبر NotebookLM مثل Digital Prometheus وThe Prince Dossier في عروض شرائح منظمة تحول المادة الكثيفة إلى إحاطات بصرية واضحة وأصول تعليمية.",
-    note_en:
-      "The current NotebookLM artifact links open behind Google sign-in, so this stays a reference card until a cleaner public destination is available.",
-    note_ar:
-      "روابط NotebookLM الحالية تفتح خلف تسجيل الدخول إلى Google، لذلك يبقى هذا العنصر مرجعا بصريا إلى أن يتوفر مسار عام أوضح.",
-    tags_en: ["Digital Prometheus", "The Prince Dossier", "NotebookLM"],
-    tags_ar: ["Digital Prometheus", "The Prince Dossier", "NotebookLM"],
+      "معرض مختار يضم Digital Prometheus وThe Prince Dossier وThe Liberty Manifesto ليوضح كيف يمكن تحويل الكتب الكثيفة إلى إحاطات بصرية واضحة وأصول تعليمية منظمة.",
+    url_en: "/book-to-decks/",
+    url_ar: "/ar/book-to-decks/",
+    linkLabel_en: "Open deck previews",
+    linkLabel_ar: "افتح معاينات العروض",
+    tags_en: ["Digital Prometheus", "The Prince Dossier", "The Liberty Manifesto"],
+    tags_ar: ["Digital Prometheus", "The Prince Dossier", "The Liberty Manifesto"],
     thumbLocal: "/media/work/book-to-deck-reconstructions.jpg",
     featured: true
   }
@@ -136,6 +138,7 @@ const localizeWorkItem = (item: WorkSeedItem, locale: Localized): WorkItem => ({
   title: locale === "ar" ? item.title_ar : item.title_en,
   context: locale === "ar" ? item.context_ar : item.context_en,
   description: locale === "ar" ? item.desc_ar : item.desc_en,
+  url: locale === "ar" ? item.url_ar ?? item.url : item.url_en ?? item.url,
   tags: locale === "ar" ? item.tags_ar : item.tags_en,
   type: locale === "ar" ? item.type_ar : item.type_en,
   linkLabel: locale === "ar" ? item.linkLabel_ar : item.linkLabel_en,

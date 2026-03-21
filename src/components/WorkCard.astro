@@ -1,6 +1,7 @@
 ﻿---
 import SmartImage from "./SmartImage.astro";
 import type { WorkItem } from "../data/work";
+import { withBase } from "../utils/withBase";
 
 type Props = {
   item: WorkItem;
@@ -12,15 +13,21 @@ const { item, lang = "en", imageClass = "absolute inset-0 h-full w-full object-c
 const isArabic = lang === "ar";
 const hasLink = Boolean(item.url);
 const isExternal = item.url?.startsWith("http");
+const primaryHref = item.url ? (isExternal ? item.url : withBase(item.url)) : undefined;
 const linkLabel = item.linkLabel ?? (isArabic ? "شاهد العمل" : "View project");
 const hasSecondaryLink = Boolean(item.secondaryUrl);
 const secondaryIsExternal = item.secondaryUrl?.startsWith("http");
+const secondaryHref = item.secondaryUrl
+  ? secondaryIsExternal
+    ? item.secondaryUrl
+    : withBase(item.secondaryUrl)
+  : undefined;
 const secondaryLabel = item.secondaryLabel ?? (isArabic ? "رابط إضافي" : "Supporting link");
 ---
 <article class="glass-card overflow-hidden">
   {
     hasLink ? (
-      <a href={item.url} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined} class="block">
+      <a href={primaryHref} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined} class="block">
         <div class="relative aspect-video w-full bg-white/5">
           <SmartImage
             candidates={item.thumbRemoteCandidates}
@@ -54,7 +61,7 @@ const secondaryLabel = item.secondaryLabel ?? (isArabic ? "رابط إضافي" 
       <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
         {
           hasLink ? (
-            <a href={item.url} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined} class="text-sm font-semibold text-gold">
+            <a href={primaryHref} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined} class="text-sm font-semibold text-gold">
               {linkLabel}
             </a>
           ) : (
@@ -64,7 +71,7 @@ const secondaryLabel = item.secondaryLabel ?? (isArabic ? "رابط إضافي" 
         {
           hasSecondaryLink && (
             <a
-              href={item.secondaryUrl}
+              href={secondaryHref}
               target={secondaryIsExternal ? "_blank" : undefined}
               rel={secondaryIsExternal ? "noreferrer" : undefined}
               class="text-xs font-medium text-sand/70 transition hover:text-white"
