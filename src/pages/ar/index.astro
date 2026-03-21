@@ -7,7 +7,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { pinterestBoardsAr } from "../../data/pinterest";
 import { servicesAr } from "../../data/services";
 import { siteData } from "../../data/site";
-import { workItemsAr } from "../../data/work";
+import { featuredWorkAr } from "../../data/work";
 import { withBase } from "../../utils/withBase";
 
 const heroVideo = withBase("/media/hero/hero.mp4");
@@ -139,11 +139,18 @@ const heroPoster = withBase("/media/hero/hero-poster.png");
     </div>
   </Section>
 
-  <Section title="أعمال مختارة" copy="نماذج حديثة تجمع بين السرد السينمائي والهوية البصرية والتعليم العملي." className="text-right">
+  <Section
+    title="أعمال مختارة"
+    copy="اختيار عام أكثر دقة يجمع بين الفيلم السردي والمقال البصري والصيغة التعليمية والحوار المنظم."
+    className="text-right"
+  >
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {workItemsAr.slice(0, 3).map((item) => <WorkCard item={item} lang="ar" imageClass="h-48 w-full object-cover" />)}
+      {featuredWorkAr.map((item) => <WorkCard item={item} lang="ar" imageClass="h-48 w-full object-cover" />)}
     </div>
-    <a href={withBase("/ar/work/")} class="gold-link mt-8 inline-block text-sm font-semibold">عرض كل الأعمال</a>
+    <div class="mt-8 flex flex-wrap items-center justify-end gap-4 text-sm">
+      <a href={withBase("/ar/work/")} class="gold-link font-semibold">عرض كل الأعمال</a>
+      <a href={withBase("/ar/services/")} class="text-sand/75 transition hover:text-white">كيف يرتبط هذا العمل بالخدمات</a>
+    </div>
   </Section>
 
   <Section title="الخدمات" copy="ابدأ بعرض مركز، ثم وسع العمل إلى بناء نظام أو تدريب فريق إذا كان المشروع يحتاج تنفيذا أعمق." className="text-right">

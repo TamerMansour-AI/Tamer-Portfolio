@@ -7,7 +7,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { pinterestBoardsEn } from "../data/pinterest";
 import { servicesEn } from "../data/services";
 import { siteData } from "../data/site";
-import { workItemsEn } from "../data/work";
+import { featuredWorkEn } from "../data/work";
 import { withBase } from "../utils/withBase";
 
 const heroVideo = withBase("/media/hero/hero.mp4");
@@ -137,11 +137,18 @@ const heroPoster = withBase("/media/hero/hero-poster.png");
     </div>
   </Section>
 
-  <Section title="Selected Work" copy="Seven recent pieces spanning cinematic storytelling, documentary framing, and practical education.">
+  <Section
+    title="Selected Work"
+    copy="A tighter public selection across narrative films, cultural essays, educational formats, and dialogue-led learning pieces."
+  >
     <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
       {
-        workItemsEn.map((item) => <WorkCard item={item} lang="en" imageClass="h-full w-full object-cover" />)
+        featuredWorkEn.map((item) => <WorkCard item={item} lang="en" imageClass="h-full w-full object-cover" />)
       }
+    </div>
+    <div class="mt-8 flex flex-wrap items-center gap-4 text-sm">
+      <a href={withBase("/work/")} class="gold-link font-semibold">View the full work selection</a>
+      <a href={withBase("/services/")} class="text-sand/75 transition hover:text-white">See how this work connects to services</a>
     </div>
   </Section>
 

@@ -3,31 +3,44 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import CTAButtons from "../../../components/CTAButtons.astro";
 import Section from "../../../components/Section.astro";
 import SmartImage from "../../../components/SmartImage.astro";
+import { withBase } from "../../../utils/withBase";
 ---
 <BaseLayout
   title="من أنا | تامر منصور"
-  description="تعرف على تامر منصور: صانع محتوى بالذكاء الاصطناعي وراوٍ بصري يعمل من رام الله مع فرق حول العالم."
+  description="تامر منصور يعمل عبر السرد السينمائي والتصميم التعليمي وأنظمة الإنتاج العملية من رام الله مع فرق ومؤسسات عن بعد."
   path="/ar/about/"
   lang="ar"
   dir="rtl"
 >
   <Section
     title="عن تامر منصور"
-    copy="أصنع قصصًا بصرية تجعل الأفكار المعقدة واضحة وقريبة من الناس. عملي يجمع بين الإخراج السينمائي وأدوات الذكاء الاصطناعي والتدريب العملي."
+    copy="أعمل في المساحة التي تلتقي فيها القصة والتعليم والأنظمة. بعض المشاريع تحتاج فيلما، وبعضها يحتاج ورشة، وبعضها يحتاج سير عمل يمكن للفريق استخدامه فعلا."
     className="text-right"
   >
     <div class="grid gap-6 lg:grid-cols-[1fr_320px] lg:items-start">
       <div class="grid gap-6 md:grid-cols-2">
         <article class="glass-card p-6">
-          <h2 class="text-xl font-semibold text-white">عدسة إبداعية</h2>
+          <h2 class="text-xl font-semibold text-white">القصة أولا</h2>
           <p class="mt-3 text-sm text-sand/80">
-            أبدأ دائمًا من جوهر القصة: لماذا تُروى؟ ولمن؟ ثم أبني الإيقاع البصري الذي يخدم الهدف.
+            أبدأ من السؤال الأصلي والتوتر الداخلي والمنطق العاطفي قبل اختيار الأداة أو الصيغة.
           </p>
         </article>
         <article class="glass-card p-6">
-          <h2 class="text-xl font-semibold text-white">منهج تعليمي عملي</h2>
+          <h2 class="text-xl font-semibold text-white">منهج تعليمي</h2>
           <p class="mt-3 text-sm text-sand/80">
-            لا أقدم المحتوى فقط، بل أنقل نظامًا واضحًا يمكن للفريق تطبيقه للحفاظ على الجودة بعد التسليم.
+            لا أقدم المخرج النهائي فقط، بل أنقل العملية والحكم والمعيار بحيث يبقى العمل نافعا بعد التسليم.
+          </p>
+        </article>
+        <article class="glass-card p-6">
+          <h2 class="text-xl font-semibold text-white">أنظمة تصمد</h2>
+          <p class="mt-3 text-sm text-sand/80">
+            سواء كانت النتيجة حملة أو ورشة أو نظام إنتاج مدعوما بالذكاء الاصطناعي فأنا أبني للوضوح والتكرار والتنفيذ الهادئ.
+          </p>
+        </article>
+        <article class="glass-card p-6">
+          <h2 class="text-xl font-semibold text-white">حكم مهني متجذر</h2>
+          <p class="mt-3 text-sm text-sand/80">
+            العمل متجذر في رام الله وفي التجربة الحية، لكنه مصاغ ليبقى واضحا عالميا من دون أن يفقد نبرته.
           </p>
         </article>
       </div>
@@ -38,7 +51,41 @@ import SmartImage from "../../../components/SmartImage.astro";
       </article>
     </div>
   </Section>
-  <Section title="من رام الله إلى تعاون عالمي" copy="أعمل عن بعد مع فرق متعددة عبر مراحل واضحة وتواصل سريع ومباشر." className="text-right">
+  <Section
+    title="كيف تتصل هذه الممارسة ببعضها"
+    copy="المنهج نفسه يتحرك بين السرد السينمائي والتحويل التعليمي والاستشارة وبناء أنظمة الإنتاج."
+    className="text-right"
+  >
+    <div class="grid gap-4 md:grid-cols-3">
+      <article class="glass-card p-6 text-right">
+        <h2 class="text-xl font-semibold text-white">الأفكار إلى صور</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/80">
+          مقالات بصرية وأفلام قصيرة وحملات سردية تعطي الأفكار المجردة شكلا أوضح وأثرا عاطفيا أقوى.
+        </p>
+      </article>
+      <article class="glass-card p-6 text-right">
+        <h2 class="text-xl font-semibold text-white">التعلم إلى صيغة</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/80">
+          ورش وحوارات تعليمية ووسائط تدريبية تجعل المادة المعقدة أسهل في الفهم والنقاش.
+        </p>
+      </article>
+      <article class="glass-card p-6 text-right">
+        <h2 class="text-xl font-semibold text-white">العملية إلى نظام</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/80">
+          أطر أوامر ونقاط مراجعة وأدلة إنتاج تساعد الفرق على الحفاظ على الجودة من دون فوضى.
+        </p>
+      </article>
+    </div>
+  </Section>
+  <Section
+    title="من رام الله إلى تعاون عالمي"
+    copy="إذا كنت تحتاج وضوحا سرديا أقوى أو صيغة تعليمية أنضج أو نظام إنتاج يجمع الذوق بالبنية فالخطوة التالية واضحة."
+    className="text-right"
+  >
     <CTAButtons bookHref="/ar/contact/" labels={{ book: "احجز مكالمة", whatsapp: "راسلني على واتساب" }} />
+    <div class="mt-4 flex flex-wrap items-center justify-end gap-4 text-sm">
+      <a href={withBase("/ar/work/")} class="gold-link font-semibold">عرض الأعمال المختارة</a>
+      <a href={withBase("/ar/services/")} class="text-sand/75 transition hover:text-white">استكشف مسار الخدمات</a>
+    </div>
   </Section>
 </BaseLayout>

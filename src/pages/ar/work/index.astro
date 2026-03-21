@@ -3,30 +3,76 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import CTAButtons from "../../../components/CTAButtons.astro";
 import Section from "../../../components/Section.astro";
 import WorkCard from "../../../components/WorkCard.astro";
-import { pinterestPlaceholderAr, workItemsAr } from "../../../data/work";
+import { pinterestPlaceholderAr, studioSignalsAr, workItemsAr } from "../../../data/work";
+import { withBase } from "../../../utils/withBase";
 ---
 <BaseLayout
   title="الأعمال | تامر منصور"
-  description="نماذج أعمال سينمائية وبصرية مدعومة بالذكاء الاصطناعي عبر السرد الإبداعي والتجريب العملي."
+  description="اختيار من أعمال تامر منصور في السرد البصري بالذكاء الاصطناعي والصيغ التعليمية والمقالات البصرية."
   path="/ar/work/"
   lang="ar"
   dir="rtl"
 >
   <Section
-    title="أعمال تمزج القصة بالأداء"
-    copy="كل مشروع مصمم ليقدم أثرًا بصريًا واضحًا ونتيجة استراتيجية قابلة للقياس."
+    title="أعمال مختارة ذات وزن سردي"
+    copy="اختيار عام يجمع بين السرد البصري بالذكاء الاصطناعي والمقالات الثقافية والصيغ التعليمية والحوار المنظم."
     className="text-right"
   >
+    <div class="mb-8 grid gap-4 md:grid-cols-3">
+      <article class="glass-card p-5 text-right">
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">اختيار عام</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">
+          هذه هي القطع العامة الأكثر وضوحا من ممارسة أوسع تتحرك بين القصة والتعليم والوضوح البصري.
+        </p>
+      </article>
+      <article class="glass-card p-5 text-right">
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">ما الذي تثبته</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">
+          المدى هنا يمتد من الأفلام الشعرية ومقالات الهوية إلى التحويلات التعليمية وصيغ الحوار المنظم.
+        </p>
+      </article>
+      <article class="glass-card p-5 text-right">
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">لماذا يهم</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">
+          نفس المنهج يمكن أن يخدم حملة أو برنامجا تدريبيا أو قطعة ثقافية أو نظام إنتاج يحتاج إطارا أقوى.
+        </p>
+      </article>
+    </div>
     <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {workItemsAr.map((item) => <WorkCard item={item} lang="ar" imageClass="h-52 w-full object-cover" />)}
     </div>
   </Section>
+  <Section
+    title="اتجاهات الاستوديو الحالية"
+    copy="الممارسة الأوسع تشمل أيضا تريلرات مفاهيمية وإعادات سرد ثنائية اللغة وتجارب منظمة في تصميم المعرفة."
+    className="text-right"
+  >
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        studioSignalsAr.map((item) => (
+          <article class="glass-card p-6 text-right">
+            <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.kind}</p>
+            <h2 class="mt-3 text-xl font-semibold text-white">{item.title}</h2>
+            <p class="mt-3 text-sm leading-relaxed text-sand/80">{item.copy}</p>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
   <Section title={pinterestPlaceholderAr.title} copy={pinterestPlaceholderAr.description} className="text-right">
     <a href={pinterestPlaceholderAr.url} class="gold-link text-sm font-semibold" target="_blank" rel="noreferrer">
-      افتح Pinterest
+      افتح لوحات Pinterest
     </a>
   </Section>
-  <Section title="ابدأ قصتك القادمة" copy="شارك الهدف والجدول الزمني وسأقترح أفضل مسار إبداعي للتنفيذ." className="text-right">
+  <Section
+    title="هل تحتاج هذا النوع من الاتجاه لحملة أو برنامج أو نظام داخلي؟"
+    copy="إذا كان المشروع يحتاج وضوحا سرديا أولا فابدأ بالعرض التمهيدي. وإذا كان يحتاج تنفيذا متكررا أو نقل قدرة فمسار الخدمات جاهز."
+    className="text-right"
+  >
     <CTAButtons bookHref="/ar/contact/" labels={{ book: "احجز مكالمة", whatsapp: "راسلني على واتساب" }} />
+    <div class="mt-4 flex flex-wrap items-center justify-end gap-4 text-sm">
+      <a href={withBase("/ar/services/")} class="gold-link font-semibold">استكشف الخدمات</a>
+      <a href={withBase("/ar/about/")} class="text-sand/75 transition hover:text-white">اقرأ كيف يجمع هذا النهج بين القصة والتعليم والأنظمة</a>
+    </div>
   </Section>
 </BaseLayout>

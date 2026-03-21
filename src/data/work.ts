@@ -38,11 +38,16 @@ const extractVideoId = (url: string) => {
 type WorkSeedItem = {
   title_en: string;
   title_ar: string;
+  type_en: string;
+  type_ar: string;
+  context_en: string;
+  context_ar: string;
   desc_en: string;
   desc_ar: string;
   url: string;
-  tags: string[];
-  type: string;
+  tags_en: string[];
+  tags_ar: string[];
+  featured?: boolean;
 };
 
 type Localized = "en" | "ar";
@@ -50,13 +55,19 @@ type Localized = "en" | "ar";
 export type WorkItem = {
   title_en: string;
   title_ar: string;
+  type_en: string;
+  type_ar: string;
+  context_en: string;
+  context_ar: string;
   desc_en: string;
   desc_ar: string;
   title: string;
+  context: string;
   description: string;
   url: string;
   tags: string[];
   type: string;
+  featured: boolean;
   videoId: string;
   thumbLocal: string;
   thumbRemoteCandidates: string[];
@@ -64,79 +75,81 @@ export type WorkItem = {
 
 const workSeed: WorkSeedItem[] = [
   {
-    title_en: "Rituals in Motion",
-    title_ar: "طقوس في حركة",
-    desc_en: "A silent cinematic short from Gaza where a dog and boy reunite and return to a damaged home of memory and sketches.",
-    desc_ar: "فيلم صامت قصير من غزة يتتبع رحلة كلب وطفل يعودان إلى بيت الذاكرة والرسومات.",
+    title_en: "Unfinished Drawing, Unfinished Childhood",
+    title_ar: "رسم غير مكتمل، طفولة غير مكتملة",
+    type_en: "AI Visual Storytelling",
+    type_ar: "سرد بصري بالذكاء الاصطناعي",
+    context_en: "Bilingual narrative retelling",
+    context_ar: "إعادة سرد بصري ثنائية اللغة",
+    desc_en: "A short AI film built around interrupted childhood, memory, and the emotional residue of return.",
+    desc_ar: "فيلم قصير بالذكاء الاصطناعي يتمحور حول الطفولة المقطوعة والذاكرة والأثر العاطفي للعودة.",
     url: "https://youtu.be/lqVwVUdH6Hk?si=bFrBQseef10kjFxG",
-    type: "Art Documentary",
-    tags: ["#Gaza", "#ShortFilm", "#AIArt", "#SilentFilm"]
+    tags_en: ["Narrative Film", "Memory", "Palestine"],
+    tags_ar: ["فيلم سردي", "ذاكرة", "فلسطين"],
+    featured: true
   },
   {
-    title_en: "Brand Atmosphere Study",
-    title_ar: "دراسة هوية بصرية",
+    title_en: "I Am the Land",
+    title_ar: "أنا الأرض",
+    type_en: "Poetic Film Essay",
+    type_ar: "قصيدة فيلمية",
+    context_en: "Voice-led visual poem",
+    context_ar: "قصيدة بصرية بصوت مرافق",
     desc_en:
-      "A symbolic visual poem on Palestinian identity, memory, and renewal, framed with hope and enduring cultural roots.",
+      "A voiced visual poem on land, memory, and Palestinian continuity, shaped with cinematic restraint.",
     desc_ar:
-      "قصيدة بصرية عن الهوية الفلسطينية والذاكرة والتجدد، تقدم الأمل بوصفه امتدادا للجذور الثقافية.",
+      "قصيدة بصرية عن الأرض والذاكرة والاستمرارية الفلسطينية، مصاغة بإيقاع سينمائي هادئ.",
     url: "https://youtu.be/dqGQJQ1jvHg?list=TLGGX1bvsOfqR0swOTAyMjAyNg",
-    type: "Visual Narrative",
-    tags: ["Identity", "Poetry", "Narrative"]
+    tags_en: ["Visual Poem", "Land", "Memory"],
+    tags_ar: ["قصيدة بصرية", "أرض", "ذاكرة"],
+    featured: true
   },
   {
-    title_en: "Momentum Cut",
-    title_ar: "مونتاج الزخم",
+    title_en: "Moving Roots",
+    title_ar: "جذور متحركة",
+    type_en: "Narrative Identity Essay",
+    type_ar: "مقال بصري عن الهوية",
+    context_en: "Cultural essay short",
+    context_ar: "مقال سردي قصير",
     desc_en:
-      "An AI-driven dialogue between ChatGPT and Gemini exploring identity as deep-rooted history with adaptive modern expression.",
+      "A concise visual essay exploring identity, movement, and rootedness across time.",
     desc_ar:
-      "حوار مدعوم بالذكاء الاصطناعي بين ChatGPT وGemini حول الهوية كجذور تاريخية تتجدد بأدوات معاصرة.",
+      "مقال بصري مكثف يستكشف الهوية والحركة والتجذر عبر الزمن.",
     url: "https://youtu.be/ft0zRjyBNQ4?list=TLGGjNIzCLeVJBAwOTAyMjAyNg",
-    type: "Campaign Film",
-    tags: ["AI Debate", "Identity", "Dialogue"]
+    tags_en: ["Identity", "History", "Essay Film"],
+    tags_ar: ["هوية", "تاريخ", "فيلم مقالي"]
   },
   {
-    title_en: "Cultural Light",
-    title_ar: "ضوء ثقافي",
+    title_en: "Paintings Brought to Life",
+    title_ar: "لوحات تنبض بالحياة",
+    type_en: "Educational Format Design",
+    type_ar: "صيغة تعليمية بصرية",
+    context_en: "Animated art-history countdown",
+    context_ar: "عد تنازلي متحرك لتاريخ الفن",
     desc_en:
-      "An animated cultural essay that revives ten iconic masterpieces and reveals the hidden drama behind each brushstroke.",
+      "An animated countdown format that turns art history into clear, watchable storytelling.",
     desc_ar:
-      "مقال بصري متحرك يعيد إحياء عشر روائع فنية ويكشف الدراما المختبئة خلف ضربات الفرشاة.",
+      "صيغة عد تنازلي متحركة تحول تاريخ الفن إلى سرد واضح وسهل المشاهدة.",
     url: "https://youtu.be/4HPt1qOpIw0?list=TLGGVDWoj-0-l0cwOTAyMjAyNg",
-    type: "Art Documentary",
-    tags: ["Classic Art", "Animation", "Culture"]
+    tags_en: ["Art History", "Animation", "Education"],
+    tags_ar: ["تاريخ الفن", "تحريك", "تعليم"],
+    featured: true
   },
   {
-    title_en: "Impact Sequence",
-    title_ar: "تسلسل الأثر",
+    title_en: "Palestinian Identity Debate",
+    title_ar: "الفلسطيني… جذر قديم أم هوية جديدة؟",
+    type_en: "Workshop-Style Dialogue",
+    type_ar: "حوار بأسلوب ورشة",
+    context_en: "Structured AI dialogue",
+    context_ar: "حوار منظم بالذكاء الاصطناعي",
     desc_en:
-      "A modern song-film about digital alienation that calls for compassion, human truth, and action over empty ritual.",
+      "A structured dialogue format that turns a complex identity question into a clear, teachable viewing experience.",
     desc_ar:
-      "أغنية فيلم حديثة عن الاغتراب الرقمي تدعو إلى التعاطف والفعل الإنساني بدلا من الطقوس الفارغة.",
-    url: "https://youtu.be/E6Rt-agXCYM?list=TLGGzII0OhNHrdQwOTAyMjAyNg",
-    type: "Cinematic Production",
-    tags: ["Music", "Humanity", "Digital Age"]
-  },
-  {
-    title_en: "Heritage Reimagined",
-    title_ar: "إرث متجدد",
-    desc_en:
-      "An AI-produced song reflects inner conflict in the digital era and argues for empathy as resistance to fragmentation.",
-    desc_ar:
-      "أغنية منتجة بالذكاء الاصطناعي تعكس صراعا داخليا في العصر الرقمي وتطرح التعاطف كفعل مقاومة للتشظي.",
-    url: "https://youtu.be/N7T1ouDs9bs?list=TLGG0KmB1K6djqgwOTAyMjAyNg",
-    type: "Visual Narrative",
-    tags: ["AI Song", "Compassion", "Resilience"]
-  },
-  {
-    title_en: "Future Classroom",
-    title_ar: "فصل المستقبل",
-    desc_en:
-      "A structured AI debate frames identity as living continuity: rooted in land and culture yet adaptive across eras.",
-    desc_ar:
-      "مناظرة منظمة بالذكاء الاصطناعي تقدم الهوية كاستمرارية حية، ثابتة في الأرض والثقافة وقادرة على التكيف عبر الزمن.",
+      "صيغة حوارية منظمة تحول سؤال الهوية المعقد إلى تجربة مشاهدة واضحة وقابلة للنقاش.",
     url: "https://youtu.be/QquQdE2YZGU?list=TLGGUvcpT0katqwwOTAyMjAyNg",
-    type: "Training and Workshops",
-    tags: ["AI Dialogue", "Identity", "Olive Tree"]
+    tags_en: ["Dialogue", "Identity", "Learning"],
+    tags_ar: ["حوار", "هوية", "تعلم"],
+    featured: true
   }
 ];
 
@@ -146,8 +159,12 @@ const localizeWorkItem = (item: WorkSeedItem, locale: Localized): WorkItem => {
   return {
     ...item,
     title: locale === "ar" ? item.title_ar : item.title_en,
+    context: locale === "ar" ? item.context_ar : item.context_en,
     description: locale === "ar" ? item.desc_ar : item.desc_en,
+    tags: locale === "ar" ? item.tags_ar : item.tags_en,
+    type: locale === "ar" ? item.type_ar : item.type_en,
     videoId,
+    featured: item.featured ?? false,
     thumbLocal: `/media/youtube/${videoId}.jpg`,
     thumbRemoteCandidates: youtubeThumbCandidates(videoId)
   };
@@ -155,15 +172,59 @@ const localizeWorkItem = (item: WorkSeedItem, locale: Localized): WorkItem => {
 
 export const workItemsEn: WorkItem[] = workSeed.map((item) => localizeWorkItem(item, "en"));
 export const workItemsAr: WorkItem[] = workSeed.map((item) => localizeWorkItem(item, "ar"));
+export const featuredWorkEn: WorkItem[] = workItemsEn.filter((item) => item.featured);
+export const featuredWorkAr: WorkItem[] = workItemsAr.filter((item) => item.featured);
+
+export type StudioSignal = {
+  kind: string;
+  title: string;
+  copy: string;
+};
+
+export const studioSignalsEn: StudioSignal[] = [
+  {
+    kind: "Narrative Adaptation",
+    title: "Men in the Sun Retelling",
+    copy: "Bilingual visual retelling work developed in English and Arabic treatments, focused on tone, memory, and cinematic restraint."
+  },
+  {
+    kind: "Concept Trailer",
+    title: "Ash Princes / أطياف الأرض",
+    copy: "Trailer development work around أمراء الرماد, shaped as a mood-led concept piece with atmosphere and world-building at the center."
+  },
+  {
+    kind: "Knowledge Design",
+    title: "Book-to-Deck Reconstructions",
+    copy: "Structured slide-deck transformations such as Digital Prometheus and The Prince Dossier that turn dense material into visual briefings."
+  }
+];
+
+export const studioSignalsAr: StudioSignal[] = [
+  {
+    kind: "إعادة سرد",
+    title: "رجال في الشمس",
+    copy: "تجارب إعادة سرد بصري ثنائية اللغة بالإنجليزية والعربية، تركز على النبرة والذاكرة والانضباط السينمائي."
+  },
+  {
+    kind: "تريلر مفاهيمي",
+    title: "أمراء الرماد / أطياف الأرض",
+    copy: "تطوير تريلر مفاهيمي حول أمراء الرماد بوصفه قطعة مزاجية تقودها الأجواء وبناء العالم البصري."
+  },
+  {
+    kind: "تصميم معرفة",
+    title: "تحويل الكتب إلى عروض",
+    copy: "إعادة بناء الكتب في عروض شرائح منظمة مثل Digital Prometheus وThe Prince Dossier لتحويل المادة الكثيفة إلى عرض بصري واضح."
+  }
+];
 
 export const pinterestPlaceholderEn = {
-  title: "Pinterest Boards (Curated Mood + References)",
-  description: "A living set of visual references for campaign tone, color, and composition.",
+  title: "Pinterest Boards (Visual Reference Library)",
+  description: "A living reference layer for campaign tone, wardrobe, composition, and cultural texture.",
   url: "https://www.pinterest.com/TamerCreates/"
 };
 
 export const pinterestPlaceholderAr = {
   title: "لوحات Pinterest",
-  description: "مراجع بصرية متجددة تساعد على تحديد النبرة والألوان واتجاه التصميم.",
+  description: "طبقة مراجع بصرية متجددة تساعد على ضبط النبرة والملابس والتكوين والإحساس الثقافي.",
   url: "https://www.pinterest.com/TamerCreates/"
 };

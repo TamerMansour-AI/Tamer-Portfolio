@@ -25,40 +25,13 @@ const isArabic = lang === "ar";
   <div class="space-y-3 p-5">
     <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.type}</p>
     <h3 class="text-lg font-semibold leading-tight text-white">{item.title}</h3>
-    <p class="js-work-desc work-desc-clamp whitespace-pre-line text-sm leading-relaxed text-sand/75">{item.description}</p>
-    <button
-      type="button"
-      class="js-work-toggle text-xs font-semibold uppercase tracking-[0.16em] text-gold hover:text-gold-soft"
-      data-more={isArabic ? "اقرأ المزيد" : "Read more"}
-      data-less={isArabic ? "عرض أقل" : "Show less"}
-    >
-      {isArabic ? "اقرأ المزيد" : "Read more"}
-    </button>
+    <p class="text-sm font-medium text-white/80">{item.context}</p>
+    <p class="whitespace-pre-line text-sm leading-relaxed text-sand/75">{item.description}</p>
     <div class="flex flex-wrap gap-2">
       {item.tags.map((tag) => <span class="rounded-full border border-white/15 px-2.5 py-1 text-xs text-sand/80">{tag}</span>)}
     </div>
     <a href={item.url} target="_blank" rel="noreferrer" class="text-sm font-semibold text-gold">
-      {isArabic ? "شاهد على يوتيوب" : "Watch on YouTube"}
+      {isArabic ? "شاهد العمل" : "View project"}
     </a>
   </div>
 </article>
-
-<script is:inline>
-  (() => {
-    const script = document.currentScript;
-    if (!script) return;
-
-    const card = script.previousElementSibling;
-    if (!(card instanceof HTMLElement)) return;
-
-    const description = card.querySelector(".js-work-desc");
-    const toggle = card.querySelector(".js-work-toggle");
-
-    if (!(description instanceof HTMLElement) || !(toggle instanceof HTMLButtonElement)) return;
-
-    toggle.addEventListener("click", () => {
-      const expanded = description.classList.toggle("work-desc-clamp");
-      toggle.textContent = expanded ? toggle.dataset.more ?? "Read more" : toggle.dataset.less ?? "Show less";
-    });
-  })();
-</script>

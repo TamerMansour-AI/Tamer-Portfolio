@@ -3,15 +3,16 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTAButtons from "../../components/CTAButtons.astro";
 import Section from "../../components/Section.astro";
 import SmartImage from "../../components/SmartImage.astro";
+import { withBase } from "../../utils/withBase";
 ---
 <BaseLayout
   title="About | Tamer Mansour"
-  description="Meet Tamer Mansour, AI media creator and visual storyteller based in Ramallah working with global teams remotely."
+  description="Tamer Mansour works across cinematic storytelling, educational design, and practical AI systems from Ramallah for remote teams and institutions."
   path="/about/"
 >
   <Section
     title="About Tamer Mansour"
-    copy="I build visual stories that make complex ideas feel clear, modern, and human. My work sits at the intersection of cinematic direction, AI workflows, and practical education."
+    copy="I work where story, teaching, and systems meet. Some projects need a film, some need a workshop, and some need a workflow a team can actually use."
   >
     <div class="grid gap-6 lg:grid-cols-[320px_1fr] lg:items-start">
       <article class="glass-card p-5 sm:p-6">
@@ -21,24 +22,65 @@ import SmartImage from "../../components/SmartImage.astro";
       </article>
       <div class="grid gap-6 md:grid-cols-2">
         <article class="glass-card p-6">
-          <h2 class="text-xl font-semibold text-white">Creative Lens</h2>
+          <h2 class="text-xl font-semibold text-white">Story First</h2>
           <p class="mt-3 text-sm text-sand/80">
-            My approach starts with narrative intent. I shape visual flow, pacing, and tone to make every frame serve a purpose.
+            I start with the underlying question, tension, and emotional logic of the piece before choosing any tool or format.
           </p>
         </article>
         <article class="glass-card p-6">
-          <h2 class="text-xl font-semibold text-white">Educational Mindset</h2>
+          <h2 class="text-xl font-semibold text-white">Teaching Mindset</h2>
           <p class="mt-3 text-sm text-sand/80">
-            I do not just deliver content. I transfer systems and standards so teams can sustain quality after project handoff.
+            I do not only deliver output. I translate process, judgment, and standards so the work remains useful after handoff.
+          </p>
+        </article>
+        <article class="glass-card p-6">
+          <h2 class="text-xl font-semibold text-white">Systems That Hold Up</h2>
+          <p class="mt-3 text-sm text-sand/80">
+            Whether the result is a campaign, a workshop, or an AI-assisted workflow, I design for clarity, repeatability, and calm execution.
+          </p>
+        </article>
+        <article class="glass-card p-6">
+          <h2 class="text-xl font-semibold text-white">Culturally Grounded Judgment</h2>
+          <p class="mt-3 text-sm text-sand/80">
+            The work is rooted in Ramallah, shaped by lived context, and built to stay globally legible without flattening its voice.
           </p>
         </article>
       </div>
     </div>
   </Section>
   <Section
+    title="How the practice connects"
+    copy="The same method moves across cinematic storytelling, educational transformation, consulting, and AI production design."
+  >
+    <div class="grid gap-4 md:grid-cols-3">
+      <article class="glass-card p-6">
+        <h2 class="text-xl font-semibold text-white">Ideas into visuals</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/80">
+          Visual essays, short films, and narrative campaigns that give abstract ideas a sharper emotional form.
+        </p>
+      </article>
+      <article class="glass-card p-6">
+        <h2 class="text-xl font-semibold text-white">Learning into format</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/80">
+          Workshops, dialogue-led lessons, and educational media that make complex material easier to absorb and discuss.
+        </p>
+      </article>
+      <article class="glass-card p-6">
+        <h2 class="text-xl font-semibold text-white">Process into systems</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/80">
+          Prompt frameworks, review checkpoints, and production playbooks that help teams keep quality without chaos.
+        </p>
+      </article>
+    </div>
+  </Section>
+  <Section
     title="From Ramallah, built for remote collaboration"
-    copy="I partner with clients across regions through structured communication, fast iteration cycles, and clear milestones."
+    copy="If you need stronger narrative direction, a more teachable format, or a production system with taste and structure, the next step is already clear."
   >
     <CTAButtons />
+    <div class="mt-4 flex flex-wrap items-center gap-4 text-sm">
+      <a href={withBase("/work/")} class="gold-link font-semibold">View selected work</a>
+      <a href={withBase("/services/")} class="text-sand/75 transition hover:text-white">See the service path</a>
+    </div>
   </Section>
 </BaseLayout>
