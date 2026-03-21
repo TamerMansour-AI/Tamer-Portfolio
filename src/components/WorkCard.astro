@@ -10,18 +10,34 @@ type Props = {
 
 const { item, lang = "en", imageClass = "absolute inset-0 h-full w-full object-contain" } = Astro.props;
 const isArabic = lang === "ar";
+const hasLink = Boolean(item.url);
+const isExternal = item.url?.startsWith("http");
+const linkLabel = item.linkLabel ?? (isArabic ? "شاهد العمل" : "View project");
 ---
 <article class="glass-card overflow-hidden">
-  <a href={item.url} target="_blank" rel="noreferrer" class="block">
-    <div class="relative aspect-video w-full bg-white/5">
-      <SmartImage
-        candidates={item.thumbRemoteCandidates}
-        fallback={item.thumbLocal}
-        alt={item.title}
-        class={imageClass}
-      />
-    </div>
-  </a>
+  {
+    hasLink ? (
+      <a href={item.url} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined} class="block">
+        <div class="relative aspect-video w-full bg-white/5">
+          <SmartImage
+            candidates={item.thumbRemoteCandidates}
+            fallback={item.thumbLocal}
+            alt={item.title}
+            class={imageClass}
+          />
+        </div>
+      </a>
+    ) : (
+      <div class="relative aspect-video w-full bg-white/5">
+        <SmartImage
+          candidates={item.thumbRemoteCandidates}
+          fallback={item.thumbLocal}
+          alt={item.title}
+          class={imageClass}
+        />
+      </div>
+    )
+  }
   <div class="space-y-3 p-5">
     <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.type}</p>
     <h3 class="text-lg font-semibold leading-tight text-white">{item.title}</h3>
@@ -30,8 +46,14 @@ const isArabic = lang === "ar";
     <div class="flex flex-wrap gap-2">
       {item.tags.map((tag) => <span class="rounded-full border border-white/15 px-2.5 py-1 text-xs text-sand/80">{tag}</span>)}
     </div>
-    <a href={item.url} target="_blank" rel="noreferrer" class="text-sm font-semibold text-gold">
-      {isArabic ? "شاهد العمل" : "View project"}
-    </a>
+    {
+      hasLink ? (
+        <a href={item.url} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined} class="text-sm font-semibold text-gold">
+          {linkLabel}
+        </a>
+      ) : (
+        <p class="text-sm font-semibold text-sand/55">{isArabic ? "مرجع مختار من الاستوديو" : "Selected studio reference"}</p>
+      )
+    }
   </div>
 </article>

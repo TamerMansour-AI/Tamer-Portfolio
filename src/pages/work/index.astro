@@ -3,57 +3,41 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTAButtons from "../../components/CTAButtons.astro";
 import Section from "../../components/Section.astro";
 import WorkCard from "../../components/WorkCard.astro";
-import { pinterestPlaceholderEn, studioSignalsEn, workItemsEn } from "../../data/work";
+import { pinterestPlaceholderEn, workItemsEn } from "../../data/work";
 import { withBase } from "../../utils/withBase";
 ---
 <BaseLayout
   title="Work | Tamer Mansour"
-  description="A curated selection of cinematic AI storytelling, educational formats, and narrative identity work by Tamer Mansour."
+  description="A flagship selection of literary retelling, cinematic heritage storytelling, motion-led education, and knowledge design by Tamer Mansour."
   path="/work/"
 >
   <Section
-    title="Selected work with narrative weight"
-    copy="A curated public selection spanning AI visual storytelling, cultural essays, educational formats, and dialogue-led learning pieces."
+    title="Selected work with clear authorship"
+    copy="A lean portfolio built around four flagship directions: literary retelling, heritage worldbuilding, motion-led visual education, and structured knowledge design."
   >
     <div class="mb-8 grid gap-4 md:grid-cols-3">
       <article class="glass-card p-5">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">Public Selection</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">Why These Four</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          These are the clearest public-facing pieces from a broader practice shaped around story, teaching, and visual clarity.
+          Together they show how the practice moves from literary adaptation and cultural atmosphere to teaching formats and operational clarity.
         </p>
       </article>
       <article class="glass-card p-5">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">What They Prove</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">How To Read This Page</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          The range moves from poetic films and identity essays to educational transformations and structured dialogue formats.
+          Some pieces link outward. Others are selected studio references included because they represent the strongest current proof, even when they are not yet published as standalone case studies.
         </p>
       </article>
       <article class="glass-card p-5">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">Why It Matters</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">What This Proves</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          The same thinking can serve a campaign, a training program, a cultural piece, or a system that needs stronger framing.
+          The same authorship can shape a flagship story piece, a heritage trailer, a visual learning format, or a dense body of material that needs sharper structure.
         </p>
       </article>
     </div>
     <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {
         workItemsEn.map((item) => <WorkCard item={item} lang="en" imageClass="h-52 w-full object-cover" />)
-      }
-    </div>
-  </Section>
-  <Section
-    title="Current studio directions"
-    copy="The wider practice also includes concept trailers, bilingual retellings, and structured knowledge-design experiments drawn from active reference work."
-  >
-    <div class="grid gap-4 md:grid-cols-3">
-      {
-        studioSignalsEn.map((item) => (
-          <article class="glass-card p-6">
-            <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.kind}</p>
-            <h2 class="mt-3 text-xl font-semibold text-white">{item.title}</h2>
-            <p class="mt-3 text-sm leading-relaxed text-sand/80">{item.copy}</p>
-          </article>
-        ))
       }
     </div>
   </Section>
@@ -64,7 +48,7 @@ import { withBase } from "../../utils/withBase";
   </Section>
   <Section
     title="Need this kind of direction for a campaign, program, or internal system?"
-    copy="If the work needs narrative clarity first, start with the sprint. If it needs repeatable production or capability transfer, the service path is already structured."
+    copy="If the work needs narrative clarity first, start with the sprint. If it needs repeatable production, capability transfer, or internal structure, the service path is already mapped."
   >
     <CTAButtons />
     <div class="mt-4 flex flex-wrap items-center gap-4 text-sm">

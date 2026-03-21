@@ -4,26 +4,51 @@ import CTAButtons from "../../../components/CTAButtons.astro";
 import Section from "../../../components/Section.astro";
 import WorkCard from "../../../components/WorkCard.astro";
 import { pinterestPlaceholderEn, workItemsEn } from "../../../data/work";
+import { withBase } from "../../../utils/withBase";
 ---
 <BaseLayout
   title="Work | Tamer Mansour"
-  description="Explore cinematic AI-powered visual projects by Tamer Mansour across storytelling, education, and branded content."
+  description="A flagship selection of literary retelling, cinematic heritage storytelling, motion-led education, and knowledge design by Tamer Mansour."
   path="/en/work/"
 >
   <Section
-    title="Work that blends story and performance"
-    copy="Each project is built to carry emotional weight while supporting strategic outcomes."
+    title="Selected work with clear authorship"
+    copy="A lean portfolio built around four flagship directions: literary retelling, heritage worldbuilding, motion-led visual education, and structured knowledge design."
   >
+    <div class="mb-8 grid gap-4 md:grid-cols-3">
+      <article class="glass-card p-5">
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">Why These Four</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">
+          Together they show how the practice moves from literary adaptation and cultural atmosphere to teaching formats and operational clarity.
+        </p>
+      </article>
+      <article class="glass-card p-5">
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">How To Read This Page</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">
+          Some pieces link outward. Others are selected studio references included because they represent the strongest current proof, even when they are not yet published as standalone case studies.
+        </p>
+      </article>
+      <article class="glass-card p-5">
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">What This Proves</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">
+          The same authorship can shape a flagship story piece, a heritage trailer, a visual learning format, or a dense body of material that needs sharper structure.
+        </p>
+      </article>
+    </div>
     <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {workItemsEn.map((item) => <WorkCard item={item} lang="en" imageClass="h-52 w-full object-cover" />)}
     </div>
   </Section>
   <Section title={pinterestPlaceholderEn.title} copy={pinterestPlaceholderEn.description}>
     <a href={pinterestPlaceholderEn.url} class="gold-link text-sm font-semibold" target="_blank" rel="noreferrer">
-      Open Pinterest
+      Open Pinterest boards
     </a>
   </Section>
-  <Section title="Start your next visual story" copy="Share your goals and timeline. I will propose the strongest creative path.">
+  <Section title="Need this kind of direction for a campaign, program, or internal system?" copy="If the work needs narrative clarity first, start with the sprint. If it needs repeatable production, capability transfer, or internal structure, the service path is already mapped.">
     <CTAButtons />
+    <div class="mt-4 flex flex-wrap items-center gap-4 text-sm">
+      <a href={withBase("/services/")} class="gold-link font-semibold">Explore services</a>
+      <a href={withBase("/about/")} class="text-sand/75 transition hover:text-white">Read how the practice connects story, education, and systems</a>
+    </div>
   </Section>
 </BaseLayout>

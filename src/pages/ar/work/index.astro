@@ -3,60 +3,43 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import CTAButtons from "../../../components/CTAButtons.astro";
 import Section from "../../../components/Section.astro";
 import WorkCard from "../../../components/WorkCard.astro";
-import { pinterestPlaceholderAr, studioSignalsAr, workItemsAr } from "../../../data/work";
+import { pinterestPlaceholderAr, workItemsAr } from "../../../data/work";
 import { withBase } from "../../../utils/withBase";
 ---
 <BaseLayout
   title="الأعمال | تامر منصور"
-  description="اختيار من أعمال تامر منصور في السرد البصري بالذكاء الاصطناعي والصيغ التعليمية والمقالات البصرية."
+  description="مجموعة رئيسية من أعمال تامر منصور في إعادة السرد الأدبي وبناء العالم التراثي والتعليم البصري وتصميم المعرفة."
   path="/ar/work/"
   lang="ar"
   dir="rtl"
 >
   <Section
-    title="أعمال مختارة ذات وزن سردي"
-    copy="اختيار عام يجمع بين السرد البصري بالذكاء الاصطناعي والمقالات الثقافية والصيغ التعليمية والحوار المنظم."
+    title="أعمال مختارة بهوية واضحة"
+    copy="اختيار نحيف مبني على أربعة اتجاهات رئيسية: إعادة سرد أدبي، وبناء عالم تراثي، وتعليم بصري متحرك، وتصميم معرفة منظم."
     className="text-right"
   >
     <div class="mb-8 grid gap-4 md:grid-cols-3">
       <article class="glass-card p-5 text-right">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">اختيار عام</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">لماذا هذه الأعمال</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          هذه هي القطع العامة الأكثر وضوحا من ممارسة أوسع تتحرك بين القصة والتعليم والوضوح البصري.
+          هذه المجموعة تبين كيف تتحرك الممارسة بين الاقتباس الأدبي وبناء الأجواء الثقافية والصيغ التعليمية والوضوح التشغيلي.
+        </p>
+      </article>
+      <article class="glass-card p-5 text-right">
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">كيف تقرأ الصفحة</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">
+          بعض القطع لها روابط عامة، وبعضها مراجع مختارة من الاستوديو لأنها تمثل أقوى صورة حالية للعمل حتى إن لم تنشر بعد كدراسات حالة مستقلة.
         </p>
       </article>
       <article class="glass-card p-5 text-right">
         <p class="text-xs uppercase tracking-[0.18em] text-gold">ما الذي تثبته</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          المدى هنا يمتد من الأفلام الشعرية ومقالات الهوية إلى التحويلات التعليمية وصيغ الحوار المنظم.
-        </p>
-      </article>
-      <article class="glass-card p-5 text-right">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">لماذا يهم</p>
-        <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          نفس المنهج يمكن أن يخدم حملة أو برنامجا تدريبيا أو قطعة ثقافية أو نظام إنتاج يحتاج إطارا أقوى.
+          نفس الحس الإخراجي يمكن أن يقود قطعة سردية رئيسية، أو تريلر تراثي، أو صيغة تعلم بصري، أو مادة كثيفة تحتاج بنية أوضح.
         </p>
       </article>
     </div>
     <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {workItemsAr.map((item) => <WorkCard item={item} lang="ar" imageClass="h-52 w-full object-cover" />)}
-    </div>
-  </Section>
-  <Section
-    title="اتجاهات الاستوديو الحالية"
-    copy="الممارسة الأوسع تشمل أيضا تريلرات مفاهيمية وإعادات سرد ثنائية اللغة وتجارب منظمة في تصميم المعرفة."
-    className="text-right"
-  >
-    <div class="grid gap-4 md:grid-cols-3">
-      {
-        studioSignalsAr.map((item) => (
-          <article class="glass-card p-6 text-right">
-            <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.kind}</p>
-            <h2 class="mt-3 text-xl font-semibold text-white">{item.title}</h2>
-            <p class="mt-3 text-sm leading-relaxed text-sand/80">{item.copy}</p>
-          </article>
-        ))
-      }
     </div>
   </Section>
   <Section title={pinterestPlaceholderAr.title} copy={pinterestPlaceholderAr.description} className="text-right">
@@ -66,7 +49,7 @@ import { withBase } from "../../../utils/withBase";
   </Section>
   <Section
     title="هل تحتاج هذا النوع من الاتجاه لحملة أو برنامج أو نظام داخلي؟"
-    copy="إذا كان المشروع يحتاج وضوحا سرديا أولا فابدأ بالعرض التمهيدي. وإذا كان يحتاج تنفيذا متكررا أو نقل قدرة فمسار الخدمات جاهز."
+    copy="إذا كان المشروع يحتاج وضوحا سرديا أولا فابدأ بالعرض التمهيدي. وإذا كان يحتاج إنتاجا متكررا أو نقل قدرة أو بنية تشغيل أوضح فمسار الخدمات جاهز."
     className="text-right"
   >
     <CTAButtons bookHref="/ar/contact/" labels={{ book: "احجز مكالمة", whatsapp: "راسلني على واتساب" }} />

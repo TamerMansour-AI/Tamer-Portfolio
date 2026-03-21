@@ -141,15 +141,15 @@ const heroPoster = withBase("/media/hero/hero-poster.png");
 
   <Section
     title="أعمال مختارة"
-    copy="اختيار عام أكثر دقة يجمع بين الفيلم السردي والمقال البصري والصيغة التعليمية والحوار المنظم."
+    copy="أربعة أمثلة رئيسية تجمع بين إعادة السرد الأدبي، والتريلر التراثي، والتعليم البصري المتحرك، وتصميم المعرفة عبر العروض."
     className="text-right"
   >
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {featuredWorkAr.map((item) => <WorkCard item={item} lang="ar" imageClass="h-48 w-full object-cover" />)}
     </div>
     <div class="mt-8 flex flex-wrap items-center justify-end gap-4 text-sm">
-      <a href={withBase("/ar/work/")} class="gold-link font-semibold">عرض كل الأعمال</a>
-      <a href={withBase("/ar/services/")} class="text-sand/75 transition hover:text-white">كيف يرتبط هذا العمل بالخدمات</a>
+      <a href={withBase("/ar/work/")} class="gold-link font-semibold">عرض مجموعة الأعمال الرئيسية</a>
+      <a href={withBase("/ar/services/")} class="text-sand/75 transition hover:text-white">كيف ترتبط هذه الاتجاهات بالخدمات</a>
     </div>
   </Section>
 
