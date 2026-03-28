@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTAButtons from "../../components/CTAButtons.astro";
 import Section from "../../components/Section.astro";
+import SmartImage from "../../components/SmartImage.astro";
 import WorkCard from "../../components/WorkCard.astro";
 import { pinterestPlaceholderEn, workItemsEn } from "../../data/work";
 import { withBase } from "../../utils/withBase";
@@ -40,10 +41,34 @@ import { withBase } from "../../utils/withBase";
         workItemsEn.map((item) => <WorkCard item={item} lang="en" imageClass="h-52 w-full object-cover" />)
       }
     </div>
-    <div class="mt-8 flex flex-wrap items-center gap-4 text-sm">
-      <a href={withBase("/literary-reimaginings/")} class="gold-link font-semibold">Explore the literary reimaginings line</a>
-      <a href={withBase("/contact/")} class="text-sand/75 transition hover:text-white">Discuss collaboration or future adaptations</a>
-    </div>
+    <a
+      href={withBase("/literary-reimaginings/")}
+      class="group mt-8 grid gap-5 overflow-hidden rounded-[1.75rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(212,175,106,0.16),transparent_34%),linear-gradient(145deg,rgba(15,15,15,0.98),rgba(22,22,22,0.96))] p-5 transition hover:border-gold/40 hover:bg-[radial-gradient(circle_at_top_left,rgba(212,175,106,0.2),transparent_34%),linear-gradient(145deg,rgba(15,15,15,0.98),rgba(28,28,28,0.98))] lg:grid-cols-[0.88fr_1.12fr] lg:items-center"
+    >
+      <div class="relative aspect-[4/3] overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/5">
+        <SmartImage
+          fallback="/media/literary/returning-to-haifa.svg"
+          alt="Literary reimaginings featured poster"
+          class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+        />
+      </div>
+      <div class="space-y-4">
+        <p class="text-xs uppercase tracking-[0.2em] text-gold">Featured Series</p>
+        <h3 class="text-2xl font-semibold tracking-tight text-white">Literary Reimaginings</h3>
+        <p class="text-sm leading-relaxed text-sand/80">
+          A dedicated storytelling destination for the novel adaptations, with bilingual editions, future-facing context, and a clearer invitation for collaboration, commissioning, or support.
+        </p>
+        <div class="flex flex-wrap gap-2 text-xs uppercase tracking-[0.16em] text-sand/70">
+          <span class="rounded-full border border-white/12 px-3 py-1">Men in the Sun</span>
+          <span class="rounded-full border border-white/12 px-3 py-1">Returning to Haifa</span>
+          <span class="rounded-full border border-white/12 px-3 py-1">Bilingual editions</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 text-sm">
+          <span class="font-semibold text-gold">Enter the series</span>
+          <span class="text-sand/70 transition group-hover:text-white">A more intentional entry point than a single inline link</span>
+        </div>
+      </div>
+    </a>
   </Section>
   <Section title={pinterestPlaceholderEn.title} copy={pinterestPlaceholderEn.description}>
     <a href={pinterestPlaceholderEn.url} class="gold-link text-sm font-semibold" target="_blank" rel="noreferrer">

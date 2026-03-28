@@ -148,10 +148,42 @@ const heroPoster = withBase("/media/hero/hero-poster.png");
     </div>
     <div class="mt-8 flex flex-wrap items-center gap-4 text-sm">
       <a href={withBase("/work/")} class="gold-link font-semibold">View the flagship work selection</a>
-      <a href={withBase("/literary-reimaginings/")} class="text-sand/75 transition hover:text-white">Explore the literary reimaginings series</a>
       <a href={withBase("/services/")} class="text-sand/75 transition hover:text-white">See how each direction connects to services</a>
     </div>
   </Section>
+
+  <section class="container-shell pb-8 sm:pb-12">
+    <a
+      href={withBase("/literary-reimaginings/")}
+      class="group grid gap-6 overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(212,175,106,0.18),transparent_34%),linear-gradient(140deg,rgba(14,14,14,0.98),rgba(24,24,24,0.96))] p-6 transition hover:border-gold/40 hover:bg-[radial-gradient(circle_at_top_left,rgba(212,175,106,0.22),transparent_34%),linear-gradient(140deg,rgba(14,14,14,0.98),rgba(28,28,28,0.98))] lg:grid-cols-[0.95fr_1.05fr] lg:items-center"
+    >
+      <div class="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5">
+        <SmartImage
+          fallback="/media/literary/men-in-the-sun.svg"
+          alt="Literary reimaginings series poster"
+          class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+        />
+      </div>
+      <div class="space-y-4">
+        <p class="text-xs uppercase tracking-[0.22em] text-gold">Featured Storytelling Series</p>
+        <h2 class="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+          Literary reimaginings are now a visible storytelling line inside the portfolio.
+        </h2>
+        <p class="max-w-2xl text-sm leading-relaxed text-sand/80 sm:text-base">
+          A more focused destination for Tamer&apos;s AI-based novel reinterpretations, beginning with <span class="text-white">Men in the Sun</span> and <span class="text-white">Returning to Haifa</span>, presented as bilingual cinematic adaptations rather than isolated video links.
+        </p>
+        <div class="flex flex-wrap gap-2 text-xs uppercase tracking-[0.18em] text-sand/70">
+          <span class="rounded-full border border-white/12 px-3 py-1">2 novels published</span>
+          <span class="rounded-full border border-white/12 px-3 py-1">Arabic + English editions</span>
+          <span class="rounded-full border border-white/12 px-3 py-1">Future adaptations</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 text-sm">
+          <span class="font-semibold text-gold">Open the literary series</span>
+          <span class="text-sand/70 transition group-hover:text-white">See the published works, future direction, and support path</span>
+        </div>
+      </div>
+    </a>
+  </section>
 
   <Section title="Pinterest Boards" copy="Curated visual references for tone, wardrobe, composition, and campaign aesthetics.">
     <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">

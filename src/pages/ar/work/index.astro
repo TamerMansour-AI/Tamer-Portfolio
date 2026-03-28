@@ -2,6 +2,7 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import CTAButtons from "../../../components/CTAButtons.astro";
 import Section from "../../../components/Section.astro";
+import SmartImage from "../../../components/SmartImage.astro";
 import WorkCard from "../../../components/WorkCard.astro";
 import { pinterestPlaceholderAr, workItemsAr } from "../../../data/work";
 import { withBase } from "../../../utils/withBase";
@@ -41,10 +42,34 @@ import { withBase } from "../../../utils/withBase";
     <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {workItemsAr.map((item) => <WorkCard item={item} lang="ar" imageClass="h-52 w-full object-cover" />)}
     </div>
-    <div class="mt-8 flex flex-wrap items-center justify-end gap-4 text-sm">
-      <a href={withBase("/ar/literary-reimaginings/")} class="gold-link font-semibold">استكشف خط إعادة التخيل الأدبي</a>
-      <a href={withBase("/ar/contact/")} class="text-sand/75 transition hover:text-white">للتعاون أو لدعم الاقتباسات القادمة</a>
-    </div>
+    <a
+      href={withBase("/ar/literary-reimaginings/")}
+      class="group mt-8 grid gap-5 overflow-hidden rounded-[1.75rem] border border-white/10 bg-[radial-gradient(circle_at_top_right,rgba(212,175,106,0.16),transparent_34%),linear-gradient(145deg,rgba(15,15,15,0.98),rgba(22,22,22,0.96))] p-5 text-right transition hover:border-gold/40 hover:bg-[radial-gradient(circle_at_top_right,rgba(212,175,106,0.2),transparent_34%),linear-gradient(145deg,rgba(15,15,15,0.98),rgba(28,28,28,0.98))] lg:grid-cols-[1.12fr_0.88fr] lg:items-center"
+    >
+      <div class="space-y-4">
+        <p class="text-xs uppercase tracking-[0.2em] text-gold">سلسلة مميزة</p>
+        <h3 class="text-2xl font-semibold tracking-tight text-white">إعادة تخيّل الروايات بصريًا</h3>
+        <p class="text-sm leading-relaxed text-sand/80">
+          وجهة سردية مخصصة لأعمال الاقتباس الروائي، تجمع الإصدارات الثنائية اللغة مع سياق أوضح للمستقبل ودعوة أكثر نضجا للتعاون أو التكليف أو الدعم.
+        </p>
+        <div class="flex flex-wrap justify-end gap-2 text-xs uppercase tracking-[0.16em] text-sand/70">
+          <span class="rounded-full border border-white/12 px-3 py-1">رجال في الشمس</span>
+          <span class="rounded-full border border-white/12 px-3 py-1">عائد إلى حيفا</span>
+          <span class="rounded-full border border-white/12 px-3 py-1">إصدارات ثنائية اللغة</span>
+        </div>
+        <div class="flex flex-wrap items-center justify-end gap-4 text-sm">
+          <span class="font-semibold text-gold">ادخل إلى السلسلة</span>
+          <span class="text-sand/70 transition group-hover:text-white">مدخل أوضح وأكثر قصدًا من رابط نصي صغير</span>
+        </div>
+      </div>
+      <div class="relative aspect-[4/3] overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/5">
+        <SmartImage
+          fallback="/media/literary/returning-to-haifa.svg"
+          alt="ملصق مميز لسلسلة إعادة تخيل الروايات"
+          class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+        />
+      </div>
+    </a>
   </Section>
   <Section title={pinterestPlaceholderAr.title} copy={pinterestPlaceholderAr.description} className="text-right">
     <a href={pinterestPlaceholderAr.url} class="gold-link text-sm font-semibold" target="_blank" rel="noreferrer">

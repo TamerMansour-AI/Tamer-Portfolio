@@ -149,10 +149,42 @@ const heroPoster = withBase("/media/hero/hero-poster.png");
     </div>
     <div class="mt-8 flex flex-wrap items-center justify-end gap-4 text-sm">
       <a href={withBase("/ar/work/")} class="gold-link font-semibold">عرض مجموعة الأعمال الرئيسية</a>
-      <a href={withBase("/ar/literary-reimaginings/")} class="text-sand/75 transition hover:text-white">استكشف سلسلة إعادة التخيل الأدبي</a>
       <a href={withBase("/ar/services/")} class="text-sand/75 transition hover:text-white">كيف ترتبط هذه الاتجاهات بالخدمات</a>
     </div>
   </Section>
+
+  <section class="container-shell pb-8 sm:pb-12">
+    <a
+      href={withBase("/ar/literary-reimaginings/")}
+      class="group grid gap-6 overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_right,rgba(212,175,106,0.18),transparent_34%),linear-gradient(140deg,rgba(14,14,14,0.98),rgba(24,24,24,0.96))] p-6 transition hover:border-gold/40 hover:bg-[radial-gradient(circle_at_top_right,rgba(212,175,106,0.22),transparent_34%),linear-gradient(140deg,rgba(14,14,14,0.98),rgba(28,28,28,0.98))] lg:grid-cols-[1.05fr_0.95fr] lg:items-center"
+    >
+      <div class="space-y-4 text-right">
+        <p class="text-xs uppercase tracking-[0.22em] text-gold">سلسلة سردية مميزة</p>
+        <h2 class="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+          إعادة تخيّل الروايات بصريًا أصبحت الآن مسارًا واضحًا داخل الموقع.
+        </h2>
+        <p class="max-w-2xl text-sm leading-relaxed text-sand/80 sm:text-base">
+          وجهة أوضح لأعمال تامر في إعادة تفسير الروايات بصريًا عبر الذكاء الاصطناعي، بدءًا من <span class="text-white">رجال في الشمس</span> و<span class="text-white">عائد إلى حيفا</span> بوصفهما اقتباسين سينمائيين ثنائيي اللغة لا مجرد روابط فيديو منفصلة.
+        </p>
+        <div class="flex flex-wrap justify-end gap-2 text-xs uppercase tracking-[0.18em] text-sand/70">
+          <span class="rounded-full border border-white/12 px-3 py-1">روايتان منشورتان</span>
+          <span class="rounded-full border border-white/12 px-3 py-1">إصدارات عربية وإنجليزية</span>
+          <span class="rounded-full border border-white/12 px-3 py-1">اقتباسات قادمة</span>
+        </div>
+        <div class="flex flex-wrap items-center justify-end gap-4 text-sm">
+          <span class="font-semibold text-gold">افتح السلسلة الأدبية</span>
+          <span class="text-sand/70 transition group-hover:text-white">شاهد الأعمال المنشورة واتجاه السلسلة والدعوة للتعاون</span>
+        </div>
+      </div>
+      <div class="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5">
+        <SmartImage
+          fallback="/media/literary/men-in-the-sun.svg"
+          alt="ملصق سلسلة إعادة تخيل الروايات"
+          class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+        />
+      </div>
+    </a>
+  </section>
 
   <Section title="الخدمات" copy="ابدأ بعرض مركز، ثم وسع العمل إلى بناء نظام أو تدريب فريق إذا كان المشروع يحتاج تنفيذا أعمق." className="text-right">
     <div class="grid gap-4 md:grid-cols-3">
