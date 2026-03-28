@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Returning to Haifa poster</title>
+  <desc id="desc">Cool restrained poster for the literary reimagining series.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1115" />
+      <stop offset="55%" stop-color="#15242b" />
+      <stop offset="100%" stop-color="#35545d" />
+    </linearGradient>
+    <radialGradient id="light" cx="26%" cy="20%" r="52%">
+      <stop offset="0%" stop-color="#d9cfb6" stop-opacity="0.18" />
+      <stop offset="35%" stop-color="#d9cfb6" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#d9cfb6" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e6d9bd" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#90b1b7" stop-opacity="0.02" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" fill="url(#bg)" />
+  <rect width="1600" height="1200" fill="url(#light)" />
+  <rect x="1020" y="170" width="250" height="610" rx="14" fill="#0a0d10" opacity="0.52" />
+  <rect x="1065" y="215" width="160" height="520" fill="#f0e7d5" opacity="0.1" />
+  <path d="M0 882C350 828 677 849 1010 911C1207 948 1398 957 1600 931V1200H0Z" fill="url(#sea)" />
+  <g stroke="#f0e7d5" stroke-opacity="0.12" stroke-width="3">
+    <path d="M205 300H760" />
+    <path d="M205 335H610" />
+    <path d="M205 370H720" />
+  </g>
+  <g fill="none" stroke="#f0e7d5" stroke-opacity="0.12" stroke-width="8">
+    <path d="M198 962C377 810 637 706 962 650" />
+    <path d="M198 1030C455 873 737 786 1118 770" />
+  </g>
+  <text x="205" y="528" fill="#f4efe6" font-size="110" font-family="Inter, Arial, sans-serif" font-weight="700" letter-spacing="2">Returning to Haifa</text>
+  <text x="205" y="612" fill="#d8c7a1" font-size="34" font-family="Inter, Arial, sans-serif" letter-spacing="8">LITERARY REIMAGINING SERIES</text>
+  <text x="205" y="705" fill="#f4efe6" font-size="42" font-family="Inter, Arial, sans-serif" opacity="0.86">Bilingual cinematic reinterpretation</text>
+</svg>

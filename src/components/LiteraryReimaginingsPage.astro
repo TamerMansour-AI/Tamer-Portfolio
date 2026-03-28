@@ -1,0 +1,275 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTAButtons from "./CTAButtons.astro";
+import Section from "./Section.astro";
+import SmartImage from "./SmartImage.astro";
+import { literaryWorksAr, literaryWorksEn } from "../data/literary";
+import { withBase } from "../utils/withBase";
+
+type Props = {
+  lang?: "en" | "ar";
+  path: string;
+};
+
+const { lang = "en", path } = Astro.props;
+const isArabic = lang === "ar";
+const works = isArabic ? literaryWorksAr : literaryWorksEn;
+
+const page = isArabic
+  ? {
+      title: "إعادة تخيّل الروايات بصريًا | تامر منصور",
+      description:
+        "سلسلة أدبية بصرية يعيد فيها تامر منصور تخيل روايات مؤثرة عبر السرد السينمائي المدعوم بالذكاء الاصطناعي، وبنسخ عربية وإنجليزية.",
+      heroEyebrow: "سلسلة سرد أدبي بصري",
+      heroTitle: "روايات يعاد تخيلها عبر سرد سينمائي مدعوم بالذكاء الاصطناعي.",
+      heroCopy:
+        "مسار أدبي بصري يترجم روايات ذات وزن ثقافي إلى تجارب قصيرة ومصقولة، تحفظ التوتر العاطفي للنص وتفتح له حياة جديدة عبر الصورة واللغة.",
+      primaryCta: "شاهد الأعمال المنشورة",
+      secondaryCta: "ابدأ محادثة",
+      conceptTitle: "فكرة السلسلة",
+      conceptCopy:
+        "هذا المسار لا يتعامل مع الأدب كمادة قابلة للاختصار فقط، بل كحقل للتأويل البصري. النصوص الكلاسيكية أو المهمة يعاد تقديمها هنا عبر تكييف ثنائي اللغة، وسير عمل سينمائي مدعوم بالذكاء الاصطناعي، وحس يحاول أن يبقي الذاكرة والجو والضغط الداخلي للنص حاضرة في الصورة.",
+      conceptCards: [
+        {
+          title: "ثنائي اللغة",
+          body: "كل عمل يمكن أن يتحرك بين العربية والإنجليزية من دون فقدان شخصيته أو حساسيته الثقافية."
+        },
+        {
+          title: "سرد لا يسطح النص",
+          body: "الهدف ليس تحويل الرواية إلى ملخص سريع، بل اختبار كيف تبقى النبرة والضغط العاطفي حاضرين في صيغة بصرية قصيرة."
+        },
+        {
+          title: "اتجاه قابل للنمو",
+          body: "هذه ليست تجربة منفصلة، بل خط سردي يمكن أن يتوسع إلى أعمال أدبية أخرى مع توفر الوقت والدعم والشراكات المناسبة."
+        }
+      ],
+      worksTitle: "الأعمال المنشورة",
+      worksCopy:
+        "الأعمال الحالية تقدم كنواة أولى للسلسلة. كل رواية تظهر هنا كمشروع واحد مع إصدارات لغوية متعددة.",
+      editionsLabel: "الإصدارات المتاحة",
+      supportTitle: "مستقبل السلسلة",
+      supportCopy:
+        "هذا الاتجاه السردي ما زال في طور البناء. أعمال أدبية أخرى قد تُعاد تخيلها لاحقا عندما تتوفر الشراكات الإنتاجية والدعم والجمهور القادر على منح هذا النوع من العمل الزمن والعناية التي يستحقها.",
+      supportBody:
+        "الدعم هنا لا يعني دفعا عشوائيا للمحتوى، بل تمكين خط جاد من التفسير الثقافي والإنتاج البصري. التعاون، التكليفات، الشراكات الإعلامية، أو الإسناد الإنتاجي يمكن أن يساعد في نقل الأعمال المقبلة من النية إلى الإصدار.",
+      bridgeTitle: "صلة هذا المسار بمشروع أطياف الأرض",
+      bridgeCopy:
+        "أمراء الرماد تنتمي إلى مشروع أطياف الأرض، وهو عالم سردي أوسع يقارب الذاكرة والبحث والتراث بوصفها حقلا واحدا. هذا المسار الأدبي البصري يعيش بجواره: أكثر حميمية في الشكل، لكنه منسجم معه في العناية بالمناخ والذاكرة والاستمرارية الثقافية.",
+      bridgeLink: "استكشف موقع أطياف الأرض",
+      finalTitle: "للتعاون أو التكليف أو دعم الأعمال المقبلة",
+      finalCopy:
+        "إذا كنت ترى في هذا الخط إمكانا لشراكة ثقافية أو إنتاجية أو إعلامية، فالمحادثة المناسبة يمكن أن تفتح الباب للعمل القادم.",
+      workLink: "ارجع إلى صفحة الأعمال",
+      workHref: "/ar/work/",
+      contactHref: "/ar/contact/",
+      ctaLabels: {
+        book: "احجز مكالمة",
+        whatsapp: "راسلني على واتساب"
+      }
+    }
+  : {
+      title: "Literary Reimaginings | Tamer Mansour",
+      description:
+        "A literary-visual storytelling line by Tamer Mansour, reimagining significant novels through cinematic AI workflows and bilingual adaptation.",
+      heroEyebrow: "Literary Visual Storytelling Series",
+      heroTitle: "Novels reimagined through cinematic AI storytelling.",
+      heroCopy:
+        "A curated storytelling line that reinterprets culturally significant novels as short visual works, preserving emotional weight while opening them to a new bilingual screen language.",
+      primaryCta: "Watch the published works",
+      secondaryCta: "Start a conversation",
+      conceptTitle: "What this series is",
+      conceptCopy:
+        "This line does not treat literature as material to be flattened into content. It approaches major texts as visual interpretation work: bilingual adaptation, cinematic AI workflows, and short-form storytelling designed to carry memory, atmosphere, and narrative pressure with care.",
+      conceptCards: [
+        {
+          title: "Bilingual by design",
+          body: "Each work can move between Arabic and English without losing tone, context, or cultural precision."
+        },
+        {
+          title: "Interpretation, not compression",
+          body: "The aim is not to summarize a novel quickly, but to test how its atmosphere and emotional logic can survive a visual shift."
+        },
+        {
+          title: "A series with room to grow",
+          body: "These first releases establish a literary line that can expand into more adaptations as the right support and production conditions emerge."
+        }
+      ],
+      worksTitle: "Published works",
+      worksCopy:
+        "The current releases serve as the opening core of the series. Each novel is presented as one project with multiple language editions.",
+      editionsLabel: "Available editions",
+      supportTitle: "Where the series can go next",
+      supportCopy:
+        "This storytelling line is still growing. More novels may be reimagined over time when the right production backing, collaborations, and audience support make it possible to treat the source material with the depth it deserves.",
+      supportBody:
+        "Support here is not about volume for its own sake. It is about enabling a serious body of literary-visual work. Collaboration, commissioning, media partnerships, and aligned production support can help move future adaptations from intention into release.",
+      bridgeTitle: "How this connects to Atyaf Al Ard",
+      bridgeCopy:
+        "Princes of Ashes belongs to Atyaf Al Ard, a broader heritage-driven story world where atmosphere, research, and memory are developed together. This literary reinterpretation line sits beside that ecosystem: more intimate in format, but aligned in its commitment to cultural continuity, atmosphere, and authored storytelling.",
+      bridgeLink: "Explore the Atyaf Al Ard website",
+      finalTitle: "For collaboration, commissioning, or future support",
+      finalCopy:
+        "If this literary line feels relevant to a cultural, media, or production partnership, the right conversation can help shape the next adaptation with care.",
+      workLink: "Back to selected work",
+      workHref: "/work/",
+      contactHref: "/contact/",
+      ctaLabels: {
+        book: "Book a Call",
+        whatsapp: "Message on WhatsApp"
+      }
+    };
+
+const atyafUrl = "https://tamermansour-ai.github.io/atyaf-al-ard-website/";
+---
+<BaseLayout title={page.title} description={page.description} path={path} lang={lang} dir={isArabic ? "rtl" : "ltr"}>
+  <section class="container-shell py-14 sm:py-20">
+    <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(212,175,106,0.22),transparent_36%),radial-gradient(circle_at_85%_20%,rgba(255,255,255,0.08),transparent_28%),linear-gradient(135deg,rgba(12,12,12,0.98),rgba(25,25,25,0.96))] px-6 py-8 sm:px-8 sm:py-10">
+      <div class={`grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end ${isArabic ? "text-right" : ""}`}>
+        <div>
+          <p class="text-xs uppercase tracking-[0.22em] text-gold">{page.heroEyebrow}</p>
+          <h1 class="mt-5 max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
+            {page.heroTitle}
+          </h1>
+          <p class="mt-5 max-w-2xl text-sm leading-relaxed text-sand/82 sm:text-base">
+            {page.heroCopy}
+          </p>
+          <div class={`mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap ${isArabic ? "sm:justify-end" : ""}`}>
+            <a
+              href="#featured-works"
+              class="inline-flex items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-ink shadow-glow hover:bg-gold-soft"
+            >
+              {page.primaryCta}
+            </a>
+            <a
+              href={withBase(page.contactHref)}
+              class="inline-flex items-center justify-center rounded-full border border-gold/60 px-5 py-3 text-sm font-semibold text-sand hover:border-gold hover:text-white"
+            >
+              {page.secondaryCta}
+            </a>
+          </div>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+          <article class={`glass-card p-5 ${isArabic ? "text-right" : ""}`}>
+            <p class="text-xs uppercase tracking-[0.18em] text-gold">2</p>
+            <p class="mt-3 text-sm leading-relaxed text-sand/78">{isArabic ? "روايتان منشورتان حتى الآن" : "Two novels published so far"}</p>
+          </article>
+          <article class={`glass-card p-5 ${isArabic ? "text-right" : ""}`}>
+            <p class="text-xs uppercase tracking-[0.18em] text-gold">4</p>
+            <p class="mt-3 text-sm leading-relaxed text-sand/78">{isArabic ? "إصدارات ثنائية اللغة بين العربية والإنجليزية" : "Published editions across Arabic and English"}</p>
+          </article>
+          <article class={`glass-card p-5 ${isArabic ? "text-right" : ""}`}>
+            <p class="text-xs uppercase tracking-[0.18em] text-gold">AI + Story</p>
+            <p class="mt-3 text-sm leading-relaxed text-sand/78">{isArabic ? "تأويل بصري أدبي مبني على الحس والهيكل لا على الضجيج" : "Literary interpretation shaped by atmosphere, structure, and judgment"}</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Section title={page.conceptTitle} copy={page.conceptCopy} className={isArabic ? "text-right" : ""}>
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        page.conceptCards.map((card) => (
+          <article class={`glass-card p-6 ${isArabic ? "text-right" : ""}`}>
+            <h2 class="text-lg font-semibold text-white">{card.title}</h2>
+            <p class="mt-3 text-sm leading-relaxed text-sand/78">{card.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section id="featured-works" title={page.worksTitle} copy={page.worksCopy} className={isArabic ? "text-right" : ""}>
+    <div class="grid gap-6 lg:grid-cols-2">
+      {
+        works.map((work) => (
+          <article class="glass-card overflow-hidden">
+            <div class="relative aspect-[4/3] w-full bg-white/5">
+              <SmartImage
+                candidates={work.thumbRemoteCandidates}
+                fallback={work.poster}
+                alt={work.title}
+                class="h-full w-full object-cover"
+              />
+            </div>
+            <div class={`space-y-4 p-6 ${isArabic ? "text-right" : ""}`}>
+              <div>
+                <p class="text-xs uppercase tracking-[0.18em] text-gold">{isArabic ? "إعادة تخيل أدبي بصري" : "Literary Visual Reimagining"}</p>
+                <h2 class="mt-3 text-2xl font-semibold leading-tight text-white">{work.title}</h2>
+                <p class="mt-2 text-sm font-medium text-white/80">{work.source}</p>
+              </div>
+              <p class="text-sm leading-relaxed text-sand/78">{work.description}</p>
+              <div>
+                <p class="text-xs uppercase tracking-[0.16em] text-gold">{page.editionsLabel}</p>
+                <div class={`mt-3 flex flex-col gap-3 sm:flex-row sm:flex-wrap ${isArabic ? "sm:justify-end" : ""}`}>
+                  {
+                    work.editions.map((edition) => (
+                      <a
+                        href={edition.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        class="inline-flex items-center justify-center rounded-full border border-gold/60 px-4 py-2 text-sm font-semibold text-sand hover:border-gold hover:text-white"
+                      >
+                        {edition.label}
+                      </a>
+                    ))
+                  }
+                </div>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section title={page.supportTitle} copy={page.supportCopy} className={isArabic ? "text-right" : ""}>
+    <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+      <article class={`glass-card p-6 ${isArabic ? "text-right" : ""}`}>
+        <h2 class="text-xl font-semibold text-white">{isArabic ? "كيف يكبر هذا الخط" : "How this line grows"}</h2>
+        <p class="mt-4 text-sm leading-relaxed text-sand/80">{page.supportBody}</p>
+      </article>
+      <article class={`glass-card p-6 ${isArabic ? "text-right" : ""}`}>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">{isArabic ? "Support / Collaboration" : "Support / Collaboration"}</p>
+        <ul class="mt-4 space-y-3 text-sm leading-relaxed text-sand/80">
+          <li>{isArabic ? "تكليفات أو شراكات إنتاجية لأعمال مقتبسة جديدة" : "Commissioning or production partnerships for new adaptations"}</li>
+          <li>{isArabic ? "شراكات ثقافية أو إعلامية تمنح العمل مسارا أوسع" : "Cultural or media partnerships that give the work a wider path"}</li>
+          <li>{isArabic ? "دعم انتقائي يساعد على منح النصوص القادمة وقتها وعنايتها" : "Selective backing that gives future texts the time and care they require"}</li>
+        </ul>
+      </article>
+    </div>
+  </Section>
+
+  <Section title={page.bridgeTitle} copy={page.bridgeCopy} className={isArabic ? "text-right" : ""}>
+    <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+      <article class={`glass-card p-6 ${isArabic ? "text-right" : ""}`}>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">{isArabic ? "أطياف الأرض" : "Atyaf Al Ard"}</p>
+        <h2 class="mt-3 text-xl font-semibold text-white">{isArabic ? "أمراء الرماد كأحد الوجوه السينمائية الأوسع" : "Princes of Ashes as the wider cinematic counterpart"}</h2>
+        <p class="mt-4 text-sm leading-relaxed text-sand/80">
+          {isArabic
+            ? "في حين تركز هذه الصفحة على الروايات المعاد تخيلها، فإن أمراء الرماد تمثل الباب الأوسع إلى عالم سردي تراثي وبحثي يمكن أن يتجاور مع هذا المسار الأدبي من دون أن يبتلعه."
+            : "While this page focuses on reimagined novels, Princes of Ashes represents the wider cinematic doorway into a heritage-driven story world that can sit beside this literary line without swallowing it."}
+        </p>
+        <a href={atyafUrl} target="_blank" rel="noreferrer" class="gold-link mt-5 inline-block text-sm font-semibold">
+          {page.bridgeLink}
+        </a>
+      </article>
+      <article class={`glass-card p-6 ${isArabic ? "text-right" : ""}`}>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">{isArabic ? "صلة الاتجاهين" : "Why the two directions belong together"}</p>
+        <p class="mt-4 text-sm leading-relaxed text-sand/80">
+          {isArabic
+            ? "كلاهما يعتمد على السرد المؤلف، والجو، وإحساس الذاكرة، لكن أحدهما يتحرك عبر النصوص الأدبية والآخر عبر عالم تراثي أوسع. وجودهما معا يوضح اتساع خط تامر السردي من دون تشتيت هويته."
+            : "Both directions depend on authored storytelling, atmosphere, and memory, but one moves through literary texts while the other expands into a wider heritage world. Together they clarify the range of Tamer's storytelling practice without fragmenting it."}
+        </p>
+      </article>
+    </div>
+  </Section>
+
+  <Section title={page.finalTitle} copy={page.finalCopy} className={isArabic ? "text-right" : ""}>
+    <CTAButtons bookHref={page.contactHref} labels={page.ctaLabels} className={isArabic ? "sm:justify-end" : ""} />
+    <div class={`mt-4 flex flex-wrap items-center gap-4 text-sm ${isArabic ? "justify-end" : ""}`}>
+      <a href={withBase(page.workHref)} class="gold-link font-semibold">{page.workLink}</a>
+      <a href={atyafUrl} target="_blank" rel="noreferrer" class="text-sand/75 transition hover:text-white">{isArabic ? "شاهد المسار السينمائي الأوسع" : "See the wider cinematic direction"}</a>
+    </div>
+  </Section>
+</BaseLayout>

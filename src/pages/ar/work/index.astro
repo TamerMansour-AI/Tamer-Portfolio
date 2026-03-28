@@ -41,6 +41,10 @@ import { withBase } from "../../../utils/withBase";
     <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {workItemsAr.map((item) => <WorkCard item={item} lang="ar" imageClass="h-52 w-full object-cover" />)}
     </div>
+    <div class="mt-8 flex flex-wrap items-center justify-end gap-4 text-sm">
+      <a href={withBase("/ar/literary-reimaginings/")} class="gold-link font-semibold">استكشف خط إعادة التخيل الأدبي</a>
+      <a href={withBase("/ar/contact/")} class="text-sand/75 transition hover:text-white">للتعاون أو لدعم الاقتباسات القادمة</a>
+    </div>
   </Section>
   <Section title={pinterestPlaceholderAr.title} copy={pinterestPlaceholderAr.description} className="text-right">
     <a href={pinterestPlaceholderAr.url} class="gold-link text-sm font-semibold" target="_blank" rel="noreferrer">

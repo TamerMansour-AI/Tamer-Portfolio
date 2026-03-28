@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Men in the Sun poster</title>
+  <desc id="desc">Warm cinematic poster for the literary reimagining series.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#150f0c" />
+      <stop offset="55%" stop-color="#3a2116" />
+      <stop offset="100%" stop-color="#8b4f24" />
+    </linearGradient>
+    <radialGradient id="sun" cx="72%" cy="22%" r="42%">
+      <stop offset="0%" stop-color="#f0c26a" stop-opacity="0.96" />
+      <stop offset="42%" stop-color="#d8973d" stop-opacity="0.58" />
+      <stop offset="100%" stop-color="#d8973d" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="sand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c48a54" stop-opacity="0.14" />
+      <stop offset="100%" stop-color="#f4d9aa" stop-opacity="0.02" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" fill="url(#bg)" />
+  <rect width="1600" height="1200" fill="url(#sun)" />
+  <path d="M0 955C268 832 506 796 797 836C1087 877 1316 825 1600 733V1200H0Z" fill="url(#sand)" />
+  <circle cx="1120" cy="315" r="205" fill="#f6d58e" opacity="0.1" />
+  <circle cx="1215" cy="264" r="118" fill="#f5c266" opacity="0.12" />
+  <g opacity="0.18">
+    <path d="M210 235H545" stroke="#f7d49b" stroke-width="3" />
+    <path d="M210 275H680" stroke="#f7d49b" stroke-width="3" />
+    <path d="M210 315H470" stroke="#f7d49b" stroke-width="3" />
+  </g>
+  <g fill="none" stroke="#f5d7a1" stroke-opacity="0.12" stroke-width="8">
+    <path d="M180 1020C315 835 522 700 825 618" />
+    <path d="M280 1080C438 906 685 782 1060 691" />
+  </g>
+  <text x="210" y="520" fill="#f8f1e4" font-size="120" font-family="Inter, Arial, sans-serif" font-weight="700" letter-spacing="3">Men in the Sun</text>
+  <text x="210" y="605" fill="#f1d4a1" font-size="34" font-family="Inter, Arial, sans-serif" letter-spacing="8">LITERARY REIMAGINING SERIES</text>
+  <text x="210" y="702" fill="#f8f1e4" font-size="44" font-family="Inter, Arial, sans-serif" opacity="0.88">Bilingual cinematic reinterpretation</text>
+</svg>

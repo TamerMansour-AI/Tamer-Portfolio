@@ -40,6 +40,10 @@ import { withBase } from "../../utils/withBase";
         workItemsEn.map((item) => <WorkCard item={item} lang="en" imageClass="h-52 w-full object-cover" />)
       }
     </div>
+    <div class="mt-8 flex flex-wrap items-center gap-4 text-sm">
+      <a href={withBase("/literary-reimaginings/")} class="gold-link font-semibold">Explore the literary reimaginings line</a>
+      <a href={withBase("/contact/")} class="text-sand/75 transition hover:text-white">Discuss collaboration or future adaptations</a>
+    </div>
   </Section>
   <Section title={pinterestPlaceholderEn.title} copy={pinterestPlaceholderEn.description}>
     <a href={pinterestPlaceholderEn.url} class="gold-link text-sm font-semibold" target="_blank" rel="noreferrer">
