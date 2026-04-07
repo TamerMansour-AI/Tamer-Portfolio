@@ -24,25 +24,25 @@ import { withBase } from "../../utils/withBase";
 
   <Section
     title="Services designed for clear next steps"
-    copy="Start with the sprint when strategy and direction need sharpening. Move into system setup when the team needs repeatable execution. Add workshops when capability transfer matters."
+    copy="Start with the sprint when the direction is still fuzzy. Move into system setup when the direction is clear but execution is messy. Choose workshops when the goal is capability transfer, standards, and stronger internal judgment."
   >
     <div class="mb-8 grid gap-4 md:grid-cols-3">
       <article class="glass-card p-5">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">Front Door</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">Start Here</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          The sprint is the entry point when the story, offer, or visual direction still needs sharper framing.
+          The right entry point depends on whether the problem is framing, execution, or capability. The page below is meant to make that decision obvious.
         </p>
       </article>
       <article class="glass-card p-5">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">Deeper Build</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">What Changes</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          System setup is for teams that already create, but need cleaner process, review, and output consistency.
+          Every offer below points to a proof page so visitors can connect the offer to visible work instead of relying on abstract claims alone.
         </p>
       </article>
       <article class="glass-card p-5">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">Capability Transfer</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">Next Step Logic</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          Workshops and advisory are for organizations that need stronger judgment and internal standards, not only delivery.
+          First choose the offer that matches the bottleneck. Then inspect the proof. Then open the right contact path.
         </p>
       </article>
     </div>
@@ -57,22 +57,42 @@ import { withBase } from "../../utils/withBase";
               <p><span class="font-semibold text-white">Best for:</span> {service.bestFor}</p>
               <p><span class="font-semibold text-white">Outcome:</span> {service.outcome}</p>
               <p><span class="font-semibold text-white">Choose this when:</span> {service.chooseWhen}</p>
+              <p><span class="font-semibold text-white">Next step:</span> {service.nextStep}</p>
             </div>
             <ul class="mt-4 space-y-2 text-sm text-sand/80">
               {service.deliverables.map((item) => <li>- {item}</li>)}
             </ul>
+            <div class="mt-5 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+              <p class="text-xs uppercase tracking-[0.18em] text-gold">Proof in the portfolio</p>
+              <h3 class="mt-3 text-lg font-semibold text-white">{service.proofTitle}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-sand/78">{service.proofSummary}</p>
+              <a href={withBase(service.proofHref)} class="gold-link mt-4 inline-block text-sm font-semibold">{service.proofCta}</a>
+            </div>
+            <div class="mt-5 flex flex-wrap items-center gap-4 text-sm">
+              <a
+                href={service.cta === "Message on WhatsApp" ? "https://wa.me/970599797245" : withBase("/contact/")}
+                class="rounded-full border border-gold/60 px-4 py-2 font-semibold text-sand transition hover:border-gold hover:text-white"
+              >
+                {service.cta}
+              </a>
+            </div>
           </article>
         ))
       }
     </div>
-    <a href={withBase("/work/")} class="gold-link mt-8 inline-block text-sm font-semibold">See the work behind this approach</a>
+    <div class="mt-8 flex flex-wrap items-center gap-4 text-sm">
+      <a href={withBase("/work/")} class="gold-link font-semibold">See the full proof layer</a>
+      <a href={withBase("/museum-of-echoes/")} class="text-sand/75 transition hover:text-white">Open Museum of Echoes</a>
+      <a href={withBase("/literary-reimaginings/")} class="text-sand/75 transition hover:text-white">Open Literary Reimaginings</a>
+    </div>
   </Section>
   <Section
     title="Ready to choose the right path?"
-    copy="If you are unsure where to start, begin with the sprint. It is the cleanest way to define direction before committing to a deeper build."
+    copy="If you are unsure where to start, begin with the sprint. If the direction is already clear and the problem is system execution, go straight to setup. If the real need is internal capability, workshops are the better fit."
   >
     <CTAButtons />
     <div class="mt-4 flex flex-wrap items-center gap-4 text-sm">
+      <a href={withBase("/contact/")} class="gold-link font-semibold">Open contact page</a>
       <a href={withBase("/about/")} class="text-sand/75 transition hover:text-white">Read how the practice connects story, teaching, and systems</a>
     </div>
   </Section>

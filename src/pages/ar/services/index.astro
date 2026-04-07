@@ -26,26 +26,26 @@ import { withBase } from "../../../utils/withBase";
 
   <Section
     title="خدمات مصممة لخطوة تالية واضحة"
-    copy="ابدأ بالعرض التمهيدي عندما يحتاج المشروع إلى وضوح في الاتجاه. انتقل إلى بناء النظام عندما يحتاج الفريق إلى تنفيذ متكرر. وأضف الورشات عندما يصبح نقل القدرة هو الأهم."
+    copy="ابدأ بالعرض التمهيدي عندما يكون الاتجاه لا يزال ضبابيا. انتقل إلى بناء النظام عندما يكون الاتجاه واضحا لكن التنفيذ متعثرًا. واختر الورشات عندما يكون المطلوب بناء قدرة ومعايير مشتركة."
     className="text-right"
   >
     <div class="mb-8 grid gap-4 md:grid-cols-3">
       <article class="glass-card p-5 text-right">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">المدخل الأول</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">ابدأ من هنا</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          العرض التمهيدي هو المدخل الأنسب عندما لا تزال القصة أو الخدمة أو الاتجاه البصري بحاجة إلى ضبط أوضح.
+          المدخل الصحيح يتحدد بحسب ما إذا كانت المشكلة في الصياغة أو التنفيذ أو بناء القدرة. هذه الصفحة مصممة لجعل الفرق واضحا بسرعة.
         </p>
       </article>
       <article class="glass-card p-5 text-right">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">البناء الأعمق</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">ما الذي تغير</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          إعداد النظام مناسب للفرق التي تنتج فعلا لكنها تحتاج عملية أنظف ومعيارا أوضح واستقرارا في المخرجات.
+          كل خدمة أدناه ترتبط الآن بدليل واضح داخل البورتفوليو، حتى تصبح الثقة مبنية على عمل ملموس لا على وصف تجريدي فقط.
         </p>
       </article>
       <article class="glass-card p-5 text-right">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">نقل القدرة</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">منطق الخطوة التالية</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          الورشات والاستشارات مناسبة عندما يكون المطلوب بناء حكم مهني داخلي لا مجرد تنفيذ وتسليم.
+          أولا اختر الخدمة التي تطابق العقدة الفعلية. ثم شاهد الدليل. ثم افتح مسار التواصل المناسب.
         </p>
       </article>
     </div>
@@ -60,23 +60,43 @@ import { withBase } from "../../../utils/withBase";
               <p><span class="font-semibold text-white">مناسب لـ:</span> {service.bestFor}</p>
               <p><span class="font-semibold text-white">النتيجة:</span> {service.outcome}</p>
               <p><span class="font-semibold text-white">اختره عندما:</span> {service.chooseWhen}</p>
+              <p><span class="font-semibold text-white">الخطوة التالية:</span> {service.nextStep}</p>
             </div>
             <ul class="mt-4 space-y-2 text-sm text-sand/80">
               {service.deliverables.map((item) => <li>- {item}</li>)}
             </ul>
+            <div class="mt-5 rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-right">
+              <p class="text-xs uppercase tracking-[0.18em] text-gold">دليل من البورتفوليو</p>
+              <h3 class="mt-3 text-lg font-semibold text-white">{service.proofTitle}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-sand/78">{service.proofSummary}</p>
+              <a href={withBase(service.proofHref)} class="gold-link mt-4 inline-block text-sm font-semibold">{service.proofCta}</a>
+            </div>
+            <div class="mt-5 flex flex-wrap items-center justify-end gap-4 text-sm">
+              <a
+                href={service.cta === "راسلني على واتساب" ? "https://wa.me/970599797245" : withBase("/ar/contact/")}
+                class="rounded-full border border-gold/60 px-4 py-2 font-semibold text-sand transition hover:border-gold hover:text-white"
+              >
+                {service.cta}
+              </a>
+            </div>
           </article>
         ))
       }
     </div>
-    <a href={withBase("/ar/work/")} class="gold-link mt-8 inline-block text-sm font-semibold">شاهد الأعمال التي تدعم هذا النهج</a>
+    <div class="mt-8 flex flex-wrap items-center justify-end gap-4 text-sm">
+      <a href={withBase("/ar/work/")} class="gold-link font-semibold">اطلع على طبقة الدلائل بكاملها</a>
+      <a href={withBase("/ar/museum-of-echoes/")} class="text-sand/75 transition hover:text-white">افتح متحف الأصداء</a>
+      <a href={withBase("/ar/literary-reimaginings/")} class="text-sand/75 transition hover:text-white">افتح إعادة تخيّل الروايات</a>
+    </div>
   </Section>
   <Section
     title="هل تريد اختيار المسار الأنسب؟"
-    copy="إذا لم تكن متأكدا من نقطة البداية فابدأ بالعرض التمهيدي. إنه أوضح طريقة لتحديد الاتجاه قبل الالتزام ببناء أعمق."
+    copy="إذا كنت غير متأكد من نقطة البداية فابدأ بالعرض التمهيدي. إذا كان الاتجاه واضحا والمشكلة في التنفيذ فاذهب إلى بناء النظام مباشرة. أما إذا كان الاحتياج الحقيقي هو القدرة الداخلية فالورشات هي الأنسب."
     className="text-right"
   >
     <CTAButtons bookHref="/ar/contact/" labels={{ book: "احجز مكالمة", whatsapp: "راسلني على واتساب" }} />
     <div class="mt-4 flex flex-wrap items-center justify-end gap-4 text-sm">
+      <a href={withBase("/ar/contact/")} class="gold-link font-semibold">افتح صفحة التواصل</a>
       <a href={withBase("/ar/about/")} class="text-sand/75 transition hover:text-white">اقرأ كيف يجمع هذا النهج بين القصة والتعليم والأنظمة</a>
     </div>
   </Section>
