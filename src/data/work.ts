@@ -52,6 +52,29 @@ export type WorkItem = {
 
 const workSeed: WorkSeedItem[] = [
   {
+    title_en: "Museum of Echoes",
+    title_ar: "متحف الأصداء",
+    type_en: "Bilingual Music Archive Platform",
+    type_ar: "منصة أرشيف موسيقي ثنائية اللغة",
+    context_en: "Editorial listening world and archive-shaped product",
+    context_ar: "عالم استماع تحريري ومنتج رقمي مبني بمنطق الأرشيف",
+    desc_en:
+      "A premium bilingual listening platform that turns original AI-created music into rooms, shelves, and guided discovery paths rather than loose uploads, combining curation, interface thinking, and release structure.",
+    desc_ar:
+      "منصة استماع ثنائية اللغة تقدم الموسيقى الأصلية المدعومة بالذكاء الاصطناعي كغرف وأرفف ومسارات اكتشاف مقصودة بدل أن تتركها كملفات منفصلة، عبر مزج الإخراج التحريري بمنطق الواجهة وبنية الإصدار.",
+    url_en: "/museum-of-echoes/",
+    url_ar: "/ar/museum-of-echoes/",
+    linkLabel_en: "Open project page",
+    linkLabel_ar: "افتح صفحة المشروع",
+    secondaryUrl: "https://museum-of-echoes.pages.dev/",
+    secondaryLabel_en: "Open live platform",
+    secondaryLabel_ar: "افتح المنصة الحية",
+    tags_en: ["Bilingual Product", "Listening Archive", "Original Music"],
+    tags_ar: ["منتج ثنائي اللغة", "أرشيف استماع", "موسيقى أصلية"],
+    thumbLocal: "/media/museum/museum-of-echoes-home.jpg",
+    featured: true
+  },
+  {
     title_en: "Men in the Sun - Retold in 1980s Anime Style",
     title_ar: "رجال في الشمس - إعادة سرد بأسلوب أنمي الثمانينيات",
     type_en: "AI Visual Storytelling",

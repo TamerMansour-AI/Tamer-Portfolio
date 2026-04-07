@@ -118,6 +118,39 @@ const heroPoster = withBase("/media/hero/hero-poster.png");
     </div>
   </section>
 
+  <section class="container-shell pb-8 sm:pb-12">
+    <a
+      href={withBase("/ar/museum-of-echoes/")}
+      class="group grid gap-6 overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_right,rgba(212,175,106,0.18),transparent_34%),linear-gradient(140deg,rgba(14,14,14,0.98),rgba(24,24,24,0.96))] p-6 transition hover:border-gold/40 hover:bg-[radial-gradient(circle_at_top_right,rgba(212,175,106,0.24),transparent_34%),linear-gradient(140deg,rgba(14,14,14,0.98),rgba(28,28,28,0.98))] lg:grid-cols-[1.05fr_0.95fr] lg:items-center"
+    >
+      <div class="space-y-4 text-right">
+        <p class="text-xs uppercase tracking-[0.22em] text-gold">مشروع منصة مميزة</p>
+        <h2 class="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+          متحف الأصداء يجمع الموسيقى الأصلية، والتحرير، ومنطق المنتج ثنائي اللغة في أرشيف عام واحد.
+        </h2>
+        <p class="max-w-2xl text-sm leading-relaxed text-sand/80 sm:text-base">
+          عالم استماع فاخر تتحول فيه القطع إلى غرف ودُفعات ومداخل تحريرية واضحة. هذا المشروع يثبت قدرة تامر على صياغة الوسيط نفسه: منطق الأرشيف، وتجربة الواجهة، وبنية الإصدار، لا المادة الصوتية وحدها.
+        </p>
+        <div class="flex flex-wrap justify-end gap-2 text-xs uppercase tracking-[0.18em] text-sand/70">
+          <span class="rounded-full border border-white/12 px-3 py-1">أرشيف ثنائي اللغة</span>
+          <span class="rounded-full border border-white/12 px-3 py-1">استماع تحريري</span>
+          <span class="rounded-full border border-white/12 px-3 py-1">منصة عامة حية</span>
+        </div>
+        <div class="flex flex-wrap items-center justify-end gap-4 text-sm">
+          <span class="font-semibold text-gold">شاهد متحف الأصداء كدليل في البورتفوليو</span>
+          <span class="text-sand/70 transition group-hover:text-white">افتح صفحة المشروع ثم استكشف المنصة الحية</span>
+        </div>
+      </div>
+      <div class="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5">
+        <SmartImage
+          fallback="/media/museum/museum-of-echoes-home.jpg"
+          alt="معاينة مشروع متحف الأصداء"
+          class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+        />
+      </div>
+    </a>
+  </section>
+
   <Section
     title="ما الذي أقدمه"
     copy="مزيج من الجودة السينمائية والتدريب العملي وتطبيقات الذكاء الاصطناعي القابلة للتنفيذ."
@@ -141,7 +174,7 @@ const heroPoster = withBase("/media/hero/hero-poster.png");
 
   <Section
     title="أعمال مختارة"
-    copy="أربعة أمثلة رئيسية تجمع بين إعادة السرد الأدبي، والتريلر التراثي، والتعليم البصري المتحرك، وتصميم المعرفة عبر العروض."
+    copy="خمسة أمثلة رئيسية تجمع بين إعادة السرد الأدبي، وبناء العالم التراثي، ومنصة أرشيف موسيقي ثنائية اللغة، والتعليم البصري المتحرك، وتصميم المعرفة عبر العروض."
     className="text-right"
   >
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

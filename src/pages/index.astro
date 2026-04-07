@@ -117,6 +117,39 @@ const heroPoster = withBase("/media/hero/hero-poster.png");
     </div>
   </section>
 
+  <section class="container-shell pb-8 sm:pb-12">
+    <a
+      href={withBase("/museum-of-echoes/")}
+      class="group grid gap-6 overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(212,175,106,0.18),transparent_34%),linear-gradient(140deg,rgba(14,14,14,0.98),rgba(24,24,24,0.96))] p-6 transition hover:border-gold/40 hover:bg-[radial-gradient(circle_at_top_left,rgba(212,175,106,0.24),transparent_34%),linear-gradient(140deg,rgba(14,14,14,0.98),rgba(28,28,28,0.98))] lg:grid-cols-[0.95fr_1.05fr] lg:items-center"
+    >
+      <div class="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5">
+        <SmartImage
+          fallback="/media/museum/museum-of-echoes-home.jpg"
+          alt="Museum of Echoes project preview"
+          class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+        />
+      </div>
+      <div class="space-y-4">
+        <p class="text-xs uppercase tracking-[0.22em] text-gold">Featured Platform Project</p>
+        <h2 class="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+          Museum of Echoes brings original music, curation, and bilingual product thinking into one public archive.
+        </h2>
+        <p class="max-w-2xl text-sm leading-relaxed text-sand/80 sm:text-base">
+          A premium listening world where tracks become rooms, batches, and editorial entry points. It proves Tamer&apos;s ability to shape not only media, but the archive logic, interface, and release structure around it.
+        </p>
+        <div class="flex flex-wrap gap-2 text-xs uppercase tracking-[0.18em] text-sand/70">
+          <span class="rounded-full border border-white/12 px-3 py-1">Bilingual archive</span>
+          <span class="rounded-full border border-white/12 px-3 py-1">Editorial listening</span>
+          <span class="rounded-full border border-white/12 px-3 py-1">Live public platform</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 text-sm">
+          <span class="font-semibold text-gold">See Museum of Echoes as portfolio proof</span>
+          <span class="text-sand/70 transition group-hover:text-white">Open the project page, then explore the live platform</span>
+        </div>
+      </div>
+    </a>
+  </section>
+
   <Section
     title="What I Build"
     copy="I combine cinematic quality, training depth, and practical AI implementation so your team can ship better work consistently."
@@ -139,7 +172,7 @@ const heroPoster = withBase("/media/hero/hero-poster.png");
 
   <Section
     title="Selected Work"
-    copy="Four flagship examples across literary retelling, heritage trailer development, motion-led visual education, and book-to-deck knowledge design."
+    copy="Five flagship examples across literary retelling, heritage worldbuilding, a bilingual music archive platform, motion-led visual education, and book-to-deck knowledge design."
   >
     <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
       {

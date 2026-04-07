@@ -1,0 +1,229 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTAButtons from "./CTAButtons.astro";
+import Section from "./Section.astro";
+import SmartImage from "./SmartImage.astro";
+import { museumRoomsAr, museumRoomsEn } from "../data/museum";
+import { withBase } from "../utils/withBase";
+
+type Props = {
+  lang?: "en" | "ar";
+  path: string;
+};
+
+const { lang = "en", path } = Astro.props;
+const isArabic = lang === "ar";
+const rooms = isArabic ? museumRoomsAr : museumRoomsEn;
+const liveUrl = "https://museum-of-echoes.pages.dev/";
+
+const page = isArabic
+  ? {
+      title: "متحف الأصداء | تامر منصور",
+      description:
+        "متحف الأصداء مشروع أرشيف موسيقي ثنائي اللغة يحول الموسيقى الأصلية إلى تجربة استماع تحريرية مصممة بعناية عبر الواجهة والهوية والهيكلة.",
+      heroEyebrow: "مشروع رقمي مميز",
+      heroTitle: "متحف الأصداء يحول الموسيقى الأصلية إلى عالم استماع وأرشيف منسق.",
+      heroCopy:
+        "مشروع رقمي ثنائي اللغة يقدم الأعمال الموسيقية الأصلية كغرف ومسارات ومداخل تحريرية، لا كملفات معزولة. واجهته الحالية تظهر عبر تجربة The Night Archive، لكن منطقه الأعمق هو أرشفة الاستماع بوصفها ممارسة سردية ومنتجا رقميا كاملا.",
+      primaryCta: "استكشف المشروع الحي",
+      secondaryCta: "تواصل حول مشروع مشابه",
+      overviewTitle: "ما الذي يمثله هذا المشروع",
+      overviewCopy:
+        "يمثل متحف الأصداء مستوى مختلفا من التنفيذ: ليس مجرد قطعة موسيقية أو غلاف، بل منصة تجمع بين الإخراج الإبداعي، والهوية، والهيكلة، واكتشاف المحتوى، ومنطق الأرشيف.",
+      proofCards: [
+        {
+          title: "منطق أرشيفي واضح",
+          body: "الموسيقى تنظم هنا كغرف وأرفف ودُفعات تحريرية، ما يعطي كل إصدار سياقا وبنية ومسارا للدخول."
+        },
+        {
+          title: "حس منتج ثنائي اللغة",
+          body: "الواجهة، والأسماء، والدخول إلى المحتوى، والعلاقة بين العربية والإنجليزية كلها تظهر كقرار منتجي واع لا كترجمة سطحية."
+        },
+        {
+          title: "إخراج إبداعي + تفكير نظمي",
+          body: "المشروع يثبت أن الاتجاه الإبداعي يمكن أن يمتد إلى منطق منصة كاملة: تصنيف، اكتشاف، وعرض يرفع قيمة العمل نفسه."
+        }
+      ],
+      roomsTitle: "داخل العالم",
+      roomsCopy:
+        "هذه الأمثلة لا تمثل مجرد أغان منفصلة، بل طريقة بناء المشروع: طبقات تحريرية، هويات صوتية، ومسارات استماع متمايزة.",
+      whyTitle: "ما الذي يثبته هذا في البورتفوليو",
+      whyCopy:
+        "يضيف متحف الأصداء دليلا على قدرة تامر على بناء تجربة رقمية مميزة حول محتوى أصلي: من الفكرة والهوية إلى العرض والتصنيف ودعوة الجمهور للدخول.",
+      capabilities: [
+        "إخراج منصة إبداعية وليس فقط إخراج أصل بصري منفرد",
+        "هيكلة محتوى قابلة للتوسع مع إحساس تحريري واضح",
+        "واجهة ثنائية اللغة لها ذوق وهوية وليست مجرد طبقة ترجمة",
+        "ربط بين الحس الثقافي، ومنطق المنتج، وتجربة الجمهور"
+      ],
+      serviceBridgeTitle: "ما الخدمة أو القدرة التي يتصل بها",
+      serviceBridgeBody:
+        "هذا المشروع يقف في تقاطع صياغة القصة، وتصميم الأنظمة، وبناء التجارب الرقمية ذات الهوية. إنه دليل على أن العمل يمكن أن يبدأ باتجاه إبداعي ثم يمتد إلى بنية منتج كاملة قابلة للنشر.",
+      serviceLink: "استكشف مسار الخدمات",
+      finalTitle: "للشراكة أو التكليف أو تطوير اتجاه مشابه",
+      finalCopy:
+        "إذا كنت تحتاج منصة أرشيفية، أو تجربة محتوى ثنائية اللغة، أو خطا إبداعيا يحول المواد الأصلية إلى عالم رقمي أكثر جاذبية، فهذه محادثة جديرة بأن تبدأ.",
+      workLink: "ارجع إلى الأعمال",
+      workHref: "/ar/work/",
+      servicesHref: "/ar/services/",
+      contactHref: "/ar/contact/",
+      ctaLabels: {
+        book: "احجز مكالمة",
+        whatsapp: "راسلني على واتساب"
+      },
+      liveLink: "افتح Museum of Echoes",
+      liveCaption: "النسخة العامة الحالية تظهر من خلال تجربة The Night Archive وتوضح طبقات الأرشيف والاستماع والدخول التحريري."
+    }
+  : {
+      title: "Museum of Echoes | Tamer Mansour",
+      description:
+        "Museum of Echoes is a premium bilingual listening archive that turns original music into an editorial product experience through curation, interface thinking, and system design.",
+      heroEyebrow: "Featured Digital Project",
+      heroTitle: "Museum of Echoes turns original music into a curated listening archive.",
+      heroCopy:
+        "A bilingual digital product that organizes original music as rooms, shelves, and editorial entry paths instead of isolated uploads. The current public experience appears through The Night Archive, but the deeper logic is a serious archive product shaped by curation, interface, and release structure.",
+      primaryCta: "Explore the live project",
+      secondaryCta: "Discuss a related build",
+      overviewTitle: "What this project represents",
+      overviewCopy:
+        "Museum of Echoes shows a different level of execution: not only track creation or cover direction, but a platform where identity, curation, discovery, and archive logic all work together.",
+      proofCards: [
+        {
+          title: "Clear archive logic",
+          body: "The music is organized as rooms, shelves, batches, and guided entry points, giving each release context instead of leaving it as a loose upload."
+        },
+        {
+          title: "Bilingual product sensibility",
+          body: "Language, interface flow, naming, and listening entry points all feel product-led rather than translated as an afterthought."
+        },
+        {
+          title: "Creative direction with systems thinking",
+          body: "The project proves that visual and sonic authorship can extend into classification, discovery, and a full digital experience."
+        }
+      ],
+      roomsTitle: "Inside the archive",
+      roomsCopy:
+        "These examples are not just tracks. They show how the project is built: editorial layers, distinct listening identities, and a clear sense of curation.",
+      whyTitle: "What this proves inside the portfolio",
+      whyCopy:
+        "Museum of Echoes adds stronger execution proof to the portfolio: the ability to turn original cultural material into a premium digital product with taste, structure, and a public-facing experience.",
+      capabilities: [
+        "Creative direction at the platform level, not only the asset level",
+        "Scalable content architecture with a clear editorial point of view",
+        "Bilingual interface thinking that feels authored, not bolted on",
+        "A bridge between cultural taste, product logic, and audience experience"
+      ],
+      serviceBridgeTitle: "What capability it connects to",
+      serviceBridgeBody:
+        "This project sits at the intersection of story framing, system design, and digital experience building. It shows how creative direction can extend into a publishable product with stronger structure and discoverability.",
+      serviceLink: "Explore the service path",
+      finalTitle: "For collaboration, commissioning, or a related platform build",
+      finalCopy:
+        "If you need an archive-shaped product, a bilingual content experience, or a stronger system around original material, this is the kind of project conversation worth having.",
+      workLink: "Back to selected work",
+      workHref: "/work/",
+      servicesHref: "/services/",
+      contactHref: "/contact/",
+      ctaLabels: {
+        book: "Book a Call",
+        whatsapp: "Message on WhatsApp"
+      },
+      liveLink: "Open Museum of Echoes",
+      liveCaption: "The current public version lives through The Night Archive experience and shows the archive, discovery, and authored listening layers in motion."
+    };
+---
+<BaseLayout title={page.title} description={page.description} path={path} lang={lang} dir={isArabic ? "rtl" : "ltr"}>
+  <section class="container-shell py-14 sm:py-20">
+    <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(212,175,106,0.22),transparent_34%),radial-gradient(circle_at_82%_18%,rgba(255,255,255,0.08),transparent_22%),linear-gradient(135deg,rgba(12,12,12,0.98),rgba(25,25,25,0.96))] px-6 py-8 sm:px-8 sm:py-10">
+      <div class={`grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center ${isArabic ? "text-right" : ""}`}>
+        <div class="space-y-5">
+          <p class="text-xs uppercase tracking-[0.22em] text-gold">{page.heroEyebrow}</p>
+          <h1 class="max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">{page.heroTitle}</h1>
+          <p class="max-w-2xl text-sm leading-relaxed text-sand/82 sm:text-base">{page.heroCopy}</p>
+          <div class={`flex flex-col gap-3 sm:flex-row sm:flex-wrap ${isArabic ? "sm:justify-end" : ""}`}>
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-ink shadow-glow hover:bg-gold-soft"
+            >
+              {page.primaryCta}
+            </a>
+            <a
+              href={withBase(page.contactHref)}
+              class="inline-flex items-center justify-center rounded-full border border-gold/60 px-5 py-3 text-sm font-semibold text-sand hover:border-gold hover:text-white"
+            >
+              {page.secondaryCta}
+            </a>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/5">
+            <SmartImage fallback="/media/museum/museum-of-echoes-home.jpg" alt="Museum of Echoes live project preview" class="w-full object-cover" />
+          </div>
+          <p class={`text-sm leading-relaxed text-sand/72 ${isArabic ? "text-right" : ""}`}>{page.liveCaption}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Section title={page.overviewTitle} copy={page.overviewCopy} className={isArabic ? "text-right" : ""}>
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        page.proofCards.map((card) => (
+          <article class={`glass-card p-6 ${isArabic ? "text-right" : ""}`}>
+            <h2 class="text-lg font-semibold text-white">{card.title}</h2>
+            <p class="mt-3 text-sm leading-relaxed text-sand/78">{card.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section title={page.roomsTitle} copy={page.roomsCopy} className={isArabic ? "text-right" : ""}>
+    <div class="grid gap-6 lg:grid-cols-3">
+      {
+        rooms.map((room) => (
+          <article class="glass-card overflow-hidden">
+            <div class="relative aspect-[4/3] w-full bg-white/5">
+              <SmartImage fallback={room.image} alt={room.title} class="h-full w-full object-cover" />
+            </div>
+            <div class={`space-y-3 p-5 ${isArabic ? "text-right" : ""}`}>
+              <p class="text-xs uppercase tracking-[0.18em] text-gold">{room.label}</p>
+              <h2 class="text-xl font-semibold leading-tight text-white">{room.title}</h2>
+              <p class="text-sm leading-relaxed text-sand/78">{room.description}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section title={page.whyTitle} copy={page.whyCopy} className={isArabic ? "text-right" : ""}>
+    <div class="grid gap-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-start">
+      <article class={`glass-card p-6 ${isArabic ? "text-right" : ""}`}>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">{isArabic ? "ما يثبته المشروع" : "What the project demonstrates"}</p>
+        <ul class="mt-4 space-y-3 text-sm leading-relaxed text-sand/80">
+          {page.capabilities.map((item) => <li>- {item}</li>)}
+        </ul>
+      </article>
+      <article class={`glass-card p-6 ${isArabic ? "text-right" : ""}`}>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">{isArabic ? "صلة المشروع بمسار الخدمات" : "Related service direction"}</p>
+        <h2 class="mt-3 text-xl font-semibold text-white">{page.serviceBridgeTitle}</h2>
+        <p class="mt-4 text-sm leading-relaxed text-sand/80">{page.serviceBridgeBody}</p>
+        <div class={`mt-5 flex flex-wrap items-center gap-4 text-sm ${isArabic ? "justify-end" : ""}`}>
+          <a href={withBase(page.servicesHref)} class="gold-link font-semibold">{page.serviceLink}</a>
+          <a href={liveUrl} target="_blank" rel="noreferrer" class="text-sand/75 transition hover:text-white">{page.liveLink}</a>
+        </div>
+      </article>
+    </div>
+  </Section>
+
+  <Section title={page.finalTitle} copy={page.finalCopy} className={isArabic ? "text-right" : ""}>
+    <CTAButtons bookHref={page.contactHref} labels={page.ctaLabels} className={isArabic ? "sm:justify-end" : ""} />
+    <div class={`mt-4 flex flex-wrap items-center gap-4 text-sm ${isArabic ? "justify-end" : ""}`}>
+      <a href={withBase(page.workHref)} class="gold-link font-semibold">{page.workLink}</a>
+      <a href={liveUrl} target="_blank" rel="noreferrer" class="text-sand/75 transition hover:text-white">{page.liveLink}</a>
+    </div>
+  </Section>
+</BaseLayout>
