@@ -15,6 +15,22 @@ const { lang = "en", path } = Astro.props;
 const isArabic = lang === "ar";
 const rooms = isArabic ? museumRoomsAr : museumRoomsEn;
 const liveUrl = "https://museum-of-echoes.pages.dev/";
+const pageUrl = `https://tamermansour-ai.github.io/Tamer-Portfolio${path}`;
+const museumSchema = {
+  "@type": "CreativeWork",
+  name: isArabic ? "متحف الأصداء" : "Museum of Echoes",
+  description: isArabic
+    ? "منصة أرشيف موسيقي ثنائية اللغة تجمع بين الإخراج الإبداعي وبنية المنتج ومنطق الاكتشاف."
+    : "A bilingual music archive platform that combines creative direction, editorial curation, and product-system thinking.",
+  url: pageUrl,
+  image: "https://tamermansour-ai.github.io/Tamer-Portfolio/media/museum/museum-of-echoes-home.jpg",
+  creator: {
+    "@type": "Person",
+    name: "Tamer Mansour"
+  },
+  sameAs: liveUrl,
+  genre: isArabic ? "أرشيف موسيقي ثنائي اللغة" : "Bilingual music archive"
+};
 
 const page = isArabic
   ? {
@@ -75,9 +91,9 @@ const page = isArabic
       liveCaption: "النسخة العامة الحالية تظهر من خلال تجربة The Night Archive وتوضح طبقات الأرشيف والاستماع والدخول التحريري."
     }
   : {
-      title: "Museum of Echoes | Tamer Mansour",
+      title: "Museum of Echoes Project | Bilingual Music Archive and Product System | Tamer Mansour",
       description:
-        "Museum of Echoes is a premium bilingual listening archive that turns original music into an editorial product experience through curation, interface thinking, and system design.",
+        "Museum of Echoes is a bilingual music archive and editorial listening platform by Tamer Mansour, showing product direction, archive logic, and system-led cultural presentation.",
       heroEyebrow: "Featured Digital Project",
       heroTitle: "Museum of Echoes turns original music into a curated listening archive.",
       heroCopy:
@@ -130,9 +146,18 @@ const page = isArabic
       },
       liveLink: "Open Museum of Echoes",
       liveCaption: "The current public version lives through The Night Archive experience and shows the archive, discovery, and authored listening layers in motion."
-    };
+};
 ---
-<BaseLayout title={page.title} description={page.description} path={path} lang={lang} dir={isArabic ? "rtl" : "ltr"}>
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  path={path}
+  lang={lang}
+  dir={isArabic ? "rtl" : "ltr"}
+  image="/media/museum/museum-of-echoes-home.jpg"
+  pageType="CollectionPage"
+  schema={museumSchema}
+>
   <section class="container-shell py-14 sm:py-20">
     <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(212,175,106,0.22),transparent_34%),radial-gradient(circle_at_82%_18%,rgba(255,255,255,0.08),transparent_22%),linear-gradient(135deg,rgba(12,12,12,0.98),rgba(25,25,25,0.96))] px-6 py-8 sm:px-8 sm:py-10">
       <div class={`grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center ${isArabic ? "text-right" : ""}`}>
@@ -166,6 +191,43 @@ const page = isArabic
       </div>
     </div>
   </section>
+
+  <Section
+    title={isArabic ? "ملخص سريع" : "Quick summary"}
+    copy={
+      isArabic
+        ? "هذه الصفحة توضح بسرعة ما هو المشروع، وما الذي يثبته داخل البورتفوليو، ومتى يصبح مرجعا مناسبا لقرار أو تعاون أو بناء مشابه."
+        : "A short summary layer for visitors and answer engines: what the project is, what it proves, and when it is the right reference."
+    }
+    className={isArabic ? "text-right" : ""}
+  >
+    <div class="grid gap-4 md:grid-cols-3">
+      <article class={`glass-card p-5 ${isArabic ? "text-right" : ""}`}>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">{isArabic ? "ما هو" : "What it is"}</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">
+          {isArabic
+            ? "أرشيف موسيقي ومنتج رقمي ثنائي اللغة يعامل الصوت كغرف ومسارات تحريرية لا كملفات منفصلة."
+            : "A bilingual music archive and digital product that treats listening as rooms, shelves, and editorial entry points instead of loose uploads."}
+        </p>
+      </article>
+      <article class={`glass-card p-5 ${isArabic ? "text-right" : ""}`}>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">{isArabic ? "ما الذي يثبته" : "What it proves"}</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">
+          {isArabic
+            ? "أنه يمكن ربط الذوق الثقافي والهوية البصرية وبنية المنتج في تجربة عامة قابلة للاستخدام والاستكشاف."
+            : "It proves that cultural taste, visual identity, and product structure can be combined into a public-facing experience people can actually navigate."}
+        </p>
+      </article>
+      <article class={`glass-card p-5 ${isArabic ? "text-right" : ""}`}>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">{isArabic ? "أفضل استخدام له كمرجع" : "Best fit as proof"}</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">
+          {isArabic
+            ? "مرجع قوي عندما يحتاج المشروع إلى بنية أرشيفية أو تجربة محتوى ثنائية اللغة أو منتجا ثقافيا ذا منطق اكتشاف واضح."
+            : "A strong proof page when the work needs archive structure, bilingual product direction, or a cultural platform with clear discovery logic."}
+        </p>
+      </article>
+    </div>
+  </Section>
 
   <Section title={page.overviewTitle} copy={page.overviewCopy} className={isArabic ? "text-right" : ""}>
     <div class="grid gap-4 md:grid-cols-3">

@@ -14,6 +14,24 @@ type Props = {
 const { lang = "en", path } = Astro.props;
 const isArabic = lang === "ar";
 const decks = isArabic ? deckItemsAr : deckItemsEn;
+const pageUrl = `https://tamermansour-ai.github.io/Tamer-Portfolio${path}`;
+const deckSchema = {
+  "@type": "CollectionPage",
+  name: isArabic ? "إعادة بناء الكتب كعروض شرائح" : "Book-to-Deck Reconstructions",
+  description: isArabic
+    ? "معرض أعمال يحول الكتب والمواد الفكرية الكثيفة إلى عروض بصرية أوضح للتدريس والإحاطة والنقاش."
+    : "A curated gallery showing how dense books and source material can become clear visual systems for teaching, briefing, and structured communication.",
+  url: pageUrl,
+  creator: {
+    "@type": "Person",
+    name: "Tamer Mansour"
+  },
+  hasPart: decks.map((deck) => ({
+    "@type": "CreativeWork",
+    name: deck.title,
+    description: deck.description
+  }))
+};
 
 const page = isArabic
   ? {
@@ -56,9 +74,9 @@ const page = isArabic
       }
     }
   : {
-      title: "Book-to-Deck Reconstructions | Tamer Mansour",
+      title: "Book-to-Deck Reconstructions | Knowledge Design and Educational Slides | Tamer Mansour",
       description:
-        "A curated set of book-to-deck reconstructions by Tamer Mansour, showing how dense material can become sharp, teachable visual systems.",
+        "Book-to-deck reconstructions by Tamer Mansour, showing how dense books and source material can become clearer teaching systems, briefings, and visual arguments.",
       heroTitle: "Book-to-deck reconstructions",
       heroCopy:
         "Three exported deck examples that show how dense books can become clear visual systems for teaching, briefing, and strategic communication.",
@@ -93,9 +111,55 @@ const page = isArabic
         book: "Book a Call",
         whatsapp: "Message on WhatsApp"
       }
-    };
+};
 ---
-<BaseLayout title={page.title} description={page.description} path={path} lang={lang} dir={isArabic ? "rtl" : "ltr"}>
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  path={path}
+  lang={lang}
+  dir={isArabic ? "rtl" : "ltr"}
+  image="/media/decks/digital-prometheus/cover.jpg"
+  pageType="CollectionPage"
+  schema={deckSchema}
+>
+  <Section
+    title={isArabic ? "ملخص سريع" : "Quick summary"}
+    copy={
+      isArabic
+        ? "هذه الصفحة تساعد الزائر ومحركات الإجابة على فهم ماهية هذا العمل، وما الذي يثبته، ولماذا هو مهم داخل مسار الخدمات."
+        : "A clear summary layer for visitors and answer engines: what this work is, what it proves, and when it matters."
+    }
+    className={isArabic ? "text-right" : ""}
+  >
+    <div class="grid gap-4 md:grid-cols-3">
+      <article class={`glass-card p-5 ${isArabic ? "text-right" : ""}`}>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">{isArabic ? "ما هو" : "What it is"}</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">
+          {isArabic
+            ? "مجموعة مختارة من عروض مبنية من كتب ومواد فكرية كثيفة أعيد تنظيمها بصريا لتصبح أوضح وأسهل في العرض والتدريس."
+            : "A curated set of exported slide decks built from dense books and source material, reorganized into clearer visual teaching and briefing formats."}
+        </p>
+      </article>
+      <article class={`glass-card p-5 ${isArabic ? "text-right" : ""}`}>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">{isArabic ? "ما الذي يثبته" : "What it proves"}</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">
+          {isArabic
+            ? "أن تصميم المعرفة هنا يعني تنظيم الحجة والتسلسل والإيقاع، لا مجرد تزيين الشرائح."
+            : "It proves a knowledge-design capability: shaping sequence, argument, pacing, and legibility, not just decorating slides."}
+        </p>
+      </article>
+      <article class={`glass-card p-5 ${isArabic ? "text-right" : ""}`}>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">{isArabic ? "أفضل استخدام له كمرجع" : "Best fit as proof"}</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">
+          {isArabic
+            ? "مرجع قوي عندما تحتاج الفرق أو المؤسسات إلى تحويل مادة كثيفة إلى صيغة تعليمية أو تشغيلية أو تقديمية أوضح."
+            : "A strong proof page when teams or institutions need dense material turned into a clearer teaching, briefing, or operational format."}
+        </p>
+      </article>
+    </div>
+  </Section>
+
   <Section title={page.heroTitle} copy={page.heroCopy} className={isArabic ? "text-right" : ""}>
     <div class="mb-8 grid gap-4 md:grid-cols-3">
       {

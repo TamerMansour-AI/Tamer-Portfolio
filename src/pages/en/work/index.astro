@@ -6,11 +6,24 @@ import SmartImage from "../../../components/SmartImage.astro";
 import WorkCard from "../../../components/WorkCard.astro";
 import { pinterestPlaceholderEn, workItemsEn } from "../../../data/work";
 import { withBase } from "../../../utils/withBase";
+
+const workSchema = {
+  "@type": "ItemList",
+  name: "Featured portfolio work",
+  itemListElement: workItemsEn.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    url: item.url?.startsWith("/") ? `https://tamermansour-ai.github.io/Tamer-Portfolio${item.url}` : item.url,
+    name: item.title
+  }))
+};
 ---
 <BaseLayout
-  title="Work | Tamer Mansour"
-  description="A flagship selection of literary retelling, digital archive product work, cinematic heritage storytelling, motion-led education, and knowledge design by Tamer Mansour."
+  title="AI Storytelling Portfolio, Product Systems, and Knowledge Design | Tamer Mansour"
+  description="Selected portfolio work by Tamer Mansour across literary adaptation, heritage storytelling, bilingual archive products, visual education, and book-to-deck knowledge design."
   path="/en/work/"
+  pageType="CollectionPage"
+  schema={workSchema}
 >
   <Section
     title="Selected work with clear authorship"

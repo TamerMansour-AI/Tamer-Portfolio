@@ -6,13 +6,26 @@ import SmartImage from "../../../components/SmartImage.astro";
 import WorkCard from "../../../components/WorkCard.astro";
 import { pinterestPlaceholderAr, workItemsAr } from "../../../data/work";
 import { withBase } from "../../../utils/withBase";
+
+const workSchema = {
+  "@type": "ItemList",
+  name: "الأعمال المختارة",
+  itemListElement: workItemsAr.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    url: item.url?.startsWith("/") ? `https://tamermansour-ai.github.io/Tamer-Portfolio${item.url}` : item.url,
+    name: item.title
+  }))
+};
 ---
 <BaseLayout
-  title="الأعمال | تامر منصور"
-  description="مجموعة رئيسية من أعمال تامر منصور في إعادة السرد الأدبي وبناء العالم التراثي ومنتجات الأرشيف الرقمي والتعليم البصري وتصميم المعرفة."
+  title="أعمال تامر منصور | السرد البصري والمنتجات الرقمية وتصميم المعرفة"
+  description="مجموعة أعمال مختارة لتامر منصور في إعادة السرد الأدبي وبناء العالم التراثي ومنتجات الأرشيف الرقمي والتعليم البصري وتصميم المعرفة."
   path="/ar/work/"
   lang="ar"
   dir="rtl"
+  pageType="CollectionPage"
+  schema={workSchema}
 >
   <Section
     title="أعمال مختارة بهوية واضحة"

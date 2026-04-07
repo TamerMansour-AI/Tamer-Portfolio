@@ -5,13 +5,34 @@ import Section from "../../../components/Section.astro";
 import SmartImage from "../../../components/SmartImage.astro";
 import { servicesAr } from "../../../data/services";
 import { withBase } from "../../../utils/withBase";
+
+const serviceSchema = servicesAr.map((service) => ({
+  "@type": "Service",
+  name: service.title,
+  description: service.summary,
+  provider: {
+    "@type": "Person",
+    name: "Tamer Mansour",
+    url: "https://tamermansour-ai.github.io/Tamer-Portfolio/ar/"
+  },
+  areaServed: "Remote",
+  availableLanguage: ["Arabic", "English"],
+  isRelatedTo: {
+    "@type": "CreativeWork",
+    name: service.proofTitle,
+    url: `https://tamermansour-ai.github.io/Tamer-Portfolio${service.proofHref}`
+  }
+}));
 ---
 <BaseLayout
-  title="الخدمات | تامر منصور"
-  description="خدمات في صياغة قصة العلامة وأنظمة الإنتاج بالذكاء الاصطناعي والورشات التي يقدمها تامر منصور."
+  title="خدمات تامر منصور | السرد البصري والورشات وأنظمة الإنتاج"
+  description="خدمات تامر منصور في صياغة القصة بصريا وأنظمة الإنتاج بالذكاء الاصطناعي والورشات العملية مع ربط واضح بين العرض والدليل."
   path="/ar/services/"
   lang="ar"
   dir="rtl"
+  image="/media/services/services-ar.png"
+  pageType="CollectionPage"
+  schema={serviceSchema}
 >
   <section class="container-shell pt-6 sm:pt-8">
     <div class="services-hero overflow-hidden rounded-3xl border border-white/10 bg-white/5">

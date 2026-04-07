@@ -10,9 +10,12 @@ type Props = {
   path?: string;
   lang?: "en" | "ar";
   dir?: "ltr" | "rtl";
+  image?: string;
+  pageType?: string;
+  schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 };
 
-const { title, description, path = "/", lang = "en", dir = "ltr" } = Astro.props;
+const { title, description, path = "/", lang = "en", dir = "ltr", image, pageType, schema } = Astro.props;
 ---
 <!doctype html>
 <html lang={lang} dir={dir}>
@@ -25,7 +28,7 @@ const { title, description, path = "/", lang = "en", dir = "ltr" } = Astro.props
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <HeadMeta title={title} description={description} path={path} lang={lang} />
+    <HeadMeta title={title} description={description} path={path} lang={lang} image={image} pageType={pageType} schema={schema} />
   </head>
   <body class="min-h-screen bg-ink bg-[radial-gradient(circle_at_top,rgba(200,165,106,0.08),transparent_45%)]">
     <Nav lang={lang} dir={dir} />

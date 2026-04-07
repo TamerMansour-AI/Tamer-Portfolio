@@ -6,9 +6,12 @@ type Props = {
   description: string;
   path?: string;
   lang?: string;
+  image?: string;
+  pageType?: string;
+  schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 };
 
-const { title, description, path = "/", lang = "en" } = Astro.props;
+const { title, description, path = "/", lang = "en", image, pageType = "WebPage", schema: pageSchema } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
 const site = Astro.site?.toString() ?? "https://tamermansour-ai.github.io";
@@ -18,7 +21,7 @@ const urlForPath = (value: string) => {
   return new URL(`${base}${normalizedValue}`, site).toString();
 };
 const canonical = urlForPath(path);
-const ogImage = new URL(`${base}assets/og.svg`, site).toString();
+const ogImage = image ? urlForPath(image) : new URL(`${base}assets/og.svg`, site).toString();
 const strippedPath = normalizedPath.replace(/^(ar|en)\//, "");
 const englishPath = strippedPath ? `/${strippedPath}` : "/";
 const arabicPath = strippedPath ? `/ar/${strippedPath}` : "/ar/";
@@ -26,6 +29,78 @@ const englishAlternate = urlForPath(englishPath);
 const arabicAlternate = urlForPath(arabicPath);
 const homeUrl = urlForPath("/");
 const sameAs = Object.values(siteData.social);
+const localeLabels = {
+  en: {
+    home: "Home",
+    work: "Work",
+    services: "Services",
+    about: "About",
+    contact: "Contact",
+    blog: "Blog",
+    "museum-of-echoes": "Museum of Echoes",
+    "literary-reimaginings": "Literary Reimaginings",
+    "book-to-decks": "Book-to-Deck Reconstructions"
+  },
+  ar: {
+    home: "الرئيسية",
+    work: "الأعمال",
+    services: "الخدمات",
+    about: "من أنا",
+    contact: "تواصل",
+    blog: "المدونة",
+    "museum-of-echoes": "متحف الأصداء",
+    "literary-reimaginings": "إعادة تخيّل الروايات بصريًا",
+    "book-to-decks": "إعادة بناء الكتب كعروض شرائح"
+  }
+} as const;
+const labels = lang === "ar" ? localeLabels.ar : localeLabels.en;
+const segments = strippedPath.split("/").filter(Boolean);
+const localePrefix = lang === "ar" ? "/ar" : "";
+const breadcrumbBasePath = lang === "ar" ? "/ar/" : "/";
+const breadcrumbItems = [
+  {
+    "@type": "ListItem",
+    position: 1,
+    name: labels.home,
+    item: urlForPath(breadcrumbBasePath)
+  }
+];
+
+segments.forEach((segment, index) => {
+  const segmentPath = `${localePrefix}/${segments.slice(0, index + 1).join("/")}/`;
+  breadcrumbItems.push({
+    "@type": "ListItem",
+    position: index + 2,
+    name: labels[segment as keyof typeof labels] ?? segment.replace(/-/g, " "),
+    item: urlForPath(segmentPath)
+  });
+});
+
+const breadcrumbSchema = {
+  "@type": "BreadcrumbList",
+  "@id": `${canonical}#breadcrumb`,
+  itemListElement: breadcrumbItems
+};
+
+const webPageSchema = {
+  "@type": pageType,
+  "@id": `${canonical}#webpage`,
+  url: canonical,
+  name: title,
+  description,
+  inLanguage: lang,
+  isPartOf: {
+    "@id": `${homeUrl}#website`
+  },
+  about: {
+    "@id": `${homeUrl}#person`
+  },
+  breadcrumb: {
+    "@id": `${canonical}#breadcrumb`
+  }
+};
+
+const extraSchema = Array.isArray(pageSchema) ? pageSchema : pageSchema ? [pageSchema] : [];
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -53,7 +128,10 @@ const schema = {
       },
       knowsLanguage: ["en", "ar"],
       sameAs
-    }
+    },
+    webPageSchema,
+    breadcrumbSchema,
+    ...extraSchema
   ]
 };
 ---
@@ -61,7 +139,7 @@ const schema = {
 <meta name="description" content={description} />
 <meta name="robots" content="index,follow" />
 <meta name="theme-color" content="#0f0f0f" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content={pageType === "Article" ? "article" : "website"} />
 <meta property="og:site_name" content={siteData.name} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />

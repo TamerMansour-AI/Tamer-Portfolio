@@ -5,11 +5,32 @@ import Section from "../../components/Section.astro";
 import SmartImage from "../../components/SmartImage.astro";
 import { servicesEn } from "../../data/services";
 import { withBase } from "../../utils/withBase";
+
+const serviceSchema = servicesEn.map((service) => ({
+  "@type": "Service",
+  name: service.title,
+  description: service.summary,
+  provider: {
+    "@type": "Person",
+    name: "Tamer Mansour",
+    url: "https://tamermansour-ai.github.io/Tamer-Portfolio/"
+  },
+  areaServed: "Remote",
+  availableLanguage: ["English", "Arabic"],
+  isRelatedTo: {
+    "@type": "CreativeWork",
+    name: service.proofTitle,
+    url: `https://tamermansour-ai.github.io/Tamer-Portfolio${service.proofHref}`
+  }
+}));
 ---
 <BaseLayout
-  title="Services | Tamer Mansour"
-  description="Services for brand storytelling, AI production systems, and workshops by Tamer Mansour."
+  title="AI Storytelling Services, Workshops, and Production Systems | Tamer Mansour"
+  description="Services by Tamer Mansour for brand story direction, AI production systems, bilingual workshops, and proof-led creative execution."
   path="/services/"
+  image="/media/services/services-en.png"
+  pageType="CollectionPage"
+  schema={serviceSchema}
 >
   <section class="container-shell pt-6 sm:pt-8">
     <div class="services-hero overflow-hidden rounded-3xl border border-white/10 bg-white/5">
@@ -84,6 +105,7 @@ import { withBase } from "../../utils/withBase";
       <a href={withBase("/work/")} class="gold-link font-semibold">See the full proof layer</a>
       <a href={withBase("/museum-of-echoes/")} class="text-sand/75 transition hover:text-white">Open Museum of Echoes</a>
       <a href={withBase("/literary-reimaginings/")} class="text-sand/75 transition hover:text-white">Open Literary Reimaginings</a>
+      <a href={withBase("/book-to-decks/")} class="text-sand/75 transition hover:text-white">Open Book-to-Deck Reconstructions</a>
     </div>
   </Section>
   <Section

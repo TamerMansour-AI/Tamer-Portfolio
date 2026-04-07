@@ -14,6 +14,24 @@ type Props = {
 const { lang = "en", path } = Astro.props;
 const isArabic = lang === "ar";
 const works = isArabic ? literaryWorksAr : literaryWorksEn;
+const pageUrl = `https://tamermansour-ai.github.io/Tamer-Portfolio${path}`;
+const literarySchema = {
+  "@type": "CreativeWorkSeries",
+  name: isArabic ? "إعادة تخيّل الروايات بصريًا" : "Literary Reimaginings",
+  description: isArabic
+    ? "سلسلة سرد بصري تعيد تخيّل روايات مؤثرة عبر التكييف الثنائي اللغة والسرد السينمائي المدعوم بالذكاء الاصطناعي."
+    : "A literary visual storytelling series that reimagines significant novels through bilingual adaptation and cinematic AI workflows.",
+  url: pageUrl,
+  creator: {
+    "@type": "Person",
+    name: "Tamer Mansour"
+  },
+  workExample: works.map((work) => ({
+    "@type": "CreativeWork",
+    name: work.title,
+    description: work.description
+  }))
+};
 
 const page = isArabic
   ? {
@@ -68,9 +86,9 @@ const page = isArabic
       }
     }
   : {
-      title: "Literary Reimaginings | Tamer Mansour",
+      title: "Literary Reimaginings Project | AI Visual Novel Adaptations | Tamer Mansour",
       description:
-        "A literary-visual storytelling line by Tamer Mansour, reimagining significant novels through cinematic AI workflows and bilingual adaptation.",
+        "Literary Reimaginings is Tamer Mansour's bilingual visual adaptation series, reimagining significant novels through cinematic AI storytelling and cultural interpretation.",
       heroEyebrow: "Literary Visual Storytelling Series",
       heroTitle: "Novels reimagined through cinematic AI storytelling.",
       heroCopy:
@@ -121,7 +139,16 @@ const page = isArabic
 
 const atyafUrl = "https://tamermansour-ai.github.io/atyaf-al-ard-website/";
 ---
-<BaseLayout title={page.title} description={page.description} path={path} lang={lang} dir={isArabic ? "rtl" : "ltr"}>
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  path={path}
+  lang={lang}
+  dir={isArabic ? "rtl" : "ltr"}
+  image="/media/literary/men-in-the-sun.svg"
+  pageType="CollectionPage"
+  schema={literarySchema}
+>
   <section class="container-shell py-14 sm:py-20">
     <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(212,175,106,0.22),transparent_36%),radial-gradient(circle_at_85%_20%,rgba(255,255,255,0.08),transparent_28%),linear-gradient(135deg,rgba(12,12,12,0.98),rgba(25,25,25,0.96))] px-6 py-8 sm:px-8 sm:py-10">
       <div class={`grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end ${isArabic ? "text-right" : ""}`}>
@@ -165,6 +192,43 @@ const atyafUrl = "https://tamermansour-ai.github.io/atyaf-al-ard-website/";
       </div>
     </div>
   </section>
+
+  <Section
+    title={isArabic ? "ملخص سريع" : "Quick summary"}
+    copy={
+      isArabic
+        ? "طبقة تعريفية قصيرة توضح ما تمثله السلسلة وما الذي تثبته ومتى تكون المرجع المناسب للزائر أو الشريك أو محرك الإجابة."
+        : "A compact summary for visitors and answer systems: what the series is, what it proves, and where it fits inside the wider portfolio."
+    }
+    className={isArabic ? "text-right" : ""}
+  >
+    <div class="grid gap-4 md:grid-cols-3">
+      <article class={`glass-card p-5 ${isArabic ? "text-right" : ""}`}>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">{isArabic ? "ما هي" : "What it is"}</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">
+          {isArabic
+            ? "سلسلة سرد بصري تعيد تقديم روايات مؤثرة عبر اقتباس ثنائي اللغة يحافظ على الجو والضغط العاطفي للنص."
+            : "A literary adaptation series that turns major novels into bilingual short-form visual storytelling without flattening their emotional logic."}
+        </p>
+      </article>
+      <article class={`glass-card p-5 ${isArabic ? "text-right" : ""}`}>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">{isArabic ? "ما الذي تثبته" : "What it proves"}</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">
+          {isArabic
+            ? "أن التفسير الثقافي، والتكييف اللغوي، والاتجاه البصري يمكن أن يعملوا معا في مشروع أدبي جاد لا في محتوى سريع فقط."
+            : "It proves a serious literary-visual practice: cultural interpretation, bilingual adaptation, and cinematic direction working together."}
+        </p>
+      </article>
+      <article class={`glass-card p-5 ${isArabic ? "text-right" : ""}`}>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">{isArabic ? "أفضل استخدام له كمرجع" : "Best fit as proof"}</p>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">
+          {isArabic
+            ? "مرجع قوي لمشاريع السرد الثقافي أو الاقتباس البصري أو الشراكات التي تحتاج اتجاها قصصيا واضحا قبل التوسع الإنتاجي."
+            : "A strong proof page for cultural storytelling, visual adaptation, and projects that need story direction before larger production."}
+        </p>
+      </article>
+    </div>
+  </Section>
 
   <Section title={page.conceptTitle} copy={page.conceptCopy} className={isArabic ? "text-right" : ""}>
     <div class="grid gap-4 md:grid-cols-3">
