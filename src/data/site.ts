@@ -12,7 +12,10 @@ export const siteData = {
     facebook: "https://www.facebook.com/teamo1985",
     instagram: "https://www.instagram.com/tamerpalestine/",
     pinterest: "https://www.pinterest.com/TamerCreates/",
-    tiktok: "https://www.tiktok.com/@ai_visionary_tm"
+    tiktok: "https://www.tiktok.com/@ai_visionary_tm",
+    youtube: "https://www.youtube.com/channel/UCgqWTxre-zMvZo9kbugEGpw",
+    linkedin: "https://www.linkedin.com/in/tamer-mansour-pmp-0b63b320a/",
+    superteam: "https://superteam.fun/earn/t/tamer-mansour"
   }
 };
 

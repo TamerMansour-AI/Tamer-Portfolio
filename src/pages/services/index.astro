@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTAButtons from "../../components/CTAButtons.astro";
 import Section from "../../components/Section.astro";
 import SmartImage from "../../components/SmartImage.astro";
+import { proofMetricsEn } from "../../data/proof";
 import { servicesEn } from "../../data/services";
 import { withBase } from "../../utils/withBase";
 
@@ -47,6 +48,17 @@ const serviceSchema = servicesEn.map((service) => ({
     title="Services designed for clear next steps"
     copy="Start with the sprint when the direction is still fuzzy. Move into system setup when the direction is clear but execution is messy. Choose workshops when the goal is capability transfer, standards, and stronger internal judgment."
   >
+    <div class="mb-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+      {
+        proofMetricsEn.map((metric) => (
+          <article class="glass-card p-5">
+            <p class="text-2xl font-semibold tracking-tight text-white">{metric.value}</p>
+            <h2 class="mt-2 text-sm font-semibold text-gold">{metric.label}</h2>
+            <p class="mt-3 text-sm leading-relaxed text-sand/78">{metric.detail}</p>
+          </article>
+        ))
+      }
+    </div>
     <div class="mb-8 grid gap-4 md:grid-cols-3">
       <article class="glass-card p-5">
         <p class="text-xs uppercase tracking-[0.18em] text-gold">Start Here</p>

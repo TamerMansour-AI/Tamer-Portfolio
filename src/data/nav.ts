@@ -6,9 +6,9 @@
 export const navEn: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Work", href: "/work/" },
+  { label: "Proof", href: "/proof/" },
   { label: "Services", href: "/services/" },
   { label: "About", href: "/about/" },
-  { label: "Blog", href: "/blog/" },
   { label: "Contact", href: "/contact/" }
 ];
 

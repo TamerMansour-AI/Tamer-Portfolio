@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTAButtons from "../../components/CTAButtons.astro";
+import Section from "../../components/Section.astro";
+import { notebookProjectsEn } from "../../data/notebooklm";
+import { withBase } from "../../utils/withBase";
+---
+<BaseLayout
+  title="NotebookLM Projects and Source-Grounded AI Workflows | Tamer Mansour"
+  description="Selected NotebookLM and source-grounded AI workflow projects by Tamer Mansour, including Arab Bank parent learning support, AI learning blueprints, presentations, and Birzeit research workflows."
+  path="/notebooklm/"
+  pageType="CollectionPage"
+>
+  <Section
+    title="NotebookLM projects"
+    copy="A focused proof page for source-grounded AI work: turning lessons, reports, notes, profiles, and workshop material into usable learning packs, presentations, prompts, and outputs."
+  >
+    <div class="grid gap-4 md:grid-cols-3">
+      <article class="glass-card p-5">
+        <p class="text-3xl font-semibold text-white">4</p>
+        <h2 class="mt-2 text-sm font-semibold text-gold">Selected project lanes</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">Not every NotebookLM experiment is listed. This page keeps the strongest public-safe examples.</p>
+      </article>
+      <article class="glass-card p-5">
+        <p class="text-3xl font-semibold text-white">5+</p>
+        <h2 class="mt-2 text-sm font-semibold text-gold">Output types</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">Guides, source packs, prompt builders, learning outputs, slide logic, and research workflows.</p>
+      </article>
+      <article class="glass-card p-5">
+        <p class="text-3xl font-semibold text-white">1</p>
+        <h2 class="mt-2 text-sm font-semibold text-gold">Clear method</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">Prepare sources first, define the audience, set instructions, then generate outputs with human review.</p>
+      </article>
+    </div>
+  </Section>
+
+  <Section title="Selected NotebookLM proof" copy="These examples show NotebookLM as a workflow layer, not just a tool name in a skills list.">
+    <div class="grid gap-5 md:grid-cols-2">
+      {
+        notebookProjectsEn.map((item) => (
+          <article class="glass-card p-5">
+            <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.category}</p>
+            <h2 class="mt-3 text-xl font-semibold text-white">{item.title}</h2>
+            <p class="mt-3 text-sm leading-relaxed text-sand/80">{item.summary}</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {item.outputs.map((output) => <span class="rounded-full border border-white/15 px-2.5 py-1 text-xs text-sand/80">{output}</span>)}
+            </div>
+            <p class="mt-4 text-xs leading-relaxed text-sand/55">Private/local proof source: {item.proofPath}</p>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section title="How the workflow works" copy="The repeatable value is the structure around the tool.">
+    <div class="grid gap-4 md:grid-cols-4">
+      {["Prepare real sources", "Define audience and goal", "Build custom instructions", "Generate and review outputs"].map((item, index) => (
+        <article class="glass-card p-5">
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">Step {index + 1}</p>
+          <h2 class="mt-3 text-lg font-semibold text-white">{item}</h2>
+        </article>
+      ))}
+    </div>
+    <div class="mt-8 flex flex-wrap gap-4 text-sm">
+      <a href={withBase("/workshops/")} class="gold-link font-semibold">See workshop proof</a>
+      <a href={withBase("/proof/")} class="text-sand/75 transition hover:text-white">Back to proof hub</a>
+    </div>
+  </Section>
+
+  <Section title="Want a source-grounded AI workflow?" copy="This is the best fit when the raw material matters: lessons, reports, notes, training files, research, or internal documents.">
+    <CTAButtons />
+  </Section>
+</BaseLayout>
+

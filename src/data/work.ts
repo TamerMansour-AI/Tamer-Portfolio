@@ -116,6 +116,33 @@ const workSeed: WorkSeedItem[] = [
     featured: true
   },
   {
+    title_en: "Returning to Haifa - Bilingual Literary Reimagining",
+    title_ar: "عائد إلى حيفا - إعادة تخيل أدبية ثنائية اللغة",
+    type_en: "AI Visual Storytelling",
+    type_ar: "AI Visual Storytelling",
+    context_en: "Ghassan Kanafani adaptation in Arabic and English",
+    context_ar: "Ghassan Kanafani adaptation in Arabic and English",
+    desc_en:
+      "A short-form bilingual reinterpretation of Returning to Haifa built around return, estrangement, memory, and the unresolved emotional geometry of home.",
+    desc_ar:
+      "A short-form bilingual reinterpretation of Returning to Haifa built around return, estrangement, memory, and the unresolved emotional geometry of home.",
+    url_en: "/literary-reimaginings/",
+    url_ar: "/ar/literary-reimaginings/",
+    linkLabel_en: "Open literary series",
+    linkLabel_ar: "Open literary series",
+    secondaryUrl: "https://youtu.be/66JuIoZ6wGY",
+    secondaryLabel_en: "Arabic edition",
+    secondaryLabel_ar: "Arabic edition",
+    tags_en: ["Returning to Haifa", "Arabic + English", "Kanafani"],
+    tags_ar: ["Returning to Haifa", "Arabic + English", "Kanafani"],
+    thumbLocal: "/media/literary/returning-to-haifa.svg",
+    thumbRemoteCandidates: [
+      "https://i.ytimg.com/vi/66JuIoZ6wGY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/0AmrDjtbvXE/maxresdefault.jpg"
+    ],
+    featured: true
+  },
+  {
     title_en: "Paintings Brought to Life",
     title_ar: "لوحات تنبض بالحياة",
     type_en: "Motion Storytelling",
@@ -153,6 +180,150 @@ const workSeed: WorkSeedItem[] = [
     tags_ar: ["Digital Prometheus", "The Prince Dossier", "The Liberty Manifesto"],
     thumbLocal: "/media/work/book-to-deck-reconstructions.jpg",
     featured: true
+  },
+  {
+    title_en: "Palestine Visual Lab",
+    title_ar: "Palestine Visual Lab",
+    type_en: "Web Product / Visual Tool",
+    type_ar: "Web Product / Visual Tool",
+    context_en: "A Palestinian-inspired visual prompt and product website",
+    context_ar: "A Palestinian-inspired visual prompt and product website",
+    desc_en:
+      "A Vite/React web product for creating Palestinian-inspired posters, patterns, prompts, stickers, and memory tools with dignity, taste, and modern AI workflows.",
+    desc_ar:
+      "A Vite/React web product for creating Palestinian-inspired posters, patterns, prompts, stickers, and memory tools with dignity, taste, and modern AI workflows.",
+    url: "https://palestine-visual-lab.pages.dev/",
+    linkLabel_en: "Open live website",
+    linkLabel_ar: "Open live website",
+    note_en: "If this URL changes, update it after the next Cloudflare review.",
+    note_ar: "If this URL changes, update it after the next Cloudflare review.",
+    tags_en: ["Web App", "Palestinian Visual Culture", "Prompt Tools"],
+    tags_ar: ["Web App", "Palestinian Visual Culture", "Prompt Tools"],
+    thumbLocal: "/media/pinterest/boards/palestinian-thobes.jpg",
+    featured: true
+  },
+  {
+    title_en: "Sakina App",
+    title_ar: "Sakina App",
+    type_en: "Android App / Spiritual Reflection",
+    type_ar: "Android App / Spiritual Reflection",
+    context_en: "Arabic-first Quranic emotional reflection companion",
+    context_ar: "Arabic-first Quranic emotional reflection companion",
+    desc_en:
+      "A release-prepared Android app for emotionally sensitive Quranic reflection moments. It should be presented as a project while the public listing is pending.",
+    desc_ar:
+      "A release-prepared Android app for emotionally sensitive Quranic reflection moments. It should be presented as a project while the public listing is pending.",
+    url: "https://www.instagram.com/ramallahlabs/",
+    linkLabel_en: "Ramallah Labs updates",
+    linkLabel_ar: "Ramallah Labs updates",
+    note_en: "Public store listing pending; do not present as publicly launched yet.",
+    note_ar: "Public store listing pending; do not present as publicly launched yet.",
+    tags_en: ["Android", "Spiritual Reflection", "Ramallah Labs"],
+    tags_ar: ["Android", "Spiritual Reflection", "Ramallah Labs"],
+    thumbLocal: "/media/hero/hero-poster.png",
+    featured: true
+  },
+  {
+    title_en: "Flappy Flip",
+    title_ar: "Flappy Flip",
+    type_en: "Casual Game / Ramallah Labs",
+    type_ar: "Casual Game / Ramallah Labs",
+    context_en: "Lightweight reflex game prepared for Ramallah Labs marketing",
+    context_ar: "Lightweight reflex game prepared for Ramallah Labs marketing",
+    desc_en:
+      "A lightweight casual game in the Ramallah Labs app pipeline, framed around quick reflex play, short-form gameplay clips, and score-chasing loops.",
+    desc_ar:
+      "A lightweight casual game in the Ramallah Labs app pipeline, framed around quick reflex play, short-form gameplay clips, and score-chasing loops.",
+    url: "https://www.instagram.com/ramallahlabs/p/DYDQDhkDfRp/",
+    linkLabel_en: "Open Ramallah Labs launch post",
+    linkLabel_ar: "Open Ramallah Labs launch post",
+    note_en: "Game-specific public store link still needs to be added when available.",
+    note_ar: "Game-specific public store link still needs to be added when available.",
+    tags_en: ["Game", "Android", "Short-form Marketing"],
+    tags_ar: ["Game", "Android", "Short-form Marketing"],
+    thumbLocal: "/media/work/paintings-brought-to-life.jpg",
+    featured: true
+  },
+  {
+    title_en: "AI Training and Workshop Systems",
+    title_ar: "AI Training and Workshop Systems",
+    type_en: "Training / Workshop Design",
+    type_ar: "Training / Workshop Design",
+    context_en: "Practical AI sessions for media, artists, students, parents, and institutional teams",
+    context_ar: "Practical AI sessions for media, artists, students, parents, and institutional teams",
+    desc_en:
+      "A body of applied AI training work covering journalism workflows, artist visual development, parent learning support, presentation systems, NotebookLM source packs, and responsible review habits for non-technical audiences.",
+    desc_ar:
+      "Applied AI training work covering journalism workflows, artist visual development, parent learning support, presentation systems, NotebookLM source packs, and responsible review habits for non-technical audiences.",
+    url_en: "/services/",
+    url_ar: "/ar/services/",
+    linkLabel_en: "See service proof",
+    linkLabel_ar: "See service proof",
+    note_en:
+      "Public copy keeps organization-specific details concise and client-safe; deeper proof is held in local training portfolios and CV packs.",
+    note_ar:
+      "Public copy keeps organization-specific details concise and client-safe; deeper proof is held in local training portfolios and CV packs.",
+    tags_en: ["AI Training", "NotebookLM", "Responsible Review"],
+    tags_ar: ["AI Training", "NotebookLM", "Responsible Review"],
+    thumbLocal: "/media/services/services-en.png",
+    featured: true
+  },
+  {
+    title_en: "Signal OS / Codex Execution Infrastructure",
+    title_ar: "Signal OS / Codex Execution Infrastructure",
+    type_en: "Automation and Operating System",
+    type_ar: "Automation and Operating System",
+    context_en: "Internal execution layer for turning scattered work into bounded outputs",
+    context_ar: "Internal execution layer for turning scattered work into bounded outputs",
+    desc_en:
+      "A reusable local system for browser lane governance, evidence ledgers, Codex execution packets, quality gates, and delivery notes. It proves operational thinking beyond one-off creative output.",
+    desc_ar:
+      "A reusable local system for browser lane governance, evidence ledgers, Codex execution packets, quality gates, and delivery notes. It proves operational thinking beyond one-off creative output.",
+    url_en: "/about/",
+    url_ar: "/ar/about/",
+    linkLabel_en: "Read the operating story",
+    linkLabel_ar: "Read the operating story",
+    tags_en: ["Codex Workflows", "Execution Systems", "Quality Gates"],
+    tags_ar: ["Codex Workflows", "Execution Systems", "Quality Gates"],
+    thumbLocal: "/media/hero/hero-poster.png",
+    featured: true
+  },
+  {
+    title_en: "Android App Development Pipeline",
+    title_ar: "Android App Development Pipeline",
+    type_en: "Apps / Product Development",
+    type_ar: "Apps / Product Development",
+    context_en: "Arabic-first apps and lightweight game projects in development",
+    context_ar: "Arabic-first apps and lightweight game projects in development",
+    desc_en:
+      "A compact app-development lane that includes Android products, release preparation, store-readiness work, and lightweight game experiments. Public copy should emphasize product capability, not internal test counts.",
+    desc_ar:
+      "A compact app-development lane that includes Android products, release preparation, store-readiness work, and lightweight game experiments. Public copy should emphasize product capability, not internal test counts.",
+    note_en: "Mention-only proof until more public store pages are available.",
+    note_ar: "Mention-only proof until more public store pages are available.",
+    tags_en: ["Android", "Apps", "Games"],
+    tags_ar: ["Android", "Apps", "Games"],
+    thumbLocal: "/media/work/book-to-deck-reconstructions.jpg",
+    featured: false
+  },
+  {
+    title_en: "Suno Original Music Experiments",
+    title_ar: "Suno Original Music Experiments",
+    type_en: "Music / Audio Experiments",
+    type_ar: "Music / Audio Experiments",
+    context_en: "Original AI music activity connected to Museum of Echoes",
+    context_ar: "Original AI music activity connected to Museum of Echoes",
+    desc_en:
+      "Suno activity and original song experiments support the broader music-archive direction, including tracks surfaced in the authenticated creator lane such as Almost Remembered Room, الخيل والليل, YA, and Canaanite Palestinian.",
+    desc_ar:
+      "Suno activity and original song experiments support the broader music-archive direction, including tracks surfaced in the authenticated creator lane such as Almost Remembered Room, الخيل والليل, YA, and Canaanite Palestinian.",
+    url: "https://museum-of-echoes.pages.dev/",
+    linkLabel_en: "Open music archive",
+    linkLabel_ar: "Open music archive",
+    tags_en: ["Suno", "Original Music", "Audio Archive"],
+    tags_ar: ["Suno", "Original Music", "Audio Archive"],
+    thumbLocal: "/media/museum/archive-of-jasmine.jpg",
+    featured: false
   }
 ];
 

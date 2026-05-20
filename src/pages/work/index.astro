@@ -4,6 +4,7 @@ import CTAButtons from "../../components/CTAButtons.astro";
 import Section from "../../components/Section.astro";
 import SmartImage from "../../components/SmartImage.astro";
 import WorkCard from "../../components/WorkCard.astro";
+import { platformProofEn } from "../../data/proof";
 import { pinterestPlaceholderEn, workItemsEn } from "../../data/work";
 import { withBase } from "../../utils/withBase";
 
@@ -27,13 +28,13 @@ const workSchema = {
 >
   <Section
     title="Selected work with clear authorship"
-    copy="A lean portfolio built around five flagship directions: literary retelling, heritage worldbuilding, bilingual archive product design, motion-led visual education, and structured knowledge design."
+    copy="A proof-led portfolio across flagship creative work, applied AI training, operating systems, app testing, audio experiments, and client-safe production workflows."
   >
     <div class="mb-8 grid gap-4 md:grid-cols-3">
       <article class="glass-card p-5">
         <p class="text-xs uppercase tracking-[0.18em] text-gold">Why These Five</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          Together they show how the practice moves from literary adaptation and cultural atmosphere to digital products, teaching formats, and operational clarity.
+          Together they show how the practice moves from literary adaptation and cultural atmosphere to digital products, teaching formats, app builds, and operational clarity.
         </p>
       </article>
       <article class="glass-card p-5">
@@ -111,6 +112,34 @@ const workSchema = {
         </div>
       </div>
       </a>
+    </div>
+  </Section>
+  <Section
+    title="Evidence ledger highlights"
+    copy="A compact layer for proof that is real but not always public-linkable. Items with private or internal evidence are described safely without exposing client details, account data, or sensitive dashboards."
+  >
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      {
+        platformProofEn.map((item) => {
+          const href = item.href?.startsWith("http") ? item.href : item.href ? withBase(item.href) : undefined;
+          const external = item.href?.startsWith("http");
+          return (
+            <article class="glass-card p-5">
+              <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.category}</p>
+              <h3 class="mt-3 text-lg font-semibold leading-tight text-white">{item.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-sand/78">{item.summary}</p>
+              <p class="mt-4 text-xs uppercase tracking-[0.16em] text-sand/60">Confidence: {item.confidence}</p>
+              {
+                href && (
+                  <a href={href} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined} class="gold-link mt-4 inline-block text-sm font-semibold">
+                    {item.linkLabel ?? "Open proof"}
+                  </a>
+                )
+              }
+            </article>
+          );
+        })
+      }
     </div>
   </Section>
   <Section title={pinterestPlaceholderEn.title} copy={pinterestPlaceholderEn.description}>

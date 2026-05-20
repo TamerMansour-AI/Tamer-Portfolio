@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTAButtons from "../../components/CTAButtons.astro";
+import Section from "../../components/Section.astro";
+import { workshopProofEn } from "../../data/workshops";
+import { withBase } from "../../utils/withBase";
+
+const deliveredCount = workshopProofEn.filter((item) => item.status === "Delivered").length;
+---
+<BaseLayout
+  title="AI Workshop Proof | Tamer Mansour"
+  description="Workshop and training proof for Tamer Mansour across Qattan, Mishkal, AL Mahs3'al journalist trainings, Arab Bank, Birzeit students, WAN-IFRA, Sharek, and presentation systems."
+  path="/workshops/"
+  pageType="CollectionPage"
+>
+  <Section
+    title="Workshop proof"
+    copy="Training is not a side note in this portfolio. It is one of the strongest proof lines: real audiences, named workshop lanes, practical AI workflows, and materials built for use after the session."
+  >
+    <div class="grid gap-4 md:grid-cols-3">
+      <article class="glass-card p-5">
+        <p class="text-3xl font-semibold text-white">{deliveredCount}+</p>
+        <h2 class="mt-2 text-sm font-semibold text-gold">Delivered workshop lanes</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">Across media, artists, education, youth, parents, newsroom, and professional teams.</p>
+      </article>
+      <article class="glass-card p-5">
+        <p class="text-3xl font-semibold text-white">2</p>
+        <h2 class="mt-2 text-sm font-semibold text-gold">University / student tracks</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">Birzeit AI fluency and job-search readiness materials, activities, and exports.</p>
+      </article>
+      <article class="glass-card p-5">
+        <p class="text-3xl font-semibold text-white">1</p>
+        <h2 class="mt-2 text-sm font-semibold text-gold">NotebookLM learning system</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">Arab Bank parent workshop source-pack logic, prompts, templates, and outputs.</p>
+      </article>
+    </div>
+  </Section>
+
+  <Section title="Named training proof" copy="The visitor should not have to guess where the workshop experience is. These are the clearest public-safe proof entries.">
+    <div class="grid gap-4 md:grid-cols-2">
+      {
+        workshopProofEn.map((item) => (
+          <article class="glass-card p-5">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <h2 class="text-xl font-semibold leading-tight text-white">{item.title}</h2>
+              <span class="rounded-full border border-white/15 px-3 py-1 text-xs uppercase tracking-[0.14em] text-sand/70">{item.status}</span>
+            </div>
+            <p class="mt-2 text-sm font-semibold text-gold">{item.audience}</p>
+            <p class="mt-4 text-sm leading-relaxed text-sand/80">{item.proof}</p>
+            <p class="mt-3 text-sm leading-relaxed text-sand/68">{item.outcome}</p>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section title="What the workshops prove" copy="The core value is not tool demonstration. It is the ability to turn fast-moving AI tools into structured practice for real people.">
+    <div class="grid gap-4 md:grid-cols-3">
+      {["Prompting as thinking", "Responsible review", "Source-grounded workflows", "Visual direction", "NotebookLM source packs", "Interactive lab websites"].map((item) => (
+        <article class="glass-card p-5">
+          <h2 class="text-lg font-semibold text-white">{item}</h2>
+        </article>
+      ))}
+    </div>
+    <div class="mt-8 flex flex-wrap gap-4 text-sm">
+      <a href={withBase("/notebooklm/")} class="gold-link font-semibold">See NotebookLM projects</a>
+      <a href={withBase("/proof/")} class="text-sand/75 transition hover:text-white">Back to proof hub</a>
+    </div>
+  </Section>
+
+  <Section title="Need a workshop or training system?" copy="The portfolio now shows the proof. The next step is choosing the right scope and audience.">
+    <CTAButtons />
+  </Section>
+</BaseLayout>

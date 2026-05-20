@@ -1,0 +1,126 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTAButtons from "../../components/CTAButtons.astro";
+import Section from "../../components/Section.astro";
+import WorkCard from "../../components/WorkCard.astro";
+import { notebookProjectsEn } from "../../data/notebooklm";
+import { platformProofEn, proofMetricsEn } from "../../data/proof";
+import { workItemsEn } from "../../data/work";
+import { workshopProofEn } from "../../data/workshops";
+import { withBase } from "../../utils/withBase";
+
+const visibleWork = workItemsEn.filter((item) =>
+  [
+    "Returning to Haifa - Bilingual Literary Reimagining",
+    "Palestine Visual Lab",
+    "Sakina App",
+    "Flappy Flip",
+    "AI Training and Workshop Systems",
+    "Signal OS / Codex Execution Infrastructure"
+  ].includes(item.title)
+);
+---
+<BaseLayout
+  title="Proof Hub | Tamer Mansour Portfolio"
+  description="A visitor-facing proof hub for Tamer Mansour: flagship creative work, AI workshops, NotebookLM projects, web products, Android apps, and operating systems."
+  path="/proof/"
+  pageType="CollectionPage"
+>
+  <Section
+    title="Proof hub"
+    copy="A fast path to the visible evidence: public projects, workshops, NotebookLM systems, Android/app work, web products, AI media, and client-safe capability proof."
+  >
+    <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+      {
+        proofMetricsEn.map((metric) => (
+          <article class="glass-card p-5">
+            <p class="text-3xl font-semibold tracking-tight text-white">{metric.value}</p>
+            <h2 class="mt-2 text-sm font-semibold text-gold">{metric.label}</h2>
+            <p class="mt-3 text-sm leading-relaxed text-sand/78">{metric.detail}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-3">
+      <a href={withBase("/work/")} class="glass-card block p-5 hover:border-gold/40">
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">Selected Work</p>
+        <h2 class="mt-3 text-xl font-semibold text-white">Public projects and products</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">AI films, web products, Android apps, games, archives, and knowledge-design work.</p>
+      </a>
+      <a href={withBase("/workshops/")} class="glass-card block p-5 hover:border-gold/40">
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">Workshops</p>
+        <h2 class="mt-3 text-xl font-semibold text-white">Training proof</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">Qattan, Mishkal, AL Mahs3'al (Journalists), Arab Bank, Birzeit, Sharek, WAN-IFRA, and more.</p>
+      </a>
+      <a href={withBase("/notebooklm/")} class="glass-card block p-5 hover:border-gold/40">
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">NotebookLM</p>
+        <h2 class="mt-3 text-xl font-semibold text-white">Source-grounded AI systems</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">Source packs, learning blueprints, presentation systems, and research workflows.</p>
+      </a>
+    </div>
+  </Section>
+
+  <Section title="Visitor-visible project proof" copy="These are no longer buried. They sit in the main proof path so a visitor can quickly understand the range of work.">
+    <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+      {visibleWork.map((item) => <WorkCard item={item} lang="en" imageClass="h-52 w-full object-cover" />)}
+    </div>
+  </Section>
+
+  <Section title="Workshop proof at a glance" copy="Named workshop lanes, visible without asking the visitor to infer training experience from a paragraph.">
+    <div class="grid gap-4 md:grid-cols-2">
+      {
+        workshopProofEn.slice(0, 6).map((item) => (
+          <article class="glass-card p-5">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <h3 class="text-lg font-semibold leading-tight text-white">{item.title}</h3>
+              <span class="rounded-full border border-white/15 px-3 py-1 text-xs uppercase tracking-[0.14em] text-sand/70">{item.status}</span>
+            </div>
+            <p class="mt-2 text-sm font-medium text-gold">{item.audience}</p>
+            <p class="mt-3 text-sm leading-relaxed text-sand/78">{item.proof}</p>
+            <p class="mt-3 text-sm leading-relaxed text-sand/68">{item.outcome}</p>
+          </article>
+        ))
+      }
+    </div>
+    <a href={withBase("/workshops/")} class="gold-link mt-6 inline-block text-sm font-semibold">Open all workshop proof</a>
+  </Section>
+
+  <Section title="NotebookLM project proof" copy="A dedicated proof line for source-grounded AI work, not just a tool mention.">
+    <div class="grid gap-4 md:grid-cols-2">
+      {
+        notebookProjectsEn.slice(0, 4).map((item) => (
+          <article class="glass-card p-5">
+            <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.category}</p>
+            <h3 class="mt-3 text-lg font-semibold text-white">{item.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-sand/78">{item.summary}</p>
+          </article>
+        ))
+      }
+    </div>
+    <a href={withBase("/notebooklm/")} class="gold-link mt-6 inline-block text-sm font-semibold">Open NotebookLM projects</a>
+  </Section>
+
+  <Section title="Other evidence and safe mentions" copy="Some proof is real but private, internal, or not ready for public linking. It is still visible, but described safely.">
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      {
+        platformProofEn.map((item) => {
+          const href = item.href?.startsWith("http") ? item.href : item.href ? withBase(item.href) : undefined;
+          const external = item.href?.startsWith("http");
+          return (
+            <article class="glass-card p-5">
+              <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.category}</p>
+              <h3 class="mt-3 text-lg font-semibold leading-tight text-white">{item.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-sand/78">{item.summary}</p>
+              {href && <a href={href} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined} class="gold-link mt-4 inline-block text-sm font-semibold">{item.linkLabel ?? "Open proof"}</a>}
+            </article>
+          );
+        })
+      }
+    </div>
+  </Section>
+
+  <Section title="Want the proof behind a specific lane?" copy="The public portfolio now gives the overview. A private sales pack or proposal can go deeper into any one lane when the audience is right.">
+    <CTAButtons />
+  </Section>
+</BaseLayout>

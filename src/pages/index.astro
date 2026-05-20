@@ -5,6 +5,7 @@ import Section from "../components/Section.astro";
 import WorkCard from "../components/WorkCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { pinterestBoardsEn } from "../data/pinterest";
+import { platformProofEn, proofMetricsEn } from "../data/proof";
 import { servicesEn } from "../data/services";
 import { siteData } from "../data/site";
 import { featuredWorkEn } from "../data/work";
@@ -107,42 +108,41 @@ const homeSchema = [
     <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-5 sm:p-6">
       <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div class="max-w-2xl">
-          <p class="text-xs uppercase tracking-[0.22em] text-gold">Early Trust</p>
+          <p class="text-xs uppercase tracking-[0.22em] text-gold">Proof Layer</p>
           <h2 class="mt-3 text-xl font-semibold tracking-tight text-white sm:text-2xl">
-            Cinematic craft, practical teaching, and systems designed to survive real delivery.
+            Recent proof now connects the creative portfolio to training, apps, systems, and platform activity.
           </h2>
         </div>
         <p class="max-w-xl text-sm leading-relaxed text-sand/75">
-          The work spans branded visuals, team workshops, bilingual communication, and production frameworks built for consistent use,
-          not one-off inspiration.
+          The strongest missing layer was not another claim. It was the evidence chain: workshops delivered, labs designed, internal apps tested,
+          creator-platform activity, and client-safe production-system demand.
         </p>
       </div>
 
       <div class="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        <article class="glass-card p-5">
-          <p class="text-xs uppercase tracking-[0.2em] text-gold">Campaign Visuals</p>
-          <p class="mt-3 text-sm leading-relaxed text-sand/78">
-            Branded films, launch visuals, and short-form concepts shaped for trust and attention.
-          </p>
-        </article>
-        <article class="glass-card p-5">
-          <p class="text-xs uppercase tracking-[0.2em] text-gold">Workshops</p>
-          <p class="mt-3 text-sm leading-relaxed text-sand/78">
-            Hands-on teaching for creators, internal teams, and institutions that need better output fast.
-          </p>
-        </article>
-        <article class="glass-card p-5">
-          <p class="text-xs uppercase tracking-[0.2em] text-gold">Workflow Systems</p>
-          <p class="mt-3 text-sm leading-relaxed text-sand/78">
-            Prompt frameworks, review checkpoints, and production playbooks that reduce chaos.
-          </p>
-        </article>
-        <article class="glass-card p-5">
-          <p class="text-xs uppercase tracking-[0.2em] text-gold">Bilingual Delivery</p>
-          <p class="mt-3 text-sm leading-relaxed text-sand/78">
-            English and Arabic communication with regional nuance and global readability.
-          </p>
-        </article>
+        {
+          proofMetricsEn.map((metric) => (
+            <article class="glass-card p-5">
+              <p class="text-3xl font-semibold tracking-tight text-white">{metric.value}</p>
+              <h3 class="mt-2 text-sm font-semibold text-gold">{metric.label}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-sand/78">{metric.detail}</p>
+            </article>
+          ))
+        }
+      </div>
+      <div class="mt-6 grid gap-3 md:grid-cols-3">
+        <a href={withBase("/proof/")} class="glass-card block p-5 hover:border-gold/40">
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">Open the proof hub</p>
+          <h3 class="mt-3 text-lg font-semibold text-white">All visitor-visible proof in one place</h3>
+        </a>
+        <a href={withBase("/workshops/")} class="glass-card block p-5 hover:border-gold/40">
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">Workshop proof</p>
+          <h3 class="mt-3 text-lg font-semibold text-white">Qattan, Mishkal, AL Mahs3'al, Arab Bank, Birzeit, and more</h3>
+        </a>
+        <a href={withBase("/notebooklm/")} class="glass-card block p-5 hover:border-gold/40">
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">NotebookLM projects</p>
+          <h3 class="mt-3 text-lg font-semibold text-white">Source packs, learning systems, and presentation workflows</h3>
+        </a>
       </div>
     </div>
   </section>
@@ -202,7 +202,7 @@ const homeSchema = [
 
   <Section
     title="Selected Work"
-    copy="Five flagship examples across literary retelling, heritage worldbuilding, a bilingual music archive platform, motion-led visual education, and book-to-deck knowledge design."
+    copy="Flagship public work plus recent proof anchors across training, app testing, music/audio, operating systems, and client-safe production workflows."
   >
     <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
       {
@@ -212,6 +212,37 @@ const homeSchema = [
     <div class="mt-8 flex flex-wrap items-center gap-4 text-sm">
       <a href={withBase("/work/")} class="gold-link font-semibold">View the flagship work selection</a>
       <a href={withBase("/services/")} class="text-sand/75 transition hover:text-white">See how each direction connects to services</a>
+    </div>
+  </Section>
+
+  <Section
+    title="Recent evidence not yet visible enough"
+    copy="These are the proof anchors discovered in local files and authenticated platform lanes. Public copy stays conservative where the evidence is private, internal, or not yet linkable."
+  >
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      {
+        platformProofEn.map((item) => {
+          const href = item.href?.startsWith("http") ? item.href : item.href ? withBase(item.href) : undefined;
+          const external = item.href?.startsWith("http");
+          return (
+            <article class="glass-card flex h-full flex-col p-5">
+              <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.category}</p>
+              <h3 class="mt-3 text-lg font-semibold leading-tight text-white">{item.title}</h3>
+              <p class="mt-3 flex-1 text-sm leading-relaxed text-sand/78">{item.summary}</p>
+              <div class="mt-4 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.16em] text-sand/65">
+                <span class="rounded-full border border-white/12 px-3 py-1">Confidence: {item.confidence}</span>
+              </div>
+              {
+                href && (
+                  <a href={href} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined} class="gold-link mt-5 text-sm font-semibold">
+                    {item.linkLabel ?? "Open proof"}
+                  </a>
+                )
+              }
+            </article>
+          );
+        })
+      }
     </div>
   </Section>
 
