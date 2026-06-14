@@ -99,12 +99,12 @@ export const platformProofEn: ProofItem[] = [
     confidence: "Medium"
   },
   {
-    title: "Client-Safe AI Video Production System",
-    category: "Client work / Upwork-facing proof",
+    title: "Anbiya Visuals AI Story Production",
+    category: "Client work / AI visual production",
     summary:
-      "Anbiya Visuals now has public-safe website editions: a clean compressed English montage plus Tamer's manually edited Arabic version, alongside careful avatar workflow framing that avoids private client details and identity-sensitive materials.",
+      "Anbiya Visuals demonstrates Tamer's AI visual production capability: cinematic title cards, scene direction, story-world mood, montage flow, and web-ready English/Arabic presentation assets.",
     href: "/client-ai-production/",
-    linkLabel: "Open client-safe proof",
+    linkLabel: "Open production case",
     confidence: "High"
   }
 ];

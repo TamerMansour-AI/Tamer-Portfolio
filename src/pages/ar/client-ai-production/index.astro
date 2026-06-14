@@ -3,17 +3,10 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import CTAButtons from "../../../components/CTAButtons.astro";
 import Section from "../../../components/Section.astro";
 import { withBase } from "../../../utils/withBase";
-
-const safeRules = [
-  "لا نعرض التسليمات الكاملة للعملاء على الموقع.",
-  "لا نعرض النصوص الداخلية أو الملاحظات الخاصة أو تفاصيل الحسابات.",
-  "لا نستخدم مواد أفاتار حساسة للهوية إلا من خلال نموذج صناعي بديل.",
-  "نستخدم مقتطفات مختارة فقط مع وصف واضح للسياق والحدود."
-];
 ---
 <BaseLayout
-  title="Client-Safe AI Production Pipeline | Tamer Mansour"
-  description="صفحة إثبات آمنة لعرض قدرات تامر منصور في السرد البصري السينمائي بالذكاء الاصطناعي وسير عمل الأفاتار."
+  title="Anbiya Visuals AI Story Production | Tamer Mansour"
+  description="مثال إنتاج بصري إبداعي من تامر منصور، يعرض تصميم السرد السينمائي، الهوية البصرية، بناء العالم، والإخراج بالذكاء الاصطناعي."
   path="/ar/client-ai-production/"
   lang="ar"
   dir="rtl"
@@ -21,8 +14,8 @@ const safeRules = [
   pageType="CreativeWork"
 >
   <Section
-    title="إنتاج بصري بالذكاء الاصطناعي مع حماية خصوصية العميل"
-    copy="طبقة عرض عامة تكفي لإثبات القدرة، من دون نشر الفيديوهات الكاملة أو المواد الخاصة أو أي تفاصيل حساسة من العمل."
+    title="Anbiya Visuals: إنتاج سرد بصري بالذكاء الاصطناعي"
+    copy="مثال من عمل نفذته لعميل، يوضح كيف يمكن تحويل فكرة قصصية إلى عالم بصري سينمائي: بطاقات عرض، مشاهد، جو عام، إيقاع، وإخراج مدعوم بالذكاء الاصطناعي."
     className="text-right"
   >
     <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
@@ -34,7 +27,7 @@ const safeRules = [
             preload="metadata"
             playsinline
             poster={withBase("/media/client-ai-production/anbiya-visuals-arabic-manual-poster.jpg")}
-            aria-label="نسخة عربية من مونتاج Anbiya Visuals مع بطاقات إدخال سينمائية"
+            aria-label="مونتاج عربي لمشروع Anbiya Visuals"
           >
             <source
               src={withBase("/media/client-ai-production/anbiya-visuals-arabic-manual-edition.mp4")}
@@ -47,25 +40,26 @@ const safeRules = [
         <article class="glass-card p-5 text-right">
           <p class="text-xs uppercase tracking-[0.18em] text-gold">Anbiya Visuals</p>
           <p class="mt-3 text-sm leading-relaxed text-sand/80">
-            نسخة عربية كاملة وخفيفة من المونتاج، تستبدل بطاقات العرض الإنجليزية ببطاقات عربية سينمائية تتحدث عن تحويل الفكرة إلى عالم مرئي، والسرد الصوتي، والهوية البصرية، وبناء العالم، والإخراج بالذكاء الاصطناعي.
+            في هذا المشروع طورت اتجاهاً بصرياً يحوّل القصص إلى مشاهد ذات هوية واضحة: عناوين سينمائية، لقطات بيئية، إضاءة تاريخية، وإحساس بصري يجعل الفكرة تبدو كمنتج إعلامي قابل للتوسع.
           </p>
         </article>
         <article class="glass-card p-5 text-right">
-          <p class="text-xs uppercase tracking-[0.18em] text-gold">Avatar workflow</p>
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">ما الذي أنجزته</p>
           <p class="mt-3 text-sm leading-relaxed text-sand/80">
-            مشروع الأفاتار يثبت القدرة على بناء سير عمل إنتاجي لفيديوهات الخدمات المهنية، لكن النسخة العامة الأفضل له ستكون نموذجاً صناعياً معاد البناء بدل عرض المواد الأصلية الحساسة.
+            العمل يبرز قدرتي على تصميم لغة بصرية، اختيار لقطات مؤثرة، بناء مونتاج متماسك، واستخدام أدوات الذكاء الاصطناعي كخط إنتاج إبداعي من الفكرة إلى نموذج عرض احترافي.
           </p>
         </article>
       </div>
     </div>
   </Section>
 
-  <Section title="ما الذي يمكن قوله علناً" copy="الصياغة هنا لإثبات القدرة، لا لكشف تفاصيل العميل." className="text-right">
-    <div class="grid gap-4 md:grid-cols-3">
+  <Section title="ما الذي يثبته هذا العمل" copy="التركيز هنا على جودة الإنتاج وقدرتي على تحويل الفكرة إلى مادة بصرية قابلة للعرض والتطوير." className="text-right">
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       {[
-        "اختيار لقطات وسرد بصري سينمائي",
-        "تصميم سير عمل قابل للتكرار لفيديوهات الأفاتار",
-        "تنظيم التسليمات والمراجعات بطريقة مناسبة للعملاء"
+        "تحويل الفكرة إلى عالم بصري متماسك",
+        "تصميم بطاقات عرض وهوية بصرية للمشروع",
+        "اختيار لقطات بإحساس سينمائي ووزن عاطفي",
+        "استخدام الذكاء الاصطناعي كمنظومة إنتاج لا كأداة صور فقط"
       ].map((item) => (
         <article class="glass-card p-5 text-right">
           <h2 class="text-lg font-semibold text-white">{item}</h2>
@@ -74,17 +68,21 @@ const safeRules = [
     </div>
   </Section>
 
-  <Section title="قواعد النشر الآمن" copy="هذه القواعد تحمي عمل العميل وتسمح للموقع بإظهار المهارة في الوقت نفسه." className="text-right">
-    <div class="grid gap-3 sm:grid-cols-2">
-      {safeRules.map((rule) => (
+  <Section title="قيمة الإنتاج" copy="هذا النوع من العمل يمكن أن يخدم سلاسل تعليمية، مشاريع سرد ثقافي، حملات بصرية، عروض تقديمية، ونماذج إعلامية أولية." className="text-right">
+    <div class="grid gap-4 md:grid-cols-3">
+      {[
+        "مونتاج جاهز يشرح رؤية المنتج بسرعة",
+        "نظام بصري قابل للتكرار مع قصص أو حلقات أخرى",
+        "هوية تجعل المشروع أسهل في العرض والتذكر"
+      ].map((item) => (
         <article class="glass-card p-5 text-right">
-          <p class="text-sm leading-relaxed text-sand/80">{rule}</p>
+          <p class="text-sm leading-relaxed text-sand/82">{item}</p>
         </article>
       ))}
     </div>
   </Section>
 
-  <Section title="تحتاج نظام إنتاج مشابه؟" copy="يمكن بيع الخدمة من خلال الاستراتيجية، تصميم اللقطات، التوليد، المراجعة، وتجهيز التسليمات من دون كشف عمل العملاء." className="text-right">
+  <Section title="تحتاج إنتاجاً بصرياً مشابهاً؟" copy="أستطيع تحويل قصة، فكرة تعليمية، حملة، أو موجز إبداعي إلى اتجاه بصري سينمائي مدعوم بالذكاء الاصطناعي." className="text-right">
     <CTAButtons className="sm:justify-end" />
     <div class="mt-4 flex flex-wrap justify-end gap-4 text-sm">
       <a href={withBase("/ar/services/")} class="gold-link font-semibold">استكشف الخدمات</a>
