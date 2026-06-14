@@ -268,20 +268,20 @@ const workSeed: WorkSeedItem[] = [
     type_en: "Client Work / AI Video Production",
     type_ar: "Client Work / AI Video Production",
     context_en: "Anonymized proof for cinematic story work and avatar production systems",
-    context_ar: "Anonymized proof for cinematic story work and avatar production systems",
+    context_ar: "إثبات آمن لسرد بصري سينمائي وأنظمة إنتاج الأفاتار",
     desc_en:
-      "A client-safe placeholder for Upwork production work, including Anbiya Visuals and avatar workflow pilots. Public copy keeps the capability visible while avoiding full client videos, scripts, private feedback, or identity-sensitive avatar assets.",
+      "A client-safe proof page for Upwork production work, including a web-optimized Anbiya Visuals montage with Arabic context overlays plus avatar workflow framing. Public copy keeps the capability visible while avoiding full client deliverables, scripts, private feedback, or identity-sensitive avatar assets.",
     desc_ar:
-      "A client-safe placeholder for Upwork production work, including Anbiya Visuals and avatar workflow pilots. Public copy keeps the capability visible while avoiding full client videos, scripts, private feedback, or identity-sensitive avatar assets.",
+      "صفحة إثبات آمنة لعمل إنتاجي عبر Upwork، تتضمن مونتاج Anbiya Visuals محسناً للويب مع سياق عربي، إلى جانب صياغة آمنة لسير عمل الأفاتار من دون كشف التسليمات الكاملة أو المواد الخاصة.",
     url_en: "/client-ai-production/",
     url_ar: "/ar/client-ai-production/",
     linkLabel_en: "Open client-safe proof",
     linkLabel_ar: "Open client-safe proof",
-    note_en: "A mixed snapshot montage can replace this placeholder after client-safe editing and approval.",
-    note_ar: "A mixed snapshot montage can replace this placeholder after client-safe editing and approval.",
+    note_en: "Includes a 2:10 client-safe website edition reduced from the original export and framed with Arabic context captions.",
+    note_ar: "تتضمن نسخة موقع آمنة مدتها 2:10 بحجم أخف من ملف الإنتاج الأصلي مع عبارات سياقية عربية.",
     tags_en: ["Client-Safe", "AI Video", "Avatar Workflow"],
     tags_ar: ["Client-Safe", "AI Video", "Avatar Workflow"],
-    thumbLocal: "/media/client-ai-production/anbiya-nuh-client-safe-still.jpg",
+    thumbLocal: "/media/client-ai-production/anbiya-visuals-reel-poster.jpg",
     featured: false
   },
   {

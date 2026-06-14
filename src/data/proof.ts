@@ -102,7 +102,7 @@ export const platformProofEn: ProofItem[] = [
     title: "Client-Safe AI Video Production System",
     category: "Client work / Upwork-facing proof",
     summary:
-      "Anbiya Visuals and avatar workflow folders show strong client production capability, but the public layer should stay anonymized: selected stills, placeholders, and capability framing only until a client-safe montage is prepared.",
+      "Anbiya Visuals now has a public-safe website edition: a compressed full montage with Arabic context overlays, plus careful avatar workflow framing that avoids private client details and identity-sensitive materials.",
     href: "/client-ai-production/",
     linkLabel: "Open client-safe proof",
     confidence: "High"
