@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CTAButtons from "../../../components/CTAButtons.astro";
+import Section from "../../../components/Section.astro";
+import { withBase } from "../../../utils/withBase";
+
+const videos = [
+  {
+    title: "My Way",
+    context: "English cinematic AI music video",
+    poster: "/media/music-videos/my-way-thumb.jpg",
+    src: "/media/music-videos/my-way-preview.mp4",
+    copy:
+      "A moody cinematic song video built around masks, cost, movement, and self-direction. The public site uses a compressed preview clip rather than the heavy source video."
+  },
+  {
+    title: "Between Me and the Earth",
+    context: "Arabic poetic music video",
+    poster: "/media/music-videos/between-me-and-earth-thumb.jpg",
+    src: "/media/music-videos/between-me-and-earth-preview.mp4",
+    copy:
+      "A recent Arabic song visualized through sketch-like frames, personal presence, and quiet narrative movement. Private source images from the working folder are excluded."
+  }
+];
+---
+<BaseLayout
+  title="Original AI Music Videos | Tamer Mansour"
+  description="Original AI music video previews by Tamer Mansour."
+  path="/ar/music-videos/"
+  lang="ar"
+  dir="rtl"
+  image="/media/music-videos/my-way-thumb.jpg"
+  pageType="CollectionPage"
+>
+  <Section
+    title="Original AI music videos"
+    copy="Recent songs shaped into cinematic visual narratives, shown through short web previews and selected stills."
+    className="text-right"
+  >
+    <div class="grid gap-6 lg:grid-cols-2">
+      {videos.map((video) => (
+        <article class="glass-card overflow-hidden text-right">
+          <div class="relative bg-black">
+            <video controls playsinline preload="metadata" poster={withBase(video.poster)} class="aspect-video w-full bg-black object-cover">
+              <source src={withBase(video.src)} type="video/mp4" />
+            </video>
+          </div>
+          <div class="space-y-3 p-5">
+            <p class="text-xs uppercase tracking-[0.18em] text-gold">{video.context}</p>
+            <h2 class="text-2xl font-semibold tracking-tight text-white">{video.title}</h2>
+            <p class="text-sm leading-relaxed text-sand/78">{video.copy}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section title="Why this belongs in the portfolio" copy="It proves original song direction, cinematic image systems, editing judgment, and release packaging." className="text-right">
+    <div class="grid gap-4 md:grid-cols-3">
+      {["Original audio-to-visual direction", "Cinematic image system", "Short-form release packaging"].map((item) => (
+        <article class="glass-card p-5 text-right">
+          <h2 class="text-lg font-semibold text-white">{item}</h2>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section title="Want this kind of music/video direction for a release?" copy="The same workflow can support a song, cultural story, campaign, or short cinematic proof-of-concept." className="text-right">
+    <CTAButtons className="sm:justify-end" />
+  </Section>
+</BaseLayout>

@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CTAButtons from "../../../components/CTAButtons.astro";
+import Section from "../../../components/Section.astro";
+import SmartImage from "../../../components/SmartImage.astro";
+import { withBase } from "../../../utils/withBase";
+
+const storeUrl = "https://www.teacherspayteachers.com/store/primary-learning-visualised";
+const productLinks = [
+  {
+    title: "Pushes & Pulls Lesson Pack",
+    href: "https://www.teacherspayteachers.com/Product/Forces-Motion-Lesson-1-Complete-Bundle-Pushes-Pulls-15481050"
+  },
+  {
+    title: "Friction Lesson Bundle",
+    href: "https://www.teacherspayteachers.com/Product/Forces-Motion-Lesson-2-Friction-Lesson-Bundle-Slides-Video-Worksheets-15549604"
+  }
+];
+
+const samples = [
+  ["/media/education-products/tpt-pushes-pulls-cover.jpg", "Marketplace cover"],
+  ["/media/education-products/tpt-force-direction-slide.jpg", "Slide logic"],
+  ["/media/education-products/tpt-friction-stop-think.jpg", "Misconception check"],
+  ["/media/education-products/tpt-friction-worksheet.jpg", "Printable worksheet"]
+];
+---
+<BaseLayout
+  title="Primary Learning Visualised | TPT Educational Product Proof"
+  description="Public proof page for Primary Learning Visualised educational products on Teachers Pay Teachers."
+  path="/ar/education-products/"
+  lang="ar"
+  dir="rtl"
+  image="/media/education-products/tpt-pushes-pulls-cover.jpg"
+  pageType="CreativeWork"
+>
+  <Section
+    title="Primary Learning Visualised"
+    copy="A public educational-product lane built with a Qatar-based teaching partner: primary science lesson packs, video previews, worksheets, quick checks, and teacher-ready product packaging."
+    className="text-right"
+  >
+    <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+      <div class="glass-card overflow-hidden">
+        <div class="relative aspect-video bg-white/5">
+          <SmartImage fallback="/media/education-products/tpt-pushes-pulls-cover.jpg" alt="Pushes and Pulls lesson pack cover" class="h-full w-full object-cover" loading="eager" />
+        </div>
+      </div>
+      <div class="space-y-4">
+        <article class="glass-card p-5 text-right">
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">What this proves</p>
+          <p class="mt-3 text-sm leading-relaxed text-sand/80">
+            A repeatable product system: curriculum idea, visual lesson, worksheet, assessment, answer key, thumbnail, listing copy, and marketplace packaging.
+          </p>
+        </article>
+        <article class="glass-card p-5 text-right">
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">Public proof</p>
+          <div class="mt-3 flex flex-wrap justify-end gap-3 text-sm">
+            <a href={storeUrl} target="_blank" rel="noreferrer" class="gold-link font-semibold">Open TPT store</a>
+            {productLinks.map((item) => (
+              <a href={item.href} target="_blank" rel="noreferrer" class="text-sand/75 hover:text-white">{item.title}</a>
+            ))}
+          </div>
+        </article>
+      </div>
+    </div>
+  </Section>
+
+  <Section title="Selected product assets" copy="Only curated public-safe exports are shown here." className="text-right">
+    <div class="grid gap-5 sm:grid-cols-2">
+      {samples.map(([src, title]) => (
+        <article class="glass-card overflow-hidden text-right">
+          <div class="relative aspect-video bg-white/5">
+            <SmartImage fallback={src} alt={title} class="h-full w-full object-cover" />
+          </div>
+          <div class="p-5">
+            <h2 class="text-lg font-semibold text-white">{title}</h2>
+          </div>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section title="Short video proof" copy="A lightweight preview clip shows the animated lesson direction." className="text-right">
+    <div class="overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+      <video controls playsinline preload="metadata" poster={withBase("/media/education-products/tpt-pushes-pulls-cover.jpg")} class="w-full">
+        <source src={withBase("/media/education-products/tpt-pushes-pulls-preview.mp4")} type="video/mp4" />
+      </video>
+    </div>
+  </Section>
+
+  <Section title="Need an educational product system?" copy="The same workflow can turn lessons, workshops, or training ideas into clearer assets." className="text-right">
+    <CTAButtons className="sm:justify-end" />
+  </Section>
+</BaseLayout>

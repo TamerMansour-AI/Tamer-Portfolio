@@ -129,6 +129,41 @@ const deckSeed: DeckSeed[] = [
         label_ar: "شريحة بناء الحجة"
       }
     ]
+  },
+  {
+    slug: "the-newt-file",
+    title_en: "The Newt File",
+    title_ar: "The Newt File",
+    category_en: "Arabic Visual Dossier",
+    category_ar: "Arabic Visual Dossier",
+    context_en: "A speculative Arabic visual dossier with a strong editorial world",
+    context_ar: "A speculative Arabic visual dossier with a strong editorial world",
+    desc_en:
+      "A newly added visual-depiction project that turns a strange fictional premise into a dossier-style slide sequence, mixing maps, archival surfaces, character framing, and dramatic Arabic copy.",
+    desc_ar:
+      "A newly added visual-depiction project that turns a strange fictional premise into a dossier-style slide sequence, mixing maps, archival surfaces, character framing, and dramatic Arabic copy.",
+    note_en: "Included as a sample of the more experimental book and fiction-depiction direction. The source folder also contains unrelated/private material, so the public site uses only whitelisted slide exports.",
+    note_ar: "Included as a sample of the more experimental book and fiction-depiction direction. The source folder also contains unrelated/private material, so the public site uses only whitelisted slide exports.",
+    tags_en: ["Arabic Slides", "Speculative Dossier", "Visual Fiction"],
+    tags_ar: ["Arabic Slides", "Speculative Dossier", "Visual Fiction"],
+    cover: "/media/decks/the-newt-file/cover.jpg",
+    previews: [
+      {
+        src: "/media/decks/the-newt-file/cover.jpg",
+        label_en: "Cover dossier slide",
+        label_ar: "Cover dossier slide"
+      },
+      {
+        src: "/media/decks/the-newt-file/spread.jpg",
+        label_en: "World and conflict slide",
+        label_ar: "World and conflict slide"
+      },
+      {
+        src: "/media/decks/the-newt-file/principle.jpg",
+        label_en: "Dossier principle slide",
+        label_ar: "Dossier principle slide"
+      }
+    ]
   }
 ];
 

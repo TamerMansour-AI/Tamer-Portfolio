@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTAButtons from "../../components/CTAButtons.astro";
 import Section from "../../components/Section.astro";
+import SmartImage from "../../components/SmartImage.astro";
 import { workshopProofEn } from "../../data/workshops";
 import { withBase } from "../../utils/withBase";
 
@@ -51,6 +52,33 @@ const deliveredCount = workshopProofEn.filter((item) => item.status === "Deliver
           </article>
         ))
       }
+    </div>
+  </Section>
+
+  <Section title="Live lab outcomes" copy="Two recent workshop systems now have public links and visual proof, so visitors can see the practical outcome of the training work.">
+    <div class="grid gap-6 lg:grid-cols-2">
+      <article class="glass-card overflow-hidden">
+        <div class="relative aspect-video bg-white/5">
+          <SmartImage fallback="/media/workshops/ai-verification-workflow-map.jpg" alt="AI Verification Lab workflow map" class="h-full w-full object-cover" />
+        </div>
+        <div class="space-y-3 p-5">
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">Journalism verification lab</p>
+          <h2 class="text-xl font-semibold text-white">AI Verification Lab for Journalists</h2>
+          <p class="text-sm leading-relaxed text-sand/78">Bilingual guides, verification workflows, NotebookLM recap visuals, and an Arabic-first workshop hub for responsible AI use in journalism.</p>
+          <a href="https://ai-verification-lab.pages.dev" target="_blank" rel="noreferrer" class="gold-link text-sm font-semibold">Open live lab</a>
+        </div>
+      </article>
+      <article class="glass-card overflow-hidden">
+        <div class="relative aspect-video bg-white/5">
+          <SmartImage fallback="/media/workshops/birzeit-ai-fluency-home.jpg" alt="Birzeit AI Fluency Lab home screen" class="h-full w-full object-cover" />
+        </div>
+        <div class="space-y-3 p-5">
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">University AI fluency lab</p>
+          <h2 class="text-xl font-semibold text-white">Birzeit AI Fluency Lab 2026</h2>
+          <p class="text-sm leading-relaxed text-sand/78">A live workshop system with landing, join, activity, result, admin, and display flows for practical AI fluency sessions.</p>
+          <a href="https://birzeit-ai-fluency-lab-2026.pages.dev" target="_blank" rel="noreferrer" class="gold-link text-sm font-semibold">Open live lab</a>
+        </div>
+      </article>
     </div>
   </Section>
 

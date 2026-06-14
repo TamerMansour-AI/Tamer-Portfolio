@@ -182,6 +182,109 @@ const workSeed: WorkSeedItem[] = [
     featured: true
   },
   {
+    title_en: "Primary Learning Visualised on TPT",
+    title_ar: "Primary Learning Visualised on TPT",
+    type_en: "Educational Product System",
+    type_ar: "Educational Product System",
+    context_en: "Marketplace-ready visual lesson packs built with a Qatar-based teaching partner",
+    context_ar: "Marketplace-ready visual lesson packs built with a Qatar-based teaching partner",
+    desc_en:
+      "A growing Teachers Pay Teachers store for primary science resources: lesson slides, short video previews, worksheets, quick checks, answer keys, and teacher-facing packaging built as repeatable educational products.",
+    desc_ar:
+      "A growing Teachers Pay Teachers store for primary science resources: lesson slides, short video previews, worksheets, quick checks, answer keys, and teacher-facing packaging built as repeatable educational products.",
+    url_en: "/education-products/",
+    url_ar: "/ar/education-products/",
+    linkLabel_en: "Open product proof",
+    linkLabel_ar: "Open product proof",
+    secondaryUrl: "https://www.teacherspayteachers.com/store/primary-learning-visualised",
+    secondaryLabel_en: "Open TPT store",
+    secondaryLabel_ar: "Open TPT store",
+    tags_en: ["TPT Store", "Primary Science", "Lesson Products"],
+    tags_ar: ["TPT Store", "Primary Science", "Lesson Products"],
+    thumbLocal: "/media/education-products/tpt-pushes-pulls-cover.jpg",
+    featured: true
+  },
+  {
+    title_en: "AI Verification Lab for Journalists",
+    title_ar: "AI Verification Lab for Journalists",
+    type_en: "Workshop Web App / Journalism Training",
+    type_ar: "Workshop Web App / Journalism Training",
+    context_en: "A bilingual verification-learning system with guides, recaps, and a live web app",
+    context_ar: "A bilingual verification-learning system with guides, recaps, and a live web app",
+    desc_en:
+      "A practical AI training environment for journalists, combining source-grounded guides, AI-risk framing, verification workflows, and workshop-ready visual materials.",
+    desc_ar:
+      "A practical AI training environment for journalists, combining source-grounded guides, AI-risk framing, verification workflows, and workshop-ready visual materials.",
+    url: "https://ai-verification-lab.pages.dev",
+    linkLabel_en: "Open live lab",
+    linkLabel_ar: "Open live lab",
+    tags_en: ["Journalism", "Verification", "Workshop Web App"],
+    tags_ar: ["Journalism", "Verification", "Workshop Web App"],
+    thumbLocal: "/media/workshops/ai-verification-workflow-map.jpg",
+    featured: true
+  },
+  {
+    title_en: "Birzeit AI Fluency Lab 2026",
+    title_ar: "Birzeit AI Fluency Lab 2026",
+    type_en: "Interactive Workshop Lab",
+    type_ar: "Interactive Workshop Lab",
+    context_en: "A live Arabic-first workshop system for practical AI fluency sessions",
+    context_ar: "A live Arabic-first workshop system for practical AI fluency sessions",
+    desc_en:
+      "A Cloudflare-hosted workshop lab with landing, join, activity, result, admin, and display flows for hands-on AI fluency training with real participant outcomes.",
+    desc_ar:
+      "A Cloudflare-hosted workshop lab with landing, join, activity, result, admin, and display flows for hands-on AI fluency training with real participant outcomes.",
+    url: "https://birzeit-ai-fluency-lab-2026.pages.dev",
+    linkLabel_en: "Open live lab",
+    linkLabel_ar: "Open live lab",
+    tags_en: ["Birzeit", "AI Fluency", "Interactive Lab"],
+    tags_ar: ["Birzeit", "AI Fluency", "Interactive Lab"],
+    thumbLocal: "/media/workshops/birzeit-ai-fluency-home.jpg",
+    featured: true
+  },
+  {
+    title_en: "Original AI Music Videos",
+    title_ar: "Original AI Music Videos",
+    type_en: "Music Video / AI Storytelling",
+    type_ar: "Music Video / AI Storytelling",
+    context_en: "Recent original songs shaped into cinematic visual narratives",
+    context_ar: "Recent original songs shaped into cinematic visual narratives",
+    desc_en:
+      "A curated music-video lane for My Way and Between Me and the Earth, using short web previews to show the visual storytelling direction without publishing heavy source files.",
+    desc_ar:
+      "A curated music-video lane for My Way and Between Me and the Earth, using short web previews to show the visual storytelling direction without publishing heavy source files.",
+    url_en: "/music-videos/",
+    url_ar: "/ar/music-videos/",
+    linkLabel_en: "Open music video previews",
+    linkLabel_ar: "Open music video previews",
+    tags_en: ["Original Music", "Cinematic AI", "Video Direction"],
+    tags_ar: ["Original Music", "Cinematic AI", "Video Direction"],
+    thumbLocal: "/media/music-videos/my-way-thumb.jpg",
+    featured: true
+  },
+  {
+    title_en: "Client-Safe AI Production Pipeline",
+    title_ar: "Client-Safe AI Production Pipeline",
+    type_en: "Client Work / AI Video Production",
+    type_ar: "Client Work / AI Video Production",
+    context_en: "Anonymized proof for cinematic story work and avatar production systems",
+    context_ar: "Anonymized proof for cinematic story work and avatar production systems",
+    desc_en:
+      "A client-safe placeholder for Upwork production work, including Anbiya Visuals and avatar workflow pilots. Public copy keeps the capability visible while avoiding full client videos, scripts, private feedback, or identity-sensitive avatar assets.",
+    desc_ar:
+      "A client-safe placeholder for Upwork production work, including Anbiya Visuals and avatar workflow pilots. Public copy keeps the capability visible while avoiding full client videos, scripts, private feedback, or identity-sensitive avatar assets.",
+    url_en: "/client-ai-production/",
+    url_ar: "/ar/client-ai-production/",
+    linkLabel_en: "Open client-safe proof",
+    linkLabel_ar: "Open client-safe proof",
+    note_en: "A mixed snapshot montage can replace this placeholder after client-safe editing and approval.",
+    note_ar: "A mixed snapshot montage can replace this placeholder after client-safe editing and approval.",
+    tags_en: ["Client-Safe", "AI Video", "Avatar Workflow"],
+    tags_ar: ["Client-Safe", "AI Video", "Avatar Workflow"],
+    thumbLocal: "/media/client-ai-production/anbiya-nuh-client-safe-still.jpg",
+    featured: false
+  },
+  {
     title_en: "Palestine Visual Lab",
     title_ar: "Palestine Visual Lab",
     type_en: "Web Product / Visual Tool",

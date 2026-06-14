@@ -20,9 +20,9 @@ export const proofMetricsEn: ProofMetric[] = [
     detail: "Qattan, Mishkal, AL Mahs3'al (Journalists), WAN-IFRA, Arab Bank, Birzeit, Sharek, and mixed professional audiences."
   },
   {
-    value: "8+",
+    value: "12+",
     label: "Public proof lanes",
-    detail: "AI video, bilingual archive products, web products, Android apps, games, knowledge design, workshops, and cultural storytelling."
+    detail: "AI video, educational products, bilingual archive products, web products, Android apps, games, knowledge design, workshops, and cultural storytelling."
   },
   {
     value: "Android",
@@ -38,6 +38,15 @@ export const proofMetricsEn: ProofMetric[] = [
 
 export const platformProofEn: ProofItem[] = [
   {
+    title: "Primary Learning Visualised TPT Store",
+    category: "Educational products",
+    summary:
+      "A public Teachers Pay Teachers store built with a Qatar-based teaching partner, showing repeatable primary science products: lesson slides, short video previews, worksheets, quick checks, answer keys, and product packaging.",
+    href: "/education-products/",
+    linkLabel: "Open product proof",
+    confidence: "High"
+  },
+  {
     title: "AI Training and Workshop Delivery",
     category: "Training / workshops",
     summary:
@@ -47,13 +56,22 @@ export const platformProofEn: ProofItem[] = [
     confidence: "High"
   },
   {
-    title: "Birzeit and AL Mahs3'al Journalist Lab Systems",
+    title: "Live Workshop Lab Systems",
     category: "Interactive learning labs",
     summary:
-      "Local evidence shows lab-style training products such as AI Verification Lab for Journalists, Gaza AI Narrative Lab, and Birzeit AI Fluency Lab patterns: prompt libraries, scenarios, worksheets, and output builders.",
+      "Public and local evidence now includes live lab-style training products such as AI Verification Lab for Journalists and Birzeit AI Fluency Lab 2026: prompt libraries, scenarios, worksheets, output builders, admin/display flows, and recap assets.",
     href: "/workshops/",
     linkLabel: "See workshop proof",
-    confidence: "Medium"
+    confidence: "High"
+  },
+  {
+    title: "Original AI Music Video Direction",
+    category: "Music / video",
+    summary:
+      "Recent song work includes My Way and Between Me and the Earth. The portfolio uses short compressed previews and selected stills so the direction is visible without publishing heavy source folders or private source images.",
+    href: "/music-videos/",
+    linkLabel: "Open music video previews",
+    confidence: "High"
   },
   {
     title: "Signal OS / Codex Execution Infrastructure",
@@ -84,9 +102,9 @@ export const platformProofEn: ProofItem[] = [
     title: "Client-Safe AI Video Production System",
     category: "Client work / Upwork-facing proof",
     summary:
-      "A recent Upwork lead validates demand for repeatable AI presenter-video production systems. Keep public copy client-safe: describe the capability without names, private messages, budgets, or account details.",
-    href: "/services/",
-    linkLabel: "See production system offer",
-    confidence: "Medium"
+      "Anbiya Visuals and avatar workflow folders show strong client production capability, but the public layer should stay anonymized: selected stills, placeholders, and capability framing only until a client-safe montage is prepared.",
+    href: "/client-ai-production/",
+    linkLabel: "Open client-safe proof",
+    confidence: "High"
   }
 ];

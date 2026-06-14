@@ -1,0 +1,86 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CTAButtons from "../../../components/CTAButtons.astro";
+import Section from "../../../components/Section.astro";
+import SmartImage from "../../../components/SmartImage.astro";
+import { withBase } from "../../../utils/withBase";
+
+const safeRules = [
+  "No full client deliverables on the public site.",
+  "No scripts, private feedback, messages, budgets, or account details.",
+  "No identity-sensitive avatar assets unless a synthetic demo replaces them.",
+  "A curated montage can be added later after client-safe editing."
+];
+---
+<BaseLayout
+  title="Client-Safe AI Production Pipeline | Tamer Mansour"
+  description="A client-safe portfolio placeholder for AI cinematic story production and avatar workflow work by Tamer Mansour."
+  path="/ar/client-ai-production/"
+  lang="ar"
+  dir="rtl"
+  image="/media/client-ai-production/anbiya-nuh-client-safe-still.jpg"
+  pageType="CreativeWork"
+>
+  <Section
+    title="Client-safe AI production pipeline"
+    copy="A careful public layer for Upwork/client work: enough proof to show capability, without exposing full videos, private materials, scripts, or identity-sensitive avatar assets."
+    className="text-right"
+  >
+    <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+      <div class="glass-card overflow-hidden">
+        <div class="relative aspect-video bg-white/5">
+          <SmartImage fallback="/media/client-ai-production/anbiya-nuh-client-safe-still.jpg" alt="Client-safe cinematic story still" class="h-full w-full object-cover" loading="eager" />
+        </div>
+      </div>
+      <div class="space-y-4">
+        <article class="glass-card p-5 text-right">
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">Anbiya Visuals placeholder</p>
+          <p class="mt-3 text-sm leading-relaxed text-sand/80">
+            The Nuh material is visually strong and worth representing, but the public site should treat it as client work. A mixed snapshot montage can replace this placeholder later.
+          </p>
+        </article>
+        <article class="glass-card p-5 text-right">
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">Avatar workflow placeholder</p>
+          <p class="mt-3 text-sm leading-relaxed text-sand/80">
+            The avatar pilot proves a useful production workflow, but the public version should use a recreated synthetic demo rather than raw identity-sensitive deliverables.
+          </p>
+        </article>
+      </div>
+    </div>
+  </Section>
+
+  <Section title="Public safety rules" copy="These rules protect the client work while still letting the portfolio show the skill." className="text-right">
+    <div class="grid gap-3 sm:grid-cols-2">
+      {safeRules.map((rule) => (
+        <article class="glass-card p-5 text-right">
+          <p class="text-sm leading-relaxed text-sand/80">{rule}</p>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section title="Montage slot" copy="When the mixed snapshot video is ready, place it here as the primary proof." className="text-right">
+    <div class="overflow-hidden rounded-2xl border border-dashed border-gold/40 bg-white/[0.04] p-6 text-right">
+      <div class="grid gap-4 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+        <div class="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-black/40">
+          <SmartImage fallback="/media/client-ai-production/anbiya-nuh-client-safe-still.jpg" alt="Future client-safe montage placeholder" class="h-full w-full object-cover opacity-80" />
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">Future asset</p>
+          <h2 class="mt-2 text-2xl font-semibold text-white">Client-safe montage pending</h2>
+          <p class="mt-3 text-sm leading-relaxed text-sand/78">
+            Recommended montage length: 20-35 seconds, no full scenes, no client names, no private voiceovers, no internal screenshots, and only visual segments that are safe to show publicly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <Section title="Need a production system like this?" copy="Strategy, workflow, shot design, generation, revision, and delivery packaging can be sold without exposing private client work." className="text-right">
+    <CTAButtons className="sm:justify-end" />
+    <div class="mt-4 flex flex-wrap justify-end gap-4 text-sm">
+      <a href={withBase("/ar/services/")} class="gold-link font-semibold">Explore services</a>
+      <a href={withBase("/ar/work/")} class="text-sand/75 hover:text-white">Back to selected work</a>
+    </div>
+  </Section>
+</BaseLayout>
