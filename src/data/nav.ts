@@ -15,6 +15,7 @@ export const navEn: NavItem[] = [
 export const navAr: NavItem[] = [
   { label: "الرئيسية", href: "/ar/" },
   { label: "الأعمال", href: "/ar/work/" },
+  { label: "الأدلة", href: "/proof/" },
   { label: "الخدمات", href: "/ar/services/" },
   { label: "من أنا", href: "/ar/about/" },
   { label: "المدونة", href: "/ar/blog/" },

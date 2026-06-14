@@ -64,7 +64,7 @@ const samples = [
     </div>
   </Section>
 
-  <Section title="Selected product assets" copy="Only curated public-safe exports are shown here." className="text-right">
+  <Section title="Selected product assets" copy="A curated sample of the marketplace-facing assets: covers, slide logic, checks, worksheets, and classroom-ready product visuals." className="text-right">
     <div class="grid gap-5 sm:grid-cols-2">
       {samples.map(([src, title]) => (
         <article class="glass-card overflow-hidden text-right">
@@ -81,7 +81,7 @@ const samples = [
 
   <Section title="Short video proof" copy="A lightweight preview clip shows the animated lesson direction." className="text-right">
     <div class="overflow-hidden rounded-2xl border border-white/10 bg-white/5">
-      <video controls playsinline preload="metadata" poster={withBase("/media/education-products/tpt-pushes-pulls-cover.jpg")} class="w-full">
+      <video controls playsinline preload="metadata" poster={withBase("/media/education-products/tpt-pushes-pulls-cover.jpg")} class="w-full" aria-label="Pushes and Pulls lesson pack video preview">
         <source src={withBase("/media/education-products/tpt-pushes-pulls-preview.mp4")} type="video/mp4" />
       </video>
     </div>

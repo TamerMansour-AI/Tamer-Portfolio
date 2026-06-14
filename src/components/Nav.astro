@@ -23,13 +23,46 @@ const stripBase = (path: string) => {
 const currentPath = stripBase(currentPathRaw);
 const items: NavItem[] = lang === "ar" ? navAr : navEn;
 
+const switchTargets: Record<string, { en: string; ar?: string }> = {
+  "/": { en: "/", ar: "/ar/" },
+  "/about/": { en: "/about/", ar: "/ar/about/" },
+  "/ar/about/": { en: "/about/", ar: "/ar/about/" },
+  "/blog/": { en: "/blog/", ar: "/ar/blog/" },
+  "/ar/blog/": { en: "/blog/", ar: "/ar/blog/" },
+  "/blog/jump-before-you-feel-ready/": { en: "/blog/jump-before-you-feel-ready/", ar: "/ar/blog/jump-before-you-feel-ready/" },
+  "/ar/blog/jump-before-you-feel-ready/": { en: "/blog/jump-before-you-feel-ready/", ar: "/ar/blog/jump-before-you-feel-ready/" },
+  "/book-to-decks/": { en: "/book-to-decks/", ar: "/ar/book-to-decks/" },
+  "/en/book-to-decks/": { en: "/book-to-decks/", ar: "/ar/book-to-decks/" },
+  "/ar/book-to-decks/": { en: "/book-to-decks/", ar: "/ar/book-to-decks/" },
+  "/client-ai-production/": { en: "/client-ai-production/", ar: "/ar/client-ai-production/" },
+  "/ar/client-ai-production/": { en: "/client-ai-production/", ar: "/ar/client-ai-production/" },
+  "/contact/": { en: "/contact/", ar: "/ar/contact/" },
+  "/ar/contact/": { en: "/contact/", ar: "/ar/contact/" },
+  "/education-products/": { en: "/education-products/", ar: "/ar/education-products/" },
+  "/ar/education-products/": { en: "/education-products/", ar: "/ar/education-products/" },
+  "/literary-reimaginings/": { en: "/literary-reimaginings/", ar: "/ar/literary-reimaginings/" },
+  "/en/literary-reimaginings/": { en: "/literary-reimaginings/", ar: "/ar/literary-reimaginings/" },
+  "/ar/literary-reimaginings/": { en: "/literary-reimaginings/", ar: "/ar/literary-reimaginings/" },
+  "/museum-of-echoes/": { en: "/museum-of-echoes/", ar: "/ar/museum-of-echoes/" },
+  "/en/museum-of-echoes/": { en: "/museum-of-echoes/", ar: "/ar/museum-of-echoes/" },
+  "/ar/museum-of-echoes/": { en: "/museum-of-echoes/", ar: "/ar/museum-of-echoes/" },
+  "/music-videos/": { en: "/music-videos/", ar: "/ar/music-videos/" },
+  "/ar/music-videos/": { en: "/music-videos/", ar: "/ar/music-videos/" },
+  "/proof/": { en: "/proof/" },
+  "/services/": { en: "/services/", ar: "/ar/services/" },
+  "/ar/services/": { en: "/services/", ar: "/ar/services/" },
+  "/work/": { en: "/work/", ar: "/ar/work/" },
+  "/en/work/": { en: "/work/", ar: "/ar/work/" },
+  "/ar/work/": { en: "/work/", ar: "/ar/work/" },
+  "/workshops/": { en: "/workshops/" },
+  "/notebooklm/": { en: "/notebooklm/" }
+};
+
 const switchPath = (path: string) => {
   const clean = path.endsWith("/") ? path : `${path}/`;
-  if (lang === "ar") {
-    const normalized = clean.replace(/^\/ar/, "") || "/";
-    return normalized.startsWith("/") ? normalized : `/${normalized}`;
-  }
-  return clean === "/" ? "/ar/" : `/ar${clean}`;
+  const target = switchTargets[clean];
+  if (lang === "ar") return target?.en ?? "/";
+  return target?.ar ?? "/ar/";
 };
 
 const isActive = (href: string) => {
@@ -48,6 +81,7 @@ const isActive = (href: string) => {
         class="inline-flex rounded-md border border-white/20 p-2 text-sand md:hidden"
         aria-expanded="false"
         aria-controls="primary-nav"
+        aria-label={lang === "ar" ? "فتح القائمة الرئيسية" : "Open main menu"}
       >
         <span class="sr-only">Menu</span>
         <svg viewBox="0 0 20 20" class="h-5 w-5 fill-current">

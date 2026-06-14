@@ -12,10 +12,13 @@ type Props = {
   dir?: "ltr" | "rtl";
   image?: string;
   pageType?: string;
+  pageHeading?: string | false;
   schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 };
 
-const { title, description, path = "/", lang = "en", dir = "ltr", image, pageType, schema } = Astro.props;
+const { title, description, path = "/", lang = "en", dir = "ltr", image, pageType, pageHeading, schema } = Astro.props;
+const resolvedPageHeading =
+  pageHeading === false ? undefined : pageHeading ?? title.split("|")[0]?.trim() ?? title;
 ---
 <!doctype html>
 <html lang={lang} dir={dir}>
@@ -31,8 +34,10 @@ const { title, description, path = "/", lang = "en", dir = "ltr", image, pageTyp
     <HeadMeta title={title} description={description} path={path} lang={lang} image={image} pageType={pageType} schema={schema} />
   </head>
   <body class="min-h-screen bg-ink bg-[radial-gradient(circle_at_top,rgba(200,165,106,0.08),transparent_45%)]">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <Nav lang={lang} dir={dir} />
-    <main>
+    <main id="main-content">
+      {resolvedPageHeading && <h1 class="sr-only">{resolvedPageHeading}</h1>}
       <slot />
     </main>
     <Footer lang={lang} dir={dir} />

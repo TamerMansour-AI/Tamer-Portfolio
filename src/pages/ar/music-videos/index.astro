@@ -66,7 +66,14 @@ const fullSongs = [
       {videos.map((video) => (
         <article class="glass-card overflow-hidden text-right">
           <div class="relative bg-black">
-            <video controls playsinline preload="metadata" poster={withBase(video.poster)} class="aspect-video w-full bg-black object-cover">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              poster={withBase(video.poster)}
+              class="aspect-video w-full bg-black object-cover"
+              aria-label={`${video.title} music video preview`}
+            >
               <source src={withBase(video.src)} type="video/mp4" />
             </video>
           </div>
@@ -74,7 +81,7 @@ const fullSongs = [
             <p class="text-xs uppercase tracking-[0.18em] text-gold">{video.context}</p>
             <h2 class="text-2xl font-semibold tracking-tight text-white">{video.title}</h2>
             <p class="text-sm leading-relaxed text-sand/78">{video.copy}</p>
-            <a href={video.youtubeUrl} target="_blank" rel="noreferrer" class="gold-link inline-block text-sm font-semibold">
+            <a href={video.youtubeUrl} target="_blank" rel="noopener noreferrer" class="gold-link inline-block text-sm font-semibold">
               شاهد الأغنية الكاملة على YouTube
             </a>
           </div>
@@ -96,7 +103,7 @@ const fullSongs = [
   <Section title="الأغاني الكاملة على YouTube" copy="الإصدارات الكاملة منشورة على قناة Tamer AI في YouTube، أما المعاينات هنا فهي للعرض السريع داخل البورتفوليو." className="text-right">
     <div class="grid gap-4 md:grid-cols-2">
       {fullSongs.map((song) => (
-        <a href={song.url} target="_blank" rel="noreferrer" class="glass-card block p-5 text-right hover:border-gold/40">
+        <a href={song.url} target="_blank" rel="noopener noreferrer" class="glass-card block p-5 text-right hover:border-gold/40">
           <p class="text-xs uppercase tracking-[0.18em] text-gold">{song.context}</p>
           <h2 class="mt-3 text-lg font-semibold leading-tight text-white">{song.title}</h2>
           <p class="mt-3 text-sm font-semibold text-gold">افتح الأغنية الكاملة على YouTube</p>

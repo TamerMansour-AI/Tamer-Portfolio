@@ -298,8 +298,8 @@ const workSeed: WorkSeedItem[] = [
     url: "https://palestine-visual-lab.pages.dev/",
     linkLabel_en: "Open live website",
     linkLabel_ar: "Open live website",
-    note_en: "If this URL changes, update it after the next Cloudflare review.",
-    note_ar: "If this URL changes, update it after the next Cloudflare review.",
+    note_en: "A live web product showing Palestinian-inspired visual culture, prompt design, and practical product packaging.",
+    note_ar: "A live web product showing Palestinian-inspired visual culture, prompt design, and practical product packaging.",
     tags_en: ["Web App", "Palestinian Visual Culture", "Prompt Tools"],
     tags_ar: ["Web App", "Palestinian Visual Culture", "Prompt Tools"],
     thumbLocal: "/media/pinterest/boards/palestinian-thobes.jpg",
@@ -313,14 +313,14 @@ const workSeed: WorkSeedItem[] = [
     context_en: "Arabic-first Quranic emotional reflection companion",
     context_ar: "Arabic-first Quranic emotional reflection companion",
     desc_en:
-      "A release-prepared Android app for emotionally sensitive Quranic reflection moments. It should be presented as a project while the public listing is pending.",
+      "An Android app project for emotionally sensitive Quranic reflection moments, showing Arabic-first product thinking, calm interaction design, and release preparation.",
     desc_ar:
-      "A release-prepared Android app for emotionally sensitive Quranic reflection moments. It should be presented as a project while the public listing is pending.",
+      "An Android app project for emotionally sensitive Quranic reflection moments, showing Arabic-first product thinking, calm interaction design, and release preparation.",
     url: "https://www.instagram.com/ramallahlabs/",
     linkLabel_en: "Ramallah Labs updates",
     linkLabel_ar: "Ramallah Labs updates",
-    note_en: "Public store listing pending; do not present as publicly launched yet.",
-    note_ar: "Public store listing pending; do not present as publicly launched yet.",
+    note_en: "Presented as product-development proof with public updates through Ramallah Labs.",
+    note_ar: "Presented as product-development proof with public updates through Ramallah Labs.",
     tags_en: ["Android", "Spiritual Reflection", "Ramallah Labs"],
     tags_ar: ["Android", "Spiritual Reflection", "Ramallah Labs"],
     thumbLocal: "/media/hero/hero-poster.png",
@@ -363,9 +363,9 @@ const workSeed: WorkSeedItem[] = [
     linkLabel_en: "See service proof",
     linkLabel_ar: "See service proof",
     note_en:
-      "Public copy keeps organization-specific details concise while the project pages focus on audience, outcomes, and practical learning systems.",
+      "The project pages focus on audiences, outcomes, and practical learning systems while keeping sensitive organization details concise.",
     note_ar:
-      "Public copy keeps organization-specific details concise while the project pages focus on audience, outcomes, and practical learning systems.",
+      "The project pages focus on audiences, outcomes, and practical learning systems while keeping sensitive organization details concise.",
     tags_en: ["AI Training", "NotebookLM", "Responsible Review"],
     tags_ar: ["AI Training", "NotebookLM", "Responsible Review"],
     thumbLocal: "/media/services/services-en.png",
@@ -399,9 +399,9 @@ const workSeed: WorkSeedItem[] = [
     context_en: "Arabic-first apps and lightweight game projects in development",
     context_ar: "Arabic-first apps and lightweight game projects in development",
     desc_en:
-      "A compact app-development lane that includes Android products, release preparation, store-readiness work, and lightweight game experiments. Public copy should emphasize product capability, not internal test counts.",
+      "A compact app-development lane that includes Android products, release preparation, store-readiness work, and lightweight game experiments.",
     desc_ar:
-      "A compact app-development lane that includes Android products, release preparation, store-readiness work, and lightweight game experiments. Public copy should emphasize product capability, not internal test counts.",
+      "A compact app-development lane that includes Android products, release preparation, store-readiness work, and lightweight game experiments.",
     note_en: "Mention-only proof until more public store pages are available.",
     note_ar: "Mention-only proof until more public store pages are available.",
     tags_en: ["Android", "Apps", "Games"],

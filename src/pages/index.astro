@@ -47,6 +47,7 @@ const homeSchema = [
   path="/"
   image="/media/hero/hero-poster.png"
   pageType="ProfilePage"
+  pageHeading={false}
   schema={homeSchema}
 >
   <section class="container-shell pt-4 sm:pt-6">
@@ -79,14 +80,9 @@ const homeSchema = [
       <div class="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 bg-white/5 sm:aspect-video">
         <div
           id="hero-video-fallback"
-          class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(212,175,106,0.35),transparent_45%),radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.08),transparent_50%),linear-gradient(130deg,rgba(15,15,15,0.95),rgba(30,30,30,0.95))]"
+          class="absolute inset-0 bg-white/5"
         >
-          <div class="flex h-full items-end p-6">
-            <div>
-              <p class="text-xs uppercase tracking-[0.2em] text-gold">Hero Video Slot</p>
-              <p class="mt-2 text-sm text-sand/80">Upload `public/media/hero/hero.mp4` and `hero-poster.png` to activate this panel.</p>
-            </div>
-          </div>
+          <img src={heroPoster} alt="Cinematic AI storytelling hero preview" class="h-full w-full object-cover" loading="eager" />
         </div>
         <video
           id="hero-video"
@@ -97,6 +93,7 @@ const homeSchema = [
           playsinline
           preload="metadata"
           poster={heroPoster}
+          aria-label="Cinematic AI storytelling portfolio hero reel"
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
@@ -114,7 +111,7 @@ const homeSchema = [
           </h2>
         </div>
         <p class="max-w-xl text-sm leading-relaxed text-sand/75">
-          The strongest missing layer was not another claim. It was the evidence chain: workshops delivered, labs designed, internal apps tested,
+          The strongest missing layer was not another claim. It was the evidence chain: workshops delivered, labs designed, app concepts prepared,
           creator-platform activity, and creative AI production demand.
         </p>
       </div>
@@ -133,7 +130,7 @@ const homeSchema = [
       <div class="mt-6 grid gap-3 md:grid-cols-3">
         <a href={withBase("/proof/")} class="glass-card block p-5 hover:border-gold/40">
           <p class="text-xs uppercase tracking-[0.18em] text-gold">Open the proof hub</p>
-          <h3 class="mt-3 text-lg font-semibold text-white">All visitor-visible proof in one place</h3>
+          <h3 class="mt-3 text-lg font-semibold text-white">Portfolio proof in one place</h3>
         </a>
         <a href={withBase("/workshops/")} class="glass-card block p-5 hover:border-gold/40">
           <p class="text-xs uppercase tracking-[0.18em] text-gold">Workshop proof</p>
@@ -216,8 +213,8 @@ const homeSchema = [
   </Section>
 
   <Section
-    title="Recent evidence not yet visible enough"
-    copy="These are the proof anchors discovered in local files and authenticated platform lanes. Public copy stays conservative where the evidence is private, internal, or not yet linkable."
+    title="Additional proof anchors"
+    copy="A compact view of the work that supports the portfolio: educational products, workshops, music releases, app concepts, operating systems, and AI production examples."
   >
     <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
       {
@@ -229,12 +226,9 @@ const homeSchema = [
               <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.category}</p>
               <h3 class="mt-3 text-lg font-semibold leading-tight text-white">{item.title}</h3>
               <p class="mt-3 flex-1 text-sm leading-relaxed text-sand/78">{item.summary}</p>
-              <div class="mt-4 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.16em] text-sand/65">
-                <span class="rounded-full border border-white/12 px-3 py-1">Confidence: {item.confidence}</span>
-              </div>
               {
                 href && (
-                  <a href={href} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined} class="gold-link mt-5 text-sm font-semibold">
+                  <a href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined} class="gold-link mt-5 text-sm font-semibold">
                     {item.linkLabel ?? "Open proof"}
                   </a>
                 )

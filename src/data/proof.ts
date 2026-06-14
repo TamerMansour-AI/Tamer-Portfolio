@@ -10,7 +10,6 @@ export type ProofItem = {
   summary: string;
   href?: string;
   linkLabel?: string;
-  confidence: "High" | "Medium" | "Low";
 };
 
 export const proofMetricsEn: ProofMetric[] = [
@@ -43,8 +42,7 @@ export const platformProofEn: ProofItem[] = [
     summary:
       "A public Teachers Pay Teachers store built with a Qatar-based teaching partner, showing repeatable primary science products: lesson slides, short video previews, worksheets, quick checks, answer keys, and product packaging.",
     href: "/education-products/",
-    linkLabel: "Open product proof",
-    confidence: "High"
+    linkLabel: "Open product proof"
   },
   {
     title: "AI Training and Workshop Delivery",
@@ -52,8 +50,7 @@ export const platformProofEn: ProofItem[] = [
     summary:
       "Delivered and packaged practical AI sessions for media, artists, education, parent learning support, students, and institutional teams, with emphasis on responsible use, source preparation, prompting, review, and reusable workflows.",
     href: "/workshops/",
-    linkLabel: "See workshop proof",
-    confidence: "High"
+    linkLabel: "See workshop proof"
   },
   {
     title: "Live Workshop Lab Systems",
@@ -61,33 +58,29 @@ export const platformProofEn: ProofItem[] = [
     summary:
       "Public and local evidence now includes live lab-style training products such as AI Verification Lab for Journalists and Birzeit AI Fluency Lab 2026: prompt libraries, scenarios, worksheets, output builders, admin/display flows, and recap assets.",
     href: "/workshops/",
-    linkLabel: "See workshop proof",
-    confidence: "High"
+    linkLabel: "See workshop proof"
   },
   {
     title: "Original AI Music Video Direction",
     category: "Music / video",
     summary:
-      "Recent song work includes My Way, Between Me and the Earth, and two additional YouTube releases. The portfolio uses short compressed previews for quick proof, then links visitors to the full songs on Tamer AI's YouTube channel.",
+      "Recent song work includes My Way, Between Me and the Earth, and two additional YouTube releases. The portfolio uses short compressed previews for quick proof, then links to the full songs on Tamer AI's YouTube channel.",
     href: "/music-videos/",
-    linkLabel: "Open music videos and full songs",
-    confidence: "High"
+    linkLabel: "Open music videos and full songs"
   },
   {
     title: "Signal OS / Codex Execution Infrastructure",
     category: "Automation / operating system",
     summary:
-      "A reusable internal execution layer for turning scattered ideas, research, account lanes, platform work, and Codex tasks into bounded outputs, checklists, proof ledgers, and delivery artifacts.",
+      "A reusable execution layer for turning scattered ideas, research, platform work, and Codex tasks into bounded outputs, checklists, proof ledgers, and delivery artifacts.",
     href: "/about/",
-    linkLabel: "Read the operating story",
-    confidence: "High"
+    linkLabel: "Read the operating story"
   },
   {
     title: "Android App Development Pipeline",
     category: "Apps / games",
     summary:
-      "Tamer develops Android app and game projects across spiritual reflection, casual play, and Arabic-first product ideas. Public pages should feature the product direction and replace temporary links once store listings are approved.",
-    confidence: "Medium"
+      "Tamer develops Android app and game projects across spiritual reflection, casual play, and Arabic-first product ideas, with portfolio proof focused on product direction, release preparation, and audience-ready concepts."
   },
   {
     title: "Suno Original Music Experiments",
@@ -95,8 +88,7 @@ export const platformProofEn: ProofItem[] = [
     summary:
       "Suno activity includes original tracks such as Almost Remembered Room, الخيل والليل, YA, and Canaanite Palestinian, supporting the Museum of Echoes music/archive narrative.",
     href: "https://museum-of-echoes.pages.dev/",
-    linkLabel: "Open the music archive",
-    confidence: "Medium"
+    linkLabel: "Open the music archive"
   },
   {
     title: "Anbiya Visuals AI Film Production",
@@ -104,7 +96,6 @@ export const platformProofEn: ProofItem[] = [
     summary:
       "Anbiya Visuals demonstrates Tamer's ability to produce full cinematic AI story films for different prophet stories, with selected excerpts used on the website to show worldbuilding, scene direction, atmosphere, and continuity.",
     href: "/client-ai-production/",
-    linkLabel: "Open production case",
-    confidence: "High"
+    linkLabel: "Open production case"
   }
 ];

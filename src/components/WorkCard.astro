@@ -27,7 +27,13 @@ const secondaryLabel = item.secondaryLabel ?? (isArabic ? "رابط إضافي" 
 <article class="glass-card overflow-hidden">
   {
     hasLink ? (
-      <a href={primaryHref} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined} class="block">
+      <a
+        href={primaryHref}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
+        aria-label={`${linkLabel}: ${item.title}`}
+        class="block"
+      >
         <div class="relative aspect-video w-full bg-white/5">
           <SmartImage
             candidates={item.thumbRemoteCandidates}
@@ -61,7 +67,7 @@ const secondaryLabel = item.secondaryLabel ?? (isArabic ? "رابط إضافي" 
       <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
         {
           hasLink ? (
-            <a href={primaryHref} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined} class="text-sm font-semibold text-gold">
+            <a href={primaryHref} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined} class="text-sm font-semibold text-gold">
               {linkLabel}
             </a>
           ) : (
@@ -73,7 +79,7 @@ const secondaryLabel = item.secondaryLabel ?? (isArabic ? "رابط إضافي" 
             <a
               href={secondaryHref}
               target={secondaryIsExternal ? "_blank" : undefined}
-              rel={secondaryIsExternal ? "noreferrer" : undefined}
+              rel={secondaryIsExternal ? "noopener noreferrer" : undefined}
               class="text-xs font-medium text-sand/70 transition hover:text-white"
             >
               {secondaryLabel}

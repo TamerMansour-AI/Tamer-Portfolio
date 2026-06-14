@@ -61,7 +61,7 @@ export const servicesEn: ServiceItem[] = [
     summary:
       "Hands-on training and strategic guidance for creators, educators, and teams that need stronger output, clearer standards, and a better shared language.",
     bestFor: "Creators, educators, and organizations that need capability-building, not only finished deliverables.",
-    outcome: "A stronger internal standard, better creative judgment, and a team that can keep improving after the engagement.",
+    outcome: "A stronger team standard, better creative judgment, and a team that can keep improving after the engagement.",
     chooseWhen:
       "Choose this when the goal is skill transfer, shared language, and repeatable improvement across people or departments.",
     nextStep:

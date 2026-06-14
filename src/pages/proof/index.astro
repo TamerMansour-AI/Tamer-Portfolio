@@ -27,7 +27,7 @@ const visibleWork = workItemsEn.filter((item) =>
 ---
 <BaseLayout
   title="Proof Hub | Tamer Mansour Portfolio"
-  description="A visitor-facing proof hub for Tamer Mansour: flagship creative work, AI workshops, NotebookLM projects, web products, Android apps, and operating systems."
+  description="A proof hub for Tamer Mansour: flagship creative work, AI workshops, NotebookLM projects, web products, Android apps, and operating systems."
   path="/proof/"
   pageType="CollectionPage"
 >
@@ -66,13 +66,13 @@ const visibleWork = workItemsEn.filter((item) =>
     </div>
   </Section>
 
-  <Section title="Visitor-visible project proof" copy="These are no longer buried. They sit in the main proof path so a visitor can quickly understand the range of work.">
+  <Section title="Project proof" copy="A direct path to the work that shows the range: creative production, educational products, workshops, apps, archives, and operating systems.">
     <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
       {visibleWork.map((item) => <WorkCard item={item} lang="en" imageClass="h-52 w-full object-cover" />)}
     </div>
   </Section>
 
-  <Section title="Workshop proof at a glance" copy="Named workshop lanes, visible without asking the visitor to infer training experience from a paragraph.">
+  <Section title="Workshop proof at a glance" copy="Named workshop lanes make the training experience concrete: real audiences, practical systems, and visible outcomes.">
     <div class="grid gap-4 md:grid-cols-2">
       {
         workshopProofEn.slice(0, 6).map((item) => (
@@ -106,7 +106,7 @@ const visibleWork = workItemsEn.filter((item) =>
     <a href={withBase("/notebooklm/")} class="gold-link mt-6 inline-block text-sm font-semibold">Open NotebookLM projects</a>
   </Section>
 
-  <Section title="Additional evidence and context" copy="Some proof is real but not always public-linkable. The hub keeps it understandable for visitors without turning the page into an internal archive.">
+  <Section title="Additional evidence and context" copy="Some work is best represented through concise public examples. This section keeps the capability clear without overloading the page.">
     <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
       {
         platformProofEn.map((item) => {
@@ -117,7 +117,7 @@ const visibleWork = workItemsEn.filter((item) =>
               <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.category}</p>
               <h3 class="mt-3 text-lg font-semibold leading-tight text-white">{item.title}</h3>
               <p class="mt-3 text-sm leading-relaxed text-sand/78">{item.summary}</p>
-              {href && <a href={href} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined} class="gold-link mt-4 inline-block text-sm font-semibold">{item.linkLabel ?? "Open proof"}</a>}
+              {href && <a href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined} class="gold-link mt-4 inline-block text-sm font-semibold">{item.linkLabel ?? "Open proof"}</a>}
             </article>
           );
         })

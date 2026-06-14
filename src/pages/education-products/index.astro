@@ -83,7 +83,7 @@ const samples = [
     </div>
   </Section>
 
-  <Section title="Selected product assets" copy="Only curated public-safe exports are shown here; private source folders, invoices, and internal publishing files stay out of the portfolio.">
+  <Section title="Selected product assets" copy="A curated sample of the marketplace-facing assets: covers, slide logic, checks, worksheets, and classroom-ready product visuals.">
     <div class="grid gap-5 sm:grid-cols-2">
       {samples.map((sample) => (
         <article class="glass-card overflow-hidden">
@@ -99,15 +99,15 @@ const samples = [
     </div>
   </Section>
 
-  <Section title="Short video proof" copy="A lightweight preview clip shows the animated lesson direction without loading the original working video files.">
+  <Section title="Short video proof" copy="A lightweight preview clip shows the animated lesson direction in a fast, web-friendly format.">
     <div class="overflow-hidden rounded-2xl border border-white/10 bg-white/5">
-      <video controls playsinline preload="metadata" poster={withBase("/media/education-products/tpt-pushes-pulls-cover.jpg")} class="w-full">
+      <video controls playsinline preload="metadata" poster={withBase("/media/education-products/tpt-pushes-pulls-cover.jpg")} class="w-full" aria-label="Pushes and Pulls lesson pack video preview">
         <source src={withBase("/media/education-products/tpt-pushes-pulls-preview.mp4")} type="video/mp4" />
       </video>
     </div>
   </Section>
 
-  <Section title="Need an educational product system?" copy="The same workflow can turn a lesson, source pack, workshop, or internal training idea into clearer assets people can actually use.">
+  <Section title="Need an educational product system?" copy="The same workflow can turn a lesson, source pack, workshop, or training idea into clearer assets people can actually use.">
     <CTAButtons />
   </Section>
 </BaseLayout>
