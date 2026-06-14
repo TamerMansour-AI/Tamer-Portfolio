@@ -68,9 +68,9 @@ export const platformProofEn: ProofItem[] = [
     title: "Original AI Music Video Direction",
     category: "Music / video",
     summary:
-      "Recent song work includes My Way and Between Me and the Earth. The portfolio uses short compressed previews and selected stills so the direction is visible without publishing heavy source folders or private source images.",
+      "Recent song work includes My Way, Between Me and the Earth, and two additional YouTube releases. The portfolio uses short compressed previews for quick proof, then links visitors to the full songs on Tamer AI's YouTube channel.",
     href: "/music-videos/",
-    linkLabel: "Open music video previews",
+    linkLabel: "Open music videos and full songs",
     confidence: "High"
   },
   {

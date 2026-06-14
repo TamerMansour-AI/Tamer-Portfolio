@@ -250,13 +250,13 @@ const workSeed: WorkSeedItem[] = [
     context_en: "Recent original songs shaped into cinematic visual narratives",
     context_ar: "Recent original songs shaped into cinematic visual narratives",
     desc_en:
-      "A curated music-video lane for My Way and Between Me and the Earth, using short web previews to show the visual storytelling direction without publishing heavy source files.",
+      "A curated music-video lane with short portfolio previews for My Way and Between Me and the Earth, plus direct YouTube links to the full public songs including two additional releases.",
     desc_ar:
-      "A curated music-video lane for My Way and Between Me and the Earth, using short web previews to show the visual storytelling direction without publishing heavy source files.",
+      "A curated music-video lane with short portfolio previews for My Way and Between Me and the Earth, plus direct YouTube links to the full public songs including two additional releases.",
     url_en: "/music-videos/",
     url_ar: "/ar/music-videos/",
-    linkLabel_en: "Open music video previews",
-    linkLabel_ar: "Open music video previews",
+    linkLabel_en: "Open music videos and full songs",
+    linkLabel_ar: "Open music videos and full songs",
     tags_en: ["Original Music", "Cinematic AI", "Video Direction"],
     tags_ar: ["Original Music", "Cinematic AI", "Video Direction"],
     thumbLocal: "/media/music-videos/my-way-thumb.jpg",

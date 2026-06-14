@@ -10,16 +10,41 @@ const videos = [
     context: "English cinematic AI music video",
     poster: "/media/music-videos/my-way-thumb.jpg",
     src: "/media/music-videos/my-way-preview.mp4",
+    youtubeUrl: "https://youtu.be/VzHMr0Gw0Pg",
     copy:
-      "A moody, cinematic song video built around masks, cost, movement, and self-direction. The public site uses a compressed preview clip rather than the heavy source video."
+      "A moody, cinematic song video built around masks, cost, movement, and self-direction. The public site uses a compressed preview, with the full song available on YouTube."
   },
   {
     title: "Between Me and the Earth",
     context: "Arabic poetic music video",
     poster: "/media/music-videos/between-me-and-earth-thumb.jpg",
     src: "/media/music-videos/between-me-and-earth-preview.mp4",
+    youtubeUrl: "https://youtu.be/TcSlQomJ3F0",
     copy:
-      "A recent Arabic song visualized through sketch-like frames, personal presence, and quiet narrative movement. Private source images from the working folder are excluded."
+      "A recent Arabic song visualized through sketch-like frames, personal presence, and quiet narrative movement. The full song is published on YouTube."
+  }
+];
+
+const fullSongs = [
+  {
+    title: "بيني وبين الأرض",
+    context: "Arabic original song",
+    url: "https://youtu.be/TcSlQomJ3F0"
+  },
+  {
+    title: "I Did It My Way",
+    context: "Cinematic AI music video",
+    url: "https://youtu.be/VzHMr0Gw0Pg"
+  },
+  {
+    title: "What’s Going On × What’s Up",
+    context: "2026 remix / original AI song",
+    url: "https://youtu.be/N7T1ouDs9bs"
+  },
+  {
+    title: "What’s Going On",
+    context: "2026 edition / original AI music",
+    url: "https://youtu.be/E6Rt-agXCYM"
   }
 ];
 ---
@@ -32,7 +57,7 @@ const videos = [
 >
   <Section
     title="Original AI music videos"
-    copy="Recent songs shaped into cinematic visual narratives. The public portfolio uses short web previews and selected stills so the direction is visible without publishing full working files."
+    copy="Recent songs shaped into cinematic visual narratives. The portfolio shows lightweight previews here, with direct links to the full published songs on YouTube."
   >
     <div class="grid gap-6 lg:grid-cols-2">
       {videos.map((video) => (
@@ -46,6 +71,9 @@ const videos = [
             <p class="text-xs uppercase tracking-[0.18em] text-gold">{video.context}</p>
             <h2 class="text-2xl font-semibold tracking-tight text-white">{video.title}</h2>
             <p class="text-sm leading-relaxed text-sand/78">{video.copy}</p>
+            <a href={video.youtubeUrl} target="_blank" rel="noreferrer" class="gold-link inline-block text-sm font-semibold">
+              Watch the full song on YouTube
+            </a>
           </div>
         </article>
       ))}
@@ -66,10 +94,15 @@ const videos = [
     </div>
   </Section>
 
-  <Section title="Next improvement" copy="When final public links exist on YouTube, Suno, or another channel, these preview clips can become embeds or supporting stills instead of the primary proof.">
-    <div class="flex flex-wrap gap-4 text-sm">
-      <a href={withBase("/work/")} class="gold-link font-semibold">Back to selected work</a>
-      <a href={withBase("/museum-of-echoes/")} class="text-sand/75 hover:text-white">Open Museum of Echoes</a>
+  <Section title="Full songs on YouTube" copy="The full public releases live on Tamer AI’s YouTube channel. The local previews above are just fast portfolio samples.">
+    <div class="grid gap-4 md:grid-cols-2">
+      {fullSongs.map((song) => (
+        <a href={song.url} target="_blank" rel="noreferrer" class="glass-card block p-5 hover:border-gold/40">
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">{song.context}</p>
+          <h2 class="mt-3 text-lg font-semibold leading-tight text-white">{song.title}</h2>
+          <p class="mt-3 text-sm font-semibold text-gold">Open full song on YouTube</p>
+        </a>
+      ))}
     </div>
   </Section>
 
