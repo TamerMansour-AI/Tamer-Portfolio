@@ -156,6 +156,7 @@ const page = isArabic
   dir={isArabic ? "rtl" : "ltr"}
   image="/media/museum/museum-of-echoes-home.jpg"
   pageType="CollectionPage"
+  pageHeading={false}
   schema={museumSchema}
 >
   <section class="container-shell py-14 sm:py-20">
@@ -169,7 +170,7 @@ const page = isArabic
             <a
               href={liveUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               class="inline-flex items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-ink shadow-glow hover:bg-gold-soft"
             >
               {page.primaryCta}
@@ -275,7 +276,7 @@ const page = isArabic
         <p class="mt-4 text-sm leading-relaxed text-sand/80">{page.serviceBridgeBody}</p>
         <div class={`mt-5 flex flex-wrap items-center gap-4 text-sm ${isArabic ? "justify-end" : ""}`}>
           <a href={withBase(page.servicesHref)} class="gold-link font-semibold">{page.serviceLink}</a>
-          <a href={liveUrl} target="_blank" rel="noreferrer" class="text-sand/75 transition hover:text-white">{page.liveLink}</a>
+          <a href={liveUrl} target="_blank" rel="noopener noreferrer" class="text-sand/75 transition hover:text-white">{page.liveLink}</a>
         </div>
       </article>
     </div>
@@ -285,7 +286,7 @@ const page = isArabic
     <CTAButtons bookHref={page.contactHref} labels={page.ctaLabels} className={isArabic ? "sm:justify-end" : ""} />
     <div class={`mt-4 flex flex-wrap items-center gap-4 text-sm ${isArabic ? "justify-end" : ""}`}>
       <a href={withBase(page.workHref)} class="gold-link font-semibold">{page.workLink}</a>
-      <a href={liveUrl} target="_blank" rel="noreferrer" class="text-sand/75 transition hover:text-white">{page.liveLink}</a>
+      <a href={liveUrl} target="_blank" rel="noopener noreferrer" class="text-sand/75 transition hover:text-white">{page.liveLink}</a>
     </div>
   </Section>
 </BaseLayout>

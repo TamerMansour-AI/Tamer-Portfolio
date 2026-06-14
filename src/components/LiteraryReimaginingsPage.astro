@@ -147,6 +147,7 @@ const atyafUrl = "https://tamermansour-ai.github.io/atyaf-al-ard-website/";
   dir={isArabic ? "rtl" : "ltr"}
   image="/media/literary/men-in-the-sun.svg"
   pageType="CollectionPage"
+  pageHeading={false}
   schema={literarySchema}
 >
   <section class="container-shell py-14 sm:py-20">
@@ -271,7 +272,7 @@ const atyafUrl = "https://tamermansour-ai.github.io/atyaf-al-ard-website/";
                       <a
                         href={edition.url}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         class="inline-flex items-center justify-center rounded-full border border-gold/60 px-4 py-2 text-sm font-semibold text-sand hover:border-gold hover:text-white"
                       >
                         {edition.label}
@@ -314,7 +315,7 @@ const atyafUrl = "https://tamermansour-ai.github.io/atyaf-al-ard-website/";
             ? "في حين تركز هذه الصفحة على الروايات المعاد تخيلها، فإن أمراء الرماد تمثل الباب الأوسع إلى عالم سردي تراثي وبحثي يمكن أن يتجاور مع هذا المسار الأدبي من دون أن يبتلعه."
             : "While this page focuses on reimagined novels, Princes of Ashes represents the wider cinematic doorway into a heritage-driven story world that can sit beside this literary line without swallowing it."}
         </p>
-        <a href={atyafUrl} target="_blank" rel="noreferrer" class="gold-link mt-5 inline-block text-sm font-semibold">
+        <a href={atyafUrl} target="_blank" rel="noopener noreferrer" class="gold-link mt-5 inline-block text-sm font-semibold">
           {page.bridgeLink}
         </a>
       </article>
@@ -333,7 +334,7 @@ const atyafUrl = "https://tamermansour-ai.github.io/atyaf-al-ard-website/";
     <CTAButtons bookHref={page.contactHref} labels={page.ctaLabels} className={isArabic ? "sm:justify-end" : ""} />
     <div class={`mt-4 flex flex-wrap items-center gap-4 text-sm ${isArabic ? "justify-end" : ""}`}>
       <a href={withBase(page.workHref)} class="gold-link font-semibold">{page.workLink}</a>
-      <a href={atyafUrl} target="_blank" rel="noreferrer" class="text-sand/75 transition hover:text-white">{isArabic ? "شاهد المسار السينمائي الأوسع" : "See the wider cinematic direction"}</a>
+      <a href={atyafUrl} target="_blank" rel="noopener noreferrer" class="text-sand/75 transition hover:text-white">{isArabic ? "شاهد المسار السينمائي الأوسع" : "See the wider cinematic direction"}</a>
     </div>
   </Section>
 </BaseLayout>

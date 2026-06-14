@@ -24,11 +24,11 @@ import { siteData, whatsappLinks } from "../../../data/site";
           <li>البريد: <a class="gold-link" href={`mailto:${siteData.email}`}>{siteData.email}</a></li>
           <li>
             واتساب 1:
-            <a class="gold-link" href={whatsappLinks.primary} target="_blank" rel="noreferrer">{siteData.whatsappPrimary}</a>
+          <a class="gold-link" href={whatsappLinks.primary} target="_blank" rel="noopener noreferrer">{siteData.whatsappPrimary}</a>
           </li>
           <li>
             واتساب 2:
-            <a class="gold-link" href={whatsappLinks.secondary} target="_blank" rel="noreferrer">{siteData.whatsappSecondary}</a>
+          <a class="gold-link" href={whatsappLinks.secondary} target="_blank" rel="noopener noreferrer">{siteData.whatsappSecondary}</a>
           </li>
           <li>الموقع: {siteData.location}</li>
         </ul>
@@ -36,10 +36,10 @@ import { siteData, whatsappLinks } from "../../../data/site";
       <article class="glass-card p-6">
         <h2 class="text-xl font-semibold text-white">الحسابات الاجتماعية</h2>
         <ul class="mt-4 space-y-3 text-sm text-sand/85">
-          <li><a class="gold-link" href={siteData.social.instagram} target="_blank" rel="noreferrer">Instagram</a></li>
-          <li><a class="gold-link" href={siteData.social.facebook} target="_blank" rel="noreferrer">Facebook</a></li>
-          <li><a class="gold-link" href={siteData.social.tiktok} target="_blank" rel="noreferrer">TikTok</a></li>
-          <li><a class="gold-link" href={siteData.social.pinterest} target="_blank" rel="noreferrer">Pinterest</a></li>
+          <li><a class="gold-link" href={siteData.social.instagram} target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a class="gold-link" href={siteData.social.facebook} target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          <li><a class="gold-link" href={siteData.social.tiktok} target="_blank" rel="noopener noreferrer">TikTok</a></li>
+          <li><a class="gold-link" href={siteData.social.pinterest} target="_blank" rel="noopener noreferrer">Pinterest</a></li>
         </ul>
       </article>
     </div>

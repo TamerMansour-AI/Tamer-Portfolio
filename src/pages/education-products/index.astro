@@ -67,9 +67,9 @@ const samples = [
         <article class="glass-card p-5">
           <p class="text-xs uppercase tracking-[0.18em] text-gold">Public proof</p>
           <div class="mt-3 flex flex-wrap gap-3 text-sm">
-            <a href={storeUrl} target="_blank" rel="noreferrer" class="gold-link font-semibold">Open TPT store</a>
+            <a href={storeUrl} target="_blank" rel="noopener noreferrer" class="gold-link font-semibold">Open TPT store</a>
             {productLinks.map((item) => (
-              <a href={item.href} target="_blank" rel="noreferrer" class="text-sand/75 hover:text-white">{item.title}</a>
+              <a href={item.href} target="_blank" rel="noopener noreferrer" class="text-sand/75 hover:text-white">{item.title}</a>
             ))}
           </div>
         </article>
