@@ -5,15 +5,15 @@ import Section from "../../components/Section.astro";
 import { withBase } from "../../utils/withBase";
 ---
 <BaseLayout
-  title="Anbiya Visuals AI Story Production | Tamer Mansour"
-  description="A creative AI visual production example by Tamer Mansour, showing cinematic story design, visual identity, worldbuilding, and AI-assisted media direction."
+  title="Anbiya Visuals AI Film Production | Tamer Mansour"
+  description="A creative AI film production example by Tamer Mansour, showing full cinematic story films for different prophet stories, with selected excerpts presented as a lightweight showcase."
   path="/client-ai-production/"
   image="/media/client-ai-production/anbiya-visuals-reel-poster.jpg"
   pageType="CreativeWork"
 >
   <Section
-    title="Anbiya Visuals: AI story production"
-    copy="A client project example showing how narrative ideas can become a cinematic visual world: title cards, atmosphere, scene direction, pacing, and AI-assisted production."
+    title="Anbiya Visuals: cinematic AI film production"
+    copy="This video is a selected web sample from full story films I produced for different prophets. It shows the level of complete cinematic episodes I can build from idea to finished film."
   >
     <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
       <div class="glass-card overflow-hidden">
@@ -24,7 +24,7 @@ import { withBase } from "../../utils/withBase";
             preload="metadata"
             playsinline
             poster={withBase("/media/client-ai-production/anbiya-visuals-reel-poster.jpg")}
-            aria-label="Anbiya Visuals AI story production montage"
+            aria-label="Anbiya Visuals AI film production showcase"
           >
             <source
               src={withBase("/media/client-ai-production/anbiya-visuals-website-edition.mp4")}
@@ -35,28 +35,28 @@ import { withBase } from "../../utils/withBase";
       </div>
       <div class="space-y-4">
         <article class="glass-card p-5">
-          <p class="text-xs uppercase tracking-[0.18em] text-gold">Anbiya Visuals</p>
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">Film production scope</p>
           <p class="mt-3 text-sm leading-relaxed text-sand/80">
-            I shaped this work as a cinematic narrative showcase: a visual language for prophetic stories, dramatic scene selection, historical atmosphere, and a presentation rhythm that makes the concept feel like a real media product.
+            For Anbiya Visuals, I produced complete AI-assisted story films around different prophets, shaping each one as a cinematic narrative with its own atmosphere, visual language, scene rhythm, and emotional arc.
           </p>
         </article>
         <article class="glass-card p-5">
-          <p class="text-xs uppercase tracking-[0.18em] text-gold">What I produced</p>
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">What this sample shows</p>
           <p class="mt-3 text-sm leading-relaxed text-sand/80">
-            The project demonstrates creative direction across AI-generated visuals, title-card design, story mood, montage flow, and the transformation of a written idea into a polished visual proof that can be expanded into longer episodes or campaigns.
+            The video gathers selected moments from those longer films so the website can quickly show the range: worldbuilding, shot direction, historical mood, cinematic continuity, and AI-driven production from concept to finished story.
           </p>
         </article>
       </div>
     </div>
   </Section>
 
-  <Section title="Creative production shown here" copy="The purpose of this example is to show the visual production capability behind the final montage.">
+  <Section title="Full-film production capability" copy="The value here is the ability to build complete narrative films, then use selected excerpts to show range without making the page heavy.">
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       {[
-        "Turning story concepts into a coherent visual world",
-        "Designing cinematic title cards and presentation frames",
-        "Selecting scenes with atmosphere, pacing, and emotional weight",
-        "Using AI tools as a production pipeline, not just image generation"
+        "Producing complete cinematic story films, not only short reels",
+        "Building distinct visual worlds for different prophet stories",
+        "Directing scenes, pacing, atmosphere, and continuity across a full episode",
+        "Using AI tools as an end-to-end film production pipeline"
       ].map((item) => (
         <article class="glass-card p-5">
           <h2 class="text-lg font-semibold text-white">{item}</h2>
@@ -65,12 +65,12 @@ import { withBase } from "../../utils/withBase";
     </div>
   </Section>
 
-  <Section title="Production value" copy="This kind of work can support educational series, cultural storytelling, social campaigns, pitch decks, and proof-of-concept media.">
+  <Section title="Production value" copy="This kind of work can support educational series, cultural storytelling, faith-inspired media, social campaigns, and proof-of-concept episodes.">
     <div class="grid gap-4 md:grid-cols-3">
       {[
-        "A finished montage that communicates the product vision quickly",
-        "A repeatable creative system for future stories and episodes",
-        "A visual identity that makes the project easier to pitch and remember"
+        "Full episodes that can later become trailers, lessons, or campaign assets",
+        "A repeatable visual system for a series of prophet stories",
+        "A selected web sample that helps visitors quickly understand the larger film work"
       ].map((item) => (
         <article class="glass-card p-5">
           <p class="text-sm leading-relaxed text-sand/82">{item}</p>
@@ -79,7 +79,7 @@ import { withBase } from "../../utils/withBase";
     </div>
   </Section>
 
-  <Section title="Need visual production like this?" copy="I can help turn a story, learning concept, brand idea, or campaign brief into a cinematic AI-assisted visual direction.">
+  <Section title="Need full AI story films like this?" copy="I can help turn a story, learning concept, brand idea, or campaign brief into complete cinematic AI-assisted films, then package excerpts for the web, proposals, or campaigns.">
     <CTAButtons />
     <div class="mt-4 flex flex-wrap gap-4 text-sm">
       <a href={withBase("/services/")} class="gold-link font-semibold">Explore services</a>

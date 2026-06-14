@@ -99,10 +99,10 @@ export const platformProofEn: ProofItem[] = [
     confidence: "Medium"
   },
   {
-    title: "Anbiya Visuals AI Story Production",
-    category: "Client work / AI visual production",
+    title: "Anbiya Visuals AI Film Production",
+    category: "Client work / AI film production",
     summary:
-      "Anbiya Visuals demonstrates Tamer's AI visual production capability: cinematic title cards, scene direction, story-world mood, montage flow, and web-ready English/Arabic presentation assets.",
+      "Anbiya Visuals demonstrates Tamer's ability to produce full cinematic AI story films for different prophet stories, with selected excerpts used on the website to show worldbuilding, scene direction, atmosphere, and continuity.",
     href: "/client-ai-production/",
     linkLabel: "Open production case",
     confidence: "High"
