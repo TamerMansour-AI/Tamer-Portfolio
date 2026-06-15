@@ -12,10 +12,10 @@ const videos = [
     src: "/media/music-videos/my-way-preview.mp4",
     youtubeUrl: "https://youtu.be/VzHMr0Gw0Pg",
     copy:
-      "أغنية مصورة بإحساس سينمائي حول الطريق الشخصي، الكلفة، الحركة، والاختيار الذاتي. هنا تظهر معاينة خفيفة، والأغنية الكاملة منشورة على YouTube."
+      "أغنية مصورة بإحساس سينمائي حول الطريق الشخصي والكلفة والحركة والاختيار الذاتي. هنا تظهر معاينة خفيفة، والأغنية الكاملة منشورة على YouTube."
   },
   {
-    title: "Between Me and the Earth",
+    title: "بيني وبين الأرض",
     context: "فيديو موسيقي عربي شاعري",
     poster: "/media/music-videos/between-me-and-earth-thumb.jpg",
     src: "/media/music-videos/between-me-and-earth-preview.mp4",
@@ -37,19 +37,19 @@ const fullSongs = [
     url: "https://youtu.be/VzHMr0Gw0Pg"
   },
   {
-    title: "What’s Going On × What’s Up",
-    context: "Remix 2026 / أغنية AI أصلية",
+    title: "What's Going On x What's Up",
+    context: "إصدار 2026 / أغنية AI أصلية",
     url: "https://youtu.be/N7T1ouDs9bs"
   },
   {
-    title: "What’s Going On",
-    context: "2026 Edition / موسيقى AI أصلية",
+    title: "What's Going On",
+    context: "إصدار 2026 / موسيقى AI أصلية",
     url: "https://youtu.be/E6Rt-agXCYM"
   }
 ];
 ---
 <BaseLayout
-  title="أغاني وفيديوهات موسيقية بالذكاء الاصطناعي | Tamer Mansour"
+  title="فيديوهات موسيقية أصلية بالذكاء الاصطناعي | تامر منصور"
   description="معاينات وروابط للأغاني الكاملة على YouTube من أعمال تامر منصور الموسيقية والبصرية بالذكاء الاصطناعي."
   path="/ar/music-videos/"
   lang="ar"
@@ -58,7 +58,7 @@ const fullSongs = [
   pageType="CollectionPage"
 >
   <Section
-    title="أغاني وفيديوهات موسيقية بالذكاء الاصطناعي"
+    title="أغانٍ أصلية تتحول إلى فيديوهات موسيقية سينمائية"
     copy="أغانٍ حديثة تحولت إلى سرد بصري سينمائي. هذه الصفحة تعرض معاينات خفيفة مع روابط مباشرة للأغاني الكاملة على YouTube."
     className="text-right"
   >
@@ -90,7 +90,7 @@ const fullSongs = [
     </div>
   </Section>
 
-  <Section title="لماذا هذا المسار مهم في البورتفوليو" copy="هذا العمل يثبت القدرة على توجيه الأغنية الأصلية بصرياً، بناء صور سينمائية، اتخاذ قرارات مونتاج، وتجهيز الإصدار للجمهور." className="text-right">
+  <Section title="ما الذي يظهره العمل الموسيقي" copy="هذا المسار يجمع بين توجيه الأغنية الأصلية بصريًا، بناء صور سينمائية، اتخاذ قرارات مونتاج، وضبط الإيقاع وتجهيز الإصدار للجمهور." className="text-right">
     <div class="grid gap-4 md:grid-cols-3">
       {["تحويل الصوت إلى اتجاه بصري", "نظام صور سينمائي", "تجهيز الإصدار للنشر"].map((item) => (
         <article class="glass-card p-5 text-right">
@@ -112,7 +112,7 @@ const fullSongs = [
     </div>
   </Section>
 
-  <Section title="تحتاج اتجاهاً بصرياً لأغنية أو إصدار؟" copy="يمكن استخدام نفس المسار لدعم أغنية، قصة ثقافية، حملة، أو نموذج سينمائي قصير قابل للنشر." className="text-right">
-    <CTAButtons className="sm:justify-end" />
+  <Section title="تحتاج اتجاهًا بصريًا لأغنية أو إصدار؟" copy="يمكن استخدام نفس المسار لدعم أغنية، قصة ثقافية، حملة، أو نموذج سينمائي قصير قابل للنشر." className="text-right">
+    <CTAButtons bookHref="/ar/contact/" labels={{ book: "ابدأ إصدارًا", whatsapp: "راسلني على واتساب" }} />
   </Section>
 </BaseLayout>

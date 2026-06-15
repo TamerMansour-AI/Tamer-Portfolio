@@ -1,8 +1,8 @@
 export const siteData = {
   name: "Tamer Mansour",
-  title: "AI Media Creator, Visual Storyteller, Educator-Consultant",
+  title: "AI Visual Storytelling, Learning Labs, and Creative Systems",
   description:
-    "Premium AI-powered visual storytelling, branded media production, and practical creative education for founders, teams, and organizations.",
+    "AI media creator and workshop builder helping teams turn ideas into cinematic stories, educational products, live learning labs, and bilingual digital experiences.",
   baseUrl: import.meta.env.BASE_URL,
   email: "ai.visionary.pioneer@gmail.com",
   whatsappPrimary: "+970599797245",

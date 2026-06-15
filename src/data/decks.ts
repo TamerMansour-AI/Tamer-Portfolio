@@ -43,31 +43,23 @@ const deckSeed: DeckSeed[] = [
   {
     slug: "digital-prometheus",
     title_en: "Digital Prometheus",
-    title_ar: "بروميثيوس الحديث",
+    title_ar: "بروميثيوس الرقمي",
     category_en: "AI-Assisted Knowledge Design",
     category_ar: "تصميم معرفة بمساعدة الذكاء الاصطناعي",
-    context_en: "Myth, technology, and caution translated into a visual briefing",
-    context_ar: "الأسطورة والتقنية والتحذير تتحول إلى إحاطة بصرية منظمة",
+    context_en: "Myth, technology, and caution translated into a visual briefing.",
+    context_ar: "الأسطورة والتقنية والتحذير تتحول إلى إحاطة بصرية منظمة.",
     desc_en:
       "A deck reconstruction that compresses a dense argument about invention, power, and technological overreach into a crisp sequence of visual decisions.",
     desc_ar:
-      "إعادة بناء لكتاب كثيف تحوّل حجته حول الاختراع والسلطة وتجاوز التكنولوجيا للحكمة إلى تسلسل بصري واضح ومركز.",
-    note_en: "Preview shown from the original Arabic export. No rebuilt English slide edition was created in this pass.",
-    note_ar: "المعاينة المعروضة هنا من التصدير العربي الأصلي. لم تُنشأ نسخة شرائح إنجليزية جديدة في هذا المسار.",
+      "إعادة بناء تحول مادة كثيفة عن الاختراع والسلطة وتجاوز التقنية إلى تسلسل بصري واضح ومركز.",
+    note_en: "Shown as a public sample of book-to-deck visual thinking.",
+    note_ar: "معروض كعينة عامة من تحويل الكتب إلى أنظمة عرض بصرية.",
     tags_en: ["Book Reconstruction", "AI Literacy", "Visual Briefing"],
-    tags_ar: ["إعادة بناء كتاب", "محو أمية الذكاء الاصطناعي", "إحاطة بصرية"],
+    tags_ar: ["إعادة بناء كتاب", "وعي بالذكاء الاصطناعي", "إحاطة بصرية"],
     cover: "/media/decks/digital-prometheus/cover.jpg",
     previews: [
-      {
-        src: "/media/decks/digital-prometheus/cover.jpg",
-        label_en: "Cover slide",
-        label_ar: "شريحة الغلاف"
-      },
-      {
-        src: "/media/decks/digital-prometheus/spread.jpg",
-        label_en: "Interior system slide",
-        label_ar: "شريحة داخلية بنظام بصري"
-      }
+      { src: "/media/decks/digital-prometheus/cover.jpg", label_en: "Cover slide", label_ar: "شريحة الغلاف" },
+      { src: "/media/decks/digital-prometheus/spread.jpg", label_en: "Interior system slide", label_ar: "شريحة داخلية بنظام بصري" }
     ]
   },
   {
@@ -76,93 +68,65 @@ const deckSeed: DeckSeed[] = [
     title_ar: "الملف السري للأمير",
     category_en: "Editorial Teaching System",
     category_ar: "نظام تعليمي تحريري",
-    context_en: "Statecraft reframed as a premium dossier-style learning format",
-    context_ar: "فن الحكم يعاد تقديمه كصيغة تعلم على هيئة ملف تحريري فاخر",
+    context_en: "Statecraft reframed as a premium dossier-style learning format.",
+    context_ar: "فن الحكم يعاد تقديمه كصيغة تعلم على هيئة ملف تحريري فاخر.",
     desc_en:
       "A reconstruction that turns political philosophy into a cinematic dossier, using archival cues and controlled pacing to make strategic ideas easier to scan and retain.",
     desc_ar:
-      "إعادة بناء تحول الفلسفة السياسية إلى ملف سينمائي منظم، باستخدام إشارات أرشيفية وإيقاع مضبوط يجعل الأفكار الاستراتيجية أسهل في القراءة والتذكر.",
-    note_en: "Preview shown from the original Arabic export. The value here is the visual teaching system, not a public NotebookLM link.",
-    note_ar: "المعاينة هنا من التصدير العربي الأصلي. القيمة هنا في النظام التعليمي البصري لا في رابط NotebookLM عام.",
+      "إعادة بناء تحول الفلسفة السياسية إلى ملف سينمائي منظم، بإشارات أرشيفية وإيقاع مضبوط يجعل الأفكار الاستراتيجية أسهل في القراءة والتذكر.",
+    note_en: "Included as proof of turning abstract ideas into a coherent teaching surface.",
+    note_ar: "مدرج كدليل على تحويل الأفكار المجردة إلى سطح تعليمي واضح.",
     tags_en: ["Political Philosophy", "Dossier Format", "Teaching Design"],
     tags_ar: ["فلسفة سياسية", "صيغة ملف", "تصميم تعليمي"],
     cover: "/media/decks/the-prince-dossier/cover.jpg",
     previews: [
-      {
-        src: "/media/decks/the-prince-dossier/cover.jpg",
-        label_en: "Cover slide",
-        label_ar: "شريحة الغلاف"
-      },
-      {
-        src: "/media/decks/the-prince-dossier/spread.jpg",
-        label_en: "Principle slide",
-        label_ar: "شريحة مبدأ رئيسي"
-      }
+      { src: "/media/decks/the-prince-dossier/cover.jpg", label_en: "Cover slide", label_ar: "شريحة الغلاف" },
+      { src: "/media/decks/the-prince-dossier/spread.jpg", label_en: "Principle slide", label_ar: "شريحة مبدأ رئيسي" }
     ]
   },
   {
     slug: "the-liberty-manifesto",
     title_en: "The Liberty Manifesto",
-    title_ar: "عن الحرية",
+    title_ar: "بيان الحرية",
     category_en: "Structured Argument Design",
-    category_ar: "تصميم حجج منظمة",
-    context_en: "Political theory translated into a bold editorial visual system",
-    context_ar: "النظرية السياسية تتحول إلى نظام بصري تحريري جريء",
+    category_ar: "تصميم حجة منظمة",
+    context_en: "Political theory translated into a bold editorial visual system.",
+    context_ar: "النظرية السياسية تتحول إلى نظام بصري تحريري جريء.",
     desc_en:
       "A manifesto-style deck that shows how dense philosophical material can be restructured into a legible, high-contrast teaching format without losing tension or point of view.",
     desc_ar:
       "عرض بصري على هيئة بيان يوضح كيف يمكن إعادة تنظيم مادة فلسفية كثيفة في صيغة تعليمية واضحة وعالية التباين من دون فقدان التوتر أو وجهة النظر.",
-    note_en: "Preview shown from the original Arabic export. Included because it adds a stronger editorial contrast to the deck set.",
-    note_ar: "المعاينة من التصدير العربي الأصلي. أُدرجت لأنها تضيف تباينا تحريريا أقوى إلى مجموعة العروض.",
+    note_en: "Included because it adds a stronger editorial contrast to the deck set.",
+    note_ar: "مدرج لأنه يضيف تباينًا تحريريًا أقوى إلى مجموعة العروض.",
     tags_en: ["Political Theory", "Editorial Layout", "Argument Mapping"],
     tags_ar: ["نظرية سياسية", "تخطيط تحريري", "بناء الحجة"],
     cover: "/media/decks/the-liberty-manifesto/cover.jpg",
     previews: [
-      {
-        src: "/media/decks/the-liberty-manifesto/cover.jpg",
-        label_en: "Cover slide",
-        label_ar: "شريحة الغلاف"
-      },
-      {
-        src: "/media/decks/the-liberty-manifesto/spread.jpg",
-        label_en: "Argument slide",
-        label_ar: "شريحة بناء الحجة"
-      }
+      { src: "/media/decks/the-liberty-manifesto/cover.jpg", label_en: "Cover slide", label_ar: "شريحة الغلاف" },
+      { src: "/media/decks/the-liberty-manifesto/spread.jpg", label_en: "Argument slide", label_ar: "شريحة بناء الحجة" }
     ]
   },
   {
     slug: "the-newt-file",
     title_en: "The Newt File",
-    title_ar: "The Newt File",
-    category_en: "Arabic Visual Dossier",
-    category_ar: "Arabic Visual Dossier",
-    context_en: "A speculative Arabic visual dossier with a strong editorial world",
-    context_ar: "A speculative Arabic visual dossier with a strong editorial world",
+    title_ar: "ملف نيوت",
+    category_en: "Speculative Visual Dossier",
+    category_ar: "ملف بصري تخييلي",
+    context_en: "A fictional premise shaped into a dossier-style slide sequence.",
+    context_ar: "فكرة تخييلية تتحول إلى تسلسل شرائح بأسلوب الملفات.",
     desc_en:
-      "A newly added visual-depiction project that turns a strange fictional premise into a dossier-style slide sequence, mixing maps, archival surfaces, character framing, and dramatic Arabic copy.",
+      "A visual depiction project that turns a strange fictional premise into a dossier-style slide sequence, mixing maps, archival surfaces, character framing, and dramatic copy.",
     desc_ar:
-      "A newly added visual-depiction project that turns a strange fictional premise into a dossier-style slide sequence, mixing maps, archival surfaces, character framing, and dramatic Arabic copy.",
-    note_en: "Included as a sample of the more experimental book and fiction-depiction direction. The source folder also contains unrelated/private material, so the public site uses only whitelisted slide exports.",
-    note_ar: "Included as a sample of the more experimental book and fiction-depiction direction. The source folder also contains unrelated/private material, so the public site uses only whitelisted slide exports.",
-    tags_en: ["Arabic Slides", "Speculative Dossier", "Visual Fiction"],
-    tags_ar: ["Arabic Slides", "Speculative Dossier", "Visual Fiction"],
+      "مشروع تصوير بصري يحول فكرة تخييلية غريبة إلى تسلسل شرائح بأسلوب الملفات، مع خرائط وملمس أرشيفي وتأطير شخصيات ونص درامي.",
+    note_en: "The public site uses only selected slide exports suitable for portfolio viewing.",
+    note_ar: "يستخدم الموقع العام شرائح مختارة فقط مناسبة للعرض داخل البورتفوليو.",
+    tags_en: ["Visual Fiction", "Speculative Dossier", "Story System"],
+    tags_ar: ["تخييل بصري", "ملف تخييلي", "نظام سرد"],
     cover: "/media/decks/the-newt-file/cover.jpg",
     previews: [
-      {
-        src: "/media/decks/the-newt-file/cover.jpg",
-        label_en: "Cover dossier slide",
-        label_ar: "Cover dossier slide"
-      },
-      {
-        src: "/media/decks/the-newt-file/spread.jpg",
-        label_en: "World and conflict slide",
-        label_ar: "World and conflict slide"
-      },
-      {
-        src: "/media/decks/the-newt-file/principle.jpg",
-        label_en: "Dossier principle slide",
-        label_ar: "Dossier principle slide"
-      }
+      { src: "/media/decks/the-newt-file/cover.jpg", label_en: "Cover dossier slide", label_ar: "شريحة غلاف الملف" },
+      { src: "/media/decks/the-newt-file/spread.jpg", label_en: "World and conflict slide", label_ar: "شريحة العالم والصراع" },
+      { src: "/media/decks/the-newt-file/principle.jpg", label_en: "Dossier principle slide", label_ar: "شريحة مبدأ الملف" }
     ]
   }
 ];

@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CTAButtons from "../../../components/CTAButtons.astro";
+import Section from "../../../components/Section.astro";
+import WorkCard from "../../../components/WorkCard.astro";
+import { platformProofAr, proofMetricsAr } from "../../../data/proof";
+import { workItemsAr } from "../../../data/work";
+import { withBase } from "../../../utils/withBase";
+
+const visibleWork = workItemsAr.filter((item) =>
+  [
+    "Primary Learning Visualised on TPT",
+    "AI Verification Lab for Journalists",
+    "Birzeit AI Fluency Lab 2026",
+    "Original AI Music Videos",
+    "Anbiya Visuals AI Film Production",
+    "Literary Reimaginings",
+    "Book-to-Deck Reconstructions",
+    "Museum of Echoes"
+  ].includes(item.title_en)
+);
+---
+<BaseLayout
+  title="مركز الأدلة | بورتفوليو تامر منصور"
+  description="خريطة مختصرة للأعمال العامة التي يمكن معاينتها: منصات، مقتطفات إنتاج بصري، مختبرات تعلم، منتجات تعليمية، فيديوهات موسيقية، وأنظمة تصميم معرفة."
+  path="/ar/proof/"
+  lang="ar"
+  dir="rtl"
+  pageType="CollectionPage"
+>
+  <Section
+    title="مركز الأدلة"
+    copy="خريطة مباشرة لما يمكن للزائر معاينته: منصات عامة، مقتطفات إنتاج بصري، مختبرات تعلم، منتجات تعليمية، فيديوهات موسيقية، وأنظمة تصميم معرفة."
+    className="text-right"
+  >
+    <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+      {
+        proofMetricsAr.map((metric) => (
+          <article class="glass-card p-5 text-right">
+            <p class="text-3xl font-semibold tracking-tight text-white">{metric.value}</p>
+            <h2 class="mt-2 text-sm font-semibold text-gold">{metric.label}</h2>
+            <p class="mt-3 text-sm leading-relaxed text-sand/78">{metric.detail}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-3">
+      <a href={withBase("/ar/work/")} class="glass-card block p-5 text-right hover:border-gold/40">
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">الأعمال المختارة</p>
+        <h2 class="mt-3 text-xl font-semibold text-white">مشاريع ومنتجات عامة</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">أفلام AI، منتجات ويب، أرشيفات، فيديوهات موسيقية، وتصميم معرفة.</p>
+      </a>
+      <a href={withBase("/workshops/")} class="glass-card block p-5 text-right hover:border-gold/40">
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">الورشات</p>
+        <h2 class="mt-3 text-xl font-semibold text-white">تعلم عملي وأنظمة تدريب</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">مختبر التحقق، مختبر بيرزيت، ومسارات تدريب تربط الشرح بالممارسة.</p>
+      </a>
+      <a href={withBase("/ar/services/")} class="glass-card block p-5 text-right hover:border-gold/40">
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">الخدمات</p>
+        <h2 class="mt-3 text-xl font-semibold text-white">ما يمكن بناؤه معًا</h2>
+        <p class="mt-3 text-sm leading-relaxed text-sand/78">مسارات واضحة للفيديو، الورشات، المنتجات التعليمية، والنماذج الرقمية.</p>
+      </a>
+    </div>
+  </Section>
+
+  <Section title="أمثلة مختارة" copy="هذه الأعمال تعطي مسارًا سريعًا لفهم المجال: إنتاج بصري، تعليم، منتجات، موسيقى، ومنصات ثقافية." className="text-right">
+    <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+      {visibleWork.map((item) => <WorkCard item={item} lang="ar" imageClass="h-52 w-full object-cover" />)}
+    </div>
+  </Section>
+
+  <Section title="أدلة إضافية وسياق" copy="بعض الأعمال يكفي أن تظهر كأمثلة مختصرة بدل أن تتحول إلى صفحات طويلة. هذا القسم يحافظ على وضوح القدرة من دون ازدحام." className="text-right">
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      {
+        platformProofAr.map((item) => {
+          const href = item.href?.startsWith("http") ? item.href : item.href ? withBase(item.href) : undefined;
+          const external = item.href?.startsWith("http");
+          return (
+            <article class="glass-card p-5 text-right">
+              <p class="text-xs uppercase tracking-[0.18em] text-gold">{item.category}</p>
+              <h3 class="mt-3 text-lg font-semibold leading-tight text-white">{item.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-sand/78">{item.summary}</p>
+              {href && <a href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined} class="gold-link mt-4 inline-block text-sm font-semibold">{item.linkLabel ?? "افتح الدليل"}</a>}
+            </article>
+          );
+        })
+      }
+    </div>
+  </Section>
+
+  <Section title="هل تريد دليلًا أعمق لمسار محدد؟" copy="هذه الصفحة تعطي الصورة العامة. يمكن تجهيز عرض خاص أعمق لأي مسار عندما يكون الجمهور أو المشروع مناسبًا." className="text-right">
+    <CTAButtons bookHref="/ar/contact/" labels={{ book: "ابدأ مشروعًا", whatsapp: "راسلني على واتساب" }} />
+  </Section>
+</BaseLayout>

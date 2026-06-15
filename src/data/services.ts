@@ -15,133 +15,188 @@ export type ServiceItem = {
 
 export const servicesEn: ServiceItem[] = [
   {
-    title: "Brand Story Sprint",
+    title: "AI Video and Story Production",
     summary:
-      "A focused front-door offer to clarify the message, visual direction, and story logic before a launch, campaign, or cultural release moves into production.",
-    bestFor: "Founders, cultural projects, and launches that need narrative clarity before full production begins.",
-    outcome: "A sharper story direction, stronger visual frame, and a scene plan you can act on quickly.",
+      "Story films, music videos, campaign visuals, and cinematic excerpts built with clear direction, atmosphere, and continuity.",
+    bestFor: "Founders, cultural projects, educators, and teams that need a visual story people can feel quickly.",
+    outcome:
+      "A finished visual direction with story logic, scene rhythm, and web-ready material your audience can understand fast.",
     chooseWhen:
-      "Choose this when the message feels scattered, the visuals lack coherence, or the next release needs a stronger opening move.",
-    nextStep: "Start here when the work still needs framing before anyone spends more on production, media, or rollout.",
+      "Choose this when a story, lesson, campaign, or cultural idea needs to become a cinematic video rather than a loose concept.",
+    nextStep: "Send the idea, target audience, tone, timeline, and where the video needs to live.",
     deliverables: [
-      "Creative direction + message architecture",
-      "Short-form video concepts and scene plans",
-      "Final edit guidance for social launch"
+      "Story direction and scene planning",
+      "AI image and video production system",
+      "Reels, trailers, short films, or web excerpts"
     ],
-    cta: "Book a Call",
-    proofTitle: "Literary Reimaginings",
+    cta: "Discuss a video project",
+    proofTitle: "Anbiya Visuals, Literary Reimaginings, and Music Videos",
     proofSummary:
-      "Shows how story, mood, and bilingual interpretation can be shaped into a tighter visual direction before a larger production effort begins.",
-    proofHref: "/literary-reimaginings/",
-    proofCta: "See story-direction proof"
+      "Shows full story-film production, literary adaptation, original music-video direction, and campaign-ready visual storytelling.",
+    proofHref: "/client-ai-production/",
+    proofCta: "See AI film production"
   },
   {
-    title: "AI Production System Setup",
+    title: "AI Workshops and Learning Labs",
     summary:
-      "Build a practical AI workflow for ideation, visuals, review, and delivery without sacrificing quality, structure, or taste.",
-    bestFor: "Teams already producing content but missing a reliable workflow for generation, review, and handoff.",
-    outcome: "A cleaner production system with clearer standards for ideation, making, feedback, and delivery.",
+      "Practical AI sessions with activities, source packs, live tools, and outputs people can use after the room.",
+    bestFor:
+      "Institutions, media teams, universities, and organizations that need practical AI capability, not only a lecture.",
+    outcome:
+      "A workshop or lab where participants practice with real prompts, sources, review habits, and usable outputs.",
     chooseWhen:
-      "Choose this when output is inconsistent, too slow, or dependent on ad-hoc prompting and individual memory.",
-    nextStep: "Move here once the direction is already clear and the real problem is repeatability, approvals, or handoff quality.",
-    deliverables: [
-      "Custom tool stack + prompt framework",
-      "Team-ready production playbook",
-      "Quality-control checkpoints"
-    ],
-    cta: "Message on WhatsApp",
-    proofTitle: "Museum of Echoes",
-    proofSummary:
-      "Proves the ability to turn original creative material into a bilingual product experience with archive logic, discovery paths, and a public-facing execution layer.",
-    proofHref: "/museum-of-echoes/",
-    proofCta: "See systems proof"
-  },
-  {
-    title: "Workshops & Advisory",
-    summary:
-      "Hands-on training and strategic guidance for creators, educators, and teams that need stronger output, clearer standards, and a better shared language.",
-    bestFor: "Creators, educators, and organizations that need capability-building, not only finished deliverables.",
-    outcome: "A stronger team standard, better creative judgment, and a team that can keep improving after the engagement.",
-    chooseWhen:
-      "Choose this when the goal is skill transfer, shared language, and repeatable improvement across people or departments.",
+      "Choose this when the goal is skill transfer, shared standards, and a practical learning environment.",
     nextStep:
-      "Use this when the goal is not only getting the work done, but helping people understand the method well enough to carry it forward.",
+      "Share the audience, level, session length, language, and the capability you want people to leave with.",
     deliverables: [
-      "Live workshop sessions",
-      "Content strategy roadmap",
-      "Review cycles with practical feedback"
+      "Workshop structure and live activities",
+      "Source packs, prompts, and recap assets",
+      "Simple web labs or participant output flows"
     ],
-    cta: "Book a Call",
-    proofTitle: "Book-to-Deck Reconstructions",
+    cta: "Plan a workshop",
+    proofTitle: "AI Verification Lab and Birzeit AI Fluency Lab",
     proofSummary:
-      "Shows how dense material can be translated into teachable visual structure, making it the clearest proof anchor for educational transformation and capability-building work.",
+      "Shows practical AI training with public web environments, activities, source-grounded workflows, and visible participant tasks.",
+    proofHref: "/workshops/",
+    proofCta: "See workshop proof"
+  },
+  {
+    title: "Educational Product and Knowledge Design",
+    summary:
+      "Visual lesson packs, book-to-deck systems, worksheets, guides, and teacher-ready learning assets.",
+    bestFor:
+      "Educators, trainers, authors, and teams with dense material that needs to become clearer and usable.",
+    outcome:
+      "A structured learning product people can teach, sell, present, or use without needing the original complexity explained again.",
+    chooseWhen:
+      "Choose this when a lesson, book, source pack, or training idea needs to become a visual system.",
+    nextStep:
+      "Share the source material, audience, format, and whether the output is for teaching, briefing, or public sale.",
+    deliverables: [
+      "Lesson packs, worksheets, and quick checks",
+      "Visual decks and knowledge systems",
+      "Teacher or trainer-facing guides"
+    ],
+    cta: "Build a learning product",
+    proofTitle: "Primary Learning Visualised and Book-to-Deck Reconstructions",
+    proofSummary:
+      "Shows marketplace-ready lesson products and dense books rebuilt as visual teaching, briefing, and discussion systems.",
     proofHref: "/book-to-decks/",
-    proofCta: "See teaching-format proof"
+    proofCta: "See knowledge design proof"
+  },
+  {
+    title: "Bilingual Web and Product Prototypes",
+    summary:
+      "Public-facing pages, archives, labs, and lightweight tools that make a concept usable in Arabic and English.",
+    bestFor: "Projects that need a public-facing concept, archive, campaign page, or lightweight interactive tool.",
+    outcome: "A clear digital surface that gives the idea structure, language, navigation, and a public path.",
+    chooseWhen:
+      "Choose this when the project needs to be experienced, explored, or tested online instead of explained in a document.",
+    nextStep:
+      "Share the concept, audience, language needs, and the smallest useful version that should go live first.",
+    deliverables: [
+      "Bilingual pages and launch-ready product stories",
+      "Archive structures and lightweight interaction flows",
+      "Proof-of-concept websites or workshop labs"
+    ],
+    cta: "Shape a prototype",
+    proofTitle: "Museum of Echoes and Palestine Visual Lab",
+    proofSummary:
+      "Shows how original media, cultural references, and workshop ideas can become public-facing archives, tools, and digital experiences.",
+    proofHref: "/museum-of-echoes/",
+    proofCta: "See product proof"
   }
 ];
 
 export const servicesAr: ServiceItem[] = [
   {
-    title: "صياغة قصة العلامة بصريا",
+    title: "إنتاج فيديو وسرد بصري بالذكاء الاصطناعي",
     summary:
-      "عرض تمهيدي مركز يوضح الرسالة والاتجاه البصري ومنطق القصة قبل أن ينتقل الإطلاق أو الحملة أو الإصدار الثقافي إلى الإنتاج.",
-    bestFor: "للمؤسسين والمشاريع الثقافية والإطلاقات التي تحتاج وضوحا سرديا قبل الدخول في الإنتاج الكامل.",
-    outcome: "اتجاه قصصي أوضح، وإطار بصري أقوى، وخطة مشاهد يمكن التحرك عليها بسرعة.",
+      "أفلام قصصية، فيديوهات موسيقية، مواد حملات، ومقتطفات سينمائية مبنية على جو واضح واستمرارية بصرية.",
+    bestFor: "للمؤسسين والمشاريع الثقافية والمعلمين والفرق التي تحتاج قصة بصرية يشعر بها الجمهور بسرعة.",
+    outcome: "اتجاه بصري مكتمل بمنطق سردي وإيقاع مشاهد ومواد مناسبة للنشر أو العرض.",
     chooseWhen:
-      "اختر هذه الخدمة عندما تبدو الرسالة مشتتة أو الاتجاه البصري غير متماسك أو عندما يحتاج الإصدار القادم إلى بداية أقوى.",
-    nextStep: "ابدأ من هنا عندما يحتاج العمل إلى صياغة وضبط قبل أن يصرف عليه وقت أو ميزانية أكبر في الإنتاج والنشر.",
+      "اختر هذا المسار عندما تحتاج قصة أو درس أو حملة أو فكرة ثقافية إلى فيديو سينمائي لا إلى مفهوم متفرق.",
+    nextStep: "أرسل الفكرة والجمهور والنبرة والمدة والمكان الذي سيظهر فيه الفيديو.",
     deliverables: [
-      "توجيه إبداعي وبناء الرسالة",
-      "أفكار فيديو قصير وخطط مشاهد",
-      "إرشاد نهائي للمونتاج والإطلاق"
+      "اتجاه سردي وخطة مشاهد",
+      "نظام إنتاج صور وفيديو بالذكاء الاصطناعي",
+      "ريلز أو تريلرات أو أفلام قصيرة أو مقتطفات للويب"
     ],
-    cta: "احجز مكالمة",
-    proofTitle: "إعادة تخيّل الروايات بصريا",
+    cta: "ناقش مشروع فيديو",
+    proofTitle: "Anbiya Visuals وإعادة تخيّل الروايات والفيديوهات الموسيقية",
     proofSummary:
-      "يظهر كيف يمكن صياغة النبرة والأجواء والتأويل الثنائي اللغة ضمن اتجاه بصري أكثر دقة قبل أي توسع إنتاجي.",
-    proofHref: "/ar/literary-reimaginings/",
-    proofCta: "شاهد دليل صياغة القصة"
+      "توضح إنتاج أفلام قصصية كاملة، واقتباسًا أدبيًا بصريًا، واتجاهًا سينمائيًا للفيديوهات الموسيقية.",
+    proofHref: "/ar/client-ai-production/",
+    proofCta: "شاهد إنتاج الأفلام بالذكاء الاصطناعي"
   },
   {
-    title: "إعداد نظام إنتاج بالذكاء الاصطناعي",
+    title: "ورشات ومختبرات تعلم بالذكاء الاصطناعي",
     summary:
-      "بناء سير عمل عملي للتفكير والإنتاج والمراجعة والتسليم مع الحفاظ على الجودة والبنية والذوق.",
-    bestFor: "للفرق التي تنتج المحتوى بالفعل لكنها تفتقد نظاما موثوقا للتوليد والمراجعة والتسليم.",
-    outcome: "نظام إنتاج أنظف بمعايير أوضح للتفكير والصناعة والتغذية الراجعة والتسليم.",
+      "جلسات عملية مع أنشطة ومصادر وأدوات حية ومخرجات يستطيع المشاركون استخدامها بعد الورشة.",
+    bestFor:
+      "للمؤسسات والفرق الإعلامية والجامعات والمنظمات التي تحتاج قدرة عملية في الذكاء الاصطناعي لا محاضرة نظرية فقط.",
+    outcome:
+      "ورشة أو مختبر يمارس فيه المشاركون الأوامر والمصادر وعادات المراجعة وينتجون مخرجات قابلة للاستخدام.",
     chooseWhen:
-      "اختر هذه الخدمة عندما يكون الإنتاج متذبذبا أو بطيئا أو معتمدا على اجتهادات فردية وأوامر مرتجلة.",
-    nextStep: "انتقل إلى هذا المسار حين تكون الوجهة واضحة بالفعل أما المشكلة الحقيقية فتكون في التكرار والمراجعة والتسليم.",
+      "اختر هذا المسار عندما يكون الهدف نقل مهارة وبناء لغة مشتركة وبيئة تعلم عملية.",
+    nextStep:
+      "شارك الجمهور والمستوى ومدة الجلسة واللغة والقدرة التي تريد أن يخرج بها المشاركون.",
     deliverables: [
-      "هيكلة أدوات وإطارات أوامر مخصصة",
-      "دليل تشغيل واضح للفريق",
-      "نقاط تدقيق جودة في كل مرحلة"
+      "هيكل ورشة وأنشطة حية",
+      "حزم مصادر وأوامر ومواد تلخيص",
+      "مختبرات ويب خفيفة أو مسارات مخرجات للمشاركين"
     ],
-    cta: "راسلني على واتساب",
-    proofTitle: "متحف الأصداء",
+    cta: "خطط ورشة",
+    proofTitle: "مختبر التحقق ومختبر بيرزيت للطلاقة بالذكاء الاصطناعي",
     proofSummary:
-      "يثبت القدرة على تحويل المادة الإبداعية إلى تجربة منتج ثنائية اللغة لها منطق أرشيفي ومسارات اكتشاف وطبقة تنفيذ عامة.",
-    proofHref: "/ar/museum-of-echoes/",
-    proofCta: "شاهد دليل النظام والمنتج"
+      "يوضحان تدريبًا عمليًا ببيئات ويب وأنشطة وسير عمل قائم على المصادر ومهام واضحة للمشاركين.",
+    proofHref: "/workshops/",
+    proofCta: "شاهد أدلة الورشات"
   },
   {
-    title: "ورشات واستشارات",
+    title: "منتجات تعليمية وتصميم معرفة",
     summary:
-      "تدريب عملي وإرشاد استراتيجي للمبدعين والمدربين والفرق التي تحتاج مخرجات أقوى ومعايير أوضح ولغة عمل مشتركة.",
-    bestFor: "للمبدعين والمدربين والمؤسسات التي تحتاج بناء قدرة داخلية لا مجرد تسليم نهائي.",
-    outcome: "معيار داخلي أقوى وحكم إبداعي أوضح وفريق قادر على الاستمرار في التحسن بعد انتهاء التعاون.",
+      "حزم دروس بصرية، تحويل كتب إلى عروض، أوراق عمل، أدلة، ومواد جاهزة للمعلمين والمدربين.",
+    bestFor:
+      "للمعلمين والمدربين والمؤلفين والفرق التي تملك مادة كثيفة وتحتاج تحويلها إلى صيغة أوضح وأسهل استخدامًا.",
+    outcome:
+      "منتج تعليمي أو معرفي يمكن تدريسه أو بيعه أو عرضه أو استخدامه دون شرح المادة الأصلية من جديد.",
     chooseWhen:
-      "اختر هذه الخدمة عندما يكون الهدف نقل المهارة وبناء لغة مشتركة وتحسين الأداء بشكل متكرر بين الأفراد أو الأقسام.",
-    nextStep: "استخدم هذا المسار عندما يكون المطلوب ليس إنجاز العمل فقط، بل مساعدة الناس على فهم المنهج كفاية لكي يحملوه بأنفسهم.",
+      "اختر هذا المسار عندما تحتاج درسًا أو كتابًا أو حزمة مصادر أو فكرة تدريبية إلى نظام بصري واضح.",
+    nextStep:
+      "شارك المادة والجمهور والصيغة المطلوبة وما إذا كان الناتج للتعليم أو الإحاطة أو البيع العام.",
     deliverables: [
-      "ورش تفاعلية مباشرة",
-      "خارطة طريق للمحتوى",
-      "مراجعات دورية مع ملاحظات قابلة للتنفيذ"
+      "حزم دروس وأوراق عمل واختبارات قصيرة",
+      "عروض بصرية وأنظمة معرفة",
+      "أدلة للمعلمين أو المدربين"
     ],
-    cta: "احجز مكالمة",
-    proofTitle: "إعادة بناء الكتب كعروض شرائح",
+    cta: "ابنِ منتجًا تعليميًا",
+    proofTitle: "Primary Learning Visualised وتحويل الكتب إلى عروض",
     proofSummary:
-      "يظهر كيف يمكن تحويل المواد الكثيفة إلى بنية بصرية قابلة للتعليم والفهم، وهو أوضح مرتكز إثبات لعمل الورش وبناء القدرة.",
+      "يوضحان منتجات دروس جاهزة للسوق وكتبًا كثيفة أعيد بناؤها كأنظمة تعليم وإحاطة ونقاش.",
     proofHref: "/ar/book-to-decks/",
-    proofCta: "شاهد دليل التحويل التعليمي"
+    proofCta: "شاهد تصميم المعرفة"
+  },
+  {
+    title: "نماذج ويب ومنتجات ثنائية اللغة",
+    summary:
+      "صفحات عامة، أرشيفات، مختبرات، وأدوات خفيفة تجعل الفكرة قابلة للاستخدام بالعربية والإنجليزية.",
+    bestFor: "للمشاريع التي تحتاج مفهومًا عامًا، أرشيفًا، صفحة حملة، أو أداة تفاعلية خفيفة.",
+    outcome: "سطح رقمي واضح يمنح الفكرة بنية ولغة وتنقلًا ومسارًا عامًا.",
+    chooseWhen:
+      "اختر هذا المسار عندما تحتاج الفكرة أن تُجرب أو تُستكشف أو تُعرض على الإنترنت بدل أن تبقى في وثيقة.",
+    nextStep: "شارك المفهوم والجمهور واحتياجات اللغة وأصغر نسخة مفيدة يجب نشرها أولًا.",
+    deliverables: [
+      "صفحات ثنائية اللغة وسرد منتج جاهز للإطلاق",
+      "بنية أرشيف ومسارات تفاعل خفيفة",
+      "مواقع إثبات فكرة أو مختبرات ورشات"
+    ],
+    cta: "شكّل نموذجًا أوليًا",
+    proofTitle: "متحف الأصداء وPalestine Visual Lab",
+    proofSummary:
+      "يوضحان كيف يمكن للموسيقى الأصلية والمراجع الثقافية وأفكار الورشات أن تصبح أرشيفات وأدوات وتجارب رقمية عامة.",
+    proofHref: "/ar/museum-of-echoes/",
+    proofCta: "شاهد دليل المنتج"
   }
 ];

@@ -42,8 +42,8 @@ const homeSchema = [
 ];
 ---
 <BaseLayout
-  title="Tamer Mansour | AI Storytelling, Creative Systems, and Bilingual Workshops"
-  description="Portfolio of Tamer Mansour: cinematic AI storytelling, bilingual digital products, educational design, and practical production systems for founders, teams, and institutions."
+  title="Tamer Mansour | AI Visual Storytelling, Learning Labs, and Creative Systems"
+  description="AI media creator and workshop builder helping teams turn ideas into cinematic stories, educational products, live learning labs, and bilingual digital experiences."
   path="/"
   image="/media/hero/hero-poster.png"
   pageType="ProfilePage"
@@ -64,18 +64,23 @@ const homeSchema = [
   <section class="container-shell py-14 sm:py-20">
     <div class="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
       <div>
-        <p class="text-xs uppercase tracking-[0.22em] text-gold">Cinematic Storytelling * Practical Training * AI Workflow Design</p>
+        <p class="text-xs uppercase tracking-[0.22em] text-gold">AI visual storytelling / workshops / creative systems</p>
         <h1 class="mt-5 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
-          Tamer Mansour builds cinematic AI stories, workshops, and production systems that feel human and hold up in real use.
+          I turn ideas into AI-powered stories, learning products, and practical creative systems.
         </h1>
         <p class="mt-5 max-w-2xl text-sm leading-relaxed text-sand/85 sm:text-base">
-          I help founders, teams, and institutions move from vague AI experimentation to clear visual direction, repeatable workflows,
-          and stronger audience trust.
+          I help founders, cultural teams, educators, and institutions move from scattered AI experiments to finished work:
+          cinematic videos, interactive workshops, educational products, and bilingual web experiences people can actually use.
         </p>
         <p class="mt-4 max-w-2xl text-sm leading-relaxed text-sand/72 sm:text-[15px]">
-          Ramallah-rooted, globally legible, and guided by human judgment at every stage.
+          Based in Ramallah, working remotely with teams that need strong visuals, clear structure, and human judgment.
         </p>
-        <CTAButtons className="mt-7" />
+        <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          <CTAButtons labels={{ book: "Start a project", whatsapp: "Message on WhatsApp" }} />
+          <a href={withBase("/work/")} class="inline-flex w-full items-center justify-center rounded-full border border-white/18 px-5 py-3 text-sm font-semibold text-sand hover:border-gold/60 hover:text-white sm:w-auto">
+            See the work
+          </a>
+        </div>
       </div>
       <div class="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 bg-white/5 sm:aspect-video">
         <div
@@ -105,14 +110,13 @@ const homeSchema = [
     <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-5 sm:p-6">
       <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div class="max-w-2xl">
-          <p class="text-xs uppercase tracking-[0.22em] text-gold">Proof Layer</p>
+          <p class="text-xs uppercase tracking-[0.22em] text-gold">Built across media, learning, and public digital products</p>
           <h2 class="mt-3 text-xl font-semibold tracking-tight text-white sm:text-2xl">
-            Recent proof now connects the creative portfolio to training, apps, systems, and platform activity.
+            The strongest work is grouped into a few clear lanes so the homepage stays focused.
           </h2>
         </div>
         <p class="max-w-xl text-sm leading-relaxed text-sand/75">
-          The strongest missing layer was not another claim. It was the evidence chain: workshops delivered, labs designed, app concepts prepared,
-          creator-platform activity, and creative AI production demand.
+          You can scan the range quickly here, then open deeper project pages when you want the full context, media, and links.
         </p>
       </div>
 
@@ -129,15 +133,15 @@ const homeSchema = [
       </div>
       <div class="mt-6 grid gap-3 md:grid-cols-3">
         <a href={withBase("/proof/")} class="glass-card block p-5 hover:border-gold/40">
-          <p class="text-xs uppercase tracking-[0.18em] text-gold">Open the proof hub</p>
-          <h3 class="mt-3 text-lg font-semibold text-white">Portfolio proof in one place</h3>
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">Evidence map</p>
+          <h3 class="mt-3 text-lg font-semibold text-white">Public projects, selected excerpts, and live links</h3>
         </a>
         <a href={withBase("/workshops/")} class="glass-card block p-5 hover:border-gold/40">
-          <p class="text-xs uppercase tracking-[0.18em] text-gold">Workshop proof</p>
-          <h3 class="mt-3 text-lg font-semibold text-white">Qattan, Mishkal, AL Mahs3'al, Arab Bank, Birzeit, and more</h3>
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">Learning labs</p>
+          <h3 class="mt-3 text-lg font-semibold text-white">AI Verification Lab, Birzeit, and training systems</h3>
         </a>
         <a href={withBase("/notebooklm/")} class="glass-card block p-5 hover:border-gold/40">
-          <p class="text-xs uppercase tracking-[0.18em] text-gold">NotebookLM projects</p>
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">Source-grounded work</p>
           <h3 class="mt-3 text-lg font-semibold text-white">Source packs, learning systems, and presentation workflows</h3>
         </a>
       </div>
@@ -159,10 +163,10 @@ const homeSchema = [
       <div class="space-y-4">
         <p class="text-xs uppercase tracking-[0.22em] text-gold">Featured Platform Project</p>
         <h2 class="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-          Museum of Echoes brings original music, curation, and bilingual product thinking into one public archive.
+          Museum of Echoes turns original music into a bilingual public archive.
         </h2>
         <p class="max-w-2xl text-sm leading-relaxed text-sand/80 sm:text-base">
-          A premium listening world where tracks become rooms, batches, and editorial entry points. It proves Tamer&apos;s ability to shape not only media, but the archive logic, interface, and release structure around it.
+          A listening world where tracks become rooms, collections, and guided discovery paths. I shaped the product logic, interface direction, curation, and public platform experience.
         </p>
         <div class="flex flex-wrap gap-2 text-xs uppercase tracking-[0.18em] text-sand/70">
           <span class="rounded-full border border-white/12 px-3 py-1">Bilingual archive</span>
@@ -170,8 +174,8 @@ const homeSchema = [
           <span class="rounded-full border border-white/12 px-3 py-1">Live public platform</span>
         </div>
         <div class="flex flex-wrap items-center gap-4 text-sm">
-          <span class="font-semibold text-gold">See Museum of Echoes as portfolio proof</span>
-          <span class="text-sand/70 transition group-hover:text-white">Open the project page, then explore the live platform</span>
+          <span class="font-semibold text-gold">Open Museum of Echoes</span>
+          <span class="text-sand/70 transition group-hover:text-white">See the project page, then explore the live platform</span>
         </div>
       </div>
     </a>
@@ -179,27 +183,31 @@ const homeSchema = [
 
   <Section
     title="What I Build"
-    copy="I combine cinematic quality, training depth, and practical AI implementation so your team can ship better work consistently."
+    copy="I combine cinematic direction, teaching structure, and practical AI production so ideas can become finished work, not only experiments."
   >
-    <div class="grid gap-4 sm:grid-cols-3">
+    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
       <article class="glass-card p-6">
-        <h3 class="text-lg font-semibold text-white">Cinematic Production</h3>
-        <p class="mt-3 text-sm leading-relaxed text-sand/80">Ads, short films, and visual narratives crafted for emotional clarity and conversion.</p>
+        <h3 class="text-lg font-semibold text-white">AI Video and Story Production</h3>
+        <p class="mt-3 text-sm leading-relaxed text-sand/80">Story films, music videos, campaign visuals, and cinematic excerpts built with direction and continuity.</p>
       </article>
       <article class="glass-card p-6">
-        <h3 class="text-lg font-semibold text-white">Training and Workshops</h3>
-        <p class="mt-3 text-sm leading-relaxed text-sand/80">Hands-on programs for teams, creators, and educators ready to level up visual output.</p>
+        <h3 class="text-lg font-semibold text-white">Workshops and Learning Labs</h3>
+        <p class="mt-3 text-sm leading-relaxed text-sand/80">Practical AI sessions with activities, source packs, live tools, and outputs people can use after the room.</p>
       </article>
       <article class="glass-card p-6">
-        <h3 class="text-lg font-semibold text-white">Practical AI Systems</h3>
-        <p class="mt-3 text-sm leading-relaxed text-sand/80">Prompt libraries, workflows, and content systems your team can run without chaos.</p>
+        <h3 class="text-lg font-semibold text-white">Educational and Knowledge Products</h3>
+        <p class="mt-3 text-sm leading-relaxed text-sand/80">Visual lesson packs, book-to-deck systems, worksheets, guides, and teacher-ready learning assets.</p>
+      </article>
+      <article class="glass-card p-6">
+        <h3 class="text-lg font-semibold text-white">Bilingual Web and Product Prototypes</h3>
+        <p class="mt-3 text-sm leading-relaxed text-sand/80">Public pages, archives, labs, and lightweight tools that make a concept usable in Arabic and English.</p>
       </article>
     </div>
   </Section>
 
   <Section
     title="Selected Work"
-    copy="Flagship public work plus recent proof anchors across training, app testing, music/audio, operating systems, and creative AI production workflows."
+    copy="A focused selection of public projects and selected excerpts showing how the work moves across films, learning labs, educational products, music, literature, and digital platforms."
   >
     <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
       {
@@ -213,8 +221,8 @@ const homeSchema = [
   </Section>
 
   <Section
-    title="Additional proof anchors"
-    copy="A compact view of the work that supports the portfolio: educational products, workshops, music releases, app concepts, operating systems, and AI production examples."
+    title="Additional Evidence"
+    copy="A compact map of public products, selected creative production, learning labs, educational assets, releases, and visual research."
   >
     <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
       {
@@ -255,10 +263,10 @@ const homeSchema = [
       <div class="space-y-4">
         <p class="text-xs uppercase tracking-[0.22em] text-gold">Featured Storytelling Series</p>
         <h2 class="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-          Literary reimaginings are now a visible storytelling line inside the portfolio.
+          Literary reimaginings treat novels as visual interpretation, not quick summaries.
         </h2>
         <p class="max-w-2xl text-sm leading-relaxed text-sand/80 sm:text-base">
-          A more focused destination for Tamer&apos;s AI-based novel reinterpretations, beginning with <span class="text-white">Men in the Sun</span> and <span class="text-white">Returning to Haifa</span>, presented as bilingual cinematic adaptations rather than isolated video links.
+          A dedicated storytelling line for visual adaptations of <span class="text-white">Men in the Sun</span> and <span class="text-white">Returning to Haifa</span>, shaped in Arabic and English with atmosphere, memory, and emotional pressure intact.
         </p>
         <div class="flex flex-wrap gap-2 text-xs uppercase tracking-[0.18em] text-sand/70">
           <span class="rounded-full border border-white/12 px-3 py-1">2 novels published</span>
@@ -267,13 +275,13 @@ const homeSchema = [
         </div>
         <div class="flex flex-wrap items-center gap-4 text-sm">
           <span class="font-semibold text-gold">Open the literary series</span>
-          <span class="text-sand/70 transition group-hover:text-white">See the published works, future direction, and support path</span>
+          <span class="text-sand/70 transition group-hover:text-white">Watch the published works and see how the series can grow</span>
         </div>
       </div>
     </a>
   </section>
 
-  <Section title="Pinterest Boards" copy="Curated visual references for tone, wardrobe, composition, and campaign aesthetics.">
+  <Section title="Pinterest Boards" copy="A supporting visual research layer for tone, wardrobe, composition, and cultural texture.">
     <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
       {
         pinterestBoardsEn.map((board) => (
@@ -299,8 +307,8 @@ const homeSchema = [
     </div>
   </Section>
 
-  <Section title="Services" copy="Start with a focused sprint, then expand into system build or team training if the work needs a deeper rollout.">
-    <div class="grid gap-4 md:grid-cols-3">
+  <Section title="Services" copy="Work can start as a video, workshop, educational product, or bilingual prototype. Each service connects to visible work you can inspect.">
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
       {
         servicesEn.map((service) => (
           <article class="glass-card p-6">
@@ -310,21 +318,21 @@ const homeSchema = [
         ))
       }
     </div>
-    <a href={withBase("/services/")} class="gold-link mt-8 inline-block text-sm font-semibold">Explore service details</a>
+    <a href={withBase("/services/")} class="gold-link mt-8 inline-block text-sm font-semibold">Explore services</a>
   </Section>
 
   <Section
     title="About Tamer"
-    copy="I blend narrative craft, AI experimentation, and education to help teams produce visual work that feels alive and performs."
+    copy="I blend narrative craft, AI experimentation, and education to help teams build visual work that feels human and holds up in real use."
   >
     <a href={withBase("/about/")} class="gold-link text-sm font-semibold">Read the full story</a>
   </Section>
 
   <Section
-    title="Ready to elevate your visual presence?"
-    copy="If your next campaign, launch, or program needs a stronger story and sharper creative direction, let's build it properly."
+    title="Have an idea that needs form?"
+    copy="Send the goal, audience, and timeline. I will suggest the clearest path: video, workshop, learning product, web prototype, or a focused first sprint."
   >
-    <CTAButtons />
+    <CTAButtons labels={{ book: "Start a project", whatsapp: "Message on WhatsApp" }} />
     <p class="mt-4 text-sm text-sand/70">{siteData.location}</p>
   </Section>
 </BaseLayout>

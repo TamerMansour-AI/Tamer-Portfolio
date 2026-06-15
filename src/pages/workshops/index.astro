@@ -9,14 +9,14 @@ import { withBase } from "../../utils/withBase";
 const deliveredCount = workshopProofEn.filter((item) => item.status === "Delivered").length;
 ---
 <BaseLayout
-  title="AI Workshop Proof | Tamer Mansour"
-  description="Workshop and training proof for Tamer Mansour across Qattan, Mishkal, AL Mahs3'al journalist trainings, Arab Bank, Birzeit students, WAN-IFRA, Sharek, and presentation systems."
+  title="AI Workshops and Learning Labs | Tamer Mansour"
+  description="Workshop and training proof for Tamer Mansour: practical AI labs, verification workflows, NotebookLM source packs, live workshop websites, and reusable learning assets."
   path="/workshops/"
   pageType="CollectionPage"
 >
   <Section
-    title="Workshop proof"
-    copy="Training is not a side note in this portfolio. It is one of the strongest proof lines: real audiences, named workshop lanes, practical AI workflows, and materials built for use after the session."
+    title="AI workshops that become practical systems"
+    copy="The strongest workshop work does not end with slides. It becomes prompts, source packs, exercises, lab websites, recap material, and repeatable learning assets people can keep using."
   >
     <div class="grid gap-4 md:grid-cols-3">
       <article class="glass-card p-5">
@@ -75,7 +75,7 @@ const deliveredCount = workshopProofEn.filter((item) => item.status === "Deliver
         <div class="space-y-3 p-5">
           <p class="text-xs uppercase tracking-[0.18em] text-gold">University AI fluency lab</p>
           <h2 class="text-xl font-semibold text-white">Birzeit AI Fluency Lab 2026</h2>
-          <p class="text-sm leading-relaxed text-sand/78">A live workshop system with landing, join, activity, result, admin, and display flows for practical AI fluency sessions.</p>
+          <p class="text-sm leading-relaxed text-sand/78">A live workshop system with landing, join, activity, result, guided review, and shared display moments for practical AI fluency sessions.</p>
             <a href="https://birzeit-ai-fluency-lab-2026.pages.dev" target="_blank" rel="noopener noreferrer" class="gold-link text-sm font-semibold">Open live lab</a>
         </div>
       </article>
@@ -97,6 +97,6 @@ const deliveredCount = workshopProofEn.filter((item) => item.status === "Deliver
   </Section>
 
   <Section title="Need a workshop or training system?" copy="The portfolio now shows the proof. The next step is choosing the right scope and audience.">
-    <CTAButtons />
+    <CTAButtons labels={{ book: "Start a workshop", whatsapp: "Message on WhatsApp" }} />
   </Section>
 </BaseLayout>

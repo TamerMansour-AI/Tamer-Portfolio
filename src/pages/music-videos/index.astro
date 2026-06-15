@@ -27,7 +27,7 @@ const videos = [
 
 const fullSongs = [
   {
-    title: "بيني وبين الأرض",
+    title: "Between Me and the Earth",
     context: "Arabic original song",
     url: "https://youtu.be/TcSlQomJ3F0"
   },
@@ -37,12 +37,12 @@ const fullSongs = [
     url: "https://youtu.be/VzHMr0Gw0Pg"
   },
   {
-    title: "What’s Going On × What’s Up",
+    title: "What's Going On x What's Up",
     context: "2026 remix / original AI song",
     url: "https://youtu.be/N7T1ouDs9bs"
   },
   {
-    title: "What’s Going On",
+    title: "What's Going On",
     context: "2026 edition / original AI music",
     url: "https://youtu.be/E6Rt-agXCYM"
   }
@@ -50,7 +50,7 @@ const fullSongs = [
 ---
 <BaseLayout
   title="Original AI Music Videos | Tamer Mansour"
-  description="Original AI music video previews by Tamer Mansour, including My Way and Between Me and the Earth."
+  description="Original AI music video previews by Tamer Mansour, including My Way, Between Me and the Earth, and full YouTube releases."
   path="/music-videos/"
   image="/media/music-videos/my-way-thumb.jpg"
   pageType="CollectionPage"
@@ -87,7 +87,7 @@ const fullSongs = [
     </div>
   </Section>
 
-  <Section title="Why this belongs in the portfolio" copy="The music work is useful proof because it combines original song direction, prompt-led image systems, editing judgment, motion pacing, and audience-facing video packaging.">
+  <Section title="What the music work shows" copy="The music work combines original song direction, prompt-led image systems, editing judgment, motion pacing, and audience-facing video packaging.">
     <div class="grid gap-4 md:grid-cols-3">
       {[
         "Original audio-to-visual direction",
@@ -101,7 +101,7 @@ const fullSongs = [
     </div>
   </Section>
 
-  <Section title="Full songs on YouTube" copy="The full public releases live on Tamer AI’s YouTube channel. The local previews above are just fast portfolio samples.">
+  <Section title="Full songs on YouTube" copy="The full public releases live on Tamer AI's YouTube channel. The local previews above are fast portfolio samples.">
     <div class="grid gap-4 md:grid-cols-2">
       {fullSongs.map((song) => (
         <a href={song.url} target="_blank" rel="noopener noreferrer" class="glass-card block p-5 hover:border-gold/40">
@@ -114,6 +114,6 @@ const fullSongs = [
   </Section>
 
   <Section title="Want this kind of music/video direction for a release?" copy="The same workflow can support a song, cultural story, campaign, or short cinematic proof-of-concept.">
-    <CTAButtons />
+    <CTAButtons labels={{ book: "Start a release", whatsapp: "Message on WhatsApp" }} />
   </Section>
 </BaseLayout>

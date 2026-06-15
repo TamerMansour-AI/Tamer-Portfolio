@@ -26,8 +26,8 @@ const serviceSchema = servicesEn.map((service) => ({
 }));
 ---
 <BaseLayout
-  title="AI Storytelling Services, Workshops, and Production Systems | Tamer Mansour"
-  description="Services by Tamer Mansour for brand story direction, AI production systems, bilingual workshops, and proof-led creative execution."
+  title="Services | AI Video, Workshops, Educational Products, and Bilingual Prototypes | Tamer Mansour"
+  description="Services by Tamer Mansour for AI video and story production, practical AI workshops, educational product design, and bilingual web/product prototypes."
   path="/services/"
   image="/media/services/services-en.png"
   pageType="CollectionPage"
@@ -45,8 +45,8 @@ const serviceSchema = servicesEn.map((service) => ({
   </section>
 
   <Section
-    title="Services designed for clear next steps"
-    copy="Start with the sprint when the direction is still fuzzy. Move into system setup when the direction is clear but execution is messy. Choose workshops when the goal is capability transfer, shared standards, and stronger creative judgment."
+    title="Services"
+    copy="I help teams turn ideas into finished AI-powered media, practical workshops, educational products, and bilingual digital experiences. Each service below is backed by visible work."
   >
     <div class="mb-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
       {
@@ -61,36 +61,36 @@ const serviceSchema = servicesEn.map((service) => ({
     </div>
     <div class="mb-8 grid gap-4 md:grid-cols-3">
       <article class="glass-card p-5">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">Start Here</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">Video and story</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          The right entry point depends on whether the problem is framing, execution, or capability. The page below is meant to make that decision obvious.
+          Use this when a story, lesson, campaign, or cultural idea needs to become cinematic and public-facing.
         </p>
       </article>
       <article class="glass-card p-5">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">What Changes</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">Workshops and learning</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          Every offer below points to a proof page so the service connects to visible work instead of abstract claims alone.
+          Use this when people need to practice with AI through prompts, sources, review habits, and live activities.
         </p>
       </article>
       <article class="glass-card p-5">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">Next Step Logic</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">Products and prototypes</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          First choose the offer that matches the bottleneck. Then inspect the proof. Then open the right contact path.
+          Use this when dense material or a new idea needs a usable learning product, archive, lab, or bilingual web surface.
         </p>
       </article>
     </div>
 
-    <div class="grid gap-4 md:grid-cols-3">
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
       {
         servicesEn.map((service) => (
           <article class="glass-card p-6">
             <h2 class="text-xl font-semibold text-white">{service.title}</h2>
             <p class="mt-3 text-sm text-sand/80">{service.summary}</p>
             <div class="mt-4 space-y-3 text-sm leading-relaxed text-sand/80">
-              <p><span class="font-semibold text-white">Best for:</span> {service.bestFor}</p>
-              <p><span class="font-semibold text-white">Outcome:</span> {service.outcome}</p>
-              <p><span class="font-semibold text-white">Choose this when:</span> {service.chooseWhen}</p>
-              <p><span class="font-semibold text-white">Next step:</span> {service.nextStep}</p>
+              <p><span class="font-semibold text-white">Who it helps:</span> {service.bestFor}</p>
+              <p><span class="font-semibold text-white">Result:</span> {service.outcome}</p>
+              <p><span class="font-semibold text-white">Use it when:</span> {service.chooseWhen}</p>
+              <p><span class="font-semibold text-white">To begin:</span> {service.nextStep}</p>
             </div>
             <ul class="mt-4 space-y-2 text-sm text-sand/80">
               {service.deliverables.map((item) => <li>- {item}</li>)}
@@ -103,7 +103,7 @@ const serviceSchema = servicesEn.map((service) => ({
             </div>
             <div class="mt-5 flex flex-wrap items-center gap-4 text-sm">
               <a
-                href={service.cta === "Message on WhatsApp" ? "https://wa.me/970599797245" : withBase("/contact/")}
+                href={withBase("/contact/")}
                 class="rounded-full border border-gold/60 px-4 py-2 font-semibold text-sand transition hover:border-gold hover:text-white"
               >
                 {service.cta}
@@ -114,17 +114,17 @@ const serviceSchema = servicesEn.map((service) => ({
       }
     </div>
     <div class="mt-8 flex flex-wrap items-center gap-4 text-sm">
-      <a href={withBase("/work/")} class="gold-link font-semibold">See the full proof layer</a>
+      <a href={withBase("/work/")} class="gold-link font-semibold">See selected work</a>
       <a href={withBase("/museum-of-echoes/")} class="text-sand/75 transition hover:text-white">Open Museum of Echoes</a>
       <a href={withBase("/literary-reimaginings/")} class="text-sand/75 transition hover:text-white">Open Literary Reimaginings</a>
       <a href={withBase("/book-to-decks/")} class="text-sand/75 transition hover:text-white">Open Book-to-Deck Reconstructions</a>
     </div>
   </Section>
   <Section
-    title="Ready to choose the right path?"
-    copy="If you are unsure where to start, begin with the sprint. If the direction is already clear and the problem is system execution, go straight to setup. If the real need is team capability, workshops are the better fit."
+    title="Not sure which service fits?"
+    copy="Send me the idea, audience, and deadline. I will suggest the smallest useful first step."
   >
-    <CTAButtons />
+    <CTAButtons labels={{ book: "Start a project", whatsapp: "Message on WhatsApp" }} />
     <div class="mt-4 flex flex-wrap items-center gap-4 text-sm">
       <a href={withBase("/contact/")} class="gold-link font-semibold">Open contact page</a>
       <a href={withBase("/about/")} class="text-sand/75 transition hover:text-white">Read how the practice connects story, teaching, and systems</a>

@@ -41,8 +41,8 @@ const homeSchema = [
 ];
 ---
 <BaseLayout
-  title="تامر منصور | سرد بصري بالذكاء الاصطناعي وأنظمة إبداعية وورشات"
-  description="بورتفوليو تامر منصور في السرد البصري المدعوم بالذكاء الاصطناعي والمنتجات ثنائية اللغة والتصميم التعليمي وأنظمة الإنتاج العملية."
+  title="تامر منصور | سرد بصري بالذكاء الاصطناعي وورشات وأنظمة إبداعية"
+  description="أصمم قصصًا بصرية ومنتجات تعليمية وورشات عملية وتجارب رقمية ثنائية اللغة باستخدام الذكاء الاصطناعي بحس إنساني واضح."
   path="/ar/"
   lang="ar"
   dir="rtl"
@@ -65,18 +65,23 @@ const homeSchema = [
   <section class="container-shell py-14 sm:py-20">
     <div class="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
       <div class="text-right">
-        <p class="text-xs uppercase tracking-[0.22em] text-gold">سرد سينمائي * تدريب عملي * تصميم سير عمل بالذكاء الاصطناعي</p>
+        <p class="text-xs uppercase tracking-[0.22em] text-gold">سرد بصري / ورشات عملية / أنظمة إبداعية</p>
         <h1 class="mt-5 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
-          تامر منصور يبني سردا بصريا سينمائيا، وورشات عملية، وأنظمة إنتاج بالذكاء الاصطناعي تبدو إنسانية وتصمد في التنفيذ الحقيقي.
+          أحوّل الأفكار إلى قصص بصرية ومنتجات تعليمية وأنظمة إبداعية قابلة للاستخدام.
         </h1>
         <p class="mt-5 max-w-2xl text-sm leading-relaxed text-sand/85 sm:text-base">
-          أساعد المؤسسين والفرق والمؤسسات على الانتقال من تجريب مبهم للذكاء الاصطناعي إلى اتجاه بصري واضح،
-          وسير عمل قابل للتكرار، وثقة أقوى لدى الجمهور.
+          أساعد الفرق والمؤسسات والمبدعين على الانتقال من التجريب المتناثر بالذكاء الاصطناعي إلى أعمال مكتملة:
+          فيديوهات سينمائية، ورشات تفاعلية، منتجات تعليمية، وتجارب رقمية ثنائية اللغة.
         </p>
         <p class="mt-4 max-w-2xl text-sm leading-relaxed text-sand/72 sm:text-[15px]">
-          من رام الله إلى جمهور أوسع، مع حس إنساني واضح وحكم مهني حاضر في كل مرحلة.
+          من رام الله، أعمل عن بُعد مع مشاريع تحتاج صورة قوية، بنية واضحة، وحكمًا إنسانيًا في كل مرحلة.
         </p>
-        <CTAButtons className="mt-7" bookHref="/ar/contact/" labels={{ book: "احجز مكالمة", whatsapp: "راسلني على واتساب" }} />
+        <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-end">
+          <CTAButtons bookHref="/ar/contact/" labels={{ book: "ابدأ مشروعًا", whatsapp: "راسلني على واتساب" }} />
+          <a href={withBase("/ar/work/")} class="inline-flex w-full items-center justify-center rounded-full border border-white/18 px-5 py-3 text-sm font-semibold text-sand hover:border-gold/60 hover:text-white sm:w-auto">
+            شاهد الأعمال
+          </a>
+        </div>
       </div>
       <div class="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 bg-white/5 sm:aspect-video">
         <div
@@ -106,39 +111,39 @@ const homeSchema = [
     <div class="rounded-3xl border border-white/10 bg-white/[0.04] p-5 sm:p-6">
       <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div class="max-w-2xl text-right">
-          <p class="text-xs uppercase tracking-[0.22em] text-gold">مؤشرات ثقة مبكرة</p>
+          <p class="text-xs uppercase tracking-[0.22em] text-gold">أعمال تمتد بين الإعلام والتعليم والمنتجات الرقمية</p>
           <h2 class="mt-3 text-xl font-semibold tracking-tight text-white sm:text-2xl">
-            جودة سينمائية، تدريب عملي، وأنظمة إنتاج قادرة على الاستمرار بعد التسليم.
+            أقوى الأعمال منظمة في مسارات واضحة حتى تبقى الصفحة الرئيسية سهلة القراءة.
           </h2>
         </div>
         <p class="max-w-xl text-sm leading-relaxed text-sand/75 text-right">
-          العمل هنا يجمع بين الإنتاج البصري، وتدريب الفرق، والتواصل الثنائي اللغة، وبناء أنظمة تشغيل واضحة لا تعتمد على الإلهام العابر فقط.
+          يمكنك فهم المدى بسرعة هنا، ثم فتح الصفحات التفصيلية عندما تريد السياق الكامل والوسائط والروابط العامة.
         </p>
       </div>
 
       <div class="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         <article class="glass-card p-5 text-right">
-          <p class="text-xs uppercase tracking-[0.2em] text-gold">حملات بصرية</p>
+          <p class="text-xs uppercase tracking-[0.2em] text-gold">أفلام وفيديوهات</p>
           <p class="mt-3 text-sm leading-relaxed text-sand/78">
-            أفلام وهوية إطلاق ومفاهيم قصيرة مصممة لبناء الثقة ولفت الانتباه.
+            أفلام قصصية وفيديوهات موسيقية بالذكاء الاصطناعي.
           </p>
         </article>
         <article class="glass-card p-5 text-right">
-          <p class="text-xs uppercase tracking-[0.2em] text-gold">ورشات وتدريب</p>
+          <p class="text-xs uppercase tracking-[0.2em] text-gold">مختبرات حية</p>
           <p class="mt-3 text-sm leading-relaxed text-sand/78">
-            تدريب تطبيقي للمبدعين والفرق والمؤسسات التي تريد رفع جودة الإنتاج بسرعة.
+            مختبرات وورشات تفاعلية منشورة وقابلة للمعاينة.
           </p>
         </article>
         <article class="glass-card p-5 text-right">
-          <p class="text-xs uppercase tracking-[0.2em] text-gold">أنظمة سير عمل</p>
+          <p class="text-xs uppercase tracking-[0.2em] text-gold">منتجات تعليمية</p>
           <p class="mt-3 text-sm leading-relaxed text-sand/78">
-            أطر أوامر، ونقاط مراجعة، وأدلة تشغيل تقلل الفوضى وتحسن الاتساق.
+            مواد تعليمية على TPT وتحويل كتب إلى عروض بصرية.
           </p>
         </article>
         <article class="glass-card p-5 text-right">
-          <p class="text-xs uppercase tracking-[0.2em] text-gold">تنفيذ ثنائي اللغة</p>
+          <p class="text-xs uppercase tracking-[0.2em] text-gold">مشاريع ثنائية اللغة</p>
           <p class="mt-3 text-sm leading-relaxed text-sand/78">
-            عرض وتواصل بالإنجليزية والعربية بحس محلي واضح ووضوح عالمي.
+            مشاريع ثقافية ومعرفية تعمل بالعربية والإنجليزية.
           </p>
         </article>
       </div>
@@ -153,10 +158,10 @@ const homeSchema = [
       <div class="space-y-4 text-right">
         <p class="text-xs uppercase tracking-[0.22em] text-gold">مشروع منصة مميزة</p>
         <h2 class="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-          متحف الأصداء يجمع الموسيقى الأصلية، والتحرير، ومنطق المنتج ثنائي اللغة في أرشيف عام واحد.
+          متحف الأصداء يحوّل الموسيقى الأصلية إلى أرشيف استماع ثنائي اللغة.
         </h2>
         <p class="max-w-2xl text-sm leading-relaxed text-sand/80 sm:text-base">
-          عالم استماع فاخر تتحول فيه القطع إلى غرف ودُفعات ومداخل تحريرية واضحة. هذا المشروع يثبت قدرة تامر على صياغة الوسيط نفسه: منطق الأرشيف، وتجربة الواجهة، وبنية الإصدار، لا المادة الصوتية وحدها.
+          عالم استماع تتحول فيه القطع إلى غرف ومجموعات ومسارات اكتشاف. صممت منطق المنتج، اتجاه الواجهة، التحرير، وتجربة المنصة العامة.
         </p>
         <div class="flex flex-wrap justify-end gap-2 text-xs uppercase tracking-[0.18em] text-sand/70">
           <span class="rounded-full border border-white/12 px-3 py-1">أرشيف ثنائي اللغة</span>
@@ -164,8 +169,8 @@ const homeSchema = [
           <span class="rounded-full border border-white/12 px-3 py-1">منصة عامة حية</span>
         </div>
         <div class="flex flex-wrap items-center justify-end gap-4 text-sm">
-          <span class="font-semibold text-gold">شاهد متحف الأصداء كدليل في البورتفوليو</span>
-          <span class="text-sand/70 transition group-hover:text-white">افتح صفحة المشروع ثم استكشف المنصة الحية</span>
+          <span class="font-semibold text-gold">افتح متحف الأصداء</span>
+          <span class="text-sand/70 transition group-hover:text-white">شاهد صفحة المشروع ثم استكشف المنصة الحية</span>
         </div>
       </div>
       <div class="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5">
@@ -179,29 +184,33 @@ const homeSchema = [
   </section>
 
   <Section
-    title="ما الذي أقدمه"
-    copy="مزيج من الجودة السينمائية والتدريب العملي وتطبيقات الذكاء الاصطناعي القابلة للتنفيذ."
+    title="ما الذي أبنيه"
+    copy="أجمع بين الإخراج البصري، وبنية التعليم، والإنتاج العملي بالذكاء الاصطناعي حتى تتحول الفكرة إلى عمل قابل للمشاهدة أو الاستخدام."
     className="text-right"
   >
-    <div class="grid gap-4 sm:grid-cols-3">
+    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
       <article class="glass-card p-6">
-        <h3 class="text-lg font-semibold text-white">إنتاج سينمائي</h3>
-        <p class="mt-3 text-sm text-sand/80">إعلانات وأفلام قصيرة وقصص بصرية مصممة للتأثير والتحويل.</p>
+        <h3 class="text-lg font-semibold text-white">إنتاج فيديو وسرد بصري</h3>
+        <p class="mt-3 text-sm text-sand/80">أفلام قصصية وفيديوهات موسيقية ومواد حملات مبنية على جو واضح واستمرارية.</p>
       </article>
       <article class="glass-card p-6">
-        <h3 class="text-lg font-semibold text-white">ورش وتدريب</h3>
-        <p class="mt-3 text-sm text-sand/80">برامج تطبيقية للفرق والمبدعين لرفع جودة الإنتاج بشكل ثابت.</p>
+        <h3 class="text-lg font-semibold text-white">ورشات ومختبرات تعلم</h3>
+        <p class="mt-3 text-sm text-sand/80">جلسات عملية مع أنشطة ومصادر وأدوات حية ومخرجات يمكن استخدامها بعد الورشة.</p>
       </article>
       <article class="glass-card p-6">
-        <h3 class="text-lg font-semibold text-white">أنظمة ذكاء اصطناعي</h3>
-        <p class="mt-3 text-sm text-sand/80">سير عمل عملي ومكتبات أوامر تساعد فريقك على الإنجاز بسرعة وجودة.</p>
+        <h3 class="text-lg font-semibold text-white">منتجات تعليمية وتصميم معرفة</h3>
+        <p class="mt-3 text-sm text-sand/80">حزم دروس بصرية وتحويل كتب إلى عروض وأوراق عمل ومواد جاهزة للمعلمين والمدربين.</p>
+      </article>
+      <article class="glass-card p-6">
+        <h3 class="text-lg font-semibold text-white">نماذج ويب ثنائية اللغة</h3>
+        <p class="mt-3 text-sm text-sand/80">صفحات وأرشيفات ومختبرات وأدوات خفيفة تجعل الفكرة قابلة للاستخدام بالعربية والإنجليزية.</p>
       </article>
     </div>
   </Section>
 
   <Section
     title="أعمال مختارة"
-    copy="خمسة أمثلة رئيسية تجمع بين إعادة السرد الأدبي، وبناء العالم التراثي، ومنصة أرشيف موسيقي ثنائية اللغة، والتعليم البصري المتحرك، وتصميم المعرفة عبر العروض."
+    copy="مجموعة مختارة من مشاريع عامة ومقتطفات مناسبة للعرض توضّح كيف يمتد العمل بين الأفلام، المختبرات التعليمية، المنتجات التربوية، الموسيقى، الأدب، والمنصات الرقمية."
     className="text-right"
   >
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -221,10 +230,10 @@ const homeSchema = [
       <div class="space-y-4 text-right">
         <p class="text-xs uppercase tracking-[0.22em] text-gold">سلسلة سردية مميزة</p>
         <h2 class="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-          إعادة تخيّل الروايات بصريًا أصبحت الآن مسارًا واضحًا داخل الموقع.
+          إعادة تخيّل الروايات بصريًا تتعامل مع الأدب كتأويل لا كملخص سريع.
         </h2>
         <p class="max-w-2xl text-sm leading-relaxed text-sand/80 sm:text-base">
-          وجهة أوضح لأعمال تامر في إعادة تفسير الروايات بصريًا عبر الذكاء الاصطناعي، بدءًا من <span class="text-white">رجال في الشمس</span> و<span class="text-white">عائد إلى حيفا</span> بوصفهما اقتباسين سينمائيين ثنائيي اللغة لا مجرد روابط فيديو منفصلة.
+          سلسلة اقتباسات بصرية تبدأ من <span class="text-white">رجال في الشمس</span> و<span class="text-white">عائد إلى حيفا</span>، وتستخدم سردًا ثنائي اللغة وإخراجًا سينمائيًا للحفاظ على الجو والذاكرة والضغط العاطفي.
         </p>
         <div class="flex flex-wrap justify-end gap-2 text-xs uppercase tracking-[0.18em] text-sand/70">
           <span class="rounded-full border border-white/12 px-3 py-1">روايتان منشورتان</span>
@@ -233,7 +242,7 @@ const homeSchema = [
         </div>
         <div class="flex flex-wrap items-center justify-end gap-4 text-sm">
           <span class="font-semibold text-gold">افتح السلسلة الأدبية</span>
-          <span class="text-sand/70 transition group-hover:text-white">شاهد الأعمال المنشورة واتجاه السلسلة والدعوة للتعاون</span>
+          <span class="text-sand/70 transition group-hover:text-white">شاهد الأعمال المنشورة وكيف يمكن للسلسلة أن تنمو</span>
         </div>
       </div>
       <div class="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5">
@@ -246,8 +255,8 @@ const homeSchema = [
     </a>
   </section>
 
-  <Section title="الخدمات" copy="ابدأ بعرض مركز، ثم وسع العمل إلى بناء نظام أو تدريب فريق إذا كان المشروع يحتاج تنفيذا أعمق." className="text-right">
-    <div class="grid gap-4 md:grid-cols-3">
+  <Section title="الخدمات" copy="يمكن أن يبدأ التعاون بفيديو، أو ورشة، أو منتج تعليمي، أو نموذج رقمي ثنائي اللغة. كل مسار يرتبط بأعمال يمكن معاينتها." className="text-right">
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
       {
         servicesAr.map((service) => (
           <article class="glass-card p-6">
@@ -257,7 +266,7 @@ const homeSchema = [
         ))
       }
     </div>
-    <a href={withBase("/ar/services/")} class="gold-link mt-8 inline-block text-sm font-semibold">تفاصيل الخدمات</a>
+    <a href={withBase("/ar/services/")} class="gold-link mt-8 inline-block text-sm font-semibold">استكشف الخدمات</a>
   </Section>
 
   <Section
@@ -292,14 +301,14 @@ const homeSchema = [
 
   <Section
     title="من أنا"
-    copy="تعرف على منهجي في الدمج بين الإخراج البصري والتقنيات الحديثة لبناء أثر مستدام."
+    copy="أجمع بين الحرفة السردية، وتجريب الذكاء الاصطناعي، والتعليم العملي لبناء أعمال بصرية إنسانية وقابلة للاستخدام."
     className="text-right"
   >
     <a href={withBase("/ar/about/")} class="gold-link text-sm font-semibold">اقرأ القصة الكاملة</a>
   </Section>
 
-  <Section title="جاهز لمشروعك القادم؟" copy="شاركني هدفك وسأقترح لك أفضل مسار إبداعي وتنفيذي." className="text-right">
-    <CTAButtons bookHref="/ar/contact/" labels={{ book: "احجز مكالمة", whatsapp: "راسلني على واتساب" }} />
+  <Section title="هل لديك فكرة تحتاج شكلًا واضحًا؟" copy="أرسل الهدف والجمهور والمدة المتوقعة، وسأقترح المسار الأنسب: فيديو، ورشة، منتج تعليمي، نموذج ويب، أو مرحلة أولى مركزة." className="text-right">
+    <CTAButtons bookHref="/ar/contact/" labels={{ book: "ابدأ مشروعًا", whatsapp: "راسلني على واتساب" }} />
     <p class="mt-4 text-sm text-sand/70">{siteData.location}</p>
   </Section>
 </BaseLayout>

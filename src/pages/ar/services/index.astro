@@ -25,8 +25,8 @@ const serviceSchema = servicesAr.map((service) => ({
 }));
 ---
 <BaseLayout
-  title="خدمات تامر منصور | السرد البصري والورشات وأنظمة الإنتاج"
-  description="خدمات تامر منصور في صياغة القصة بصريا وأنظمة الإنتاج بالذكاء الاصطناعي والورشات العملية مع ربط واضح بين العرض والدليل."
+  title="الخدمات | فيديو وورشات ومنتجات تعليمية ونماذج رقمية | تامر منصور"
+  description="خدمات تامر منصور في إنتاج الفيديو بالذكاء الاصطناعي، الورشات العملية، تصميم المنتجات التعليمية، والنماذج الرقمية ثنائية اللغة."
   path="/ar/services/"
   lang="ar"
   dir="rtl"
@@ -38,7 +38,7 @@ const serviceSchema = servicesAr.map((service) => ({
     <div class="services-hero overflow-hidden rounded-3xl border border-white/10 bg-white/5">
       <SmartImage
         fallback="/media/services/services-ar.png"
-        alt="الملصق التعريفي للخدمات"
+        alt="ملصق تعريفي لخدمات تامر منصور"
         class="services-hero-img w-full"
         loading="eager"
       />
@@ -46,42 +46,42 @@ const serviceSchema = servicesAr.map((service) => ({
   </section>
 
   <Section
-    title="خدمات مصممة لخطوة تالية واضحة"
-    copy="ابدأ بالعرض التمهيدي عندما يكون الاتجاه لا يزال ضبابيا. انتقل إلى بناء النظام عندما يكون الاتجاه واضحا لكن التنفيذ متعثرًا. واختر الورشات عندما يكون المطلوب بناء قدرة ومعايير مشتركة."
+    title="الخدمات"
+    copy="أساعد الفرق والمؤسسات على تحويل الأفكار إلى إنتاج بصري بالذكاء الاصطناعي، ورشات عملية، منتجات تعليمية، وتجارب رقمية ثنائية اللغة. كل خدمة هنا مرتبطة بعمل يمكن معاينته."
     className="text-right"
   >
     <div class="mb-8 grid gap-4 md:grid-cols-3">
       <article class="glass-card p-5 text-right">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">ابدأ من هنا</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">فيديو وسرد بصري</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          المدخل الصحيح يتحدد بحسب ما إذا كانت المشكلة في الصياغة أو التنفيذ أو بناء القدرة. هذه الصفحة مصممة لجعل الفرق واضحا بسرعة.
+          عندما تحتاج قصة أو درس أو حملة أو فكرة ثقافية إلى فيديو سينمائي قابل للعرض، مع عالم بصري واضح وإيقاع يناسب الجمهور.
         </p>
       </article>
       <article class="glass-card p-5 text-right">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">ما الذي تغير</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">ورشات وتعلم عملي</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          كل خدمة أدناه ترتبط الآن بدليل واضح داخل البورتفوليو، حتى تصبح الثقة مبنية على عمل ملموس لا على وصف تجريدي فقط.
+          عندما يحتاج المشاركون إلى ممارسة الذكاء الاصطناعي من خلال أوامر ومصادر ومراجعة وأنشطة حية، لا مجرد شرح نظري.
         </p>
       </article>
       <article class="glass-card p-5 text-right">
-        <p class="text-xs uppercase tracking-[0.18em] text-gold">منطق الخطوة التالية</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-gold">منتجات ونماذج رقمية</p>
         <p class="mt-3 text-sm leading-relaxed text-sand/78">
-          أولا اختر الخدمة التي تطابق العقدة الفعلية. ثم شاهد الدليل. ثم افتح مسار التواصل المناسب.
+          عندما تحتاج مادة كثيفة أو فكرة جديدة إلى منتج تعليمي، أرشيف، مختبر، صفحة ثنائية اللغة، أو نموذج أولي واضح.
         </p>
       </article>
     </div>
 
-    <div class="grid gap-4 md:grid-cols-3">
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
       {
         servicesAr.map((service) => (
           <article class="glass-card p-6 text-right">
             <h2 class="text-xl font-semibold text-white">{service.title}</h2>
             <p class="mt-3 text-sm text-sand/80">{service.summary}</p>
             <div class="mt-4 space-y-3 text-sm leading-relaxed text-sand/80">
-              <p><span class="font-semibold text-white">مناسب لـ:</span> {service.bestFor}</p>
+              <p><span class="font-semibold text-white">لمن يفيد:</span> {service.bestFor}</p>
               <p><span class="font-semibold text-white">النتيجة:</span> {service.outcome}</p>
-              <p><span class="font-semibold text-white">اختره عندما:</span> {service.chooseWhen}</p>
-              <p><span class="font-semibold text-white">الخطوة التالية:</span> {service.nextStep}</p>
+              <p><span class="font-semibold text-white">استخدمه عندما:</span> {service.chooseWhen}</p>
+              <p><span class="font-semibold text-white">للبدء:</span> {service.nextStep}</p>
             </div>
             <ul class="mt-4 space-y-2 text-sm text-sand/80">
               {service.deliverables.map((item) => <li>- {item}</li>)}
@@ -94,7 +94,7 @@ const serviceSchema = servicesAr.map((service) => ({
             </div>
             <div class="mt-5 flex flex-wrap items-center justify-end gap-4 text-sm">
               <a
-                href={service.cta === "راسلني على واتساب" ? "https://wa.me/970599797245" : withBase("/ar/contact/")}
+                href={withBase("/ar/contact/")}
                 class="rounded-full border border-gold/60 px-4 py-2 font-semibold text-sand transition hover:border-gold hover:text-white"
               >
                 {service.cta}
@@ -105,17 +105,18 @@ const serviceSchema = servicesAr.map((service) => ({
       }
     </div>
     <div class="mt-8 flex flex-wrap items-center justify-end gap-4 text-sm">
-      <a href={withBase("/ar/work/")} class="gold-link font-semibold">اطلع على طبقة الدلائل بكاملها</a>
-      <a href={withBase("/ar/museum-of-echoes/")} class="text-sand/75 transition hover:text-white">افتح متحف الأصداء</a>
-      <a href={withBase("/ar/literary-reimaginings/")} class="text-sand/75 transition hover:text-white">افتح إعادة تخيّل الروايات</a>
+      <a href={withBase("/ar/proof/")} class="gold-link font-semibold">افتح مركز الأدلة</a>
+      <a href={withBase("/ar/work/")} class="text-sand/75 transition hover:text-white">شاهد الأعمال المختارة</a>
+      <a href={withBase("/ar/client-ai-production/")} class="text-sand/75 transition hover:text-white">شاهد إنتاج أنبياء البصري</a>
     </div>
   </Section>
+
   <Section
-    title="هل تريد اختيار المسار الأنسب؟"
-    copy="إذا كنت غير متأكد من نقطة البداية فابدأ بالعرض التمهيدي. إذا كان الاتجاه واضحا والمشكلة في التنفيذ فاذهب إلى بناء النظام مباشرة. أما إذا كان الاحتياج الحقيقي هو القدرة الداخلية فالورشات هي الأنسب."
+    title="لست متأكدًا أي خدمة تناسبك؟"
+    copy="أرسل الفكرة والجمهور والموعد، وسأقترح أصغر خطوة مفيدة للبدء."
     className="text-right"
   >
-    <CTAButtons bookHref="/ar/contact/" labels={{ book: "احجز مكالمة", whatsapp: "راسلني على واتساب" }} />
+    <CTAButtons bookHref="/ar/contact/" labels={{ book: "ابدأ مشروعًا", whatsapp: "راسلني على واتساب" }} />
     <div class="mt-4 flex flex-wrap items-center justify-end gap-4 text-sm">
       <a href={withBase("/ar/contact/")} class="gold-link font-semibold">افتح صفحة التواصل</a>
       <a href={withBase("/ar/about/")} class="text-sand/75 transition hover:text-white">اقرأ كيف يجمع هذا النهج بين القصة والتعليم والأنظمة</a>

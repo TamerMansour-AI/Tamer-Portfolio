@@ -18,15 +18,31 @@ const productLinks = [
 ];
 
 const samples = [
-  ["/media/education-products/tpt-pushes-pulls-cover.jpg", "Marketplace cover"],
-  ["/media/education-products/tpt-force-direction-slide.jpg", "Slide logic"],
-  ["/media/education-products/tpt-friction-stop-think.jpg", "Misconception check"],
-  ["/media/education-products/tpt-friction-worksheet.jpg", "Printable worksheet"]
+  {
+    title: "غلاف المنتج",
+    src: "/media/education-products/tpt-pushes-pulls-cover.jpg",
+    copy: "تغليف واضح لحزمة درس علوم للمرحلة الأساسية."
+  },
+  {
+    title: "منطق الشرائح",
+    src: "/media/education-products/tpt-force-direction-slide.jpg",
+    copy: "شرح بصري بسيط لاتجاه القوة ومفاهيم الصف."
+  },
+  {
+    title: "فحص الفهم الخاطئ",
+    src: "/media/education-products/tpt-friction-stop-think.jpg",
+    copy: "أسئلة موجهة للطلاب تساعد على النقاش والتصحيح."
+  },
+  {
+    title: "ورقة عمل قابلة للطباعة",
+    src: "/media/education-products/tpt-friction-worksheet.jpg",
+    copy: "دليل على طبقة الصف غير المتصلة بالإنترنت."
+  }
 ];
 ---
 <BaseLayout
-  title="Primary Learning Visualised | TPT Educational Product Proof"
-  description="Public proof page for Primary Learning Visualised educational products on Teachers Pay Teachers."
+  title="Primary Learning Visualised | منتجات تعليمية على TPT | تامر منصور"
+  description="صفحة دليل عامة لمنتجات Primary Learning Visualised التعليمية على Teachers Pay Teachers: شرائح، أوراق عمل، اختبارات قصيرة، فيديوهات، وتغليف مناسب للمنصة."
   path="/ar/education-products/"
   lang="ar"
   dir="rtl"
@@ -35,59 +51,66 @@ const samples = [
 >
   <Section
     title="Primary Learning Visualised"
-    copy="A public educational-product lane built with a Qatar-based teaching partner: primary science lesson packs, video previews, worksheets, quick checks, and teacher-ready product packaging."
+    copy="مسار منتجات تعليمية عام بالتعاون مع شريك تعليمي في قطر: حزم علوم للمرحلة الأساسية، فيديوهات قصيرة، أوراق عمل، فحوصات فهم، وتغليف جاهز لمنصة TPT."
     className="text-right"
   >
     <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
       <div class="glass-card overflow-hidden">
         <div class="relative aspect-video bg-white/5">
-          <SmartImage fallback="/media/education-products/tpt-pushes-pulls-cover.jpg" alt="Pushes and Pulls lesson pack cover" class="h-full w-full object-cover" loading="eager" />
+          <SmartImage fallback="/media/education-products/tpt-pushes-pulls-cover.jpg" alt="غلاف حزمة درس Pushes and Pulls" class="h-full w-full object-cover" loading="eager" />
         </div>
       </div>
       <div class="space-y-4">
         <article class="glass-card p-5 text-right">
-          <p class="text-xs uppercase tracking-[0.18em] text-gold">What this proves</p>
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">ما الذي يظهره العمل</p>
           <p class="mt-3 text-sm leading-relaxed text-sand/80">
-            A repeatable product system: curriculum idea, visual lesson, worksheet, assessment, answer key, thumbnail, listing copy, and marketplace packaging.
+            هذا نظام منتج قابل للتكرار: فكرة منهجية، درس بصري، ورقة عمل، تقييم، مفتاح إجابة، صورة غلاف، نص عرض، وتغليف مناسب للسوق.
           </p>
         </article>
         <article class="glass-card p-5 text-right">
-          <p class="text-xs uppercase tracking-[0.18em] text-gold">Public proof</p>
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">دليل عام</p>
           <div class="mt-3 flex flex-wrap justify-end gap-3 text-sm">
-            <a href={storeUrl} target="_blank" rel="noopener noreferrer" class="gold-link font-semibold">Open TPT store</a>
+            <a href={storeUrl} target="_blank" rel="noopener noreferrer" class="gold-link font-semibold">افتح متجر TPT</a>
             {productLinks.map((item) => (
               <a href={item.href} target="_blank" rel="noopener noreferrer" class="text-sand/75 hover:text-white">{item.title}</a>
             ))}
           </div>
         </article>
+        <article class="glass-card p-5 text-right">
+          <p class="text-xs uppercase tracking-[0.18em] text-gold">قيمة المنتج</p>
+          <p class="mt-3 text-sm leading-relaxed text-sand/80">
+            العمل يجمع بين الحكم التعليمي، الإنتاج بمساعدة الذكاء الاصطناعي، الشرح البصري، تغليف السوق، وأصول جاهزة للاستخدام داخل الصف.
+          </p>
+        </article>
       </div>
     </div>
   </Section>
 
-  <Section title="Selected product assets" copy="A curated sample of the marketplace-facing assets: covers, slide logic, checks, worksheets, and classroom-ready product visuals." className="text-right">
+  <Section title="نماذج من الأصول" copy="عينة مختارة من الأصول الموجهة للسوق: أغلفة، منطق شرائح، فحوصات فهم، أوراق عمل، ومواد جاهزة للصف." className="text-right">
     <div class="grid gap-5 sm:grid-cols-2">
-      {samples.map(([src, title]) => (
+      {samples.map((sample) => (
         <article class="glass-card overflow-hidden text-right">
           <div class="relative aspect-video bg-white/5">
-            <SmartImage fallback={src} alt={title} class="h-full w-full object-cover" />
+            <SmartImage fallback={sample.src} alt={sample.title} class="h-full w-full object-cover" />
           </div>
           <div class="p-5">
-            <h2 class="text-lg font-semibold text-white">{title}</h2>
+            <h2 class="text-lg font-semibold text-white">{sample.title}</h2>
+            <p class="mt-2 text-sm leading-relaxed text-sand/75">{sample.copy}</p>
           </div>
         </article>
       ))}
     </div>
   </Section>
 
-  <Section title="Short video proof" copy="A lightweight preview clip shows the animated lesson direction." className="text-right">
+  <Section title="دليل فيديو قصير" copy="مقطع خفيف يوضح اتجاه الدرس المتحرك بصيغة مناسبة للويب." className="text-right">
     <div class="overflow-hidden rounded-2xl border border-white/10 bg-white/5">
-      <video controls playsinline preload="metadata" poster={withBase("/media/education-products/tpt-pushes-pulls-cover.jpg")} class="w-full" aria-label="Pushes and Pulls lesson pack video preview">
+      <video controls playsinline preload="metadata" poster={withBase("/media/education-products/tpt-pushes-pulls-cover.jpg")} class="w-full" aria-label="معاينة فيديو حزمة درس Pushes and Pulls">
         <source src={withBase("/media/education-products/tpt-pushes-pulls-preview.mp4")} type="video/mp4" />
       </video>
     </div>
   </Section>
 
-  <Section title="Need an educational product system?" copy="The same workflow can turn lessons, workshops, or training ideas into clearer assets." className="text-right">
-    <CTAButtons className="sm:justify-end" />
+  <Section title="هل تحتاج نظام منتج تعليمي؟" copy="يمكن للنفس المسار أن يحول درسًا أو ورشة أو فكرة تدريب إلى أصول أوضح يمكن استخدامها فعليًا." className="text-right">
+    <CTAButtons bookHref="/ar/contact/" labels={{ book: "ابدأ مشروعًا", whatsapp: "راسلني على واتساب" }} />
   </Section>
 </BaseLayout>

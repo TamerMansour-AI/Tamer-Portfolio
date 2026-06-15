@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 
 const resolveSrc = (src: string) => (/^(https?:)?\/\//.test(src) || src.startsWith("data:") ? src : withBase(src));
-const sourceList = [...candidates.map((src) => resolveSrc(src)), resolveSrc(fallback), resolveSrc(finalFallback)];
+const sourceList = [resolveSrc(fallback), ...candidates.map((src) => resolveSrc(src)), resolveSrc(finalFallback)];
 const sourceListEncoded = sourceList.join("||");
 ---
 <img
