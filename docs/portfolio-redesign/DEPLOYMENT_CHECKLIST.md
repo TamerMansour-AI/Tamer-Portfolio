@@ -20,4 +20,4 @@
 - [x] Live production screenshots captured.
 - [x] Live performance and route checks completed.
 - [x] Legacy `/en/` production gap repaired and covered by regression verification.
-- [ ] Compatibility repair and production-evidence commit deployed and reverified.
+- [x] Compatibility repair and production-evidence commit deployed (run `29165864896`) and reverified.

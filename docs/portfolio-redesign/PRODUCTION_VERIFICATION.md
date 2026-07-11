@@ -49,4 +49,10 @@ Public URL: `https://tamermansour-ai.github.io/Tamer-Portfolio/`
 - Backup branch: `backup/pre-palestinian-future-editorial-2026-07-11`.
 - Previous production commit: `9136118b8b126cab6d20dfd2a9f2ed826acfd521`.
 
-Final deployment-run details for the compatibility repair are recorded after that commit reaches production.
+## Final compatibility release
+
+- Source commit: `327b7ab8514da857debb3a43afdda19831707311`.
+- GitHub Actions run: `29165864896` (`Deploy Astro to GitHub Pages`).
+- Result: success on 2026-07-11.
+- Post-deploy browser verification confirmed that `/en/` replaces itself with the canonical English homepage.
+- English home, Arabic home, the flagship case, and the preselected inquiry route returned HTTP 200 with no console or page errors after the final release.
