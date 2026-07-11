@@ -32,3 +32,14 @@
 
 The 2.5 s LCP target was missed by 0.1 s in the final simulated mobile lab run; field results may differ. The improvement is material and the initial payload target is exceeded comfortably.
 
+## After production deployment
+
+- Mobile Lighthouse performance: 96.
+- Accessibility / best practices / SEO: 100 / 100 / 100.
+- FCP: 1.5 s.
+- LCP: 2.2 s.
+- CLS: 0.
+- Total blocking time: 0 ms.
+- Transfer: approximately 242 KiB.
+
+The production run meets the requested 2.5 s LCP target in the measured mobile lab profile.

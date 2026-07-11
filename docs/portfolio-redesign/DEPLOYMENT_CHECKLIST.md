@@ -8,15 +8,16 @@
 - [x] Existing URL preserved: `https://tamermansour-ai.github.io/Tamer-Portfolio/`.
 - [x] `npm run build` passes.
 - [x] `npm run verify` passes.
-- [x] 49 HTML outputs verified.
+- [x] 50 HTML outputs verified, including the legacy `/en/` compatibility route.
 - [x] Local internal-link scan passes.
 - [x] Browser console checks pass.
 - [x] English/Arabic desktop/mobile reviewed.
 - [x] Inquiry confirmation verified without sending a message.
 - [x] No local Windows paths or credentials found in built HTML.
 - [x] Favicon, canonical, hreflang, sitemap, and structured data generated.
-- [ ] Commit and push `main`.
-- [ ] Existing workflow completes successfully.
-- [ ] Live production screenshots captured.
-- [ ] Live performance and route checks complete.
-
+- [x] Redesign commit pushed to `main` (`b89d333a7e6c01e64b635c498a6c05426ca3cbce`).
+- [x] Existing workflow completed successfully (run `29165711290`).
+- [x] Live production screenshots captured.
+- [x] Live performance and route checks completed.
+- [x] Legacy `/en/` production gap repaired and covered by regression verification.
+- [ ] Compatibility repair and production-evidence commit deployed and reverified.

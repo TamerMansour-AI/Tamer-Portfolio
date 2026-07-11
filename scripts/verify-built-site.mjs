@@ -5,7 +5,7 @@ const root = resolve(import.meta.dirname, "..");
 const dist = join(root, "dist");
 const errors = [];
 const required = [
-  "index.html", "ar/index.html", "work/index.html", "ar/work/index.html",
+  "index.html", "en/index.html", "ar/index.html", "work/index.html", "ar/work/index.html",
   "ways-to-work/index.html", "ar/ways-to-work/index.html", "workshops/index.html",
   "ar/workshops/index.html", "lab/index.html", "ar/lab/index.html", "contact/index.html",
   "ar/contact/index.html", "favicon.svg", "work/museum-of-echoes/index.html",
@@ -55,4 +55,3 @@ if (errors.length) {
   process.exit(1);
 }
 console.log(`Verified ${htmlFiles.length} HTML files. Homepage initial local payload: ${(initialBytes / 1024).toFixed(1)} KB.`);
-
