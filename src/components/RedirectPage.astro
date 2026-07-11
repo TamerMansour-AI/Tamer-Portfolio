@@ -1,0 +1,12 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../utils/withBase";
+const { to, lang = "en" } = Astro.props;
+const href = withBase(to);
+---
+<BaseLayout title="Redirecting | Tamer Mansour" description="This portfolio page has moved." path={to} lang={lang} dir={lang === "ar" ? "rtl" : "ltr"}>
+  <section class="reading-page"><p>{lang === "ar" ? "تم نقل هذه الصفحة." : "This page has moved."}</p><a class="button" href={href}>{lang === "ar" ? "تابع إلى الصفحة الجديدة" : "Continue to the new page"}</a></section>
+  <meta http-equiv="refresh" content={`0;url=${href}`} />
+</BaseLayout>
+<script define:vars={{ href }}>window.location.replace(href);</script>
+

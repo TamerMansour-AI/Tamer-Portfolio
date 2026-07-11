@@ -1,0 +1,8 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";import {labItems} from "../data/portfolio";import {routeFor,type Locale} from "../data/locale";const {lang="en"}=Astro.props as {lang?:Locale};const ar=lang==="ar";
+---
+<BaseLayout title={ar?"المختبر | تجارب تامر منصور":"Lab | Tamer Mansour Experiments"} description={ar?"تجارب ونماذج وأرشيفات ثانوية توضح ما تم اختباره وما تم تعلمه.":"Experiments, prototypes, and archives showing what was tested and learned."} path={routeFor("lab",lang)} lang={lang} dir={ar?"rtl":"ltr"} pageType="CollectionPage">
+<header class="page-hero chapter"><p class="eyebrow">{ar?"مختبر ثانوي، فضول واضح":"Secondary lab, visible curiosity"}</p><h1>{ar?"التجارب هنا. الأعمال الرئيسية هناك.":"Experiments live here. Flagships lead elsewhere."}</h1><p>{ar?"يفصل المختبر بين الاستكشاف والدليل المهني، ويجعل نضج كل فكرة وما تم تعلمه واضحين.":"The Lab separates exploration from professional proof and makes each idea’s maturity and learning explicit."}</p></header>
+<section class="section chapter lab-grid">{labItems.map(item=><article class="lab-item"><p class="status">{item.status[lang]} / {item.date}</p><h2>{item.title[lang]}</h2><h3>{ar?"ما تم اختباره":"What was tested"}</h3><p>{item.tested[lang]}</p><h3>{ar?"ما تم تعلمه":"What was learned"}</h3><p>{item.learned[lang]}</p>{item.url&&<a class="text-link" href={item.url} target="_blank" rel="noopener noreferrer">{ar?"افتح الرابط العام":"Open public link"} ↗</a>}</article>)}</section>
+</BaseLayout>
+

@@ -1,17 +1,4 @@
 ---
-import BaseLayout from "../../../layouts/BaseLayout.astro";
-import Section from "../../../components/Section.astro";
-import { withBase } from "../../../utils/withBase";
+import RedirectPage from "../../../components/RedirectPage.astro";
 ---
-<BaseLayout
-  title="Selected Work | Tamer Mansour"
-  description="The canonical selected work page for Tamer Mansour's AI stories, learning labs, educational products, music videos, and bilingual platforms."
-  path="/en/work/"
->
-  <Section
-    title="Selected work has a cleaner home"
-    copy="The English portfolio now uses one canonical selected work page so visitors do not run into duplicated or outdated project framing."
-  >
-    <a href={withBase("/work/")} class="gold-link text-sm font-semibold">Open selected work</a>
-  </Section>
-</BaseLayout>
+<RedirectPage to="/work/" lang="en" />

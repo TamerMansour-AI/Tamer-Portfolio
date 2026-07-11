@@ -1,0 +1,14 @@
+---
+import CaseStudyPage from "../../components/CaseStudyPage.astro";
+import { projects } from "../../data/portfolio";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project }
+  }));
+}
+
+const { project } = Astro.props;
+---
+<CaseStudyPage project={project} lang="en" />

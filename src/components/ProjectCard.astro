@@ -1,0 +1,23 @@
+---
+import type { Project } from "../data/portfolio";
+import { laneLabels } from "../data/portfolio";
+import type { Locale } from "../data/locale";
+import { withBase } from "../utils/withBase";
+const { project, lang = "en", featured = false } = Astro.props as { project: Project; lang?: Locale; featured?: boolean };
+const href = withBase(`${lang === "ar" ? "/ar" : ""}/work/${project.slug}/`);
+---
+<article class:list={["project-card", { "project-card--featured": featured }]}>
+  <a class="project-card__media" href={href} aria-label={`${lang === "ar" ? "افتح" : "Open"} ${project.title[lang]}`}>
+    <img src={withBase(project.media)} alt={project.mediaAlt[lang]} width="1400" height="900" loading="eager" decoding="async" />
+  </a>
+  <div class="project-card__body">
+    <p class="eyebrow">{laneLabels[project.lane][lang]}</p>
+    <h2><a href={href}>{project.title[lang]}</a></h2>
+    <p>{project.summary[lang]}</p>
+    <dl class="project-facts">
+      <div><dt>{lang === "ar" ? "الدور" : "Role"}</dt><dd>{project.role[lang]}</dd></div>
+      <div><dt>{lang === "ar" ? "الدليل" : "Evidence"}</dt><dd>{project.outcome[lang]}</dd></div>
+    </dl>
+    <a class="text-link" href={href}>{lang === "ar" ? "اقرأ دراسة الحالة" : "Read the case study"} <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
