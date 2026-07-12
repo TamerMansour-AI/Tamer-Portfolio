@@ -56,3 +56,22 @@ Public URL: `https://tamermansour-ai.github.io/Tamer-Portfolio/`
 - Result: success on 2026-07-11.
 - Post-deploy browser verification confirmed that `/en/` replaces itself with the canonical English homepage.
 - English home, Arabic home, the flagship case, and the preselected inquiry route returned HTTP 200 with no console or page errors after the final release.
+
+## Evidence restoration release
+
+- Content source commit: `dc3fe9914f993ba85706508a5caf533673df9e8f`.
+- GitHub Actions run: `29204747688` (`Deploy Astro to GitHub Pages`).
+- Result: success on 2026-07-12.
+- Nineteen live English, Arabic, case, contact, archive, and legacy routes returned HTTP 200.
+- `/proof/` opens the bilingual-ready Archive; `/music-videos/` opens `archive/#music-videos`; the NotebookLM, education-product, and book-to-deck compatibility paths preserve their matching archive intent.
+- The live homepage shows the complete portrait without crop loss.
+- All live Archive images loaded with non-zero natural dimensions after their lazy-load boundary was crossed.
+- The Arabic Archive at 390 px has no horizontal overflow, exactly one main landmark, and no unloaded images.
+- The Arabic Contact page at 390 px has no horizontal overflow and exactly one main landmark.
+- The final browser pass reported zero console errors and zero warnings.
+
+### Repair evidence
+
+- External visual review: `C:\Users\Extreme\.gstack\projects\Tamer-Portfolio\designs\design-audit-20260712-repair\design-audit-tamer-portfolio.md`.
+- Live screenshots: `production-repair-home-desktop.png`, `production-repair-archive-desktop.png`, and `production-repair-ar-archive-mobile.png` in the repair review screenshot folder.
+- Local mobile Lighthouse: Performance 96, Accessibility 100, Best Practices 100, SEO 100.
