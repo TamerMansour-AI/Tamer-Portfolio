@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { deckItemsAr, deckItemsEn } from "../data/decks";
+import { notebookProjectsEn } from "../data/notebooklm";
+import { pinterestBoardsAr, pinterestBoardsEn } from "../data/pinterest";
+import { workItemsAr, workItemsEn } from "../data/work";
+import { routeFor, type Locale } from "../data/locale";
+import { withBase } from "../utils/withBase";
+
+const { lang = "en" } = Astro.props as { lang?: Locale };
+const ar = lang === "ar";
+const workItems = ar ? workItemsAr : workItemsEn;
+const decks = ar ? deckItemsAr : deckItemsEn;
+const boards = ar ? pinterestBoardsAr : pinterestBoardsEn;
+const notebookItems = ar ? [
+  { title: "حزمة مصادر ورشة الذكاء الاصطناعي لأهالي Arab Bank", category: "تعليم / دعم تعلم الأهالي", summary: "منهج يحوّل الدروس وملفات المتعلم إلى حزمة مصادر وتعليمات قبل إنتاج مواد دراسة مخصصة.", outputs: ["حزمة مصادر ودليل محفزات", "دليل بداية سريع للأهالي", "قوالب تخصيص المتعلم"] },
+  { title: "مخطط تعلم الذكاء الاصطناعي", category: "تصميم المعرفة", summary: "مسار منظم يحوّل المادة المصدرية إلى شروحات وملخصات وذاكرات وأسئلة ومتابعة تعليمية.", outputs: ["مخطط تعلم", "منطق إعداد المصادر", "نموذج مراجعة المخرجات"] },
+  { title: "العروض المتقدمة المدعومة بالذكاء الاصطناعي", category: "عروض قائمة على المصادر", summary: "نظام ورشة يستخدم NotebookLM كطبقة قائمة على المصادر داخل بناء العروض من التقارير والدراسات والملاحظات.", outputs: ["مسار عرض قائم على المصادر", "تعليمات مخصصة", "مسار تطوير تفاعلي"] },
+  { title: "مسارات بحث الطلاقة في الذكاء الاصطناعي — بيرزيت", category: "تعلم الطلبة / تحقق البحث", summary: "منهج للتركيب القائم على المصادر والتفكير النقدي والاستخدام المسؤول ضمن مسار بيرزيت التدريبي.", outputs: ["مختبر تحقق بحثي", "أنشطة طلبة", "أدلة استخدام مسؤول"] }
+] : notebookProjectsEn;
+const archiveTitles = new Set([
+  "Book-to-Deck Reconstructions",
+  "Primary Learning Visualised on TPT",
+  "Birzeit AI Fluency Lab 2026",
+  "Original AI Music Videos",
+  "Atyaf Al Ard",
+  "Palestine Visual Lab",
+  "AI Training and Workshop Systems"
+]);
+const archiveItems = workItems.filter((item) => archiveTitles.has(item.title_en));
+const imageFor = (item: (typeof archiveItems)[number]) => item.title_en === "AI Training and Workshop Systems" ? "/media/optimized/birzeit-lab.webp" : item.thumbLocal;
+const hrefFor = (value?: string) => !value ? undefined : value.startsWith("http") ? value : withBase(value);
+const mainHref = (item: (typeof archiveItems)[number]) => {
+  if (item.title_en === "Book-to-Deck Reconstructions") return "#book-to-decks";
+  if (item.title_en === "Primary Learning Visualised on TPT") return "#education-products";
+  if (item.title_en === "Original AI Music Videos") return "#music-videos";
+  if (item.title_en === "AI Training and Workshop Systems") return withBase(routeFor("workshops", lang));
+  return hrefFor(item.url);
+};
+const music = [
+  { title: ar ? "بيني وبين الأرض" : "Between Me and the Earth", image: "/media/music-videos/between-me-and-earth-thumb.jpg", url: "https://youtu.be/TcSlQomJ3F0" },
+  { title: ar ? "طريقي" : "I Did It My Way", image: "/media/music-videos/my-way-thumb.jpg", url: "https://youtu.be/VzHMr0Gw0Pg" },
+  { title: ar ? "What's Going On × What's Up" : "What's Going On × What's Up", image: "/media/music-videos/my-way-thumb.jpg", url: "https://youtu.be/N7T1ouDs9bs" },
+  { title: ar ? "What's Going On" : "What's Going On", image: "/media/music-videos/between-me-and-earth-thumb.jpg", url: "https://youtu.be/E6Rt-agXCYM" }
+];
+const educationLinks = [
+  { title: ar ? "حزمة درس الدفع والسحب" : "Pushes & Pulls Lesson Pack", url: "https://www.teacherspayteachers.com/Product/Forces-Motion-Lesson-1-Complete-Bundle-Pushes-Pulls-15481050" },
+  { title: ar ? "حزمة درس الاحتكاك" : "Friction Lesson Bundle", url: "https://www.teacherspayteachers.com/Product/Forces-Motion-Lesson-2-Friction-Lesson-Bundle-Slides-Video-Worksheets-15549604" }
+];
+---
+<BaseLayout title={ar ? "أرشيف الأعمال | تامر منصور" : "Work Archive | Tamer Mansour"} description={ar ? "مشاريع عامة وتجارب ومواد إثبات مختارة محفوظة ضمن المحفظة." : "Public projects, experiments, and selected proof retained as a browsable portfolio archive."} path={routeFor("archive", lang)} lang={lang} dir={ar ? "rtl" : "ltr"} pageType="CollectionPage">
+  <header class="page-hero chapter"><p class="eyebrow">{ar ? "أوسع من الأعمال الرئيسية" : "Beyond the flagships"}</p><h1>{ar ? "الأرشيف يحفظ المدى والدليل." : "The archive keeps the range and the proof."}</h1><p>{ar ? "الأعمال الرئيسية تقود المحفظة. هنا تبقى المشاريع العامة والروابط والمواد التي توضّح اتساع الممارسة دون إرباك الصفحة الرئيسية." : "Flagships lead the portfolio. This is where public projects, links, and artifacts remain discoverable without crowding the homepage."}</p></header>
+
+  <section class="section chapter" id="more-work"><header class="section-heading"><p class="eyebrow">{ar ? "أعمال إضافية" : "More work"}</p><div><h2>{ar ? "مشاريع ومسارات عامة مختارة" : "Selected public projects and practice lanes"}</h2></div></header><div class="archive-grid">{archiveItems.map(item => <article class="archive-card"><div class="archive-card__media"><img src={withBase(imageFor(item))} alt={item.title} width="900" height="600" loading="lazy" decoding="async" /></div><div class="archive-card__body"><p class="status">{item.type}</p><h3>{item.title}</h3><p><strong>{item.context}</strong></p><p>{item.description}</p><div class="archive-card__links">{mainHref(item) && <a class="text-link" href={mainHref(item)}>{item.linkLabel || (ar ? "افتح المشروع" : "Open project")} ↗</a>}{item.secondaryUrl && <a href={item.secondaryUrl} target="_blank" rel="noopener noreferrer">{item.secondaryLabel} ↗</a>}</div></div></article>)}</div></section>
+
+  <section class="section chapter" id="book-to-decks"><header class="section-heading"><p class="eyebrow">{ar ? "تصميم المعرفة" : "Knowledge design"}</p><div><h2>{ar ? "أربعة كتب أعيد بناؤها كأنظمة بصرية" : "Four books rebuilt as visual systems"}</h2><p>{ar ? "ليست أغلفة منفردة، بل أمثلة على تحويل الحجة والمادة الكثيفة إلى تسلسل يمكن تدريسه وقراءته." : "Not isolated covers, but evidence of turning dense arguments into teachable, scannable sequences."}</p></div></header><div class="artifact-grid">{decks.map(deck => <article class="artifact-card"><img src={withBase(deck.cover)} alt={deck.title} width="900" height="600" loading="lazy" /><p class="status">{deck.category}</p><h3>{deck.title}</h3><p>{deck.description}</p></article>)}</div></section>
+
+  <section class="section chapter" id="education-products"><header class="section-heading"><p class="eyebrow">{ar ? "منتجات تعليمية" : "Education products"}</p><div><h2>{ar ? "من المصدر إلى منتج جاهز للمعلم" : "From source material to teacher-ready product"}</h2><p>{ar ? "شرائح وأوراق عمل واختبارات قصيرة وفيديوهات معاينة وتغليف سوقي عام." : "Slides, worksheets, quick checks, preview video, and public marketplace packaging."}</p></div></header><div class="evidence-gallery"><figure><img src={withBase("/media/education-products/tpt-pushes-pulls-cover.jpg")} alt={ar ? "غلاف حزمة الدفع والسحب" : "Pushes and Pulls lesson pack cover"} width="900" height="600" loading="lazy" /></figure><figure><img src={withBase("/media/education-products/tpt-friction-worksheet.jpg")} alt={ar ? "ورقة عمل عن الاحتكاك" : "Friction lesson worksheet"} width="900" height="600" loading="lazy" /></figure><figure><img src={withBase("/media/education-products/tpt-force-direction-slide.jpg")} alt={ar ? "شريحة اتجاه القوة" : "Force direction teaching slide"} width="900" height="600" loading="lazy" /></figure></div><div class="public-link-list">{educationLinks.map(item => <a href={item.url} target="_blank" rel="noopener noreferrer">{item.title} ↗</a>)}<a href="https://www.teacherspayteachers.com/store/primary-learning-visualised" target="_blank" rel="noopener noreferrer">{ar ? "متجر Primary Learning Visualised" : "Primary Learning Visualised store"} ↗</a></div></section>
+
+  <section class="section chapter" id="music-videos"><header class="section-heading"><p class="eyebrow">{ar ? "موسيقى وصورة" : "Music and image"}</p><div><h2>{ar ? "أغانٍ أصلية تتحول إلى إصدارات بصرية" : "Original songs shaped into visual releases"}</h2></div></header><div class="artifact-grid">{music.map(item => <a class="artifact-card artifact-card--link" href={item.url} target="_blank" rel="noopener noreferrer"><img src={withBase(item.image)} alt={item.title} width="900" height="600" loading="lazy" /><h3>{item.title}</h3><span class="text-link">{ar ? "شاهد على YouTube" : "Watch on YouTube"} ↗</span></a>)}</div></section>
+
+  <section class="section chapter" id="notebooklm"><header class="section-heading"><p class="eyebrow">{ar ? "أنظمة قائمة على المصادر" : "Source-grounded systems"}</p><div><h2>{ar ? "أربع تطبيقات لمنهج البحث والمراجعة" : "Four applications of the source-and-review method"}</h2></div></header><div class="archive-text-grid">{notebookItems.map(project => <article class="editorial-panel"><p class="status">{project.category}</p><h3>{project.title}</h3><p>{project.summary}</p><ul>{project.outputs.map(output => <li>{output}</li>)}</ul></article>)}</div></section>
+
+  <section class="section chapter" id="pinterest-directions"><header class="section-heading"><p class="eyebrow">Pinterest</p><div><h2>{ar ? "خمسة اتجاهات بصرية، لا رابط عام واحد" : "Five visual directions, not one generic link"}</h2></div></header><div class="artifact-grid artifact-grid--five">{boards.map(board => <a class="artifact-card artifact-card--link" href={board.url} target="_blank" rel="noopener noreferrer"><img src={withBase(board.thumbLocal)} alt={board.title} width="900" height="600" loading="lazy" /><h3>{board.title}</h3><p>{board.description}</p><span class="text-link">{ar ? "افتح اللوحة" : "Open board"} ↗</span></a>)}</div></section>
+</BaseLayout>
