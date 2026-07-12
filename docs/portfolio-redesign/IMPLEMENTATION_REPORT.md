@@ -2,6 +2,8 @@
 
 Date: 2026-07-11
 
+Repair review: 2026-07-12
+
 ## Outcome
 
 The existing Astro portfolio was redesigned in place. No duplicate repository, hosting project, or public URL was created. The production workflow remains GitHub Pages from `main` with `npm ci`, `npm run build`, `npm run verify`, and `dist/` deployment.
@@ -48,3 +50,19 @@ The selected signature is the Ramallah margin note, asymmetric editorial composi
 
 `npm audit fix` without force reduced 13 advisories to 3. The remaining advisory chain requires Astro 7 and a breaking Tailwind integration migration. The site is statically generated and does not expose Astro server features. The major upgrade is deferred to a dedicated compatibility task rather than forced into this release.
 
+## Evidence restoration repair
+
+A post-release comparison against the previous portfolio found that the new hierarchy had pruned too much useful proof and that several source images were framed with aggressive cropping. The repair keeps the editorial direction while restoring the missing depth:
+
+- Replaced cropped identity and project framing with full-image, contain-safe presentation.
+- Added a bilingual `/archive/` containing retained project, deck, education, music, NotebookLM, and Pinterest evidence.
+- Routed legacy proof, music, NotebookLM, education-product, and book-to-deck paths to the relevant archive sections.
+- Added 17 public artifacts across the five case studies.
+- Restored eight named public-safe workshop delivery examples and two workshop proof previews.
+- Added visual evidence to the Lab and restored Original AI Music Videos and Atyaf al Ard.
+- Expanded every buyer path with fit criteria, concrete outputs, and two proof links.
+- Restored Facebook, TikTok, Superteam, and the secondary WhatsApp channel.
+- Corrected the nested Work landmark and the Arabic contact-page overflow edge case.
+- Extended verification to require archive outputs and exactly one `<main>` landmark per built page.
+
+The repair remains privacy-safe: no local paths, private client data, invented metrics, or unapproved claims were added.

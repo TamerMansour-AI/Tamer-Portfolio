@@ -43,3 +43,13 @@ The 2.5 s LCP target was missed by 0.1 s in the final simulated mobile lab run; 
 - Transfer: approximately 242 KiB.
 
 The production run meets the requested 2.5 s LCP target in the measured mobile lab profile.
+
+## After evidence restoration repair
+
+- Local mobile Lighthouse performance: 96.
+- Accessibility / best practices / SEO: 100 / 100 / 100.
+- Automated homepage initial local payload: 240.4 KB.
+- The archive, Lab visuals, and case artifacts are lazy-loaded below the fold and do not materially increase the homepage entry cost.
+- Evidence: `assets/lighthouse-repair-mobile.json`.
+
+The restored content preserves the production performance score while materially increasing proof depth.
