@@ -9,7 +9,8 @@ const required = [
   "ways-to-work/index.html", "ar/ways-to-work/index.html", "workshops/index.html",
   "ar/workshops/index.html", "lab/index.html", "ar/lab/index.html", "contact/index.html",
   "ar/contact/index.html", "favicon.svg", "work/museum-of-echoes/index.html",
-  "ar/work/museum-of-echoes/index.html"
+  "ar/work/museum-of-echoes/index.html", "archive/index.html", "ar/archive/index.html",
+  "notebooklm/index.html", "ar/notebooklm/index.html"
 ];
 for (const route of required) if (!existsSync(join(dist, route))) errors.push(`Missing required output: ${route}`);
 
@@ -32,6 +33,8 @@ for (const file of htmlFiles) {
   if (/<img(?![^>]*\balt=)[^>]*>/i.test(html)) errors.push(`${rel}: image without alt`);
   if (/<img(?![^>]*\bwidth=)[^>]*>/i.test(html)) errors.push(`${rel}: image without width`);
   if (/<img(?![^>]*\bheight=)[^>]*>/i.test(html)) errors.push(`${rel}: image without height`);
+  const mainCount = (html.match(/<main\b/gi) || []).length;
+  if (mainCount !== 1) errors.push(`${rel}: expected exactly one main landmark, found ${mainCount}`);
   for (const match of html.matchAll(/href="(\/Tamer-Portfolio\/[^"?#]*)/g)) {
     const url = match[1].replace("/Tamer-Portfolio/", "");
     const target = url === "" ? join(dist, "index.html") : url.endsWith("/") ? join(dist, url, "index.html") : join(dist, url);
