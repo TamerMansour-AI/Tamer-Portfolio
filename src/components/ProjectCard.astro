@@ -7,7 +7,7 @@ const { project, lang = "en", featured = false } = Astro.props as { project: Pro
 const href = withBase(`${lang === "ar" ? "/ar" : ""}/work/${project.slug}/`);
 ---
 <article class:list={["project-card", { "project-card--featured": featured }]}>
-  <a class="project-card__media" href={href} aria-label={`${lang === "ar" ? "افتح" : "Open"} ${project.title[lang]}`}>
+  <a class:list={["project-card__media", project.slug === "anbiya-visuals" ? "project-card__media--cover" : "project-card__media--contain"]} href={href} aria-label={`${lang === "ar" ? "افتح" : "Open"} ${project.title[lang]}`}>
     <img src={withBase(project.media)} alt={project.mediaAlt[lang]} width="1400" height="900" loading="eager" decoding="async" />
   </a>
   <div class="project-card__body">
