@@ -4,6 +4,7 @@ export const siteData = {
   description:
     "AI media creator and workshop builder helping teams turn ideas into cinematic stories, educational products, live learning labs, and bilingual digital experiences.",
   baseUrl: import.meta.env.BASE_URL,
+  analyticsMeasurementId: "G-ZJ9VJPRX0M",
   email: "ai.visionary.pioneer@gmail.com",
   whatsappPrimary: "+970599797245",
   whatsappSecondary: "+970592037973",

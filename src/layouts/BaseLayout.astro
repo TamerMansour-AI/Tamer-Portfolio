@@ -2,6 +2,7 @@
 import Footer from "../components/Footer.astro";
 import HeadMeta from "../components/HeadMeta.astro";
 import Nav from "../components/Nav.astro";
+import AnalyticsConsent from "../components/AnalyticsConsent.astro";
 import "../styles/global.css";
 
 type Props = {
@@ -44,5 +45,6 @@ const {
       <slot />
     </main>
     <Footer lang={lang} />
+    <AnalyticsConsent lang={lang} />
   </body>
 </html>
