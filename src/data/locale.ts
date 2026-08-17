@@ -1,5 +1,5 @@
 export type Locale = "en" | "ar";
-export type RouteKey = "home" | "work" | "ways" | "workshops" | "lab" | "archive" | "about" | "contact";
+export type RouteKey = "home" | "work" | "ways" | "workshops" | "lab" | "archive" | "about" | "contact" | "privacy";
 
 export const routes: Record<RouteKey, Record<Locale, string>> = {
   home: { en: "/", ar: "/ar/" },
@@ -9,14 +9,15 @@ export const routes: Record<RouteKey, Record<Locale, string>> = {
   lab: { en: "/lab/", ar: "/ar/lab/" },
   archive: { en: "/archive/", ar: "/ar/archive/" },
   about: { en: "/about/", ar: "/ar/about/" },
-  contact: { en: "/contact/", ar: "/ar/contact/" }
+  contact: { en: "/contact/", ar: "/ar/contact/" },
+  privacy: { en: "/privacy/", ar: "/ar/privacy/" }
 };
 
 export const routeFor = (key: RouteKey, locale: Locale) => routes[key][locale];
 
 export const navLabels: Record<Locale, Record<RouteKey, string>> = {
-  en: { home: "Home", work: "Work", ways: "Ways to work", workshops: "Workshops", lab: "Lab", archive: "Archive", about: "About", contact: "Contact" },
-  ar: { home: "الرئيسية", work: "الأعمال", ways: "طرق التعاون", workshops: "الورشات", lab: "المختبر", archive: "الأرشيف", about: "عن تامر", contact: "تواصل" }
+  en: { home: "Home", work: "Work", ways: "Ways to work", workshops: "Workshops", lab: "Lab", archive: "Archive", about: "About", contact: "Contact", privacy: "Privacy" },
+  ar: { home: "الرئيسية", work: "الأعمال", ways: "طرق التعاون", workshops: "الورشات", lab: "المختبر", archive: "الأرشيف", about: "عن تامر", contact: "تواصل", privacy: "الخصوصية" }
 };
 
 export const localizedPath = (path: string, locale: Locale) => {

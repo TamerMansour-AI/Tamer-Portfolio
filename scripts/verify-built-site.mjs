@@ -10,7 +10,8 @@ const required = [
   "ar/workshops/index.html", "lab/index.html", "ar/lab/index.html", "contact/index.html",
   "ar/contact/index.html", "favicon.svg", "work/museum-of-echoes/index.html",
   "ar/work/museum-of-echoes/index.html", "archive/index.html", "ar/archive/index.html",
-  "notebooklm/index.html", "ar/notebooklm/index.html"
+  "notebooklm/index.html", "ar/notebooklm/index.html", "privacy/index.html",
+  "ar/privacy/index.html"
 ];
 for (const route of required) if (!existsSync(join(dist, route))) errors.push(`Missing required output: ${route}`);
 
@@ -43,6 +44,12 @@ for (const file of htmlFiles) {
 }
 
 const home = readFileSync(join(dist, "index.html"), "utf8");
+const homeAr = readFileSync(join(dist, "ar/index.html"), "utf8");
+for (const [name, html] of [["English homepage", home], ["Arabic homepage", homeAr]]) {
+  if (!html.includes("G-ZJ9VJPRX0M")) errors.push(`${name}: missing GA4 measurement ID`);
+  if (!html.includes("data-analytics-consent")) errors.push(`${name}: missing analytics consent control`);
+  if (/<script[^>]+src=["']https:\/\/www\.googletagmanager\.com/i.test(html)) errors.push(`${name}: Google tag must not load before consent`);
+}
 if (home.includes("autoplay")) errors.push("Homepage must not autoplay video");
 if (!home.includes('preload="none"')) errors.push("Identity film must be intent-loaded");
 const localAssetRefs = [...home.matchAll(/(?:src|href)="\/Tamer-Portfolio\/([^"?#]+\.(?:css|js|webp|png|jpg|svg|woff2?))/g)].map((m) => m[1]);
