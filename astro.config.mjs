@@ -1,11 +1,12 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://tamermansour-ai.github.io",
   base: "/Tamer-Portfolio/",
   outDir: "dist",
   devToolbar: { enabled: false },
-  integrations: [tailwind(), sitemap()]
+  integrations: [sitemap()],
+  vite: { plugins: [tailwindcss()] }
 });

@@ -1,6 +1,6 @@
 # Spatial portfolio design QA
 
-**Visual and local functionality: passed.** The dependency audit still has four findings, including an Astro major-version migration; this is documented below and does not count as a security pass.
+**Visual, local functionality, and release dependency checks: passed.** The original visual QA below documents the approved design; the release migration result is recorded at the end.
 
 ## Comparison setup
 
@@ -53,4 +53,12 @@
 - [x] Deliver Arabic and English desktop/mobile layouts.
 - [x] Add the labelled Canaan comparison inside its case page.
 - [x] Verify navigation, keyboard use, links, build, and consent behavior.
-- [ ] Owner review of the local preview before any publication.
+- [x] Owner reviewed the local preview and explicitly requested publication.
+
+## Release compatibility pass — 2026-09-23
+
+- Upgraded from Astro 5 to Astro 7.3.4 and from the Astro Tailwind integration to Tailwind 4's Vite plugin. GitHub Actions now uses Node.js 22. This supersedes the earlier audit warning above; the migration was verified against the rebuilt output.
+- `npm run build` generated 81 static pages. `npm run verify` passed all 81 and measured a 1211.6 KB initial local homepage payload. `npm audit --omit=dev --audit-level=low` found zero vulnerabilities at this release check.
+- The built preview was inspected in a browser. The route and interaction smoke check covered 26 Arabic and English route/viewport combinations at 1440, 768, 390 and 360px with zero failures, console errors, overflow, or broken loaded images. Three world links, reduced motion, the Canaan comparison touch setting, no-JavaScript navigation, and opt-in analytics behavior passed.
+- The older bilingual blog pages were spot-checked after the dependency migration. Their inherited light surfaces previously made white text hard to read; scoped color corrections restore readable headings and body text without changing the portfolio's other surfaces.
+- Tamer confirmed on 2026-09-23 that the selected Athar reel frame may be reused in the public portfolio. The separate unreleased film and private systems media gates remain; their current pages use conservative labels and illustrations.

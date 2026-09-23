@@ -1,5 +1,5 @@
 async (page) => {
-  const origin = "http://127.0.0.1:4321/Tamer-Portfolio";
+  const origin = page.url().split("/Tamer-Portfolio")[0] + "/Tamer-Portfolio";
   const routes = [
     "/ar/", "/", "/ar/work/", "/ar/workshops/", "/ar/systems/",
     "/ar/about/", "/ar/contact/?type=system", "/ar/work/here-was-canaan/",

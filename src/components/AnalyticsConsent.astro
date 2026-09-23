@@ -16,7 +16,7 @@ const measurementId = siteData.analyticsMeasurementId;
       {ar
         ? "تساعدني Google Analytics على فهم الصفحات المفيدة. لن تُحمّل إلا بعد موافقتك، ولا أرسل اسمك أو بريدك أو نصوص النموذج."
         : "Google Analytics helps me understand which pages are useful. It loads only after you accept, and I never send your name, email, or form text."}
-      <a href={withBase(routeFor("privacy", lang))}>{ar ? "اقرأ سياسة الخصوصية" : "Read the privacy note"}</a>.
+      {" "}<a href={withBase(routeFor("privacy", lang))}>{ar ? "اقرأ سياسة الخصوصية" : "Read the privacy note"}</a>.
     </p>
   </div>
   <div class="analytics-consent__actions">
