@@ -4,6 +4,8 @@ import HeadMeta from "../components/HeadMeta.astro";
 import Nav from "../components/Nav.astro";
 import AnalyticsConsent from "../components/AnalyticsConsent.astro";
 import "../styles/global.css";
+import "../styles/studio.css";
+import "../styles/studio-pages.css";
 
 type Props = {
   title: string;
@@ -28,7 +30,7 @@ const {
   pageType,
   schema,
   pageHeading = false,
-  variant
+  variant = "studio"
 } = Astro.props;
 ---
 <!doctype html>

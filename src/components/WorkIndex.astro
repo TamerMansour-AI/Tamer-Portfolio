@@ -1,8 +1,55 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";import ProjectCard from "./ProjectCard.astro";import {projects,laneLabels} from "../data/portfolio";import {routeFor,type Locale} from "../data/locale";import {withBase} from "../utils/withBase";const {lang="en"}=Astro.props as {lang?:Locale};const ar=lang==="ar";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "./ProjectCard.astro";
+import { projects, laneLabels } from "../data/portfolio";
+import { routeFor, type Locale } from "../data/locale";
+import { withBase } from "../utils/withBase";
+const { lang = "en" } = Astro.props as { lang?: Locale };
+const ar = lang === "ar";
+const lanes = ["stories", "learning", "products", "systems"] as const;
 ---
-<BaseLayout title={ar?"الأعمال المختارة | تامر منصور":"Selected Work | Tamer Mansour"} description={ar?"دراسات حالة مختارة في القصص والإعلام والتعلم والورشات والمنتجات والمنصات.":"Selected case studies across stories and media, learning and workshops, and products and platforms."} path={routeFor("work",lang)} lang={lang} dir={ar?"rtl":"ltr"} pageType="CollectionPage">
-<header class="page-hero chapter"><p class="eyebrow">{ar?"عمل مختار، لا أرشيف كامل":"Selected, not exhaustive"}</p><h1>{ar?"أعمال تحمل دوراً ودليلاً وحدوداً واضحة.":"Work with a clear role, proof, and public boundary."}</h1><p>{ar?"دراسات حالة تُظهر كيف ينتقل العمل من الفكرة إلى تجربة يمكن رؤيتها أو استخدامها.":"Case studies show how an idea becomes an experience people can see, use, or learn from."}</p></header>
-<section class="section chapter"><nav class="filter-nav" aria-label={ar?"فئات العمل":"Work categories"}>{Object.entries(laneLabels).map(([key,label])=><a href={`#${key}`}>{label[lang]}</a>)}</nav><div class="editorial-list">{(["stories","learning","products"] as const).map(lane=><section id={lane}><header class="section-heading"><p class="eyebrow">{laneLabels[lane][lang]}</p><div><h2>{laneLabels[lane][lang]}</h2></div></header><div class="project-grid">{projects.filter(project=>project.lane===lane).map(project=><ProjectCard project={project} lang={lang}/>)}</div></section>)}</div></section>
-<section class="archive-invitation"><div class="chapter"><p class="eyebrow">{ar ? "الأرشيف" : "The archive"}</p><h2>{ar ? "المحفظة أوسع من دراسات الحالة المختارة." : "The portfolio extends beyond these case studies."}</h2><p>{ar ? "استكشف المشاريع الإضافية والعروض التعليمية والفيديوهات الموسيقية ولوحات الاتجاه والروابط العامة." : "Explore additional projects, teaching decks, music videos, direction boards, and public links."}</p><a class="button button--light" href={withBase(routeFor("archive", lang))}>{ar ? "افتح أرشيف الأعمال" : "Open the work archive"}</a></div></section>
+<BaseLayout title={ar ? "الأعمال المختارة | تامر منصور" : "Selected Work | Tamer Mansour"} description={ar ? "قصص وورشات ومنتجات وأنظمة موثقة بحدود عرض واضحة." : "Stories, workshops, products and systems with clear evidence boundaries."} path={routeFor("work", lang)} lang={lang} pageType="CollectionPage">
+<header class="page-hero chapter work-hero"><p class="eyebrow">{ar ? "الأعمال المختارة" : "Selected work"}</p><h1>{ar ? "أشكال مختلفة. دليل واضح." : "Different forms. Clear evidence."}</h1><p>{ar ? "تصفّح الأعمال بحسب المجال. تبيّن كل دراسة ما أُنجز، وما يمكن معاينته، وما يزال قيد التطوير." : "Browse by practice. Each case distinguishes delivered work, public evidence, and work still in development."}</p></header>
+<section class="section chapter work-browser" data-work-browser>
+<div class="work-tools"><label for="work-search">{ar ? "ابحث في الأعمال" : "Search the work"}</label><input id="work-search" type="search" autocomplete="off" placeholder={ar ? "اسم مشروع أو موضوع" : "Project or topic"} data-work-search /><p class="work-count" role="status" aria-live="polite" data-work-count></p></div>
+<nav class="filter-nav" aria-label={ar ? "فئات الأعمال" : "Work categories"} data-work-filters><button type="button" class="is-active" data-lane="all" aria-pressed="true">{ar ? "الكل" : "All"}</button>{lanes.map(lane => <button type="button" data-lane={lane} aria-pressed="false">{laneLabels[lane][lang]}</button>)}</nav>
+<div class="editorial-list">{lanes.map(lane => <section id={lane} class="work-group" data-work-group={lane}><header class="section-heading"><p class="eyebrow">{laneLabels[lane][lang]}</p><div><h2>{laneLabels[lane][lang]}</h2></div></header><div class="project-grid">{projects.filter(project => project.lane === lane).map(project => <div data-work-item data-search={([project.title[lang], project.summary[lang], project.status[lang]].join(" ")).toLocaleLowerCase()}><ProjectCard project={project} lang={lang} /></div>)}</div></section>)}</div>
+<p class="work-empty" data-work-empty hidden>{ar ? "لا توجد نتائج. جرّب كلمة أخرى أو اعرض كل الأعمال." : "No matching work. Try another term or show all projects."}</p>
+</section>
+<section class="archive-invitation"><div class="chapter"><p class="eyebrow">{ar ? "الأرشيف" : "The archive"}</p><h2>{ar ? "الممارسة أوسع من دراسات الحالة." : "The practice extends beyond these cases."}</h2><p>{ar ? "روابط عامة وتجارب ومنتجات تعليمية محفوظة للاكتشاف." : "Public links, experiments and learning products remain available to explore."}</p><a class="button button--light" href={withBase(routeFor("archive", lang))}>{ar ? "افتح أرشيف الأعمال" : "Open the work archive"}</a></div></section>
 </BaseLayout>
+<script>
+const browser = document.querySelector('[data-work-browser]');
+if (browser instanceof HTMLElement) {
+  const search = browser.querySelector('[data-work-search]');
+  const buttons = [...browser.querySelectorAll<HTMLButtonElement>('[data-lane]')];
+  const groups = [...browser.querySelectorAll<HTMLElement>('[data-work-group]')];
+  const count = browser.querySelector('[data-work-count]');
+  const empty = browser.querySelector('[data-work-empty]');
+  const initial = new URLSearchParams(location.search);
+  let lane = buttons.some(button => button.dataset.lane === initial.get('lane')) ? initial.get('lane') || 'all' : 'all';
+  if (search instanceof HTMLInputElement) search.value = (initial.get('q') || '').slice(0, 100);
+  const update = () => {
+    const query = search instanceof HTMLInputElement ? search.value.trim().toLocaleLowerCase() : '';
+    let total = 0;
+    for (const group of groups) {
+      const selected = lane === 'all' || lane === group.dataset.workGroup;
+      let groupCount = 0;
+      for (const item of group.querySelectorAll<HTMLElement>('[data-work-item]')) {
+        const visible = selected && (!query || (item.dataset.search || '').includes(query));
+        item.hidden = !visible;
+        if (visible) groupCount++;
+      }
+      group.hidden = groupCount === 0;
+      total += groupCount;
+    }
+    if (count) count.textContent = document.documentElement.lang === 'ar' ? total + ' مشروع' : total + ' projects';
+    if (empty instanceof HTMLElement) empty.hidden = total > 0;
+    for (const button of buttons) { const active = button.dataset.lane === lane; button.classList.toggle('is-active', active); button.setAttribute('aria-pressed', String(active)); }
+  };
+  const change = () => { update(); const url = new URL(location.href); if (lane === 'all') url.searchParams.delete('lane'); else url.searchParams.set('lane', lane); const q = search instanceof HTMLInputElement ? search.value.trim() : ''; if (q) url.searchParams.set('q', q); else url.searchParams.delete('q'); history.replaceState(null, '', url); };
+  search?.addEventListener('input', change);
+  for (const button of buttons) button.addEventListener('click', () => { lane = button.dataset.lane || 'all'; change(); });
+  update();
+}
+</script>

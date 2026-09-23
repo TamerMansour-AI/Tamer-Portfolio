@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "./ProjectCard.astro";
+import { projects } from "../data/portfolio";
+import { routeFor, type Locale } from "../data/locale";
+import { withBase } from "../utils/withBase";
+const { lang = "en" } = Astro.props as {lang?:Locale};
+const ar = lang === "ar";
+const systems = projects.filter(project => project.lane === "systems");
+const steps = ar ? [
+{h:"الهدف والمصادر",p:"تحديد المهمة والمواد المسموح استخدامها وحدود الخصوصية."},
+{h:"عمل مساعد",p:"بحث أو تنظيم أو صياغة ضمن نطاق واضح."},
+{h:"مراجعة بشرية",p:"فحص الأدلة والنتائج والقرارات المؤثرة قبل استخدامها."},
+{h:"مخرج قابل للفحص",p:"ملف أو أداة أو تجربة مع حالة التنفيذ وحدودها."}
+] : [
+{h:"Goal and sources",p:"Define the task, allowed materials and privacy boundary."},
+{h:"Assisted work",p:"Research, organize or draft within a clear scope."},
+{h:"Human review",p:"Check evidence, outputs and consequential decisions."},
+{h:"Inspectable output",p:"Deliver a file, tool or experience with its status and limits."}
+];
+---
+<BaseLayout title={ar ? "الوكلاء والأنظمة | تامر منصور" : "Agents & Systems | Tamer Mansour"} description={ar ? "أنظمة عمل مدعومة بالوكلاء، مع مراجعة بشرية وحدود واضحة للدليل." : "Agent-assisted workflows with human review and clear evidence boundaries."} path={routeFor("systems",lang)} lang={lang} pageType="CollectionPage">
+<header class="page-hero chapter"><p class="eyebrow">{ar?"الوكلاء والأنظمة":"Agents & Systems"}</p><h1>{ar?"أنظمة تساعد العمل. والقرار يبقى قابلاً للمراجعة.":"Systems that assist work. Decisions that stay reviewable."}</h1><p>{ar?"أصمم مسارات تربط المصادر والأدوات والوكلاء بقرار بشري واضح. الحالات أدناه تميّز بين الممارسة الشخصية والنموذج المحلي والعرض التجريبي." : "I design workflows connecting sources, tools and agents to clear human decisions. The cases below distinguish personal practice, local prototypes and controlled demos."}</p></header>
+<section class="section chapter"><header class="section-heading"><p class="eyebrow">{ar?"طريقة العمل":"Working method"}</p><div><h2>{ar?"أربع مراحل مفهومة":"Four visible stages"}</h2></div></header><ol class="system-flow">{steps.map(step=><li><h3>{step.h}</h3><p>{step.p}</p></li>)}</ol><p class="contact-note">{ar?"هذا مخطط توضيحي للممارسة، لا واجهة منتج منشور أو وعد بتشغيل مستقل مستمر.":"This diagram illustrates the method. It is not a released product screen or a claim of continuous unattended operation."}</p></section>
+<section class="section chapter"><header class="section-heading"><p class="eyebrow">{ar?"حالات مختارة":"Selected cases"}</p><div><h2>{ar?"ما بُني وما يمكن إثباته":"What was built and what can be shown"}</h2></div></header><div class="project-grid">{systems.map(project=><ProjectCard project={project} lang={lang}/>)}</div></section>
+<section class="inquiry-decision"><div class="chapter inquiry-decision__inner"><h2>{ar?"لديك مسار عمل يحتاج تنظيماً؟":"Have a workflow to shape?"}</h2><div><p>{ar?"ابدأ بالمشكلة والمصادر والقرار الذي تريد تحسينه، ثم نحدد تجربة صغيرة قابلة للمراجعة.":"Start with the problem, sources and decision you want to improve. We can define a small reviewable pilot."}</p><a class="button button--light" href={withBase(routeFor("contact",lang)+"?type=system")}>{ar?"ناقش نظام عمل":"Discuss a system"}</a></div></div></section>
+</BaseLayout>

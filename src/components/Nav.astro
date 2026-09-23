@@ -2,12 +2,19 @@
 import { navLabels, routeFor, routes, localizedPath, type Locale, type RouteKey } from "../data/locale";
 import { withBase } from "../utils/withBase";
 const { lang="en" }=Astro.props as {lang?:Locale};const current=Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/,""),"")||"/";
-const keys:RouteKey[]=["work","ways","workshops","lab","about","contact"];
+const keys:RouteKey[]=["work","workshops","systems","ways","about","contact"];
 const norm=(value:string)=>value.endsWith("/")?value:`${value}/`;
 ---
-<header class="site-header"><div class="site-header__inner"><a class="brand" href={withBase(routeFor("home",lang))}>Tamer Mansour <span>TM</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label={lang==="ar"?"افتح القائمة":"Open menu"}><span aria-hidden="true">☰</span></button><nav id="primary-nav" class="primary-nav" aria-label={lang==="ar"?"التنقل الرئيسي":"Primary navigation"} data-open="false">{keys.map(key=><a href={withBase(routeFor(key,lang))} aria-current={norm(current)===routeFor(key,lang)?"page":undefined}>{navLabels[lang][key]}</a>)}<a class="language-link" href={withBase(localizedPath(current,lang==="ar"?"en":"ar"))} lang={lang==="ar"?"en":"ar"}>{lang==="ar"?"EN":"عربي"}</a></nav></div></header>
+<header class="site-header"><div class="site-header__inner"><a class="brand" href={withBase(routeFor("home",lang))}>Tamer Mansour <span>TM</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label={lang==="ar"?"افتح القائمة":"Open menu"}><span aria-hidden="true">☰</span></button><nav id="primary-nav" class="primary-nav" aria-label={lang==="ar"?"التنقل الرئيسي":"Primary navigation"} data-open="false">{keys.map(key=><a href={withBase(routeFor(key,lang))} aria-current={norm(current)===routeFor(key,lang)?"page":undefined}>{navLabels[lang][key]}</a>)}<a class="language-link" data-language-link href={withBase(localizedPath(current,lang==="ar"?"en":"ar"))} lang={lang==="ar"?"en":"ar"}>{lang==="ar"?"EN":"عربي"}</a></nav></div></header>
 <script>
 const toggle=document.querySelector('.menu-toggle');const nav=document.querySelector('#primary-nav');let previous=null;
 const close=()=>{if(!(toggle instanceof HTMLButtonElement)||!(nav instanceof HTMLElement))return;nav.dataset.open='false';toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label',document.documentElement.lang==='ar'?'افتح القائمة':'Open menu');if(previous instanceof HTMLElement)previous.focus()};
 if(toggle instanceof HTMLButtonElement&&nav instanceof HTMLElement){toggle.addEventListener('click',()=>{const open=nav.dataset.open==='true';if(open){close()}else{previous=document.activeElement;nav.dataset.open='true';toggle.setAttribute('aria-expanded','true');toggle.setAttribute('aria-label',document.documentElement.lang==='ar'?'أغلق القائمة':'Close menu');nav.querySelector('a')?.focus()}});document.addEventListener('keydown',event=>{if(event.key==='Escape'&&nav.dataset.open==='true')close();if(event.key==='Tab'&&nav.dataset.open==='true'&&matchMedia('(max-width:900px)').matches){const focusable=[toggle,...nav.querySelectorAll('a')];const first=focusable[0],last=focusable[focusable.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}}});}
+const languageLink=document.querySelector('[data-language-link]');
+if(languageLink instanceof HTMLAnchorElement&&/\/contact\/$/.test(location.pathname)){
+  const type=new URLSearchParams(location.search).get('type');
+  if(type&&['story','workshop','product','system','collaboration','unsure'].includes(type)){
+    const next=new URL(languageLink.href);next.searchParams.set('type',type);languageLink.href=next.href;
+  }
+}
 </script>

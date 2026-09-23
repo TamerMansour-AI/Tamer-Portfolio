@@ -11,7 +11,7 @@ const measurementId = siteData.analyticsMeasurementId;
 <section class="analytics-consent" data-analytics-consent hidden aria-labelledby="analytics-consent-title">
   <div class="analytics-consent__copy">
     <p class="eyebrow">{ar ? "اختيارك مهم" : "Your choice matters"}</p>
-    <h2 id="analytics-consent-title">{ar ? "هل تسمح بتحليلات مجهولة؟" : "Allow anonymous analytics?"}</h2>
+    <h2 id="analytics-consent-title">{ar ? "هل تسمح بتحليلات الموقع؟" : "Allow site analytics?"}</h2>
     <p>
       {ar
         ? "تساعدني Google Analytics على فهم الصفحات المفيدة. لن تُحمّل إلا بعد موافقتك، ولا أرسل اسمك أو بريدك أو نصوص النموذج."
@@ -124,12 +124,15 @@ const measurementId = siteData.analyticsMeasurementId;
       const href = target.href;
       const method = href.startsWith("mailto:") ? "email" : /(?:wa\.me|whatsapp\.com)/i.test(href) ? "whatsapp" : null;
       if (method) window.gtag("event", "contact_intent", { method, page_path: location.pathname });
+      if (target.dataset.analytics === "watch") window.gtag("event", "watch_click", { page_path: location.pathname });
+      const match = new URL(href).pathname.match(/\/work\/([a-z0-9-]+)\/$/);
+      if (match && new URL(href).origin === location.origin) window.gtag("event", "project_open", { project_slug: match[1] });
     });
 
-    window.addEventListener("tm:lead", (event) => {
+    window.addEventListener("tm:inquiry-prepared", (event) => {
       if (!analyticsAllowed() || typeof window.gtag !== "function") return;
-      const leadType = event instanceof CustomEvent && typeof event.detail?.leadType === "string" ? event.detail.leadType : "unspecified";
-      window.gtag("event", "generate_lead", { lead_type: leadType });
+      const inquiryType = event instanceof CustomEvent && typeof event.detail?.inquiryType === "string" ? event.detail.inquiryType : "unsure";
+      window.gtag("event", "inquiry_prepared", { inquiry_type: inquiryType });
     });
 
     if (choice === "granted") loadAnalytics();

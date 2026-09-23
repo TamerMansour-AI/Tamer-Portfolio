@@ -50,6 +50,8 @@ const educationLinks = [
 ---
 <BaseLayout title={ar ? "أرشيف الأعمال | تامر منصور" : "Work Archive | Tamer Mansour"} description={ar ? "مشاريع عامة وتجارب ومواد إثبات مختارة محفوظة ضمن المحفظة." : "Public projects, experiments, and selected proof retained as a browsable portfolio archive."} path={routeFor("archive", lang)} lang={lang} dir={ar ? "rtl" : "ltr"} pageType="CollectionPage">
   <header class="page-hero chapter"><p class="eyebrow">{ar ? "أوسع من الأعمال الرئيسية" : "Beyond the flagships"}</p><h1>{ar ? "الأرشيف يحفظ المدى والدليل." : "The archive keeps the range and the proof."}</h1><p>{ar ? "الأعمال الرئيسية تقود المحفظة. هنا تبقى المشاريع العامة والروابط والمواد التي توضّح اتساع الممارسة دون إرباك الصفحة الرئيسية." : "Flagships lead the portfolio. This is where public projects, links, and artifacts remain discoverable without crowding the homepage."}</p></header>
+  <div class="chapter archive-browser" data-archive-browser><div class="work-tools"><label for="archive-search">{ar ? "ابحث في الأرشيف" : "Search the archive"}</label><input id="archive-search" type="search" autocomplete="off" placeholder={ar ? "مشروع أو مادة" : "Project or material"} data-archive-search /><p class="work-count" role="status" aria-live="polite" data-archive-count></p></div><div class="filter-nav" role="group" aria-label={ar ? "نوع المادة" : "Archive type"}><button type="button" data-archive-filter="all" aria-pressed="true" class="is-active">{ar ? "الكل" : "All"}</button><button type="button" data-archive-filter="projects" aria-pressed="false">{ar ? "مشاريع" : "Projects"}</button><button type="button" data-archive-filter="learning" aria-pressed="false">{ar ? "تعلم ومعرفة" : "Learning & knowledge"}</button><button type="button" data-archive-filter="media" aria-pressed="false">{ar ? "صورة وصوت" : "Image & sound"}</button></div><p class="work-empty" data-archive-empty hidden>{ar ? "لا توجد نتيجة لهذه الكلمات." : "No matching archive sections."}</p></div>
+  <nav class="chapter filter-nav archive-nav" aria-label={ar ? "تصفح أقسام الأرشيف" : "Browse archive sections"}><a href="#more-work">{ar ? "مشاريع إضافية" : "More work"}</a><a href="#book-to-decks">{ar ? "تصميم المعرفة" : "Knowledge design"}</a><a href="#education-products">{ar ? "منتجات تعليمية" : "Education products"}</a><a href="#music-videos">{ar ? "موسيقى وصورة" : "Music and image"}</a><a href="#notebooklm">{ar ? "أنظمة المصادر" : "Source systems"}</a><a href="#pinterest-directions">{ar ? "اتجاهات بصرية" : "Visual directions"}</a></nav>
 
   <section class="section chapter" id="more-work"><header class="section-heading"><p class="eyebrow">{ar ? "أعمال إضافية" : "More work"}</p><div><h2>{ar ? "مشاريع ومسارات عامة مختارة" : "Selected public projects and practice lanes"}</h2></div></header><div class="archive-grid">{archiveItems.map(item => <article class="archive-card"><div class="archive-card__media"><img src={withBase(imageFor(item))} alt={item.title} width="900" height="600" loading="lazy" decoding="async" /></div><div class="archive-card__body"><p class="status">{item.type}</p><h3>{item.title}</h3><p><strong>{item.context}</strong></p><p>{item.description}</p><div class="archive-card__links">{mainHref(item) && <a class="text-link" href={mainHref(item)}>{item.linkLabel || (ar ? "افتح المشروع" : "Open project")} ↗</a>}{item.secondaryUrl && <a href={item.secondaryUrl} target="_blank" rel="noopener noreferrer">{item.secondaryLabel} ↗</a>}</div></div></article>)}</div></section>
 
@@ -63,3 +65,30 @@ const educationLinks = [
 
   <section class="section chapter" id="pinterest-directions"><header class="section-heading"><p class="eyebrow">Pinterest</p><div><h2>{ar ? "خمسة اتجاهات بصرية، لا رابط عام واحد" : "Five visual directions, not one generic link"}</h2></div></header><div class="artifact-grid artifact-grid--five">{boards.map(board => <a class="artifact-card artifact-card--link" href={board.url} target="_blank" rel="noopener noreferrer"><img src={withBase(board.thumbLocal)} alt={board.title} width="900" height="600" loading="lazy" /><h3>{board.title}</h3><p>{board.description}</p><span class="text-link">{ar ? "افتح اللوحة" : "Open board"} ↗</span></a>)}</div></section>
 </BaseLayout>
+<script>
+const archive = document.querySelector('[data-archive-browser]');
+if (archive instanceof HTMLElement) {
+  const search = archive.querySelector('[data-archive-search]');
+  const buttons = [...archive.querySelectorAll<HTMLButtonElement>('[data-archive-filter]')];
+  const count = archive.querySelector('[data-archive-count]');
+  const empty = archive.querySelector('[data-archive-empty]');
+  const groups: Record<string, string[]> = { projects: ['more-work'], learning: ['book-to-decks','education-products','notebooklm'], media: ['music-videos','pinterest-directions'] };
+  const sections = [...document.querySelectorAll<HTMLElement>('main section[id]')];
+  const initial = new URLSearchParams(location.search);
+  let filter = Object.keys(groups).includes(initial.get('category') || '') ? initial.get('category') || 'all' : 'all';
+  if (search instanceof HTMLInputElement) search.value = (initial.get('q') || '').slice(0,100);
+  const update = () => {
+    const q = search instanceof HTMLInputElement ? search.value.trim().toLocaleLowerCase() : '';
+    let visible = 0;
+    for (const section of sections) { const match = (filter === 'all' || groups[filter]?.includes(section.id)) && (!q || (section.textContent || '').toLocaleLowerCase().includes(q)); section.hidden = !match; if (match) visible++; }
+    for (const button of buttons) { const active = button.dataset.archiveFilter === filter; button.classList.toggle('is-active',active); button.setAttribute('aria-pressed',String(active)); }
+    if (count) count.textContent = document.documentElement.lang === 'ar' ? visible + ' أقسام' : visible + ' sections';
+    if (empty instanceof HTMLElement) empty.hidden = visible > 0;
+  };
+  const change = () => { update(); const url = new URL(location.href); if (filter === 'all') url.searchParams.delete('category'); else url.searchParams.set('category', filter); const q = search instanceof HTMLInputElement ? search.value.trim() : ''; if (q) url.searchParams.set('q', q); else url.searchParams.delete('q'); history.replaceState(null, '', url); };
+  search?.addEventListener('input',change);
+  for (const button of buttons) button.addEventListener('click',() => { filter = button.dataset.archiveFilter || 'all'; change(); });
+  for (const link of document.querySelectorAll<HTMLAnchorElement>('.archive-nav a')) link.addEventListener('click', () => { filter = 'all'; if (search instanceof HTMLInputElement) search.value = ''; change(); });
+  update();
+}
+</script>

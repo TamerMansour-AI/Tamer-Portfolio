@@ -2,6 +2,5 @@
 import BaseLayout from "../layouts/BaseLayout.astro";import InquiryForm from "./InquiryForm.astro";import {routeFor,type Locale} from "../data/locale";const {lang="en"}=Astro.props as {lang?:Locale};const ar=lang==="ar";
 ---
 <BaseLayout title={ar?"تواصل مع تامر منصور":"Contact Tamer Mansour"} description={ar?"أرسل موجزاً عن قصة أو ورشة أو منتج أو نظام إبداعي.":"Send a focused brief for a story, workshop, product, or creative system."} path={routeFor("contact",lang)} lang={lang} dir={ar?"rtl":"ltr"} pageType="ContactPage">
-<header class="page-hero chapter"><p class="eyebrow">{ar?"ابدأ بموجز":"Start with a brief"}</p><h1>{ar?"ما الذي تريد أن تمنحه شكلاً؟":"What do you need to give form?"}</h1><p>{ar?"أرسل الهدف والجمهور والتوقيت. سأراجع الموجز وأقترح أصغر خطوة مفيدة بدلاً من توسيع المشروع قبل أوانه.":"Share the goal, audience, and timing. I’ll review the brief and suggest the smallest useful first step rather than expanding the project too early."}</p></header><section class="section chapter"><InquiryForm lang={lang}/></section>
+<header class="page-hero chapter"><p class="eyebrow">{ar?"ابدأ حواراً":"Start a conversation"}</p><h1>{ar?"ما الذي تريد أن تمنحه شكلاً؟":"What do you need to give form?"}</h1><p>{ar?"اكتب لي الهدف والجمهور بالبريد أو واتساب. وإذا احتجت تنظيم الفكرة، جهّز موجزاً قصيراً أدناه.":"Tell me the goal and audience by email or WhatsApp. If you need help shaping the idea, prepare a short brief below."}</p></header><section class="section chapter"><InquiryForm lang={lang}/></section>
 </BaseLayout>
-

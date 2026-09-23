@@ -3,7 +3,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { projects } from "../data/portfolio";
 import { routeFor, type Locale } from "../data/locale";
 import { withBase } from "../utils/withBase";
-import "../styles/studio.css";
 
 const { lang = "en" } = Astro.props as { lang?: Locale };
 const ar = lang === "ar";
@@ -12,6 +11,7 @@ const film = bySlug("here-was-canaan");
 const learning = bySlug("ai-verification-lab");
 const digital = bySlug("museum-of-echoes");
 const literary = bySlug("literary-reimaginings");
+const additionalFeatures = ["ai-media-diploma", "athar", "nakba-atlas", "signal-workflow", "birzeit-ai-ad-lab"].map(bySlug);
 const caseUrl = (slug: string) => withBase(`${ar ? "/ar" : ""}/work/${slug}/`);
 const t = ar ? {
   title: "تامر منصور | استوديو للسرد والتعلّم والتجارب الرقمية",
@@ -21,14 +21,14 @@ const t = ar ? {
   intro: "أحوّل الأفكار إلى أفلام وتجارب تعلّم وأماكن رقمية وأنظمة عمل. تبدأ كل تجربة بسؤال واضح، وتنتهي بشيء يمكن رؤيته أو استخدامه.",
   explore: "استكشف الأعمال", contact: "تواصل معي", scroll: "اكتشف الممارسة", stageNote: "أعمال حقيقية من السرد والتعلّم والمنتجات الرقمية",
   filmLabel: "فيلم منشور · تخيّل فني", learningLabel: "مختبر تعلّم عام", digitalLabel: "منصة استماع عامة",
-  workEyebrow: "أعمال مختارة", workTitle: "أشكال مختلفة. عمل يمكن فحصه.", workIntro: "أفلام، أدوات تعلّم وتجارب رقمية منشورة؛ لكل عمل دور وحدود عرض واضحة.",
+  workEyebrow: "أعمال مختارة", workTitle: "أشكال مختلفة. عمل يمكن فحصه.", workIntro: "أفلام، أدوات تعلّم وتجارب رقمية وأنظمة عمل؛ لكل مشروع حالة تنفيذ وحدود عرض واضحة.",
   filmOpen: "دراسة الحالة", filmWatch: "شاهد الفيلم", open: "افتح المشروع", more: "تصفح كل الأعمال", posterLabel: "سلسلة بصرية منشورة",
   formsEyebrow: "من الفكرة إلى المخرج", formsTitle: "الشكل يتبع الغاية.", formsIntro: "أختار الشكل الذي يخدم القصة والجمهور: شاشة، جلسة، مكان رقمي، أو سير عمل. هذه صور رمزية مصنوعة خصيصًا للمحفظة؛ العمل الموثق يظهر في المشاريع المرتبطة.",
   seed: "البداية: سؤال أو فكرة", forms: [
     { title: "سرد بصري", note: "فيلم وصورة وصوت", object: "story", href: "/ar/work/#stories" },
     { title: "تعلّم عملي", note: "ورشة ومواد قابلة للاستخدام", object: "learning", href: "/ar/workshops/" },
     { title: "مكان رقمي", note: "أرشيف أو منصة ثنائية اللغة", object: "digital", href: "/ar/work/#products" },
-    { title: "نظام عمل", note: "وكلاء ضمن مراجعة بشرية", object: "agents", href: null }
+    { title: "نظام عمل", note: "وكلاء ضمن مراجعة بشرية", object: "agents", href: "/ar/systems/" }
   ],
   signalTag: "مثال توضيحي · نظام Signal الشخصي", signalTitle: "الوكيل يساعد. القرار يُراجع.", signalIntro: "هذا تبسيط لمسار عمل شخصي، وليس واجهة منتج منشور أو خدمة تعمل وحدها طوال الوقت.",
   signalSteps: [{ title: "المدخل", note: "هدف مشروع ومصادره" }, { title: "المعالجة", note: "بحث وصياغة بمساعدة وكيل" }, { title: "المراجعة", note: "قرار وتدقيق بشري" }, { title: "المخرج", note: "مادة قابلة للاستخدام" }],
@@ -41,14 +41,14 @@ const t = ar ? {
   intro: "I shape ideas into films, learning experiences, digital places and working systems. Each begins with a clear question and ends with something people can see or use.",
   explore: "Explore the work", contact: "Get in touch", scroll: "Explore the practice", stageNote: "Real work across storytelling, learning and digital products",
   filmLabel: "Released film · artistic interpretation", learningLabel: "Public learning lab", digitalLabel: "Public listening platform",
-  workEyebrow: "Selected work", workTitle: "Different forms. Work you can inspect.", workIntro: "Released films, learning tools and digital experiences, each with a clear role and public boundary.",
+  workEyebrow: "Selected work", workTitle: "Different forms. Work you can inspect.", workIntro: "Films, learning tools, digital places and working systems, each with a clear status and public boundary.",
   filmOpen: "Case study", filmWatch: "Watch the film", open: "Open the project", more: "Browse all work", posterLabel: "Published visual series",
   formsEyebrow: "From idea to output", formsTitle: "Choose the form that fits.", formsIntro: "The form follows the story and audience: screen, session, digital place or workflow. These custom objects are symbolic; the linked projects carry the evidence.",
   seed: "It starts with a question", forms: [
     { title: "Visual story", note: "Film, image and sound", object: "story", href: "/work/#stories" },
     { title: "Practical learning", note: "Workshop and usable materials", object: "learning", href: "/workshops/" },
     { title: "Digital place", note: "Archive or bilingual platform", object: "digital", href: "/work/#products" },
-    { title: "Working system", note: "Agents with human review", object: "agents", href: null }
+    { title: "Working system", note: "Agents with human review", object: "agents", href: "/systems/" }
   ],
   signalTag: "Illustrative example · personal Signal workflow", signalTitle: "The agent helps. A person decides.", signalIntro: "A simplified personal workflow, not a screenshot of a released product or an unattended service.",
   signalSteps: [{ title: "Input", note: "Project goal and sources" }, { title: "Process", note: "Agent-assisted research and draft" }, { title: "Review", note: "Human judgment and checks" }, { title: "Output", note: "Usable material" }],
@@ -78,10 +78,8 @@ const t = ar ? {
   <section id="selected-work" class="studio-work chapter" aria-labelledby="studio-work-title">
     <header class="studio-section-head" data-reveal><p class="studio-kicker">{t.workEyebrow}</p><h2 id="studio-work-title">{t.workTitle}</h2><p>{t.workIntro}</p></header>
     <div class="studio-work__grid">
-      <article class="studio-work__feature" data-reveal><a class="studio-work__feature-media" href={caseUrl(film.slug)}><img src={withBase(film.media)} alt={film.mediaAlt[lang]} width="1280" height="720" loading="lazy" decoding="async" /></a><div class="studio-work__feature-info"><div><p class="studio-kicker">{t.filmLabel}</p><h3><a href={caseUrl(film.slug)}>{film.title[lang]}</a></h3><p>{film.summary[lang]}</p></div><div class="studio-work__feature-links"><a href={caseUrl(film.slug)}>{t.filmOpen} ↗</a><a href={ar ? "https://youtu.be/jV699yrESYw" : "https://youtu.be/ASw6DRV1OHg"} target="_blank" rel="noopener noreferrer">{t.filmWatch} ↗</a></div></div></article>
-      <article class="studio-work__tile studio-work__tile--learning" data-reveal><a href={caseUrl(learning.slug)} class="studio-work__tile-media"><img src={withBase(learning.media)} alt={learning.mediaAlt[lang]} width="1200" height="675" loading="lazy" decoding="async" /></a><p class="studio-kicker">{t.learningLabel}</p><h3><a href={caseUrl(learning.slug)}>{learning.title[lang]}</a></h3><p>{learning.summary[lang]}</p><a class="studio-text-link" href={caseUrl(learning.slug)}>{t.open} ↗</a></article>
-      <article class="studio-work__tile studio-work__tile--digital" data-reveal><a href={caseUrl(digital.slug)} class="studio-work__tile-media"><img src={withBase(digital.media)} alt={digital.mediaAlt[lang]} width="1200" height="675" loading="lazy" decoding="async" /></a><p class="studio-kicker">{t.digitalLabel}</p><h3><a href={caseUrl(digital.slug)}>{digital.title[lang]}</a></h3><p>{digital.summary[lang]}</p><a class="studio-text-link" href={caseUrl(digital.slug)}>{t.open} ↗</a></article>
-      <article class="studio-work__tile studio-work__tile--poster" data-reveal><a href={caseUrl(literary.slug)} class="studio-work__tile-media"><img src={withBase(literary.media)} alt={literary.mediaAlt[lang]} width="900" height="1200" loading="lazy" decoding="async" /></a><div><p class="studio-kicker">{t.posterLabel}</p><h3><a href={caseUrl(literary.slug)}>{literary.title[lang]}</a></h3><a class="studio-text-link" href={caseUrl(literary.slug)}>{t.open} ↗</a></div></article>
+      <article class="studio-work__feature" data-reveal><a class="studio-work__feature-media" href={caseUrl(film.slug)}><img src={withBase(film.media)} alt={film.mediaAlt[lang]} width="1280" height="720" loading="lazy" decoding="async" /></a><div class="studio-work__feature-info"><div><p class="studio-kicker">{t.filmLabel}</p><h3><a href={caseUrl(film.slug)}>{film.title[lang]}</a></h3><p>{film.summary[lang]}</p></div><div class="studio-work__feature-links"><a href={caseUrl(film.slug)}>{t.filmOpen} ↗</a><a data-analytics="watch" href={ar ? "https://youtu.be/jV699yrESYw" : "https://youtu.be/ASw6DRV1OHg"} target="_blank" rel="noopener noreferrer">{t.filmWatch} ↗</a></div></div></article>
+      <div class="studio-work__more-grid">{additionalFeatures.map((item) => <article class="studio-work__small" data-reveal><a href={caseUrl(item.slug)}><img src={withBase(item.media)} alt={item.mediaAlt[lang]} width="900" height="600" loading="lazy" decoding="async" /></a><p class="studio-kicker">{item.status[lang]}</p><h3><a href={caseUrl(item.slug)}>{item.title[lang]}</a></h3><p>{item.summary[lang]}</p>{item.mediaKind === "illustration" && <small>{ar ? "صورة توضيحية" : "Illustrative image"}</small>}</article>)}</div>
     </div>
     <a class="studio-button studio-button--outline studio-work__more" href={withBase(routeFor("work", lang))}>{t.more}<span aria-hidden="true">↗</span></a>
   </section>

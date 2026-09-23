@@ -1,11 +1,14 @@
 import { z } from "astro/zod";
+import { selectedProjects } from "./selectedProjects";
 
 const copy = z.object({ en: z.string().min(1), ar: z.string().min(1) });
 const projectSchema = z.object({
+  id: z.string().optional(),
   slug: z.string().regex(/^[a-z0-9-]+$/),
   title: copy,
   summary: copy,
-  lane: z.enum(["stories", "learning", "products"]),
+  lane: z.enum(["stories", "learning", "products", "systems"]),
+  maturity: z.enum(["released", "delivered", "prototype", "development", "research"]).default("released"),
   status: copy,
   date: copy,
   audience: copy,
@@ -16,6 +19,8 @@ const projectSchema = z.object({
   outcome: copy,
   evidence: copy,
   media: z.string(),
+  mediaKind: z.enum(["project", "illustration"]).default("project"),
+  mediaFit: z.enum(["cover", "contain"]).default("contain"),
   mediaAlt: copy,
   languages: copy,
   privacy: copy,
@@ -93,7 +98,8 @@ export const projects = z.array(projectSchema).parse([
   {
     slug: "knowledge-products", title: { en: "Knowledge Products", ar: "منتجات المعرفة" }, summary: { en: "Dense source material rebuilt as visual briefings, teaching decks, worksheets, and marketplace-ready learning products.", ar: "مواد كثيفة يعاد بناؤها كإحاطات بصرية وعروض تعليمية وأوراق عمل ومنتجات جاهزة للسوق." },
     lane: "products", status: { en: "Published product lane", ar: "مسار منتجات منشور" }, date: { en: "Ongoing", ar: "مستمر" }, audience: { en: "Educators, facilitators, learners, and teams", ar: "المعلمون والميسّرون والمتعلمون والفرق" }, role: { en: "Knowledge design, visual structure, packaging, and production systems", ar: "تصميم المعرفة والبنية البصرية والتغليف وأنظمة الإنتاج" }, challenge: { en: "Complex material needed to become teachable and usable without losing its core argument.", ar: "كان المطلوب جعل المواد المعقدة قابلة للتعليم والاستخدام دون فقدان حجتها الأساسية." }, process: [{ en: "Mapped source logic before choosing visual format.", ar: "رسم منطق المصدر قبل اختيار الشكل البصري." }, { en: "Built repeatable structures for decks, worksheets, checks, and product packaging.", ar: "بناء هياكل متكررة للعروض والأوراق والتقييم والتغليف." }], deliverables: [{ en: "Book-to-deck systems and teacher-ready product packs", ar: "أنظمة تحويل الكتب إلى عروض وحزم جاهزة للمعلمين" }], outcome: { en: "Public previews show how research becomes a finished learning product.", ar: "توضح المعاينات العامة كيف يتحول البحث إلى منتج تعلم مكتمل." }, evidence: { en: "Published portfolio previews and a public TPT storefront are available.", ar: "تتوفر معاينات منشورة ومتجر عام على TPT." }, media: "/media/optimized/knowledge-products.webp", mediaAlt: { en: "Book-to-deck visual reconstruction preview", ar: "معاينة إعادة بناء كتاب كعرض بصري" }, languages: { en: "Arabic and English depending on product", ar: "العربية أو الإنجليزية بحسب المنتج" }, privacy: { en: "Only public previews and non-sensitive product context are shown.", ar: "تُعرض المعاينات العامة والسياق غير الحساس فقط." }, relatedService: "product", publicUrl: "https://www.teacherspayteachers.com/store/primary-learning-visualised", featured: false
-  }
+  },
+  ...selectedProjects
 ]);
 
 export const projectBySlug = (slug: string) => projects.find((project) => project.slug === slug);
@@ -102,7 +108,8 @@ export const featuredProjects = projects.filter((project) => project.featured);
 export const laneLabels = {
   stories: { en: "Stories & Media", ar: "القصص والإعلام" },
   learning: { en: "Learning & Workshops", ar: "التعلم والورشات" },
-  products: { en: "Products & Platforms", ar: "المنتجات والمنصات" }
+  products: { en: "Products & Platforms", ar: "المنتجات والمنصات" },
+  systems: { en: "Agents & Systems", ar: "الوكلاء والأنظمة" }
 } as const;
 
 export const labItems = [
