@@ -21,10 +21,11 @@ const projectSchema = z.object({
   media: z.string(),
   mediaKind: z.enum(["project", "illustration"]).default("project"),
   mediaFit: z.enum(["cover", "contain"]).default("contain"),
+  mediaShape: z.enum(["landscape", "portrait"]).default("landscape"),
   mediaAlt: copy,
   languages: copy,
   privacy: copy,
-  relatedService: z.enum(["story", "workshop", "product"]),
+  relatedService: z.enum(["story", "workshop", "product", "system"]),
   publicUrl: z.string().url().optional(),
   featured: z.boolean()
 });

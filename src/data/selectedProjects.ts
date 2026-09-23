@@ -47,7 +47,7 @@ export const selectedProjects = [
     deliverables: [c("Published Instagram reel and cultural posts", "ريل ومنشورات ثقافية منشورة")],
     outcome: c("A public reel and posts can be inspected; no reach or revenue claim is made.", "يمكن معاينة ريل ومنشورات عامة؛ دون ادعاء وصول أو إيراد."),
     evidence: c("Frame from a published public Instagram reel.", "إطار من ريل منشور على إنستغرام."),
-    media: "/media/selected/athar.webp", mediaAlt: c("Arabic visual story card from a published Athar reel", "بطاقة قصة بصرية عربية من ريل أثر المنشور"), mediaKind: "project", mediaFit: "contain",
+    media: "/media/selected/athar.webp", mediaAlt: c("Arabic visual story card from a published Athar reel", "بطاقة قصة بصرية عربية من ريل أثر المنشور"), mediaKind: "project", mediaFit: "contain", mediaShape: "portrait",
     languages: c("Arabic", "العربية"), privacy: c("Only public social material is shown.", "تُعرض مادة اجتماعية منشورة للعامة فقط."),
     relatedService: "story", publicUrl: "https://www.instagram.com/athar.wama.baadahu/reel/DdRe3nGi0As/"
   },
@@ -145,7 +145,7 @@ export const selectedProjects = [
     evidence: c("Illustrative workflow object; no patient or client interface is shown.", "مجسم توضيحي لسير العمل؛ لا تُعرض واجهة مريض أو عميل."),
     media: "/media/studio/agents.webp", mediaAlt: c("Illustrative modular workflow object", "مجسم توضيحي لسير عمل معياري"), mediaKind: "illustration", mediaFit: "contain",
     languages: c("Arabic and English demonstrations", "عروض بالعربية والإنجليزية"), privacy: c("No patient, clinic or client data, efficacy claim or private demo access is shown.", "لا تُعرض بيانات مرضى أو عيادات أو عملاء، ولا ادعاء فعالية أو رابط عرض خاص."),
-    relatedService: "product"
+    relatedService: "system"
   },
   {
     id: "A03", slug: "signal-workflow", lane: "systems", maturity: "delivered", featured: true,
@@ -161,7 +161,7 @@ export const selectedProjects = [
     evidence: c("Illustrative workflow object; the four-step example is simplified, not a product screenshot.", "مجسم توضيحي لسير العمل؛ المثال الرباعي مبسط وليس لقطة منتج."),
     media: "/media/studio/agents.webp", mediaAlt: c("Illustrative human-reviewed workflow modules", "وحدات توضيحية لسير عمل بمراجعة بشرية"), mediaKind: "illustration", mediaFit: "contain",
     languages: c("Arabic and English task context", "سياق مهام عربي وإنجليزي"), privacy: c("Internal paths, account data and private project plans are omitted.", "المسارات الداخلية وبيانات الحسابات وخطط المشاريع الخاصة غير معروضة."),
-    relatedService: "product"
+    relatedService: "system"
   },
   {
     id: "A04", slug: "agent-foundry", lane: "systems", maturity: "prototype", featured: false,
@@ -177,6 +177,6 @@ export const selectedProjects = [
     evidence: c("Illustrative object; no client work or private package is displayed.", "مجسم توضيحي؛ لا يُعرض عمل عميل أو حزمة خاصة."),
     media: "/media/studio/agents.webp", mediaAlt: c("Illustrative connected agent modules", "وحدات وكلاء متصلة على سبيل التوضيح"), mediaKind: "illustration", mediaFit: "contain",
     languages: c("Arabic and English testing context", "سياق اختبار عربي وإنجليزي"), privacy: c("No participant acceptance, private source or revenue claim is included.", "لا يُعرض قبول مشارك أو مصدر خاص أو ادعاء إيراد."),
-    relatedService: "product"
+    relatedService: "system"
   }
 ];

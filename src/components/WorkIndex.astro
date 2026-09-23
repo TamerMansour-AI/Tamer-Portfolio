@@ -26,9 +26,13 @@ if (browser instanceof HTMLElement) {
   const groups = [...browser.querySelectorAll<HTMLElement>('[data-work-group]')];
   const count = browser.querySelector('[data-work-count]');
   const empty = browser.querySelector('[data-work-empty]');
-  const initial = new URLSearchParams(location.search);
-  let lane = buttons.some(button => button.dataset.lane === initial.get('lane')) ? initial.get('lane') || 'all' : 'all';
-  if (search instanceof HTMLInputElement) search.value = (initial.get('q') || '').slice(0, 100);
+  const validLane = (value: string | null) => buttons.some(button => button.dataset.lane === value) ? value || 'all' : 'all';
+  const laneFromUrl = () => {
+    const params = new URLSearchParams(location.search);
+    return validLane(params.get('lane') || location.hash.slice(1));
+  };
+  let lane = laneFromUrl();
+  if (search instanceof HTMLInputElement) search.value = (new URLSearchParams(location.search).get('q') || '').slice(0, 100);
   const update = () => {
     const query = search instanceof HTMLInputElement ? search.value.trim().toLocaleLowerCase() : '';
     let total = 0;
@@ -47,9 +51,24 @@ if (browser instanceof HTMLElement) {
     if (empty instanceof HTMLElement) empty.hidden = total > 0;
     for (const button of buttons) { const active = button.dataset.lane === lane; button.classList.toggle('is-active', active); button.setAttribute('aria-pressed', String(active)); }
   };
-  const change = () => { update(); const url = new URL(location.href); if (lane === 'all') url.searchParams.delete('lane'); else url.searchParams.set('lane', lane); const q = search instanceof HTMLInputElement ? search.value.trim() : ''; if (q) url.searchParams.set('q', q); else url.searchParams.delete('q'); history.replaceState(null, '', url); };
-  search?.addEventListener('input', change);
-  for (const button of buttons) button.addEventListener('click', () => { lane = button.dataset.lane || 'all'; change(); });
+  const change = (push = false) => {
+    update();
+    const url = new URL(location.href);
+    if (lane === 'all') { url.searchParams.delete('lane'); url.hash = ''; }
+    else { url.searchParams.set('lane', lane); url.hash = lane; }
+    const q = search instanceof HTMLInputElement ? search.value.trim() : '';
+    if (q) url.searchParams.set('q', q); else url.searchParams.delete('q');
+    history[push ? 'pushState' : 'replaceState'](null, '', url);
+  };
+  search?.addEventListener('input', () => change());
+  for (const button of buttons) button.addEventListener('click', () => { lane = button.dataset.lane || 'all'; change(true); });
+  const restore = () => {
+    lane = laneFromUrl();
+    if (search instanceof HTMLInputElement) search.value = (new URLSearchParams(location.search).get('q') || '').slice(0, 100);
+    update();
+  };
+  window.addEventListener('popstate', restore);
+  window.addEventListener('hashchange', restore);
   update();
 }
 </script>

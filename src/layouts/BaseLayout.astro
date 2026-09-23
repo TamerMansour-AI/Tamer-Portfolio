@@ -6,6 +6,7 @@ import AnalyticsConsent from "../components/AnalyticsConsent.astro";
 import "../styles/global.css";
 import "../styles/studio.css";
 import "../styles/studio-pages.css";
+import "../styles/spatial.css";
 
 type Props = {
   title: string;
@@ -17,7 +18,7 @@ type Props = {
   pageType?: string;
   schema?: Record<string, unknown> | Array<Record<string, unknown>>;
   pageHeading?: string | false;
-  variant?: "studio";
+  variant?: "studio" | "spatial";
 };
 
 const {
@@ -41,7 +42,7 @@ const {
     <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} type="image/svg+xml" />
     <HeadMeta title={title} description={description} path={path} lang={lang} image={image} pageType={pageType} schema={schema} />
   </head>
-  <body class:list={[{ "studio-theme": variant === "studio" }]}>
+  <body class:list={[{ "studio-theme": true, "spatial-theme": variant === "spatial" }]}>
     <a href="#main-content" class="skip-link">{lang === "ar" ? "انتقل إلى المحتوى الرئيسي" : "Skip to main content"}</a>
     <Nav lang={lang} />
     <AnalyticsConsent lang={lang} />

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SpatialHomeHero from "./SpatialHomeHero.astro";
 import { projects } from "../data/portfolio";
 import { routeFor, type Locale } from "../data/locale";
 import { withBase } from "../utils/withBase";
@@ -55,25 +56,8 @@ const t = ar ? {
   endTitle: "Have a project that needs a new form?", endCopy: "Share the goal and audience briefly, and we can identify a practical first step.", ways: "Ways to work", start: "Start a conversation", identity: "Watch the identity film"
 };
 ---
-<BaseLayout title={t.title} description={t.description} path={routeFor("home", lang)} lang={lang} dir={ar ? "rtl" : "ltr"} image="/media/optimized/here-was-canaan-cover.jpg" pageType="ProfilePage" variant="studio">
-  <section class="studio-hero" aria-labelledby="studio-hero-title">
-    <div class="chapter studio-hero__mast">
-      <p class="studio-kicker">{t.eyebrow}</p>
-      <div class="studio-hero__statement">
-        <h1 id="studio-hero-title"><span>{t.headline1}</span><br /><span class="studio-hero__accent">{t.headline2}</span></h1>
-        <div class="studio-hero__aside"><p>{t.intro}</p><div class="studio-actions"><a class="studio-button studio-button--blue" href={withBase(routeFor("work", lang))}>{t.explore}<span aria-hidden="true">↗</span></a><a class="studio-button studio-button--outline" href={withBase(routeFor("contact", lang))}>{t.contact}</a></div></div>
-      </div>
-    </div>
-    <div class="chapter"><div class="studio-stage" aria-label={t.stageNote}>
-      <span class="studio-stage__grid" aria-hidden="true"></span>
-      <a class="studio-fragment studio-fragment--film" href={caseUrl(film.slug)}><img src={withBase(film.media)} alt={film.mediaAlt[lang]} width="1280" height="720" fetchpriority="high" /><span><small>{t.filmLabel}</small><strong>{film.title[lang]}</strong></span></a>
-      <a class="studio-fragment studio-fragment--learning" href={caseUrl(learning.slug)}><img src={withBase(learning.media)} alt={learning.mediaAlt[lang]} width="1200" height="675" /><span><small>{t.learningLabel}</small><strong>{learning.title[lang]}</strong></span></a>
-      <a class="studio-fragment studio-fragment--digital" href={caseUrl(digital.slug)}><img src={withBase(digital.media)} alt={digital.mediaAlt[lang]} width="1200" height="675" /><span><small>{t.digitalLabel}</small><strong>{digital.title[lang]}</strong></span></a>
-      <img class="studio-stage__object studio-stage__object--story" src={withBase("/media/studio/story.webp")} alt="" width="1050" height="875" />
-      <img class="studio-stage__object studio-stage__object--digital" src={withBase("/media/studio/digital.webp")} alt="" width="1050" height="875" />
-      <span class="studio-stage__caption" aria-hidden="true">TM / 2026</span>
-    </div><div class="studio-stage__footer"><span>{t.stageNote}</span><a href="#selected-work">{t.scroll} ↓</a></div></div>
-  </section>
+<BaseLayout title={t.title} description={t.description} path={routeFor("home", lang)} lang={lang} dir={ar ? "rtl" : "ltr"} image="/media/optimized/here-was-canaan-cover.jpg" pageType="ProfilePage" variant="spatial">
+  <SpatialHomeHero lang={lang} />
 
   <section id="selected-work" class="studio-work chapter" aria-labelledby="studio-work-title">
     <header class="studio-section-head" data-reveal><p class="studio-kicker">{t.workEyebrow}</p><h2 id="studio-work-title">{t.workTitle}</h2><p>{t.workIntro}</p></header>

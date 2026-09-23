@@ -1,0 +1,58 @@
+---
+import type { Locale } from "../data/locale";
+import { withBase } from "../utils/withBase";
+const { lang = "en" } = Astro.props as { lang?: Locale };
+const ar = lang === "ar";
+---
+<section class="canaan-transformation" data-canaan-transformation aria-labelledby="canaan-transformation-title">
+  <div class="canaan-transformation__inner">
+    <div class="canaan-transformation__copy">
+      <p class="canaan-transformation__eyebrow">{ar ? "داخل العالم البصري" : "Inside the visual world"}</p>
+      <h2 id="canaan-transformation-title">{ar ? <>خيال يُرى.<br /><em>ولقطة منشورة.</em></> : <>A world imagined.<br /><em>A film frame released.</em></>}</h2>
+      <p>{ar ? "حرّك الفاصل لتقارن بين تصور توضيحي أُنتج لهذه المحفظة ولقطة أصلية من الفيلم. الرسم ليس وثيقة من مراحل إنتاج الفيلم." : "Move the divider to compare an illustrative treatment created for this portfolio with an original frame from the released film. The sketch does not document the film's production process."}</p>
+      <a class="canaan-transformation__watch" href={ar ? "https://youtu.be/jV699yrESYw" : "https://youtu.be/ASw6DRV1OHg"} target="_blank" rel="noopener noreferrer" data-analytics="watch">{ar ? "شاهد الفيلم" : "Watch the film"} <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="canaan-transformation__visual">
+      <div class="canaan-transformation__aperture" style="--reveal:50%" data-canaan-aperture>
+        <img class="canaan-transformation__sketch" src={withBase("/media/spatial/canaan-sketch-demo-v1.webp")} alt={ar ? "تصور توضيحي مولّد بأسلوب الرسم بالقلم لمشهد السوق" : "Generated illustrative pencil treatment of the market scene"} width="1672" height="941" loading="lazy" decoding="async" />
+        <img class="canaan-transformation__final" src={withBase("/media/optimized/here-was-canaan-cover.jpg")} alt={ar ? "لقطة أصلية منشورة من فيلم هنا كانت كنعان" : "Original released frame from Here Was Canaan"} width="1280" height="720" loading="lazy" decoding="async" />
+        <span class="canaan-transformation__label canaan-transformation__label--sketch">{ar ? "تصور توضيحي" : "Illustrative treatment"}</span>
+        <span class="canaan-transformation__label canaan-transformation__label--final">{ar ? "لقطة الفيلم" : "Film frame"}</span>
+        <span class="canaan-transformation__divider" aria-hidden="true"><span>‹ ›</span></span>
+      </div>
+      <label class="canaan-transformation__range-label" for="canaan-reveal">{ar ? "نسبة ظهور لقطة الفيلم" : "Film frame reveal"}</label>
+      <input id="canaan-reveal" type="range" min="0" max="100" value="50" step="1" data-canaan-range aria-controls="canaan-comparison-status" />
+      <p id="canaan-comparison-status" class="sr-only" role="status" data-canaan-status>{ar ? "مقارنة: نصف تصور توضيحي ونصف لقطة الفيلم" : "Comparison: half illustrative treatment, half film frame"}</p>
+      <div class="canaan-transformation__modes" role="group" aria-label={ar ? "طريقة المقارنة" : "Comparison view"}>
+        <button type="button" data-canaan-mode="0" aria-pressed="false">{ar ? "التصور" : "Illustration"}</button>
+        <button type="button" data-canaan-mode="50" aria-pressed="true">{ar ? "المقارنة" : "Compare"}</button>
+        <button type="button" data-canaan-mode="100" aria-pressed="false">{ar ? "لقطة الفيلم" : "Film frame"}</button>
+      </div>
+      <p class="canaan-transformation__source">{ar ? "الرسم توضيحي مولّد للمقارنة، وليس رسماً أصلياً من إنتاج الفيلم. الجانب الملوّن لقطة من الفيلم المنشور." : "The sketch is a generated illustration for comparison, not an original production drawing. The color image is from the released film."}</p>
+    </div>
+  </div>
+</section>
+<script>
+  const transformation = document.querySelector<HTMLElement>('[data-canaan-transformation]');
+  if (transformation) {
+    const aperture = transformation.querySelector<HTMLElement>('[data-canaan-aperture]');
+    const range = transformation.querySelector<HTMLInputElement>('[data-canaan-range]');
+    const status = transformation.querySelector<HTMLElement>('[data-canaan-status]');
+    const modes = [...transformation.querySelectorAll<HTMLButtonElement>('[data-canaan-mode]')];
+    const update = (value: number) => {
+      const amount = Math.max(0, Math.min(100, value));
+      aperture?.style.setProperty('--reveal', `${100 - amount}%`);
+      if (range) range.value = String(amount);
+      if (status) status.textContent = amount === 0 ? (document.documentElement.lang === 'ar' ? 'التصور التوضيحي ظاهر' : 'Illustrative treatment visible') : amount === 100 ? (document.documentElement.lang === 'ar' ? 'لقطة الفيلم ظاهرة' : 'Film frame visible') : (document.documentElement.lang === 'ar' ? `لقطة الفيلم ظاهرة بنسبة ${amount}٪` : `Film frame ${amount}% visible`);
+      for (const button of modes) button.setAttribute('aria-pressed', String(Number(button.dataset.canaanMode) === amount));
+    };
+    range?.addEventListener('input', () => update(Number(range.value)));
+    for (const button of modes) button.addEventListener('click', () => update(Number(button.dataset.canaanMode)));
+    let dragging = false;
+    const moveAt = (event: PointerEvent) => { if (!aperture) return; const rect = aperture.getBoundingClientRect(); update(100 - Math.round((event.clientX - rect.left) / rect.width * 100)); };
+    aperture?.addEventListener('pointerdown', event => { dragging = true; aperture.setPointerCapture(event.pointerId); moveAt(event); });
+    aperture?.addEventListener('pointermove', event => { if (dragging) moveAt(event); });
+    aperture?.addEventListener('pointerup', () => { dragging = false; });
+    aperture?.addEventListener('pointercancel', () => { dragging = false; });
+  }
+</script>

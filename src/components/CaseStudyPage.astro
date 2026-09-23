@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "./ProjectCard.astro";
+import CanaanTransformation from "./CanaanTransformation.astro";
 import { projects, laneLabels, type Project } from "../data/portfolio";
 import { caseArtifacts } from "../data/caseArtifacts";
 import type { Locale } from "../data/locale";
@@ -14,7 +15,7 @@ const artifacts = caseArtifacts[project.slug] ?? [];
 const isProofCase = project.slug === "here-was-canaan";
 ---
 <BaseLayout title={`${project.title[lang]} | Tamer Mansour`} description={project.summary[lang]} path={path} lang={lang} dir={isAr ? "rtl" : "ltr"} image={project.mediaKind === "illustration" ? undefined : project.media} pageType="Article">
-  <article class="case-study case-study--studio">
+  <article class:list={["case-study", "case-study--studio", `case-study--${project.mediaShape}`]}>
     <header class="case-hero chapter">
       <div class="case-hero__copy">
         <p class="eyebrow">{laneLabels[project.lane][lang]} / {project.status[lang]}</p>
@@ -24,6 +25,7 @@ const isProofCase = project.slug === "here-was-canaan";
       </div>
       <figure class:list={["case-hero__media", { "case-hero__media--contain": project.mediaFit === "contain" }]}><img src={withBase(project.media)} alt={project.mediaAlt[lang]} width="1400" height="900" />{isProofCase && <img class="case-hero__object" src={withBase("/media/studio/story.webp")} alt="" width="1050" height="875" />}<figcaption>{project.mediaKind === "illustration" ? (isAr ? "صورة توضيحية للممارسة · ليست لقطة من المشروع. " : "Illustration of the practice · not a project screenshot. ") : ""}{project.evidence[lang]}</figcaption></figure>
     </header>
+    {isProofCase && <CanaanTransformation lang={lang} />}
     <section class="case-meta chapter" aria-label={isAr ? "تفاصيل المشروع" : "Project facts"}>
       <dl>
         <div><dt>{isAr ? "التاريخ" : "Date"}</dt><dd>{project.date[lang]}</dd></div>

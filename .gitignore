@@ -16,6 +16,10 @@ buildcheck/
 backup*/
 workrepo/
 
+# Browser capture working files (review WebP exports remain versioned)
+.playwright-cli/
+output/playwright/*.png
+
 
 # local backups
 _backup_before_workfix_*/
