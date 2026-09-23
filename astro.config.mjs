@@ -6,5 +6,6 @@ export default defineConfig({
   site: "https://tamermansour-ai.github.io",
   base: "/Tamer-Portfolio/",
   outDir: "dist",
+  devToolbar: { enabled: false },
   integrations: [tailwind(), sitemap()]
 });

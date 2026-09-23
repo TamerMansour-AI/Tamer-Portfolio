@@ -6,7 +6,7 @@ import { caseArtifacts } from "../data/caseArtifacts";
 import type { Locale } from "../data/locale";
 import { routeFor } from "../data/locale";
 import { withBase } from "../utils/withBase";
-import "../styles/editorial-proof.css";
+import "../styles/studio.css";
 const { project, lang = "en" } = Astro.props as { project: Project; lang?: Locale };
 const isAr = lang === "ar";
 const path = `${isAr ? "/ar" : ""}/work/${project.slug}/`;
@@ -14,8 +14,8 @@ const related = projects.filter((item) => item.slug !== project.slug && item.lan
 const artifacts = caseArtifacts[project.slug] ?? [];
 const isProofCase = project.slug === "here-was-canaan";
 ---
-<BaseLayout title={`${project.title[lang]} | Tamer Mansour`} description={project.summary[lang]} path={path} lang={lang} dir={isAr ? "rtl" : "ltr"} image={project.media} pageType="Article">
-  <article class:list={["case-study", { "case-study--editorial": isProofCase }]}>
+<BaseLayout title={`${project.title[lang]} | Tamer Mansour`} description={project.summary[lang]} path={path} lang={lang} dir={isAr ? "rtl" : "ltr"} image={project.media} pageType="Article" variant={isProofCase ? "studio" : undefined}>
+  <article class:list={["case-study", { "case-study--studio": isProofCase }]}>
     <header class="case-hero chapter">
       <div class="case-hero__copy">
         <p class="eyebrow">{laneLabels[project.lane][lang]} / {project.status[lang]}</p>
@@ -23,7 +23,7 @@ const isProofCase = project.slug === "here-was-canaan";
         <p class="lede">{project.summary[lang]}</p>
         {isProofCase && <div class="hero-actions"><a class="button" href={isAr ? "https://youtu.be/jV699yrESYw" : "https://youtu.be/ASw6DRV1OHg"} target="_blank" rel="noopener noreferrer">{isAr ? "شاهد الفيلم" : "Watch the film"} ↗</a><a class="button button--ghost" href={withBase(routeFor("contact", lang))}>{isAr ? "تواصل معي" : "Get in touch"}</a></div>}
       </div>
-      <figure class="case-hero__media"><img src={withBase(project.media)} alt={project.mediaAlt[lang]} width="1400" height="900" /><figcaption>{project.evidence[lang]}</figcaption></figure>
+      <figure class="case-hero__media"><img src={withBase(project.media)} alt={project.mediaAlt[lang]} width="1400" height="900" />{isProofCase && <img class="case-hero__object" src={withBase("/media/studio/story.webp")} alt="" width="1050" height="875" />}<figcaption>{project.evidence[lang]}</figcaption></figure>
     </header>
     <section class="case-meta chapter" aria-label={isAr ? "تفاصيل المشروع" : "Project facts"}>
       <dl>
