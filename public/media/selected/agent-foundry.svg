@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Illustrative Agent Foundry skill-pack map">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#2b1d34"/><stop offset="1" stop-color="#5f3a58"/></linearGradient></defs>
+<rect width="1200" height="750" fill="url(#bg)"/>
+<text x="84" y="110" fill="#f1bfdc" font-family="sans-serif" font-size="27" letter-spacing="6">AGENT FOUNDRY / SYNTHETIC MAP</text>
+<g fill="#392944" stroke="#daa5c8" stroke-width="2"><rect x="80" y="255" width="190" height="165" rx="18"/><rect x="293" y="255" width="190" height="165" rx="18"/><rect x="506" y="255" width="190" height="165" rx="18"/><rect x="719" y="255" width="190" height="165" rx="18"/><rect x="932" y="255" width="190" height="165" rx="18"/></g>
+<g fill="#fff3f8" font-family="sans-serif" font-size="25" font-weight="700" text-anchor="middle"><text x="175" y="349">PLAN</text><text x="388" y="349">WRITE</text><text x="601" y="349">DESIGN</text><text x="814" y="349">CHECK</text><text x="1027" y="349">DELIVER</text></g>
+<path d="M175 495h852" stroke="#e8a8ce" stroke-width="4"/><g fill="#e8a8ce"><circle cx="175" cy="495" r="10"/><circle cx="388" cy="495" r="10"/><circle cx="601" cy="495" r="10"/><circle cx="814" cy="495" r="10"/><circle cx="1027" cy="495" r="10"/></g>
+<text x="83" y="645" fill="#f4d2e6" font-family="sans-serif" font-size="24">Local beta 0.3 · illustrative structure, not client output</text>
+</svg>

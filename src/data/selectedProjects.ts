@@ -142,10 +142,10 @@ export const selectedProjects = [
     process: [c("Designed bounded knowledge and handoff paths for demonstration scenarios.", "تصميم معرفة محددة ومسارات إحالة لسيناريوهات العرض."), c("Separated customer, staff and owner views in controlled tests.", "فصل واجهات العميل والموظف والمالك في اختبارات مضبوطة.")],
     deliverables: [c("Synthetic demonstration flows across four care-service categories", "مسارات عرض ببيانات تركيبية عبر أربع فئات لخدمات الرعاية")],
     outcome: c("Demonstrations and local tests exist; this is not evidence of four live clients or clinical outcomes.", "توجد عروض واختبارات محلية؛ ولا تعني أربعة عملاء فعليين أو نتائج علاجية."),
-    evidence: c("Illustrative workflow object; no patient or client interface is shown.", "مجسم توضيحي لسير العمل؛ لا تُعرض واجهة مريض أو عميل."),
-    media: "/media/studio/agents.webp", mediaAlt: c("Illustrative modular workflow object", "مجسم توضيحي لسير عمل معياري"), mediaKind: "illustration", mediaFit: "contain",
+    evidence: c("Screenshot of the public CareSignal landing page; assistant operation has not been tested here.", "لقطة من الصفحة العامة لـCareSignal؛ لم يُختبر تشغيل المساعد هنا."),
+    media: "/media/selected/caresignal-public.webp", mediaAlt: c("Actual public CareSignal landing page", "لقطة فعلية من صفحة CareSignal العامة"), mediaKind: "project", mediaFit: "contain",
     languages: c("Arabic and English demonstrations", "عروض بالعربية والإنجليزية"), privacy: c("No patient, clinic or client data, efficacy claim or private demo access is shown.", "لا تُعرض بيانات مرضى أو عيادات أو عملاء، ولا ادعاء فعالية أو رابط عرض خاص."),
-    relatedService: "system"
+    relatedService: "system", publicUrl: "https://signal-systems-care-preview.teamo-palestine.workers.dev/care/"
   },
   {
     id: "A03", slug: "signal-workflow", lane: "systems", maturity: "delivered", featured: true,
@@ -158,8 +158,8 @@ export const selectedProjects = [
     process: [c("Bring a goal and relevant sources into a bounded task.", "إدخال هدف ومصادره في مهمة محددة."), c("Use agent assistance to research and draft, then review decisions and output as a person.", "استخدام مساعدة الوكيل للبحث والصياغة، ثم مراجعة القرارات والمخرج بشرياً.")],
     deliverables: [c("Reusable instructions, project records and reviewed artifacts", "تعليمات قابلة لإعادة الاستخدام وسجلات مشاريع ومخرجات مراجعة")],
     outcome: c("Documented workflows and reviewed artifacts exist; a 24/7 portfolio manager is not claimed.", "توجد مسارات موثقة ومخرجات مراجعة؛ ولا يُدعى وجود مدير محفظة يعمل طوال الوقت."),
-    evidence: c("Illustrative workflow object; the four-step example is simplified, not a product screenshot.", "مجسم توضيحي لسير العمل؛ المثال الرباعي مبسط وليس لقطة منتج."),
-    media: "/media/studio/agents.webp", mediaAlt: c("Illustrative human-reviewed workflow modules", "وحدات توضيحية لسير عمل بمراجعة بشرية"), mediaKind: "illustration", mediaFit: "contain",
+    evidence: c("Illustrative four-step workflow, not a product screenshot or private output.", "رسم توضيحي لمسار من أربع خطوات؛ ليس لقطة منتج أو مخرجًا خاصًا."),
+    media: "/media/selected/signal-workflow.svg", mediaAlt: c("Illustrative goal, research, review and output workflow", "رسم توضيحي لمسار الهدف والبحث والمراجعة والمخرج"), mediaKind: "illustration", mediaFit: "contain",
     languages: c("Arabic and English task context", "سياق مهام عربي وإنجليزي"), privacy: c("Internal paths, account data and private project plans are omitted.", "المسارات الداخلية وبيانات الحسابات وخطط المشاريع الخاصة غير معروضة."),
     relatedService: "system"
   },
@@ -174,8 +174,8 @@ export const selectedProjects = [
     process: [c("Built a five-specialist beta with a simple front door and workspace setup.", "بناء نسخة بخمس مهارات ومدخل بسيط وإعداد مساحة عمل."), c("Ran local synthetic slide and document render checks.", "إجراء فحوص محلية لشرائح ومستندات ببيانات تركيبية.")],
     deliverables: [c("Local beta package and synthetic benchmark artifacts", "حزمة تجريبية محلية ومخرجات اختبار تركيبية")],
     outcome: c("Local checks passed after fixes; no device-side acceptance, paid pilot or revenue is claimed.", "اجتازت الفحوص المحلية بعد الإصلاح؛ ولا يُدعى قبول على جهاز آخر أو تجربة مدفوعة أو إيراد."),
-    evidence: c("Illustrative object; no client work or private package is displayed.", "مجسم توضيحي؛ لا يُعرض عمل عميل أو حزمة خاصة."),
-    media: "/media/studio/agents.webp", mediaAlt: c("Illustrative connected agent modules", "وحدات وكلاء متصلة على سبيل التوضيح"), mediaKind: "illustration", mediaFit: "contain",
+    evidence: c("Illustrative synthetic skill-pack map, not an actual client interface.", "خريطة توضيحية تركيبية لحزمة المهارات، وليست واجهة عميل فعلية."),
+    media: "/media/selected/agent-foundry.svg", mediaAlt: c("Illustrative five-specialist skill-pack map", "خريطة توضيحية لخمس مهارات متخصصة"), mediaKind: "illustration", mediaFit: "contain",
     languages: c("Arabic and English testing context", "سياق اختبار عربي وإنجليزي"), privacy: c("No participant acceptance, private source or revenue claim is included.", "لا يُعرض قبول مشارك أو مصدر خاص أو ادعاء إيراد."),
     relatedService: "system"
   }

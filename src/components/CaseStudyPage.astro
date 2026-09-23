@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "./ProjectCard.astro";
 import CanaanTransformation from "./CanaanTransformation.astro";
+import FilmViewer from "./FilmViewer.astro";
 import { projects, laneLabels, type Project } from "../data/portfolio";
 import { caseArtifacts } from "../data/caseArtifacts";
 import type { Locale } from "../data/locale";
@@ -13,18 +14,20 @@ const path = `${isAr ? "/ar" : ""}/work/${project.slug}/`;
 const related = projects.filter((item) => item.slug !== project.slug && item.lane === project.lane).slice(0, 2);
 const artifacts = caseArtifacts[project.slug] ?? [];
 const isProofCase = project.slug === "here-was-canaan";
+const directLabel = isProofCase ? (isAr ? "شاهد الفيلم" : "Watch the film") : project.slug === "athar" ? (isAr ? "شاهد الريل" : "Watch the reel") : project.slug === "caresignal-systems" ? (isAr ? "جرّب العرض" : "Try the demo") : (isAr ? "جرّب المشروع" : "Explore the project");
 ---
 <BaseLayout title={`${project.title[lang]} | Tamer Mansour`} description={project.summary[lang]} path={path} lang={lang} dir={isAr ? "rtl" : "ltr"} image={project.mediaKind === "illustration" ? undefined : project.media} pageType="Article">
-  <article class:list={["case-study", "case-study--studio", `case-study--${project.mediaShape}`]}>
+  <article class:list={["case-study", "case-study--studio", `case-study--${project.mediaShape}`,`case-study--${project.slug}`]}>
     <header class="case-hero chapter">
       <div class="case-hero__copy">
         <p class="eyebrow">{laneLabels[project.lane][lang]} / {project.status[lang]}</p>
         <h1>{project.title[lang]}</h1>
         <p class="lede">{project.summary[lang]}</p>
-        {isProofCase && <div class="hero-actions"><a class="button" data-analytics="watch" href={isAr ? "https://youtu.be/jV699yrESYw" : "https://youtu.be/ASw6DRV1OHg"} target="_blank" rel="noopener noreferrer">{isAr ? "شاهد الفيلم" : "Watch the film"} ↗</a><a class="button button--ghost" href={withBase(routeFor("contact", lang))}>{isAr ? "تواصل معي" : "Get in touch"}</a></div>}
+        {project.publicUrl && <div class="hero-actions"><a class="button" data-analytics={isProofCase ? "watch" : undefined} href={isProofCase && !isAr ? "https://youtu.be/ASw6DRV1OHg" : project.publicUrl} target="_blank" rel="noopener noreferrer">{directLabel} ↗</a><a class="button button--ghost" href={withBase(routeFor("contact", lang))}>{isAr ? "تواصل معي" : "Get in touch"}</a></div>}
       </div>
       <figure class:list={["case-hero__media", { "case-hero__media--contain": project.mediaFit === "contain" }]}><img src={withBase(project.media)} alt={project.mediaAlt[lang]} width="1400" height="900" />{isProofCase && <img class="case-hero__object" src={withBase("/media/studio/story.webp")} alt="" width="1050" height="875" />}<figcaption>{project.mediaKind === "illustration" ? (isAr ? "صورة توضيحية للممارسة · ليست لقطة من المشروع. " : "Illustration of the practice · not a project screenshot. ") : ""}{project.evidence[lang]}</figcaption></figure>
     </header>
+    {isProofCase && <section class="case-film chapter" aria-label={isAr ? "شاهد الفيلم المنشور" : "Watch the released film"}><FilmViewer lang={lang} videoId={isAr ? "jV699yrESYw" : "ASw6DRV1OHg"} poster={project.media} title={project.title[lang]} /><p>{isAr ? "الفيلم المنشور يُفتح عند الطلب؛ مشاهد التاريخ معالجة فنية." : "The released film loads on request; historical scenes are artistic interpretation."}</p></section>}
     {isProofCase && <CanaanTransformation lang={lang} />}
     <section class="case-meta chapter" aria-label={isAr ? "تفاصيل المشروع" : "Project facts"}>
       <dl>

@@ -1,0 +1,405 @@
+[
+  {
+    "id": "04_03",
+    "category": "palestine",
+    "title": {
+      "en": "Parallel Lives",
+      "ar": "حيوات متوازية"
+    },
+    "width": 1456,
+    "height": 816,
+    "small": "/media/visual-art/04_03-480.webp",
+    "large": "/media/visual-art/04_03-1200.webp",
+    "source": "04_03_Parallel_Societies_2025.jpg"
+  },
+  {
+    "id": "04_04",
+    "category": "palestine",
+    "title": {
+      "en": "Worlds in Reflection",
+      "ar": "عوالم في المرآة"
+    },
+    "width": 1456,
+    "height": 816,
+    "small": "/media/visual-art/04_04-480.webp",
+    "large": "/media/visual-art/04_04-1200.webp",
+    "source": "04_04_Mirrored_Worlds_2025.jpg"
+  },
+  {
+    "id": "04_05",
+    "category": "palestine",
+    "title": {
+      "en": "A Map With a Pulse",
+      "ar": "خريطة تنبض"
+    },
+    "width": 928,
+    "height": 1232,
+    "small": "/media/visual-art/04_05-480.webp",
+    "large": "/media/visual-art/04_05-1200.webp",
+    "source": "04_05_Heartbeat_Map_2025.jpg"
+  },
+  {
+    "id": "04_06",
+    "category": "palestine",
+    "title": {
+      "en": "Bride on Fractured Ground",
+      "ar": "عروس على أرض متشققة"
+    },
+    "width": 1232,
+    "height": 928,
+    "small": "/media/visual-art/04_06-480.webp",
+    "large": "/media/visual-art/04_06-1200.webp",
+    "source": "04_06_Bride_On_Cracked_Land_2025.jpg"
+  },
+  {
+    "id": "04_07",
+    "category": "palestine",
+    "title": {
+      "en": "Wall and Witness",
+      "ar": "الجدار والشاهدة"
+    },
+    "width": 1456,
+    "height": 816,
+    "small": "/media/visual-art/04_07-480.webp",
+    "large": "/media/visual-art/04_07-1200.webp",
+    "source": "04_07_Graffiti_Woman_2025.jpg"
+  },
+  {
+    "id": "04_08",
+    "category": "palestine",
+    "title": {
+      "en": "Threads of Place",
+      "ar": "خيوط المكان"
+    },
+    "width": 1024,
+    "height": 1024,
+    "small": "/media/visual-art/04_08-480.webp",
+    "large": "/media/visual-art/04_08-1200.webp",
+    "source": "04_08_Embroidery_Frame_2025.jpg"
+  },
+  {
+    "id": "04_10",
+    "category": "palestine",
+    "title": {
+      "en": "Figures of Memory",
+      "ar": "شخوص الذاكرة"
+    },
+    "width": 928,
+    "height": 1232,
+    "small": "/media/visual-art/04_10-480.webp",
+    "large": "/media/visual-art/04_10-1200.webp",
+    "source": "04_10_Palestinian_Figures_2025.jpg"
+  },
+  {
+    "id": "01_03",
+    "category": "fashion",
+    "title": {
+      "en": "Color Sketch",
+      "ar": "رسم بالألوان"
+    },
+    "width": 816,
+    "height": 1456,
+    "small": "/media/visual-art/01_03-480.webp",
+    "large": "/media/visual-art/01_03-1200.webp",
+    "source": "01_03_Couture_Editorial_2026.jpg"
+  },
+  {
+    "id": "01_04",
+    "category": "fashion",
+    "title": {
+      "en": "Studio Silhouette",
+      "ar": "هيئة في الاستوديو"
+    },
+    "width": 816,
+    "height": 1456,
+    "small": "/media/visual-art/01_04-480.webp",
+    "large": "/media/visual-art/01_04-1200.webp",
+    "source": "01_04_Couture_Editorial_2026.jpg"
+  },
+  {
+    "id": "01_05",
+    "category": "fashion",
+    "title": {
+      "en": "The Editorial Frame",
+      "ar": "الإطار التحريري"
+    },
+    "width": 816,
+    "height": 1456,
+    "small": "/media/visual-art/01_05-480.webp",
+    "large": "/media/visual-art/01_05-1200.webp",
+    "source": "01_05_Couture_Editorial_2026.jpg"
+  },
+  {
+    "id": "01_09",
+    "category": "fashion",
+    "title": {
+      "en": "Beach in Monochrome",
+      "ar": "شاطئ بالأبيض والأسود"
+    },
+    "width": 1024,
+    "height": 1024,
+    "small": "/media/visual-art/01_09-480.webp",
+    "large": "/media/visual-art/01_09-1200.webp",
+    "source": "01_09_Beach_Editorial_2025.jpg"
+  },
+  {
+    "id": "01_08",
+    "category": "fashion",
+    "title": {
+      "en": "Coastal Study",
+      "ar": "دراسة ساحلية"
+    },
+    "width": 928,
+    "height": 1232,
+    "small": "/media/visual-art/01_08-480.webp",
+    "large": "/media/visual-art/01_08-1200.webp",
+    "source": "01_08_Coastal_Convertible_2025.jpg"
+  },
+  {
+    "id": "01_10",
+    "category": "fashion",
+    "title": {
+      "en": "Mirror Study",
+      "ar": "دراسة المرآة"
+    },
+    "width": 960,
+    "height": 1200,
+    "small": "/media/visual-art/01_10-480.webp",
+    "large": "/media/visual-art/01_10-1200.webp",
+    "source": "01_10_Mirror_Avant_Garde_2025.jpg"
+  },
+  {
+    "id": "05_01",
+    "category": "urban",
+    "title": {
+      "en": "City in Miniature",
+      "ar": "مدينة مصغّرة"
+    },
+    "width": 1024,
+    "height": 1024,
+    "small": "/media/visual-art/05_01-480.webp",
+    "large": "/media/visual-art/05_01-1200.webp",
+    "source": "05_01_City_On_Fingernail_2026.jpg"
+  },
+  {
+    "id": "05_02",
+    "category": "urban",
+    "title": {
+      "en": "After Dark I",
+      "ar": "بعد العتمة ١"
+    },
+    "width": 1456,
+    "height": 816,
+    "small": "/media/visual-art/05_02-480.webp",
+    "large": "/media/visual-art/05_02-1200.webp",
+    "source": "05_02_City_At_Night_2026.jpg"
+  },
+  {
+    "id": "05_03",
+    "category": "urban",
+    "title": {
+      "en": "After Dark II",
+      "ar": "بعد العتمة ٢"
+    },
+    "width": 1456,
+    "height": 816,
+    "small": "/media/visual-art/05_03-480.webp",
+    "large": "/media/visual-art/05_03-1200.webp",
+    "source": "05_03_City_At_Night_2026.jpg"
+  },
+  {
+    "id": "05_04",
+    "category": "urban",
+    "title": {
+      "en": "Ramallah, Reimagined",
+      "ar": "رام الله متخيّلة"
+    },
+    "width": 896,
+    "height": 1344,
+    "small": "/media/visual-art/05_04-480.webp",
+    "large": "/media/visual-art/05_04-1200.webp",
+    "source": "05_04_Ramallah_Travel_Poster_2025.jpg"
+  },
+  {
+    "id": "05_07",
+    "category": "urban",
+    "title": {
+      "en": "Street Light",
+      "ar": "ضوء الشارع"
+    },
+    "width": 1456,
+    "height": 816,
+    "small": "/media/visual-art/05_07-480.webp",
+    "large": "/media/visual-art/05_07-1200.webp",
+    "source": "05_07_Street_Vendor_2025.jpg"
+  },
+  {
+    "id": "05_10",
+    "category": "urban",
+    "title": {
+      "en": "Night Rhythm",
+      "ar": "إيقاع الليل"
+    },
+    "width": 1456,
+    "height": 816,
+    "small": "/media/visual-art/05_10-480.webp",
+    "large": "/media/visual-art/05_10-1200.webp",
+    "source": "05_10_Rave_Nightclub_2025.jpg"
+  },
+  {
+    "id": "06_01",
+    "category": "atmosphere",
+    "title": {
+      "en": "The Empty Chair",
+      "ar": "الكرسي الخالي"
+    },
+    "width": 1456,
+    "height": 816,
+    "small": "/media/visual-art/06_01-480.webp",
+    "large": "/media/visual-art/06_01-1200.webp",
+    "source": "06_01_Empty_Chair_Road_2026.jpg"
+  },
+  {
+    "id": "06_03",
+    "category": "atmosphere",
+    "title": {
+      "en": "Above the Valley",
+      "ar": "فوق الوادي"
+    },
+    "width": 1456,
+    "height": 816,
+    "small": "/media/visual-art/06_03-480.webp",
+    "large": "/media/visual-art/06_03-1200.webp",
+    "source": "06_03_Ancient_Overlook_2026.jpg"
+  },
+  {
+    "id": "06_04",
+    "category": "atmosphere",
+    "title": {
+      "en": "Inside the Olive Tree",
+      "ar": "داخل شجرة الزيتون"
+    },
+    "width": 1456,
+    "height": 816,
+    "small": "/media/visual-art/06_04-480.webp",
+    "large": "/media/visual-art/06_04-1200.webp",
+    "source": "06_04_Olive_Tree_Cross_Section_2025.jpg"
+  },
+  {
+    "id": "06_05",
+    "category": "atmosphere",
+    "title": {
+      "en": "Dream Landscape I",
+      "ar": "مشهد حلمي ١"
+    },
+    "width": 928,
+    "height": 1232,
+    "small": "/media/visual-art/06_05-480.webp",
+    "large": "/media/visual-art/06_05-1200.webp",
+    "source": "06_05_Dream_Memory_Landscape_2025.jpg"
+  },
+  {
+    "id": "06_06",
+    "category": "atmosphere",
+    "title": {
+      "en": "Dream Landscape II",
+      "ar": "مشهد حلمي ٢"
+    },
+    "width": 928,
+    "height": 1232,
+    "small": "/media/visual-art/06_06-480.webp",
+    "large": "/media/visual-art/06_06-1200.webp",
+    "source": "06_06_Dream_Memory_Landscape_2025.jpg"
+  },
+  {
+    "id": "06_09",
+    "category": "atmosphere",
+    "title": {
+      "en": "Under Desert Stars",
+      "ar": "تحت نجوم الصحراء"
+    },
+    "width": 1456,
+    "height": 816,
+    "small": "/media/visual-art/06_09-480.webp",
+    "large": "/media/visual-art/06_09-1200.webp",
+    "source": "06_09_Desert_Stars_2025.jpg"
+  },
+  {
+    "id": "06_10",
+    "category": "atmosphere",
+    "title": {
+      "en": "City of Fragments",
+      "ar": "مدينة الشظايا"
+    },
+    "width": 816,
+    "height": 1456,
+    "small": "/media/visual-art/06_10-480.webp",
+    "large": "/media/visual-art/06_10-1200.webp",
+    "source": "06_10_Glitch_City_2025.jpg"
+  },
+  {
+    "id": "07_01",
+    "category": "portrait",
+    "title": {
+      "en": "Abstract Face",
+      "ar": "وجه مجرّد"
+    },
+    "width": 928,
+    "height": 1232,
+    "small": "/media/visual-art/07_01-480.webp",
+    "large": "/media/visual-art/07_01-1200.webp",
+    "source": "07_01_Abstract_Face_2026.jpg"
+  },
+  {
+    "id": "07_03",
+    "category": "portrait",
+    "title": {
+      "en": "Lines of a Face",
+      "ar": "خطوط الوجه"
+    },
+    "width": 896,
+    "height": 1344,
+    "small": "/media/visual-art/07_03-480.webp",
+    "large": "/media/visual-art/07_03-1200.webp",
+    "source": "07_03_Filament_Feminine_2026.jpg"
+  },
+  {
+    "id": "07_04",
+    "category": "portrait",
+    "title": {
+      "en": "Filament Study",
+      "ar": "دراسة الخيوط"
+    },
+    "width": 896,
+    "height": 1344,
+    "small": "/media/visual-art/07_04-480.webp",
+    "large": "/media/visual-art/07_04-1200.webp",
+    "source": "07_04_Filament_Feminine_2026.jpg"
+  },
+  {
+    "id": "07_07",
+    "category": "portrait",
+    "title": {
+      "en": "Portrait in Shadow",
+      "ar": "بورتريه في الظل"
+    },
+    "width": 928,
+    "height": 1232,
+    "small": "/media/visual-art/07_07-480.webp",
+    "large": "/media/visual-art/07_07-1200.webp",
+    "source": "07_07_Portrait_Study_2025.jpg"
+  },
+  {
+    "id": "07_09",
+    "category": "portrait",
+    "title": {
+      "en": "Between Smile and Shadow",
+      "ar": "بين الابتسامة والظل"
+    },
+    "width": 992,
+    "height": 1200,
+    "small": "/media/visual-art/07_09-480.webp",
+    "large": "/media/visual-art/07_09-1200.webp",
+    "source": "07_09_Haunted_Smile_2025.jpg"
+  }
+]

@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import artwork from "../data/visualArt.json";
+import { pinterestBoardsEn, pinterestBoardsAr } from "../data/pinterest";
+import { routeFor, type Locale } from "../data/locale";
+import { withBase } from "../utils/withBase";
+const { lang = "en" } = Astro.props as { lang?: Locale };
+const ar = lang === "ar";
+const collections = [
+  { id: "palestine", en: "Palestinian visual identity", ar: "هوية بصرية فلسطينية", enIntro: "Memory, place and textile translated into visual studies.", arIntro: "دراسات بصرية للذاكرة والمكان والنسيج." },
+  { id: "fashion", en: "Editorial fashion", ar: "أزياء تحريرية", enIntro: "Form, color and styling for imagined campaigns.", arIntro: "تجارب في الشكل واللون والإخراج لحملات متخيّلة." },
+  { id: "urban", en: "Urban nocturnes", ar: "المدينة والليل", enIntro: "The city as miniature, street and imagined poster.", arIntro: "المدينة في المنمنمة والشارع والملصق المتخيّل." },
+  { id: "atmosphere", en: "Surreal atmospheres", ar: "عوالم حلمية", enIntro: "Quiet landscapes, symbols and cinematic color.", arIntro: "مناظر هادئة ورموز ولون سينمائي." },
+  { id: "portrait", en: "Portrait studies", ar: "دراسات بورتريه", enIntro: "Faces reconstructed through texture, light and abstraction.", arIntro: "وجوه يعيد الملمس والضوء والتجريد تشكيلها." }
+];
+const boards = ar ? pinterestBoardsAr : pinterestBoardsEn;
+---
+<BaseLayout title={ar ? "الفن البصري | تامر منصور" : "Visual Art | Tamer Mansour"} description={ar ? "مختارات من الدراسات البصرية بمساعدة الذكاء الاصطناعي لتامر منصور." : "A curated gallery of Tamer Mansour's AI-assisted visual studies."} path={routeFor("art",lang)} lang={lang} dir={ar ? "rtl" : "ltr"} image="/media/visual-art/04_04-1200.webp" pageType="CollectionPage">
+  <div class="art-page">
+    <header class="art-intro chapter">
+      <p class="eyebrow">{ar ? "الفن البصري / مختارات" : "Visual art / selected studies"}</p>
+      <h1>{ar ? <>عوالم تُبنى<br /><em>من صورة.</em></> : <>Worlds built<br /><em>from an image.</em></>}</h1>
+      <p>{ar ? "٣١ دراسة بصرية اخترتها من أرشيف أعمالي بمساعدة الذكاء الاصطناعي. خمس مجموعات تستكشف المكان والهوية والأزياء والمدينة والخيال." : "Thirty-one studies selected from my AI-assisted visual archive. Five collections explore place, identity, fashion, the city and imagination."}</p>
+      <small>{ar ? "الفكرة والإخراج والانتقاء: تامر منصور · وسيط بصري بمساعدة الذكاء الاصطناعي" : "Concept, direction and curation: Tamer Mansour · AI-assisted visual medium"}</small>
+    </header>
+    <section class="art-collection chapter" aria-labelledby="art-collection-title">
+      <div class="art-collection__head"><div><p class="eyebrow">{ar ? "تصفح المجموعة" : "Explore the collection"}</p><h2 id="art-collection-title">{ar ? "اختر مسارًا بصريًا" : "Choose a visual thread"}</h2></div><span>{artwork.length} {ar ? "عملًا" : "works"}</span></div>
+      <div class="art-filters" role="group" aria-label={ar ? "تصفية الأعمال" : "Filter artworks"}>
+        <button type="button" data-art-filter="all" aria-pressed="true">{ar ? "الكل" : "All"}</button>
+        {collections.map(c => <button type="button" data-art-filter={c.id} aria-pressed="false">{ar ? c.ar : c.en}</button>)}
+      </div>
+      <p class="art-filter-intro" data-art-description aria-live="polite">{ar ? "تصفح جميع الدراسات؛ افتح أي صورة لرؤيتها كاملة." : "Browse every study; open an image to see it in full."}</p>
+      <div class="art-grid" data-art-grid>
+        {artwork.map((item, index) => <figure class="art-tile" data-art-category={item.category}>
+          <a href={withBase(item.large)} data-art-open={index} aria-label={ar ? `عرض ${item.title.ar} بحجم كامل` : `View ${item.title.en} in full`}>
+            <img src={withBase(item.small)} srcset={`${withBase(item.small)} 480w, ${withBase(item.large)} 1200w`} sizes="(max-width: 680px) 88vw, (max-width: 1100px) 44vw, 30vw" width={item.width} height={item.height} alt={ar ? item.title.ar : item.title.en} loading={index < 3 ? "eager" : "lazy"} decoding="async" />
+            <span aria-hidden="true">↗</span>
+          </a>
+          <figcaption><strong>{item.title[lang]}</strong><small>{ar ? collections.find(c => c.id === item.category)?.ar : collections.find(c => c.id === item.category)?.en}</small></figcaption>
+        </figure>)}
+      </div>
+    </section>
+    <section class="art-references chapter"><p class="eyebrow">{ar ? "مسارات ومرجعيات" : "Directions and references"}</p><h2>{ar ? "استكشف اللوحات الملهمة" : "Explore the inspiration boards"}</h2><p>{ar ? "لوحات Pinterest روابط لمرجعيات واتجاهات بصرية؛ محتواها ليس جزءًا من الأعمال المعروضة أعلاه." : "These Pinterest boards collect visual references and directions; their pins are separate from the authored work above."}</p><div>{boards.map(board => <a href={board.url} target="_blank" rel="noopener noreferrer">{board.title} ↗</a>)}</div></section>
+  </div>
+  <dialog class="art-lightbox" data-art-dialog aria-label={ar ? "عرض العمل الفني" : "Artwork viewer"}>
+    <div class="art-lightbox__top"><span data-art-count></span><button type="button" data-art-close aria-label={ar ? "أغلق العرض" : "Close viewer"}>×</button></div>
+    <div class="art-lightbox__stage"><button type="button" data-art-prev aria-label={ar ? "العمل السابق" : "Previous artwork"}>←</button><img data-art-image alt="" width="1200" height="800" /><button type="button" data-art-next aria-label={ar ? "العمل التالي" : "Next artwork"}>→</button></div>
+    <p data-art-title></p>
+  </dialog>
+</BaseLayout>
+<script>
+  const page = document.querySelector<HTMLElement>('.art-page');
+  const dialog = document.querySelector<HTMLDialogElement>('[data-art-dialog]');
+  if (page && dialog) {
+    const tiles = [...page.querySelectorAll<HTMLElement>('.art-tile')];
+    const filters = [...page.querySelectorAll<HTMLButtonElement>('[data-art-filter]')];
+    const descriptions: Record<string,string> = {
+      all: document.documentElement.lang === 'ar' ? 'تصفح جميع الدراسات؛ افتح أي صورة لرؤيتها كاملة.' : 'Browse every study; open an image to see it in full.',
+      palestine: document.documentElement.lang === 'ar' ? 'دراسات بصرية للذاكرة والمكان والنسيج.' : 'Memory, place and textile translated into visual studies.',
+      fashion: document.documentElement.lang === 'ar' ? 'تجارب في الشكل واللون والإخراج لحملات متخيّلة.' : 'Form, color and styling for imagined campaigns.',
+      urban: document.documentElement.lang === 'ar' ? 'المدينة في المنمنمة والشارع والملصق المتخيّل.' : 'The city as miniature, street and imagined poster.',
+      atmosphere: document.documentElement.lang === 'ar' ? 'مناظر هادئة ورموز ولون سينمائي.' : 'Quiet landscapes, symbols and cinematic color.',
+      portrait: document.documentElement.lang === 'ar' ? 'وجوه يعيد الملمس والضوء والتجريد تشكيلها.' : 'Faces reconstructed through texture, light and abstraction.'
+    };
+    let visible = tiles;
+    let current = 0;
+    let returnFocus: HTMLElement | null = null;
+    let returnScroll = 0;
+    const image = dialog.querySelector<HTMLImageElement>('[data-art-image]')!;
+    const render = () => {
+      const tile = visible[current];
+      if (!tile) return;
+      const link = tile.querySelector<HTMLAnchorElement>('[data-art-open]')!;
+      image.src = link.href;
+      image.alt = tile.querySelector('img')?.alt || '';
+      dialog.querySelector<HTMLElement>('[data-art-title]')!.textContent = tile.querySelector('strong')?.textContent || '';
+      dialog.querySelector<HTMLElement>('[data-art-count]')!.textContent = `${current + 1} / ${visible.length}`;
+    };
+    for (const button of filters) button.addEventListener('click', () => {
+      const id = button.dataset.artFilter || 'all';
+      for (const item of filters) item.setAttribute('aria-pressed', String(item === button));
+      for (const tile of tiles) tile.hidden = id !== 'all' && tile.dataset.artCategory !== id;
+      visible = tiles.filter(tile => !tile.hidden);
+      page.querySelector<HTMLElement>('[data-art-description]')!.textContent = descriptions[id];
+    });
+    for (const tile of tiles) tile.querySelector('[data-art-open]')?.addEventListener('click', event => {
+      event.preventDefault();
+      returnFocus = event.currentTarget as HTMLElement;
+      returnScroll = window.scrollY;
+      current = visible.indexOf(tile);
+      render();
+      dialog.showModal();
+      dialog.querySelector<HTMLButtonElement>('[data-art-close]')?.focus();
+    });
+    const move = (delta: number) => { current = (current + delta + visible.length) % visible.length; render(); };
+    dialog.querySelector('[data-art-prev]')?.addEventListener('click', () => move(-1));
+    dialog.querySelector('[data-art-next]')?.addEventListener('click', () => move(1));
+    dialog.querySelector('[data-art-close]')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+    dialog.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') { event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1); }
+    });
+    dialog.addEventListener('close', () => { image.removeAttribute('src'); returnFocus?.focus({preventScroll:true}); window.scrollTo({top:returnScroll,behavior:'instant'}); });
+  }
+</script>

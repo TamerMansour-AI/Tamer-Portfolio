@@ -1,0 +1,15 @@
+{
+  "name": "portfolio-category-reveals",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "render": "remotion render src/index.tsx CategoryReveals ../public/media/motion/category-reveals.mp4 --codec h264 --crf 22 --muted"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.527",
+    "remotion": "4.0.527",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  }
+}
