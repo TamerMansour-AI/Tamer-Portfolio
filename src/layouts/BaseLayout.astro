@@ -40,11 +40,11 @@ const {
   <body>
     <a href="#main-content" class="skip-link">{lang === "ar" ? "انتقل إلى المحتوى الرئيسي" : "Skip to main content"}</a>
     <Nav lang={lang} />
+    <AnalyticsConsent lang={lang} />
     <main id="main-content">
       {pageHeading && <h1 class="sr-only">{pageHeading}</h1>}
       <slot />
     </main>
     <Footer lang={lang} />
-    <AnalyticsConsent lang={lang} />
   </body>
 </html>

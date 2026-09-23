@@ -6,19 +6,22 @@ import { caseArtifacts } from "../data/caseArtifacts";
 import type { Locale } from "../data/locale";
 import { routeFor } from "../data/locale";
 import { withBase } from "../utils/withBase";
+import "../styles/editorial-proof.css";
 const { project, lang = "en" } = Astro.props as { project: Project; lang?: Locale };
 const isAr = lang === "ar";
 const path = `${isAr ? "/ar" : ""}/work/${project.slug}/`;
 const related = projects.filter((item) => item.slug !== project.slug && item.lane === project.lane).slice(0, 2);
 const artifacts = caseArtifacts[project.slug] ?? [];
+const isProofCase = project.slug === "here-was-canaan";
 ---
 <BaseLayout title={`${project.title[lang]} | Tamer Mansour`} description={project.summary[lang]} path={path} lang={lang} dir={isAr ? "rtl" : "ltr"} image={project.media} pageType="Article">
-  <article class="case-study">
+  <article class:list={["case-study", { "case-study--editorial": isProofCase }]}>
     <header class="case-hero chapter">
       <div class="case-hero__copy">
         <p class="eyebrow">{laneLabels[project.lane][lang]} / {project.status[lang]}</p>
         <h1>{project.title[lang]}</h1>
         <p class="lede">{project.summary[lang]}</p>
+        {isProofCase && <div class="hero-actions"><a class="button" href={isAr ? "https://youtu.be/jV699yrESYw" : "https://youtu.be/ASw6DRV1OHg"} target="_blank" rel="noopener noreferrer">{isAr ? "شاهد الفيلم" : "Watch the film"} ↗</a><a class="button button--ghost" href={withBase(routeFor("contact", lang))}>{isAr ? "تواصل معي" : "Get in touch"}</a></div>}
       </div>
       <figure class="case-hero__media"><img src={withBase(project.media)} alt={project.mediaAlt[lang]} width="1400" height="900" /><figcaption>{project.evidence[lang]}</figcaption></figure>
     </header>
@@ -33,7 +36,7 @@ const artifacts = caseArtifacts[project.slug] ?? [];
     <section class="case-narrative chapter"><p class="eyebrow">{isAr ? "المقدمة" : "The premise"}</p><h2>{isAr ? "ما الذي كان يحتاج إلى شكل؟" : "What needed form?"}</h2><p class="reading-copy">{project.challenge[lang]}</p></section>
     <section class="case-process chapter"><div><p class="eyebrow">{isAr ? "المنهج" : "The approach"}</p><h2>{isAr ? "قرارات جعلت العمل متماسكاً" : "Decisions that made the work cohere"}</h2></div><ol>{project.process.map((item) => <li>{item[lang]}</li>)}</ol></section>
     {artifacts.length > 0 && <section class="case-artifacts chapter"><header class="section-heading"><p class="eyebrow">{isAr ? "مواد عامة" : "Public artifacts"}</p><div><h2>{isAr ? "شاهد ما صُمم وصدر." : "See what was designed and released."}</h2><p>{isAr ? "مواد مختارة توضّح القرارات والمخرجات دون تجاوز حدود الخصوصية." : "Selected material showing decisions and outputs without crossing privacy boundaries."}</p></div></header><div class="case-artifact-grid">{artifacts.map(artifact => <figure class:list={["case-artifact", `case-artifact--${artifact.mode}`]}><img src={withBase(artifact.src)} alt={artifact.alt[lang]} width="1200" height="800" loading="lazy" decoding="async" /><figcaption>{artifact.caption[lang]}</figcaption></figure>)}</div></section>}
-    <section class="case-outcome chapter"><div><p class="eyebrow">{isAr ? "المخرجات" : "Deliverables"}</p><ul>{project.deliverables.map((item) => <li>{item[lang]}</li>)}</ul></div><div><p class="eyebrow">{isAr ? "النتيجة المثبتة" : "Verified result"}</p><p>{project.outcome[lang]}</p>{project.publicUrl && <a class="button button--light" href={project.publicUrl} target="_blank" rel="noopener noreferrer">{isAr ? "افتح الدليل العام" : "Open public evidence"}</a>}</div></section>
+    <section class="case-outcome chapter"><div><p class="eyebrow">{isAr ? "المخرجات" : "Deliverables"}</p><ul>{project.deliverables.map((item) => <li>{item[lang]}</li>)}</ul></div><div><p class="eyebrow">{isAr ? "النتيجة المثبتة" : "Verified result"}</p><p>{project.outcome[lang]}</p>{project.publicUrl && <a class="button button--light" href={isProofCase && !isAr ? "https://youtu.be/ASw6DRV1OHg" : project.publicUrl} target="_blank" rel="noopener noreferrer">{isAr ? "افتح الدليل العام" : "Open public evidence"}</a>}</div></section>
     <aside class="privacy-note"><strong>{isAr ? "حدود العرض" : "Public boundary"}</strong><p>{project.privacy[lang]}</p></aside>
     <section class="case-cta chapter"><p class="eyebrow">{isAr ? "مسار ذو صلة" : "Related engagement"}</p><h2>{project.relatedService === "story" ? (isAr ? "هل تحتاج قصة أو عالماً بصرياً؟" : "Need a story or visual world?") : project.relatedService === "workshop" ? (isAr ? "هل تحتاج ورشة تتحول إلى ممارسة؟" : "Need a workshop that becomes practice?") : (isAr ? "هل تحتاج منتجاً أو نظاماً إبداعياً؟" : "Need a product or creative system?")}</h2><a class="button" href={withBase(`${routeFor("contact", lang)}?type=${project.relatedService}`)}>{isAr ? "ابدأ حواراً موجزاً" : "Start a focused inquiry"}</a></section>
     {related.length > 0 && <section class="chapter"><p class="eyebrow">{isAr ? "عمل ذو صلة" : "Related work"}</p><div class="project-grid">{related.map((item) => <ProjectCard project={item} lang={lang} />)}</div></section>}

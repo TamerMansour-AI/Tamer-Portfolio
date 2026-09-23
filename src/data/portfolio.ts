@@ -28,6 +28,25 @@ export type Project = z.infer<typeof projectSchema>;
 
 export const projects = z.array(projectSchema).parse([
   {
+    slug: "here-was-canaan", title: { en: "Here Was Canaan", ar: "هنا كنعان" },
+    summary: { en: "A 148-second bilingual film imagining everyday life in ancient Canaan through research, illustration, sound, and cinematic editing.", ar: "فيلم ثنائي اللغة مدته ١٤٨ ثانية يتخيّل الحياة اليومية في كنعان القديمة عبر البحث والرسم والصوت والمونتاج السينمائي." },
+    lane: "stories", status: { en: "Released film · artistic interpretation", ar: "فيلم منشور · تخيّل فني" }, date: { en: "September 2026", ar: "سبتمبر ٢٠٢٦" },
+    audience: { en: "Cultural audiences in Arabic and English", ar: "الجمهور الثقافي بالعربية والإنجليزية" },
+    role: { en: "Concept, research direction, visual production, editing, and bilingual release", ar: "الفكرة وتوجيه البحث والإنتاج البصري والمونتاج والإصدار باللغتين" },
+    challenge: { en: "How can a short film evoke a lived world while being clear that the images are an artistic interpretation, not historical documentation?", ar: "كيف يستحضر فيلم قصير عالماً مأهولاً مع توضيح أن صوره تخيّل فني وليست توثيقاً تاريخياً؟" },
+    process: [
+      { en: "Built a visual sequence from researched places, material culture, daily gestures, and an explicit continuity plan.", ar: "بناء تسلسل بصري من بحث المكان والثقافة المادية وإيماءات الحياة اليومية وخطة واضحة للاستمرارية." },
+      { en: "Edited Arabic and English film editions with accompanying sound and a public viewing site.", ar: "مونتاج نسختين عربية وإنجليزية مع الصوت وموقع عام للمشاهدة." }
+    ],
+    deliverables: [{ en: "Arabic and English film editions and a companion website", ar: "نسختان للفيلم بالعربية والإنجليزية وموقع مرافق" }],
+    outcome: { en: "Both film editions and the companion site were published in September 2026; no audience-impact figure is claimed.", ar: "نُشرت نسختا الفيلم وموقعه المرافق في سبتمبر ٢٠٢٦؛ ولا يُدعى رقم غير موثق عن أثر الجمهور." },
+    evidence: { en: "Frame from the published film. The historical setting is an artistic reconstruction.", ar: "إطار من الفيلم المنشور. المشهد التاريخي إعادة تخيّل فنية." },
+    media: "/media/optimized/here-was-canaan-cover.jpg", mediaAlt: { en: "Illustrated Canaan market scene from Here Was Canaan", ar: "مشهد مرسوم لسوق كنعاني من فيلم هنا كنعان" },
+    languages: { en: "Arabic and English film editions", ar: "نسختا الفيلم بالعربية والإنجليزية" },
+    privacy: { en: "The film is an artistic interpretation based on research, not a certain visual record of historical details.", ar: "الفيلم تخيّل فني مستند إلى بحث، وليس تسجيلاً بصرياً يقينياً لكل تفصيل تاريخي." },
+    relatedService: "story", publicUrl: "https://youtu.be/jV699yrESYw", featured: true
+  },
+  {
     slug: "museum-of-echoes", title: { en: "Museum of Echoes", ar: "متحف الأصداء" },
     summary: { en: "Original music shaped into a bilingual public archive with editorial discovery and an authored product experience.", ar: "موسيقى أصلية تتحول إلى أرشيف استماع ثنائي اللغة بتجربة تحريرية وهوية مؤلفة." },
     lane: "products", status: { en: "Live public platform", ar: "منصة عامة حية" }, date: { en: "2026", ar: "٢٠٢٦" },
