@@ -17,7 +17,7 @@ const idFor = (url:string) => new URL(url).pathname.split('/').filter(Boolean).a
 ---
 {film && project && <section class="project-media chapter" id="watch-the-work">
   <header class="section-heading"><p class="eyebrow">{ar ? 'شاهد العمل كاملًا' : 'Watch the full work'}</p><div><h2>{project.title[lang]}</h2><p>{ar ? 'تشغيل مباشر داخل الموقع · اختر ملء الشاشة للمشاهدة الأكبر.' : 'Play directly here, or choose full screen for a closer view.'} <bdi>{film.duration}</bdi></p></div></header>
-  <NativeFilm src={film.src} poster={film.poster} title={project.title[lang]} />
+  <NativeFilm src={film.src} poster={film.poster} captions={film.captions} title={project.title[lang]} />
   <p><a class="text-link" href={withBase(film.src)} target="_blank" rel="noopener noreferrer">{ar ? 'افتح الفيديو مباشرة' : 'Open the video directly'} ↗</a></p>
 </section>}
 {slug === 'tabaqat' && <section class="project-media chapter" id="explore-tabaqat">
