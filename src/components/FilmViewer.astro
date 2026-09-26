@@ -1,7 +1,7 @@
 ---
 import type { Locale } from "../data/locale";
 import { withBase } from "../utils/withBase";
-const { lang = "en", videoId, poster, title } = Astro.props as {lang?:Locale;videoId:string;poster:string;title:string};
+const { lang = "en", videoId, poster, title, portrait = false } = Astro.props as {lang?:Locale;videoId:string;poster:string;title:string;portrait?:boolean};
 const ar = lang === "ar";
 ---
 <div class="film-viewer" data-film-viewer data-video-id={videoId}>
@@ -10,12 +10,17 @@ const ar = lang === "ar";
     <span class="film-viewer__play" aria-hidden="true">▶</span>
     <span class="film-viewer__label">{ar ? "شاهد الفيلم" : "Watch the film"}</span>
   </button>
-  <dialog class="film-viewer__dialog" data-film-dialog aria-label={ar ? `مشغل فيلم ${title}` : `${title} film player`}>
+  <dialog class:list={["film-viewer__dialog", {"film-viewer__dialog--portrait":portrait}]} data-film-dialog aria-label={ar ? `مشغل فيلم ${title}` : `${title} film player`}>
     <div class="film-viewer__dialog-head"><strong>{title}</strong><button type="button" data-film-close aria-label={ar ? "أغلق المشغل" : "Close player"}>×</button></div>
     <iframe title={title} data-film-frame allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
     <p>{ar ? "يبدأ تشغيل الفيديو عند ضغط زر التشغيل في المشغل. يمكن فتحه بملء الشاشة." : "Press play in the player to begin. Fullscreen is available."} <a href={`https://youtu.be/${videoId}`} target="_blank" rel="noopener noreferrer">{ar ? "افتحه على YouTube إذا لم يعمل المشغل" : "Open on YouTube if the player does not load"} ↗</a></p>
   </dialog>
 </div>
+<style>
+.film-viewer__dialog{margin:auto}
+.film-viewer__dialog--portrait{width:min(92vw,760px)}
+.film-viewer__dialog--portrait iframe{width:100%;height:min(72dvh,1100px);aspect-ratio:auto}
+</style>
 <script>
   for (const viewer of document.querySelectorAll<HTMLElement>('[data-film-viewer]')) {
     const dialog=viewer.querySelector<HTMLDialogElement>('[data-film-dialog]')!;

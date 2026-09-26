@@ -60,6 +60,32 @@ const initialBytes = uniqueAssets.reduce((sum, asset) => {
 }, statSync(join(dist, "index.html")).size);
 if (initialBytes > 2 * 1024 * 1024) errors.push(`Homepage initial local payload exceeds 2 MB: ${initialBytes}`);
 
+// Media regressions: legacy redirects must not erase actual published work.
+for (const prefix of ["", "ar/"]) {
+  for (const slug of ['the-messages-that-waited', 'ai-progress-film', 'a-moment-lost']) {
+    const html=readFileSync(join(dist,prefix,`work/${slug}/index.html`),'utf8');
+    if (!html.includes(`media/films/${slug}.mp4`) || !html.includes('id="watch-the-work"')) errors.push(`${prefix}${slug}: missing watchable film`);
+    if (!existsSync(join(dist,`media/films/${slug}.mp4`))) errors.push(`Missing film asset ${slug}`);
+    if (!html.includes('preload="none"')) errors.push(`${prefix}${slug}: eager video download`);
+  }
+  const tabaqat=readFileSync(join(dist,prefix,'work/tabaqat/index.html'),'utf8');
+  if (!tabaqat.includes('https://tabaqat.teamo-palestine.workers.dev/') || !tabaqat.includes('tabaqat-tour.mp4')) errors.push(`${prefix}TABAQAT: live experience missing`);
+  const literary = readFileSync(join(dist, prefix, "work/literary-reimaginings/index.html"), "utf8");
+  for (const id of ["66JuIoZ6wGY", "0AmrDjtbvXE", "uChtaUHMguY", "qkhfHVbYxpY"]) {
+    if (!literary.includes(`data-video-id="${id}"`)) errors.push(`${prefix}literary: missing player ${id}`);
+    if (!existsSync(join(dist, "media/video-posters", id + ".jpg"))) errors.push(`Missing actual poster ${id}`);
+  }
+  if (/<iframe[^>]+\bsrc=/i.test(literary)) errors.push(`${prefix}literary: player must load on intent`);
+  const archive = readFileSync(join(dist, prefix, "archive/index.html"), "utf8");
+  for (const id of ["TcSlQomJ3F0", "VzHMr0Gw0Pg", "N7T1ouDs9bs", "E6Rt-agXCYM"]) {
+    if (!archive.includes(`data-video-id="${id}"`)) errors.push(`${prefix}archive: missing music player ${id}`);
+  }
+  for (const route of ["archive/index.html", "work/knowledge-products/index.html"]) {
+    const html = readFileSync(join(dist, prefix, route), "utf8");
+    if (!html.includes("tpt-pushes-pulls-preview.mp4")) errors.push(`${prefix}${route}: missing educational video`);
+    if (!html.includes("digital-prometheus/spread.jpg")) errors.push(`${prefix}${route}: missing internal deck preview`);
+  }
+}
 if (errors.length) {
   console.error(errors.join("\n"));
   process.exit(1);

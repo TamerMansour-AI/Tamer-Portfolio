@@ -1,0 +1,57 @@
+---
+import FilmViewer from './FilmViewer.astro';
+import NativeFilm from './NativeFilm.astro';
+import { watchableMedia } from '../data/watchableMedia';
+import { projects } from '../data/portfolio';
+import { literaryWorksAr, literaryWorksEn } from '../data/literary';
+import { deckItemsAr, deckItemsEn } from '../data/decks';
+import { withBase } from '../utils/withBase';
+import type { Locale } from '../data/locale';
+const { slug, lang = 'en' } = Astro.props as { slug:string; lang?:Locale };
+const ar = lang === 'ar';
+const film = watchableMedia[slug];
+const project = projects.find(p => p.slug === slug);
+const works = (ar ? literaryWorksAr : literaryWorksEn).slice().reverse();
+const decks = ar ? deckItemsAr : deckItemsEn;
+const idFor = (url:string) => new URL(url).pathname.split('/').filter(Boolean).at(-1)!;
+---
+{film && project && <section class="project-media chapter" id="watch-the-work">
+  <header class="section-heading"><p class="eyebrow">{ar ? 'شاهد العمل كاملًا' : 'Watch the full work'}</p><div><h2>{project.title[lang]}</h2><p>{ar ? 'تشغيل مباشر داخل الموقع · اختر ملء الشاشة للمشاهدة الأكبر.' : 'Play directly here, or choose full screen for a closer view.'} <bdi>{film.duration}</bdi></p></div></header>
+  <NativeFilm src={film.src} poster={film.poster} title={project.title[lang]} />
+  <p><a class="text-link" href={withBase(film.src)} target="_blank" rel="noopener noreferrer">{ar ? 'افتح الفيديو مباشرة' : 'Open the video directly'} ↗</a></p>
+</section>}
+{slug === 'tabaqat' && <section class="project-media chapter" id="explore-tabaqat">
+  <header class="section-heading"><p class="eyebrow">{ar ? 'داخل التجربة' : 'Inside the experience'}</p><div><h2>{ar ? 'من المقال إلى النقاش.' : 'From an essay to a conversation.'}</h2><p>{ar ? 'جولة مصوّرة من النسخة التجريبية المتاحة. افتح طبقات للقراءة والتجربة؛ يُفتح الموقع مستقلًا حفاظًا على حماية المنصة.' : 'A recorded tour of the available beta. Open TABAQAT to read and explore; the site opens separately to preserve its security protections.'}</p></div></header>
+  <NativeFilm src="/media/films/tabaqat-tour.mp4" poster="/media/selected/tabaqat.webp" title={ar ? 'جولة في منصة طبقات' : 'TABAQAT platform tour'} />
+  <p><a class="button" href={`https://tabaqat.teamo-palestine.workers.dev/${ar ? 'ar' : 'en'}/`} target="_blank" rel="noopener noreferrer">{ar ? 'افتح طبقات وجرّبها' : 'Open and explore TABAQAT'} ↗</a></p>
+</section>}
+{slug === 'literary-reimaginings' && <section class="project-media chapter" id="watch-the-works" aria-label={ar ? 'شاهد الأعمال الأدبية' : 'Watch the literary works'}>
+  <header class="section-heading"><p class="eyebrow">{ar ? 'الأعمال نفسها' : 'The works themselves'}</p><div><h2>{ar ? 'عائد إلى حيفا. رجال في الشمس.' : 'Returning to Haifa. Men in the Sun.'}</h2><p>{ar ? 'شاهد النسخ العربية والإنجليزية هنا. تفتح الفيديوهات عند اختيارك، مع إبقاء رابط YouTube بديلًا.' : 'Watch the Arabic and English editions here. Players load only when selected; a YouTube fallback remains available.'}</p></div></header>
+  {works.map(work => <article class="project-media__work">
+    <div class="project-media__intro"><h3>{work.title}</h3><p class="status">{work.source}</p><p>{work.description}</p></div>
+    <div class="project-media__editions">{work.editions.map(edition => <div><h4>{edition.label}</h4><FilmViewer lang={lang} portrait videoId={idFor(edition.url)} poster={`/media/video-posters/${idFor(edition.url)}.jpg`} title={`${work.title} — ${edition.label}`} /></div>)}</div>
+  </article>)}
+</section>}
+{slug === 'knowledge-products' && <section class="project-media chapter" id="explore-the-materials">
+  <header class="section-heading"><p class="eyebrow">{ar ? 'معاينات قابلة للتصفح' : 'Browsable previews'}</p><div><h2>{ar ? 'افتح المادة، لا الغلاف فقط.' : 'Explore the material, not only its cover.'}</h2></div></header>
+  <div class="project-media__decks">{decks.map(deck => <article><h3>{deck.title}</h3><p>{deck.description}</p><div class="project-media__previews">{deck.previews.map(preview => <a href={withBase(preview.src)} target="_blank" rel="noopener noreferrer"><img src={withBase(preview.src)} alt={`${deck.title} — ${preview.label}`} width="1200" height="675" loading="lazy" /><span>{preview.label} ↗</span></a>)}</div></article>)}</div>
+  <div class="project-media__education"><h3>{ar ? 'معاينة درس الدفع والسحب' : 'Pushes & Pulls lesson preview'}</h3><video controls playsinline preload="none" poster={withBase('/media/education-products/tpt-pushes-pulls-cover.jpg')} aria-label={ar ? 'فيديو معاينة المنتج التعليمي' : 'Educational product preview video'}><source src={withBase('/media/education-products/tpt-pushes-pulls-preview.mp4')} type="video/mp4" /></video><p>{ar ? 'معاينة بصرية عامة للمنتج، وليست الحزمة التعليمية الكاملة.' : 'A public visual product preview, not the complete teaching bundle.'}</p></div>
+</section>}
+<style is:global>
+.project-media{padding-block:clamp(3rem,6vw,6rem);scroll-margin-top:7rem}
+.project-media>p{margin-block:1.25rem}
+.project-media__work{padding-block:2rem 3rem;border-top:1px solid #b8c1c9}
+.project-media__intro{max-width:72ch;margin-bottom:1.5rem}
+.project-media__intro h3,.project-media__decks h3{font-size:clamp(1.5rem,3vw,2.4rem);line-height:1.3;margin:0 0 .8rem}
+.project-media__editions,.project-media__previews{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
+.project-media__editions h4{margin:0 0 .7rem;font-size:1rem}
+.project-media .film-viewer__poster,.archive-card-player .film-viewer__poster{height:auto;min-height:0;aspect-ratio:16/9}
+.project-media .film-viewer__poster img,.archive-card-player .film-viewer__poster img{height:100%;object-fit:contain}
+.project-media__decks{display:grid;gap:3rem}.project-media__decks p{max-width:75ch}
+.project-media__previews img{width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#e7e5db}
+.project-media__previews a{display:block;text-decoration:none}.project-media__previews span{display:block;padding:.7rem 0;text-decoration:underline;text-underline-offset:.2em}
+.project-media__education{max-width:1000px;margin:3rem auto 0}.project-media__education video{width:100%;max-height:75vh;background:#0c1725}
+.archive-deck-details{margin-top:1rem}.archive-deck-details summary{cursor:pointer;font-weight:600;padding:.8rem 0}.archive-deck-details a{display:block;margin-top:1rem}.archive-deck-details img{width:100%;object-fit:contain;height:auto}
+.archive-card-player h3{margin-block:1rem .5rem}.archive-card-player{min-width:0}
+@media(max-width:700px){.project-media__editions,.project-media__previews{grid-template-columns:1fr}.project-media{padding-inline:1.25rem}.project-media .film-viewer__label{font-size:.85rem}}
+</style>

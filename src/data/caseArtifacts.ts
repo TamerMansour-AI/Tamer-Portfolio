@@ -19,8 +19,8 @@ export const caseArtifacts: Record<string, CaseArtifact[]> = {
     { src: "/media/workshops/birzeit-ai-fluency-home.jpg", alt: { en: "Birzeit AI Fluency Lab homepage", ar: "الصفحة الرئيسية لمختبر بيرزيت للطلاقة" }, caption: { en: "A related Arabic-first interactive learning system", ar: "نظام تعلم تفاعلي ذو أولوية عربية" }, mode: "contain" }
   ],
   "literary-reimaginings": [
-    { src: "/media/literary/men-in-the-sun.svg", alt: { en: "Men in the Sun visual edition", ar: "الإصدار البصري لرواية رجال في الشمس" }, caption: { en: "Men in the Sun, bilingual visual interpretation", ar: "رجال في الشمس، تأويل بصري ثنائي اللغة" }, mode: "contain" },
-    { src: "/media/literary/returning-to-haifa.svg", alt: { en: "Returning to Haifa visual edition", ar: "الإصدار البصري لرواية عائد إلى حيفا" }, caption: { en: "Returning to Haifa, bilingual visual interpretation", ar: "عائد إلى حيفا، تأويل بصري ثنائي اللغة" }, mode: "contain" }
+    { src: "/media/video-posters/uChtaUHMguY.jpg", alt: { en: "Men in the Sun video thumbnail", ar: "الصورة المصغرة لفيديو رجال في الشمس" }, caption: { en: "Men in the Sun, bilingual visual interpretation", ar: "رجال في الشمس، تأويل بصري ثنائي اللغة" }, mode: "contain" },
+    { src: "/media/video-posters/66JuIoZ6wGY.jpg", alt: { en: "Returning to Haifa video thumbnail", ar: "الصورة المصغرة لفيديو عائد إلى حيفا" }, caption: { en: "Returning to Haifa, bilingual visual interpretation", ar: "عائد إلى حيفا، تأويل بصري ثنائي اللغة" }, mode: "contain" }
   ],
   "anbiya-visuals": [
     { src: "/media/client-ai-production/anbiya-visuals-reel-poster.jpg", alt: { en: "Anbiya Visuals production poster", ar: "ملصق إنتاج مرئيات الأنبياء" }, caption: { en: "Portfolio-safe production framing", ar: "صياغة إنتاج آمنة للمحفظة" }, mode: "cover" },

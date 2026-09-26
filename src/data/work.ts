@@ -94,7 +94,7 @@ const workSeed: WorkSeedItem[] = [
     secondaryLabel_ar: "شاهد إصدارًا عربيًا",
     tags_en: ["Literary Adaptation", "Arabic + English", "Cultural Storytelling"],
     tags_ar: ["اقتباس أدبي", "عربي + إنجليزي", "سرد ثقافي"],
-    thumbLocal: "/media/literary/returning-to-haifa.svg",
+    thumbLocal: "/media/video-posters/66JuIoZ6wGY.jpg",
     featured: true
   },
   {

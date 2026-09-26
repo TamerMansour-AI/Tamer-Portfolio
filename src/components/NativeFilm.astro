@@ -1,0 +1,13 @@
+---
+import { withBase } from '../utils/withBase';
+const { src, poster, title, compact = false } = Astro.props as {src:string;poster:string;title:string;compact?:boolean};
+---
+<video class:list={['native-film', {'native-film--compact':compact}]} controls playsinline preload="none" poster={withBase(poster)} aria-label={title}>
+  <source src={withBase(src)} type="video/mp4" />
+  <a href={withBase(src)}>{title}</a>
+</video>
+<style>
+.native-film{display:block;width:100%;max-height:80dvh;aspect-ratio:16/9;object-fit:contain;background:#09131e;border-radius:8px}
+.native-film--compact{border-radius:0;max-height:none}
+.native-film:focus-visible{outline:3px solid #2454d3;outline-offset:4px}
+</style>
